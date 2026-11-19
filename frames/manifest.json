@@ -1,0 +1,69 @@
+{
+  "version": 1795106637,
+  "placeholder": false,
+  "frameCount": 120,
+  "aspect": 0.5584281282316442,
+  "timeline": [
+    [
+      0.0,
+      0
+    ],
+    [
+      0.13,
+      0
+    ],
+    [
+      0.21,
+      24
+    ],
+    [
+      0.32,
+      24
+    ],
+    [
+      0.4,
+      48
+    ],
+    [
+      0.52,
+      48
+    ],
+    [
+      0.6,
+      72
+    ],
+    [
+      0.72,
+      72
+    ],
+    [
+      0.8,
+      96
+    ],
+    [
+      1.0,
+      119
+    ]
+  ],
+  "poster": "poster.jpg",
+  "tiers": [
+    {
+      "name": "d",
+      "path": "frames/d",
+      "pattern": "f_%04d.webp",
+      "width": 1080,
+      "height": 1934,
+      "minViewportWidth": 768,
+      "bytes": 7637074
+    },
+    {
+      "name": "m",
+      "path": "frames/m",
+      "pattern": "f_%04d.webp",
+      "width": 720,
+      "height": 1290,
+      "minViewportWidth": 0,
+      "bytes": 3668056
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eventually — Late Edition · 1 of 1</title>
+<meta name="description" content="Un reloj montado a mano, pieza a pieza. Llegará. Cuando llegue.">
+<meta name="theme-color" content="#F4F3EF">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Eventually — Late Edition · 1 of 1">
+<meta property="og:description" content="Un reloj montado a mano, pieza a pieza. Llegará. Cuando llegue.">
+<meta property="og:image" content="https://pepe-a-d.github.io/eventually/poster.jpg">
+<meta property="og:url" content="https://pepe-a-d.github.io/eventually/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fbfbf8' stroke='%23b9bdc1' stroke-width='2'/%3E%3Cpath d='M16 16 25 8' stroke='%231f3fa8' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%231f3fa8'/%3E%3C/svg%3E">
+<link rel="manifest" href="app.webmanifest">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Eventually">
+<script>document.documentElement.classList.remove('no-js');</script>
+<link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+
+<a class="skip-link" href="#ficha">Saltar a la ficha</a>
+
+<div class="loader" data-loader>
+  <p class="loader__label">Llegando…</p>
+  <div class="loader__bar" data-loader-bar></div>
+</div>
+
+<main id="content">
+
+  <!-- ====== La película: el reloj se monta al hacer scroll ====== -->
+  <div class="stage" data-stage>
+    <div class="stage__sticky">
+      <canvas class="stage__canvas" data-canvas aria-hidden="true" role="presentation"></canvas>
+      <img class="poster-fallback" src="poster.jpg" alt="El reloj Eventually visto desde arriba: caja de acero, esfera blanca con números azules desordenados y segundero azul.">
+      <div class="stage__scrim" aria-hidden="true"></div>
+      <p class="draft" data-draft hidden>Versión de prueba · imágenes de relleno</p>
+
+      <!-- Aguja azul: da una vuelta entera a lo largo de la historia -->
+      <svg class="turn" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="turn__ring" cx="24" cy="24" r="21"/>
+        <g class="turn__hand">
+          <line x1="24" y1="30" x2="24" y2="6"/>
+          <circle cx="24" cy="24" r="2.4"/>
+        </g>
+      </svg>
+
+      <div class="overlays">
+
+        <section class="section section--hero" data-range="0,0.06">
+          <div class="section__top">
+            <p class="section__eyebrow">Late Edition · 1 of 1</p>
+            <h1 class="hero__name">Eventually</h1>
+          </div>
+          <div class="section__bottom">
+            <p class="ink hero__tagline">Llegará. Cuando llegue.</p>
+            <p class="hero__hint"><span>Desliza</span><i aria-hidden="true"></i></p>
+          </div>
+        </section>
+
+        <section class="section" data-range="0.06,0.165">
+          <p class="section__eyebrow"><b>01</b> El corazón</p>
+          <h2 class="section__title">No lleva pila.</h2>
+          <p class="section__body">Dentro hay un rotor que gira con cada gesto de tu muñeca y le da cuerda. Mientras lo lleves puesto, sigue latiendo.</p>
+        </section>
+
+        <section class="section section--write" data-range="0.2,0.385">
+          <p class="section__eyebrow"><b>02</b> La esfera</p>
+          <h2 class="section__title ink" lang="en"><span class="write__line write__line--1">Who cares,</span> <span class="write__line write__line--2">I’m already late.</span></h2>
+          <p class="section__body">Los números se cansaron de esperar en su sitio y acabaron amontonados al fondo. La hora exacta nunca fue lo importante.</p>
+        </section>
+
+        <section class="section" data-range="0.395,0.585">
+          <p class="section__eyebrow"><b>03</b> Las agujas</p>
+          <h2 class="section__title">Señalan la hora. <em>Más o menos.</em></h2>
+          <p class="section__body">Dos agujas de acero pulido, con una línea de luz para cuando se hace de noche. Sin números a los que apuntar, tú decides qué hora es.</p>
+        </section>
+
+        <section class="section" data-range="0.595,0.785">
+          <p class="section__eyebrow"><b>04</b> La azul</p>
+          <h2 class="section__title">La única con prisa.</h2>
+          <p class="section__body">Una vuelta por minuto, sin descanso. Es la única pieza de color, y la única que nunca llega tarde.</p>
+        </section>
+
+        <section class="section" data-range="0.795,0.905">
+          <p class="section__eyebrow"><b>05</b> La caja</p>
+          <h2 class="section__title">Acero para todo lo demás.</h2>
+          <p class="section__body">Caja de acero cepillado, cristal de zafiro y brazalete integrado. Hecho para llevarse todos los días, llegues o no.</p>
+        </section>
+
+        <section class="section section--final" data-range="0.91,1">
+          <p class="section__eyebrow">Late Edition · 1 of 1</p>
+          <h2 class="section__title">Solo existe uno. <em>Es el tuyo.</em></h2>
+          <p class="section__body">Montado a mano, pieza a pieza, para Pablo.</p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Debajo de la película: página normal ====== -->
+
+  <section class="sheet" id="ficha" aria-labelledby="ficha-t">
+    <p class="sheet__eyebrow">Ficha</p>
+    <h2 class="sheet__title" id="ficha-t">Lo que lleva dentro.</h2>
+    <dl class="specs">
+      <div><dt>Nombre</dt><dd>Eventually</dd></div>
+      <div><dt>Edición</dt><dd>Late Edition · 1 of 1</dd></div>
+      <div><dt>Movimiento</dt><dd>Seiko NH36, automático · 24 rubíes</dd></div>
+      <div><dt>Reserva</dt><dd>Unas 41 horas sin llevarlo puesto</dd></div>
+      <div><dt>Caja</dt><dd>Acero cepillado, 40 mm, brazalete integrado</dd></div>
+      <div><dt>Cristal</dt><dd>Zafiro</dd></div>
+      <div><dt>Esfera</dt><dd>Blanca, tinta azul, doce números fuera de sitio</dd></div>
+      <div><dt>Agujas</dt><dd>Acero pulido con luz, segundero azul</dd></div>
+      <div><dt>Montado</dt><dd>A mano, por Pepe · diciembre de 2026</dd></div>
+    </dl>
+  </section>
+
+  <section class="sheet" aria-labelledby="uso-t">
+    <p class="sheet__eyebrow">Instrucciones</p>
+    <h2 class="sheet__title" id="uso-t">Por si acaso.</h2>
+    <ol class="notes">
+      <li>
+        <h3>Si se ha parado</h3>
+        <p>Gira la corona hacia delante unas treinta vueltas, sin sacarla. Luego póntelo: tu muñeca hace el resto.</p>
+      </li>
+      <li>
+        <h3>Para ponerlo en hora</h3>
+        <p>Saca la corona del todo, hasta el segundo clic, y gírala. La aguja azul se detiene mientras tanto: es el único momento en que espera a alguien.</p>
+      </li>
+      <li>
+        <h3>Si lo dejas quieto</h3>
+        <p>Aguanta unas 41 horas, algo menos de dos días. Si se para no pasa nada: se le da cuerda y sigue.</p>
+      </li>
+      <li>
+        <h3>Agua</h3>
+        <p>Lluvia y lavarse las manos, sí. Ducha, piscina y mar, no: está montado a mano y no ha pasado prueba de presión.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sheet sheet--now" data-now-section aria-labelledby="ahora-t">
+    <!-- La foto del reloj sin agujas, con las tres agujas dibujadas encima y en hora -->
+    <div class="watch" data-clock>
+      <img class="watch__img" src="img/reloj.webp" width="900" height="1170" alt="" loading="lazy" decoding="async">
+      <svg class="watch__hands" viewBox="0 0 900 1170" aria-hidden="true">
+        <defs>
+          <linearGradient id="acero" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#4b4f56"/>
+            <stop offset="0.22" stop-color="#d9dce0"/>
+            <stop offset="0.5" stop-color="#f4f5f6"/>
+            <stop offset="0.78" stop-color="#b9bdc3"/>
+            <stop offset="1" stop-color="#43474e"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(444.6 582)">
+          <g class="hand hand--h">
+            <rect class="steel" x="-9" y="-178" width="18" height="232" rx="1.5"/>
+            <rect class="lume" x="-3.6" y="-162" width="7.2" height="80" rx="0.8"/>
+          </g>
+          <g class="hand hand--m">
+            <rect class="steel" x="-7.5" y="-268" width="15" height="316" rx="1.5"/>
+            <rect class="lume" x="-3" y="-254" width="6" height="152" rx="0.8"/>
+          </g>
+          <circle class="steel-cap" r="15"/>
+          <g class="hand hand--s">
+            <path class="azul" d="M-1.4 -270 L1.4 -270 L1.4 -236 L12 -204 L1.4 -204 L1.4 0 L3.6 62 L11 119 L-11 119 L-3.6 62 L-1.4 0 L-1.4 -204 L-12 -204 L-1.4 -236 Z"/>
+            <path class="lume lume--tip" d="M0 -230 L7.6 -207.5 L-7.6 -207.5 Z"/>
+            <circle class="azul" cy="60" r="8.5"/>
+            <circle class="azul" r="11.5"/>
+            <circle class="azul-eje" r="2.6"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <h2 class="sheet__title" id="ahora-t"><span data-now>Son las 9:12.</span> <span class="ink">Más o menos.</span></h2>
+    <p class="sheet__lede">Por si el tuyo se ha parado.</p>
+    <button class="lights" type="button" data-lights-toggle aria-pressed="false">Apagar la luz</button>
+  </section>
+
+  <!-- La nota, escrita con la letra de la esfera -->
+  <section class="sheet sheet--note" aria-label="Nota de Pepe">
+    <div class="note ink" data-note>
+      <p><span class="write__line">Pablo:</span></p>
+      <p>
+        <span class="write__line">No creo que con este reloj</span>
+        <span class="write__line">dejes de llegar tarde,</span>
+      </p>
+      <p>
+        <span class="write__line">pero al menos</span>
+        <span class="write__line">cuando veas la hora</span>
+        <span class="write__line">te acordarás de mí.</span>
+      </p>
+      <p class="note__sign"><span class="write__line">Pepe</span></p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="foot__name">Eventually</p>
+    <p>Late Edition · 1 of 1</p>
+    <p class="foot__late ink" data-late></p>
+  </footer>
+
+</main>
+
+<script src="app.js?v=6" defer></script>
+</body>
+</html>

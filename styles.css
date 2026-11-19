@@ -1,0 +1,601 @@
+/* Eventually — papel blanco y tinta azul.
+   La estructura (escenario pegado, secciones movidas por el progreso, versión
+   sin movimiento) sostiene la página: si se cambia el diseño, eso se queda. */
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("fonts/instrument-serif.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  src: url("fonts/instrument-serif-italic.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  font-weight: 400 700;
+  src: url("fonts/instrument-sans.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Reenie Beanie";
+  src: url("fonts/reenie-beanie.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --paper: var(--paper-film, #F4F3EF);   /* app.js pone --paper-film con el papel de la película */
+  --lume: #A8FFD2;           /* la luz de las agujas a oscuras */
+  --ink: #15171C;
+  --ink-soft: #555A64;
+  --rule: #DCDBD5;
+  --blue: #1F3FA8;           /* la tinta de la esfera y el segundero */
+  --steel: #A9AEB5;
+
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Reenie Beanie", "Bradley Hand", cursive;
+
+  --gutter: clamp(1.4rem, 6vw, 2.5rem);
+  --screens: 9;              /* largo de la historia, en pantallas */
+  --progress: 0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.9s ease, color 0.9s ease;
+}
+
+h1, h2, h3, p, dl, dd, ol { margin: 0; padding: 0; }
+ol { list-style: none; }
+
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+.skip-link:focus { left: 0; }
+
+/* Tinta: la letra de la esfera */
+.ink {
+  font-family: var(--hand);
+  color: var(--blue);
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Datos que faltan por rellenar */
+.todo {
+  color: var(--blue);
+  border-bottom: 1px dashed currentColor;
+}
+
+/* ---------- escenario ---------- */
+
+.stage {
+  position: relative;
+  height: calc(var(--screens) * 100svh);
+}
+
+.stage__sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: clip;
+}
+
+/* En móvil la película llena la pantalla y sube un poco para dejar sitio al texto. */
+.stage__canvas {
+  position: absolute;
+  inset: -5svh 0 5svh 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stage__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top,
+    var(--paper) 0%,
+    color-mix(in srgb, var(--paper) 94%, transparent) 16%,
+    color-mix(in srgb, var(--paper) 70%, transparent) 28%,
+    transparent 44%);
+}
+
+/* La aguja azul de arriba: una vuelta = toda la historia */
+.turn {
+  position: absolute;
+  top: max(1rem, env(safe-area-inset-top));
+  right: var(--gutter);
+  width: 2.25rem;
+  height: 2.25rem;
+  z-index: 3;
+  overflow: visible;
+}
+.turn__ring { fill: none; stroke: color-mix(in srgb, var(--ink) 16%, transparent); stroke-width: 1; }
+.turn__hand {
+  transform-origin: 24px 24px;
+  transform: rotate(calc(var(--progress) * 360deg));
+  stroke: var(--blue);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  fill: var(--blue);
+}
+
+/* ---------- secciones sobre la película ---------- */
+
+.overlays { position: absolute; inset: 0; }
+
+.section {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 0 var(--gutter) max(2.25rem, calc(env(safe-area-inset-bottom) + 1.25rem));
+  /* --p: progreso propio de la sección (0-1), lo pone app.js.
+     Aparece en el primer cuarto y se va en el último. */
+  opacity: calc(min(var(--p, 0) * 4, 1) * min((1 - var(--p, 0)) * 4, 1) * var(--in, 0));
+  transform: translate3d(0, calc((0.5 - var(--p, 0)) * 28px), 0);
+  will-change: opacity, transform;
+}
+
+.section__eyebrow {
+  margin-bottom: 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.section__eyebrow b {
+  margin-right: 0.6em;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.section__title {
+  margin-bottom: 0.7rem;
+  max-width: 13em;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 9.4vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+.section__title em { font-style: italic; color: var(--blue); }
+
+/* La frase de la esfera va escrita a mano, como en el reloj */
+.section__title.ink {
+  font-family: var(--hand);
+  font-size: clamp(2.7rem, 12.5vw, 4.4rem);
+  line-height: 0.86;
+  letter-spacing: 0;
+  max-width: 9em;
+  margin-bottom: 0.85rem;
+}
+
+.section__body {
+  max-width: 31ch;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* Cada renglón escrito a mano va en su propia línea, para poder «escribirlo» */
+.write__line { display: block; white-space: nowrap; }
+
+/* La frase de la esfera se escribe con el scroll: --w va de 0 a 1 mientras
+   avanza la sección; el primer renglón ocupa el primer 38 %, el segundo el resto. */
+.section--write {
+  --w: clamp(0, (var(--p, 1) - 0.05) / 0.36, 1);
+  opacity: calc(min(var(--p, 0) * 14, 1) * min((1 - var(--p, 0)) * 4, 1) * var(--in, 0));
+}
+.section--write .write__line--1 {
+  clip-path: inset(-25% calc((1 - clamp(0, var(--w) / 0.38, 1)) * 100%) -25% -6%);
+}
+.section--write .write__line--2 {
+  clip-path: inset(-25% calc((1 - clamp(0, (var(--w) - 0.38) / 0.62, 1)) * 100%) -25% -6%);
+}
+.section--write .section__body { opacity: clamp(0, (var(--w) - 0.88) * 9, 1); }
+
+/* Portada: nombre arriba, lema abajo, el movimiento en medio */
+.section--hero {
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: max(11svh, calc(env(safe-area-inset-top) + 4.5rem));
+  opacity: calc(min((1 - var(--p, 0)) * 2.5, 1) * var(--in, 1));
+  transform: translate3d(0, calc(var(--p, 0) * -32px), 0);
+}
+
+.hero__name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(4rem, 20.5vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-left: -0.04em;
+}
+
+.hero__tagline {
+  font-size: clamp(2.2rem, 10vw, 3.2rem);
+  line-height: 0.9;
+  margin-bottom: 1.1rem;
+}
+
+.hero__hint {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.hero__hint i {
+  display: block;
+  width: 1px;
+  height: 2.2rem;
+  background: linear-gradient(var(--blue), var(--blue)) no-repeat top / 100% 45%, var(--rule);
+  animation: hint 2.2s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+@keyframes hint {
+  0% { background-position: 0 -120%, 0 0; }
+  100% { background-position: 0 220%, 0 0; }
+}
+
+/* Final: se queda puesto hasta que la película termina */
+.section--final {
+  opacity: calc(min(var(--p, 0) * 3, 1) * var(--in, 0));
+  transform: translate3d(0, calc((1 - min(var(--p, 0) * 3, 1)) * 24px), 0);
+}
+
+/* ---------- escritorio: texto a la izquierda, película a la derecha ---------- */
+
+@media (min-width: 900px) and (min-aspect-ratio: 1/1) {
+  .stage__canvas {
+    inset: 0 auto 0 64%;
+    width: auto;
+    height: 100svh;
+    aspect-ratio: 9 / 16;
+    translate: -50% 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+  }
+  .stage__scrim { display: none; }
+
+  .turn { top: 2rem; right: clamp(2rem, 4vw, 4rem); width: 2.75rem; height: 2.75rem; }
+
+  .section,
+  .section--hero {
+    inset: 0 auto 0 max(6vw, calc(50vw - 39rem));
+    width: min(30rem, 34vw);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .section--hero { gap: 2.5rem; }
+
+  .section__title { font-size: clamp(2.8rem, 4.3vw, 4.4rem); margin-bottom: 1.1rem; }
+  .section__title.ink { font-size: clamp(3.6rem, 5.6vw, 5.8rem); }
+  .section__body { font-size: 1.08rem; max-width: 34ch; }
+  .section__eyebrow { margin-bottom: 1.1rem; }
+
+  .hero__name { font-size: clamp(5.5rem, 9.5vw, 10.5rem); }
+  .hero__tagline { font-size: clamp(2.6rem, 3.8vw, 3.8rem); margin-bottom: 1.6rem; }
+}
+
+/* ---------- debajo de la película ---------- */
+
+.sheet {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 14vw, 9rem) var(--gutter) 0;
+}
+
+.sheet__eyebrow {
+  margin-bottom: 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.sheet__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 9vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  margin-bottom: clamp(1.75rem, 5vw, 2.75rem);
+  text-wrap: balance;
+}
+.sheet__title .ink { font-size: 1.22em; line-height: 0.8; white-space: nowrap; }
+
+.sheet__lede { color: var(--ink-soft); }
+
+.specs { border-top: 1px solid var(--rule); }
+.specs > div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.specs dt {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: 0.28rem;
+}
+
+.notes {
+  display: grid;
+  gap: 2rem clamp(2rem, 6vw, 4rem);
+  counter-reset: nota;
+}
+@media (min-width: 640px) { .notes { grid-template-columns: 1fr 1fr; } }
+.notes li { counter-increment: nota; }
+.notes li::before {
+  content: counter(nota);
+  display: block;
+  font-family: var(--hand);
+  font-size: 2.2rem;
+  line-height: 0.9;
+  color: var(--blue);
+  margin-bottom: 0.2rem;
+}
+.notes h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+.notes p { color: var(--ink-soft); max-width: 34ch; }
+
+/* La hora de verdad: la foto del reloj sin agujas y, encima, las tres agujas en marcha */
+.sheet--now { text-align: center; }
+.sheet--now .sheet__title { margin-bottom: 0.6rem; }
+
+.watch {
+  position: relative;
+  width: min(25rem, 88vw);
+  margin: 0 auto 1.25rem;
+  /* el brazalete y los bordes de la foto se deshacen en el papel */
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 15%, #000 85%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 6%, #000 95%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, #000 15%, #000 85%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 6%, #000 95%, transparent 100%);
+  mask-composite: intersect;
+}
+.watch__img { display: block; width: 100%; height: auto; transition: filter 0.9s ease; }
+.watch__hands { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+
+.hand { filter: drop-shadow(2px 4px 2.5px rgb(20 22 30 / 0.3)); }
+.hand--h { transform: rotate(calc(var(--h, 276) * 1deg)); }
+.hand--m { transform: rotate(calc(var(--m, 72) * 1deg)); }
+.hand--s {
+  transform: rotate(calc(var(--s, 48) * 1deg));
+  animation: sweep 60s linear infinite;
+}
+@keyframes sweep {
+  from { transform: rotate(calc(var(--s, 48) * 1deg)); }
+  to { transform: rotate(calc(var(--s, 48) * 1deg + 360deg)); }
+}
+.steel { fill: url(#acero); }
+.steel-cap { fill: #c9ccd1; stroke: #5d6168; stroke-width: 1; }
+.lume { fill: #FBFBF6; transition: fill 0.9s ease; }
+.azul { fill: #1F3FA8; transition: fill 0.9s ease; }
+.azul-eje { fill: #14297A; }
+
+/* Apagar la luz */
+.lights {
+  margin-top: 1.5rem;
+  padding: 0.7rem 0.15rem 0.45rem;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  font: 500 0.72rem var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.lights::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.75em;
+  border-radius: 50%;
+  background: var(--blue);
+  vertical-align: 0.05em;
+  transition: background-color 0.9s ease, box-shadow 0.9s ease;
+}
+
+:root[data-lights="off"] {
+  --paper: #090A0C;
+  --ink: #E6E8EC;
+  --ink-soft: #868A93;
+  --rule: #24262B;
+  --blue: #8EA6FF;
+}
+.sheet *, .foot, .foot * { transition: color 0.9s ease, border-color 0.9s ease; }
+:root[data-lights="off"] .watch__img { filter: brightness(0.085) saturate(0.4); }
+/* a oscuras el papel de la foto no debe dibujar un rectángulo: solo queda el reloj */
+:root[data-lights="off"] .watch {
+  -webkit-mask-image: radial-gradient(ellipse 50% 47% at 50% 50%, #000 58%, transparent 100%);
+  -webkit-mask-composite: source-over;
+  mask-image: radial-gradient(ellipse 50% 47% at 50% 50%, #000 58%, transparent 100%);
+  mask-composite: add;
+}
+:root[data-lights="off"] .hand { filter: none; }
+:root[data-lights="off"] .steel { fill: #131417; }
+:root[data-lights="off"] .steel-cap { fill: #131417; stroke: #0B0C0E; }
+:root[data-lights="off"] .azul { fill: #0B1230; }
+:root[data-lights="off"] .azul-eje { fill: #070B1F; }
+:root[data-lights="off"] .lume {
+  fill: var(--lume);
+  filter: drop-shadow(0 0 3px var(--lume)) drop-shadow(0 0 11px rgb(120 255 190 / 0.6));
+}
+:root[data-lights="off"] .lights::before { background: var(--lume); box-shadow: 0 0 9px var(--lume); }
+
+/* La nota: se escribe renglón a renglón cuando llega a la pantalla */
+.sheet--note { display: flex; justify-content: center; }
+.note {
+  font-size: clamp(2rem, 8.8vw, 2.75rem);
+  line-height: 0.98;
+  rotate: -1.5deg;
+  text-align: left;
+}
+.note p + p { margin-top: 0.7em; }
+.note .note__sign { margin-top: 0.55em; padding-left: 42%; font-size: 1.35em; }
+.note.will-write .write__line { clip-path: inset(-25% 100% -25% -6%); }
+.note.is-written .write__line {
+  clip-path: inset(-25% -6% -25% -6%);
+  transition: clip-path 0.6s linear;
+  transition-delay: calc(var(--i, 0) * 0.52s);
+}
+
+.foot {
+  margin-top: clamp(5rem, 16vw, 9rem);
+  padding: 2.5rem var(--gutter) max(2.5rem, calc(env(safe-area-inset-bottom) + 1.5rem));
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.foot__late {
+  margin-top: 1.5rem;
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.foot__name {
+  font-family: var(--serif);
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+/* ---------- carga y aviso de prueba ---------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.6rem;
+  background: var(--paper);
+  transition: opacity 0.6s ease;
+}
+.loader.is-done { opacity: 0; pointer-events: none; }
+.loader__label { font-family: var(--hand); font-size: 2.4rem; line-height: 1; color: var(--blue); }
+.loader__bar { width: 7rem; height: 1px; background: var(--rule); }
+.loader__bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: calc(var(--loaded, 0) * 100%);
+  background: var(--blue);
+  transition: width 0.2s linear;
+}
+
+.draft {
+  position: absolute;
+  top: max(1.35rem, calc(env(safe-area-inset-top) + 0.35rem));
+  left: var(--gutter);
+  z-index: 40;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  pointer-events: none;
+}
+
+/* ---------- sin movimiento / sin JavaScript: página normal ---------- */
+
+[data-motion="reduced"] .stage,
+.no-js .stage { height: auto; }
+
+[data-motion="reduced"] .stage__sticky,
+.no-js .stage__sticky { position: static; height: auto; overflow: visible; }
+
+[data-motion="reduced"] .stage__canvas,
+[data-motion="reduced"] .stage__scrim,
+[data-motion="reduced"] .loader,
+[data-motion="reduced"] .turn,
+[data-motion="reduced"] .hero__hint,
+.no-js .stage__canvas,
+.no-js .stage__scrim,
+.no-js .loader,
+.no-js .turn,
+.no-js .hero__hint { display: none; }
+
+[data-motion="reduced"] .overlays,
+.no-js .overlays { position: static; max-width: 44rem; margin: 0 auto; }
+
+[data-motion="reduced"] .section,
+.no-js .section {
+  position: static;
+  display: block;
+  width: auto;
+  opacity: 1;
+  transform: none;
+  padding: clamp(2.5rem, 9vw, 4.5rem) var(--gutter) 0;
+}
+
+.poster-fallback { display: none; }
+[data-motion="reduced"] .poster-fallback,
+.no-js .poster-fallback {
+  display: block;
+  width: min(100%, 26rem);
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hand--s, .hero__hint i { animation: none; }
+  body, .watch__img, .lume, .azul { transition: none; }
+}
+
+[data-motion="reduced"] .hero__tagline,
+.no-js .hero__tagline { margin-top: 1rem; }
