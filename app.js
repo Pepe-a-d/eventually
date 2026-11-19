@@ -288,21 +288,26 @@
         if (frames[index]) return resolve();
         const img = new Image();
         img.decoding = 'async';
-        img.src = frameUrl(index);
+        let settled = false;
         const done = () => {
+          if (settled) return;
+          settled = true;
           if (gen !== generation) return resolve();
           frames[index] = img;
           loadedCount++;
           loaderBar?.style.setProperty('--loaded', (loadedCount / frameCount).toFixed(3));
           resolve();
         };
-        img.decode().then(done).catch(() => {
-          if (img.complete && img.naturalWidth) done();
-          else {
-            img.onload = done;
-            img.onerror = () => resolve();
-          }
-        });
+        // Con la imagen descargada basta. Se intenta decodificar antes de dibujarla
+        // (evita un tirón), pero sin esperar: el navegador puede aplazar ese paso.
+        img.onload = () => {
+          Promise.race([
+            img.decode().catch(() => {}),
+            new Promise((r) => setTimeout(r, 500)),
+          ]).then(done);
+        };
+        img.onerror = () => resolve();
+        img.src = frameUrl(index);
       });
     }
 
