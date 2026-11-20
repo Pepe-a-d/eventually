@@ -17,7 +17,7 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const themeMeta = document.querySelector('meta[name="theme-color"]');
-  let litTheme = themeMeta?.getAttribute('content') || '#F4F3EF';   // color de la barra del navegador con la luz encendida
+  let litTheme = themeMeta?.getAttribute('content') || '#ECEEF0';   // color de la barra del navegador con la luz encendida
 
   const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
 
@@ -263,6 +263,8 @@
         if (el.dataset.active !== String(inside)) {
           el.dataset.active = String(inside);
           el.style.pointerEvents = inside ? 'auto' : 'none'; // el texto invisible no debe comerse los toques
+          // ni quedarse con el foco del teclado (el enlace de la portada, cuando ya no se ve)
+          el.querySelectorAll('a, button').forEach((x) => { x.tabIndex = inside ? 0 : -1; });
         }
       });
     }
