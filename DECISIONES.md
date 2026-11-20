@@ -32,10 +32,10 @@ Las dos sesiones, la del Mac y la del PC, siguen estas reglas.
 
 Motivos que no están escritos en ningún documento. Quien lo sepa, lo escribe en su entrada y lo borra de esta lista. Si no lo sabe ninguna sesión, se le pregunta a Pepe.
 
-- **D-01:** por qué el nombre Eventually y «Late Edition · 1 of 1».
-- **D-14:** por qué se descartaron las palabras en la tapa y la pestaña de arrancar.
-- **D-20:** por qué el tramo muerto al empezar a girar, por qué sin trinquete, por qué bisel grafilado, iris liso e índice en relieve; y por qué se descartó girar la base, la corona en el costado, la cara plana y el reloj tumbado.
-- **D-20:** de dónde salió la idea del iris y el ascensor: qué otras ideas hubo en la lluvia de ideas y por qué perdieron.
+Rellenados por la sesión del Mac el 21-nov-2026 a partir de sus conversaciones con Pepe: D-01, D-14 y D-20. Lo que sigue sin saberse, porque Pepe no lo dijo:
+
+- **D-14:** por qué no le gustó «pronto / tarde» en la tapa.
+- **D-20:** por qué sin trinquete, por qué el iris liso y por qué el bisel y no la base. Pepe lo eligió sin dar motivo.
 
 ## Decisiones hasta el 20 de noviembre de 2026
 
@@ -47,7 +47,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Fecha:** 19-nov-2026.
 - **Quién decide:** Pepe.
 - **Decisión:** el reloj se llama Eventually, con la línea «Late Edition · 1 of 1».
-- **Qué llevó a ella:** No consta.
+- **Qué llevó a ella:** al encargar la web (19-nov, 13:06), Pepe pidió «decidir un nombre o algo para ponerle». La sesión del Mac propuso «Eventually · Late Edition · 1 of 1», con el lema «Llegará. Cuando llegue.», y Pepe lo aceptó sin cambios («Sí, empiezo»). No dijo por qué le gustó. Interpretación de la sesión del Mac: el nombre sale de la frase que el reloj lleva en la esfera, «Who cares, I'm already late», un reloj que llega tarde y no le importa; «1 of 1» porque es una pieza única montada a mano. *(Rellenado por la sesión del Mac, 21-nov-2026.)*
 - **Estado:** Activa.
 
 ### D-02. Blanco papel y una sola cosa azul
@@ -113,7 +113,9 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Fecha:** 19-nov-2026.
 - **Quién decide:** Pepe.
 - **Decisión:** la tapa es lisa y la funda no lleva pestaña.
-- **Qué llevó a ella:** No consta. Se propusieron («pronto/tarde», pestaña de rasgar) y Pepe las descartó.
+- **Qué llevó a ella:** *(Rellenado por la sesión del Mac, 21-nov-2026.)*
+  - *Palabras en la tapa:* la sesión del Mac propuso que la tapa llevara «pronto / tarde». Pepe (19-nov, 19:38): «Me convence todo menos lo de pronto tarde, quiero lo de la aguja pero no así». No dijo por qué.
+  - *Pestaña de arrancar:* la idea fue de Pepe (19-nov, 22:39): «una pestaña que tiras de ella y se rompe». La sesión del Mac la desaconsejó en la propia caja: la caja es para quedársela y quedaría un borde roto para siempre; el PLA rasga mal; al ser de un solo uso, la que se regala es justo la que no se ha probado; y ya había cuatro pasos. Propuso un precinto aparte. Pepe (22:42): «Descarto esta opción».
 - **Estado:** Activa.
 
 ### D-15. Ninguna caja entera sin medir antes el reloj
@@ -164,7 +166,21 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - *Imanes solo de adorno:* por D-19.
   - *Tarjeta en la funda o fuera:* bajo el reloj no cabe por el hueco.
   - *Tamaño normal de estuche:* Pepe dijo que no hace falta que sea pequeña.
-  - *Tramo muerto al empezar a girar, sin trinquete, bisel grafilado, iris liso, índice en relieve:* elegidos por Pepe. El motivo de cada uno no consta.
+  - *Tramo muerto al empezar a girar:* propuesta de la sesión del Mac («la caja llega tarde»). Pepe: «puede ser interesante».
+  - *Sin trinquete:* lo dijo Pepe al elegir la ruta, sin motivo. Antes le había gustado. La sesión del Mac había avisado de que un trinquete de verdad solo deja girar en un sentido y la caja tiene que poder cerrarse; si pesó eso, no consta.
+  - *Bisel grafilado:* propuesta de la sesión del Mac, porque el canto estriado dice «gírame» sin una palabra. Pepe lo aceptó.
+  - *Iris liso:* la sesión del Mac propuso grabar en el iris los doce números amontonados de la esfera. Pepe: «lo del iris no». Sin motivo.
+  - *Índice en relieve:* de tres propuestas para marcar el frente (índice, corona en el costado, cara plana), Pepe: «Me gusta el índice». La sesión del Mac lo recomendaba por sencillo.
+  - *El bisel y no la base:* la sesión del Mac preguntó cuál; Pepe: «Giras el bisel de arriba». Sin motivo.
+  - *Reloj de pie:* a la pregunta «¿tumbado o de pie?», Pepe contestó que no sabía a qué se refería, «pero igual que en la anterior caja».
+  - *Lo azul:* de tres propuestas (un satélite, una marca en el bisel, el interior), eligió el satélite.
+  - *Engranajes a medias:* palabras de Pepe, «parcialmente a la vista tipo skeleton», frente a una ventana, todo a la vista o escondidos.
+  - *Qué imanes:* Pepe pidió «formas de usar los imanes para dar una experiencia más premium pero sin que nada dependa de ellos». De cinco usos propuestos se quedó con tres: el final del recorrido, la funda y el soporte.
+  - *(Motivos rellenados por la sesión del Mac, 21-nov-2026.)*
+- **De dónde salió la idea** (20-nov, de las 21:00 a las 23:30, conversación con la sesión del Mac; rellenado por ella el 21-nov-2026):
+  1. *Primera lluvia de ideas, sin engranajes:* aguja con un eje en un agujero central de la tapa, aguja como pasador, tapa que gira, aguja como herramienta, imanes más grandes y caja sin cerradura. La sesión del Mac apostaba por la aguja con eje. Pepe no eligió ninguna: pidió engranajes «para darle ese feeling de reloj» y dijo que la aguja no había que usarla «sí o sí».
+  2. *Segunda, con engranajes:* corona que retira cerrojos, cajón que sale solo, ascensor, dos puertas, hora secreta, iris y caja que hace tictac. Pepe: «me llaman la 2, 3, 6 y el trinquete» (cajón, ascensor e iris) y «me gustan también los engranajes planetarios». Pidió combinar: «que algo se abra y que el reloj se mueva».
+  3. *Tres rutas:* A, iris y ascensor; B, compuertas y ascensor; C, cajón que levanta el reloj. La sesión del Mac recomendó la B, por riesgo y por tamaño. Pepe eligió la A: «Desarrolla la ruta A: iris y ascensor. Sin trinquete. El reloj sube entero». Añadió que la caja no tenía que ser pequeña y que había más de un mes.
 - **Qué se descartó:** la lista está en [ESTADO.md](ESTADO.md), apartado 3.
 - **Estado:** Activa. Nada modelado ni impreso.
 
@@ -208,3 +224,12 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Qué llevó a ella:** la regla anterior («nada de commit ni push sin que Pepe lo pida») frenaba que las dos sesiones compartieran el trabajo: el guion del tutorial estuvo horas solo en el PC. Pepe quiere que se comparta, pero sin perder el control de lo que se sube. En sus palabras: «que cada sesión pueda subir su trabajo pero que yo simplemente confirme antes de que suba».
 - **Qué se descartó:** subir sin preguntar, y seguir esperando a que Pepe lo pida cada vez.
 - **Estado:** Activa. Sustituye a la regla del apartado 6 de `sesiones/SESION-MAC.md`.
+
+### D-26. La web se sirve desde `docs/`, los repositorios antiguos se archivan y el Mac pasa al clon único
+- **Fecha:** 21-nov-2026, 00:10.
+- **Quién decide:** Pepe. La sesión del Mac le preguntó por las tres tareas del relevo y marcó las tres.
+- **Decisión:** GitHub Pages sirve la rama `main`, carpeta `/docs`. `eventually-caja` y `eventually-proyecto` quedan archivados (solo lectura). En el Mac, `~/Watchpage` es un clon de este repositorio y la carpeta de antes es `~/Watchpage-antiguo`.
+- **Qué llevó a ella:** el relevo de la sesión del PC. Además, con Pages sirviendo la raíz, la web solo funcionaba saltando a `…/eventually/docs/` y la imagen de la vista previa del enlace daba error 404 (medido con `curl` el 21-nov).
+- **Qué se descartó:** nada.
+- **Estado:** Activa. Comprobado el 21-nov: la web responde en su dirección de siempre, con `?caja` y con `?reloj`.
+

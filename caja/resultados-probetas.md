@@ -15,6 +15,8 @@ Impresa y probada por Pepe en la Bambu Lab X1 Carbon. Ficheros de `probetas-v4\`
 
 **Ojo: P0 se imprimió con el perfil «0.08mm Extra Fine» de Bambu Studio** (capa de 0,08 mm), no con la capa de 0,2 mm que piden la guía y el resto de las piezas. Los resultados de arriba valen para 0,08 mm. Con 0,2 mm los encajes pueden salir algo más justos. Para cerrarlo, P0 se repite a 0,2 mm en la misma bandeja que P1 y P2, con los mismos ajustes.
 
+**Nota del 21-nov-2026:** según `HISTORIA.md`, Pepe le dijo a la sesión del PC que la repitió a 0,2 mm y que «también sale bien», sin cifras. La sesión del Mac no tiene los tres valores a 0,2 mm.
+
 **Sin probar:** la fuerza del imán embutido frente a uno suelto (la prueba de los clips). Pepe decidió no hacerla. Queda sin saber si el calor de la impresión le quita fuerza.
 
 ## P1. La llave magnética (20 de noviembre de 2026): NO VALE

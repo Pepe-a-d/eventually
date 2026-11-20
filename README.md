@@ -42,11 +42,11 @@ Para entender cómo se llegó hasta aquí:
 
 - Dirección: <https://pepe-a-d.github.io/eventually/>. Es la del QR de la tarjeta y la de la etiqueta NFC: **no puede cambiar**.
 - Se publica sola: GitHub Pages sirve la rama `main`. Todo lo que llega a `main` dentro de `docs/` queda publicado.
-- GitHub Pages tiene que estar puesto en *Branch: `main`, carpeta `/docs`*. Si todavía sirve la raíz, el `index.html` de la raíz redirige a `docs/` y la web se ve en `…/eventually/docs/`. El estado de este ajuste está en `RELEVO.md`.
+- GitHub Pages está puesto en *Branch: `main`, carpeta `/docs`* desde el 21 de noviembre de 2026. El `index.html` de la raíz, que redirigía a `docs/` mientras tanto, ya no existe.
 
 ## De dónde viene cada cosa
 
-Hasta el 20 de noviembre de 2026 el proyecto estaba repartido en tres repositorios y dos carpetas. Los repositorios `eventually-caja` y `eventually-proyecto` ya no se usan: no se sube nada allí.
+Hasta el 20 de noviembre de 2026 el proyecto estaba repartido en tres repositorios y dos carpetas. Los repositorios `eventually-caja` y `eventually-proyecto` ya no se usan: están archivados, de solo lectura, desde el 21 de noviembre.
 
 | Antes | Ahora |
 | --- | --- |

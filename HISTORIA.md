@@ -2,11 +2,13 @@
 
 Qué se hizo, en orden, hasta el 20 de noviembre de 2026. Escrito por la sesión del PC a partir de los repositorios, los reportes y las conversaciones. Las horas son de Italia y salen de los commits. Lo que no consta se dice.
 
+Corregido por la sesión del Mac el 21 de noviembre en lo que ella sabía de primera mano (el nombre, la pestaña, cómo se llegó al iris).
+
 **Quién es quién.** Pepe decide. La **sesión del Mac** hizo la web, la tarjeta y el QR, y revisa cada versión de la caja. La **sesión del PC** modela la caja en Fusion.
 
 ## 1. El reloj y la web (19 de noviembre)
 
-1. Pepe elige el nombre: **Eventually — Late Edition · 1 of 1**.
+1. Pepe pide un nombre al encargar la web. La sesión del Mac propone **Eventually — Late Edition · 1 of 1**, con el lema «Llegará. Cuando llegue.», y Pepe lo acepta (D-01).
 2. La sesión del Mac hace la web: el reloj se monta pieza a pieza al deslizar, sobre papel blanco. Sale de cinco imágenes hechas en Gemini; no hicieron falta vídeos. Queda publicada a las 18:00.
 3. Hace también la tarjeta de autenticidad (85 × 55 mm, diseñada en Figma) y el QR.
 
@@ -19,7 +21,7 @@ Cada vuelta fue igual: el PC modela una versión y el Mac la revisa con un contr
 | **v0**, 19-nov 19:55 | Brief de la sesión del Mac: funda de papel, caja y una aguja azul que hace de llave con un imán. El mayor riesgo ya estaba apuntado como R1: que el imán no arrastrara el rotor | Se encarga el modelo a la sesión del PC |
 | **v1** | Primera caja en Fusion: alta, se abría por arriba | Pepe la ve y dice que es muy incómodo sacar el reloj y usarla de expositor. Pide una llave más fina y la frase con la letra del reloj |
 | **v2**, subida a las 21:42 | Caja-expositor que se abre por delante. Pedía 24 imanes | Contra-reporte (22:09): 6 fallos graves y 11 importantes. Pepe tiene 14 imanes y ninguna chapa de acero: no se puede montar |
-| **v3**, subida a las 23:11 | Funda de campana, pinza en C y peana, cierre de un empujón, 8 imanes | Contra-reporte (23:54): 4 graves y 10 importantes. El cierre de un empujón se acuña y la pinza estaba dibujada con una forma falsa |
+| **v3**, subida a las 23:11 | Funda de campana, pinza en C y peana, cierre de un empujón, 8 imanes. Entre medias, a las 22:39, Pepe propone una pestaña de arrancar y la descarta tres minutos después (D-14) | Contra-reporte (23:54): 4 graves y 10 importantes. El cierre de un empujón se acuña y la pinza estaba dibujada con una forma falsa |
 | **v4**, 20-nov 07:04 | Rotor de un solo sentido con tope, se cierra con la aguja puesta, peana corredera, pinza a medida | Contra-reporte (11:21): 2 graves y 8 importantes. Recomienda un parche, no una v5 |
 | **v4.1**, 11:50 | Parche: arregla los 2 graves. Primera subida hecha por la sesión del PC | Contra-reporte (12:17): 5 importantes, ninguno grave. Pide imprimir antes de seguir |
 
@@ -44,12 +46,18 @@ Fallo de coordinación de ese día: la sesión del PC vigilaba dos repositorios 
 ## 5. La v5 (20 de noviembre, noche)
 
 1. Pepe decide no arreglar la v4.1 y volver a diseñar desde cero, por sectores: mecanismo, forma, estética y experiencia.
-2. En una conversación larga con la sesión del Mac elige el diseño de `caja/BRIEF-v5.md` (23:30): caja cilíndrica, bisel que se gira, engranajes a la vista, tapa de iris y un ascensor que sube el reloj.
+2. En una conversación larga con la sesión del Mac elige el diseño de `caja/BRIEF-v5.md` (23:30): caja cilíndrica, bisel que se gira, engranajes a la vista, tapa de iris y un ascensor que sube el reloj. Hubo dos lluvias de ideas y tres rutas antes de llegar ahí; la sesión del Mac recomendaba otra, las compuertas. Está contado en D-20.
 3. La sesión del PC recibe el encargo de la primera probeta, el iris. Antes de modelar hace un cálculo en plano: con 6 láminas la carcasa no baja de 134 mm. Pepe acepta una carcasa de 8 láminas con dos gruesos de lámina.
 4. **23:44.** Pepe pide juntar todos los directorios en uno y dejar escrito qué llevó a cada decisión. De ahí sale esta organización.
 5. **23:55.** Pepe la aprueba («Fusiona») y fija la regla de subida: cada sesión sube su trabajo, y él confirma antes.
 
-## 6. Lo que se aprendió
+## 6. Un solo repositorio en marcha (21 de noviembre)
+
+1. **00:05.** Pepe le dice a la sesión del Mac «lee el git». Esta comprueba que la unificación no perdió nada: la web, el brief, los resultados y su resumen son idénticos a los de los repositorios antiguos.
+2. **00:10.** Con el permiso de Pepe (D-26): GitHub Pages pasa a servir `/docs`, se archivan `eventually-caja` y `eventually-proyecto`, y el Mac pasa a trabajar en un clon de este repositorio.
+3. La web vuelve a su dirección de siempre. Durante la hora que estuvo servida desde la raíz, la vista previa del enlace estuvo rota.
+
+## 7. Lo que se aprendió
 
 - **Ninguna fuerza calculada se da por buena sin una pieza impresa que lo confirme.** Vale sobre todo para los imanes.
 - **Primero la probeta del mecanismo, después la caja.** Se hicieron cinco versiones enteras antes de probar la idea central.

@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Puesto al día el **20 de noviembre de 2026** por la sesión del PC. Cuando cambie algo, se cambia aquí y se pone la fecha. Lo que cada cosa significa y por qué se decidió está en [DECISIONES.md](DECISIONES.md).
+Puesto al día el **21 de noviembre de 2026** por la sesión del Mac (antes, el 20 por la del PC). Cuando cambie algo, se cambia aquí y se pone la fecha. Lo que cada cosa significa y por qué se decidió está en [DECISIONES.md](DECISIONES.md).
 
 Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **medido** (sobre una pieza), **del modelo**, **calculado**, **estimado** o **supuesto**.
 
@@ -11,7 +11,7 @@ Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **medido** (sobre
 | **Caja v5: iris y ascensor** | `caja/BRIEF-v5.md` | Diseño decidido por Pepe. Nada modelado ni impreso |
 | **Probeta 1: el iris** | `caja/BRIEF-v5.md`, apartado 11 | Encargada a la sesión del PC. Forma acordada con Pepe: una carcasa de 8 láminas y dos juegos de láminas, de 1,2 y de 0,8 mm (D-23). **Sin modelar** |
 | Resultados de las probetas | `caja/resultados-probetas.md` | P0 bien. P1 no vale |
-| La web | `docs/` | Publicada. Falta probarla en un iPhone |
+| La web | `docs/` | Publicada en su dirección de siempre; GitHub Pages sirve `/docs` desde el 21-nov (D-26). Falta probarla en un iPhone |
 | Tutorial de la caja en la web | `docs/frames/caja/`, `docs/caja.js`, `docs/caja.css` | Publicado, pero **describe la v4.1**. Hay que rehacerlo con la v5 |
 | Tarjeta de autenticidad | `tarjeta/` | Terminada. Sin imprimir, que conste |
 | QR | `qr/` | Terminado y comprobado |
@@ -63,7 +63,6 @@ Cada milímetro de hueco cuesta unos 1,7 mm de diámetro de carcasa (calculado e
 
 ## 7. Lo siguiente
 
-0. Poner GitHub Pages a servir `/docs` y dejar de usar los repositorios antiguos. Detalle en `RELEVO.md`.
 1. Modelar la probeta del iris y dejar los `.3mf` en `caja/probetas-v5/`. Sesión del PC.
 2. Que Pepe la imprima y la pruebe con la tabla «vale si».
 3. Después, por este orden: probeta del ascensor, probeta del planetario y la caja entera.

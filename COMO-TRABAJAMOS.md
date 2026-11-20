@@ -96,7 +96,7 @@ Lo que deje de valer se mueve a `caja/historico/` y se apunta en `ESTADO.md`. No
 
 ## 11. Cada máquina
 
-**Mac.** La carpeta es `~/Watchpage`, un clon de este repositorio. `web-fuentes/tools/imprimir.swift` solo funciona en Mac.
+**Mac.** La carpeta es `~/Watchpage`, un clon de este repositorio. La carpeta de antes de la unificación sigue en `~/Watchpage-antiguo`, sin tocar; ahí está el entorno de Python con numpy que usan los cálculos de los contra-reportes (`~/Watchpage-antiguo/caja/.venv`). `web-fuentes/tools/imprimir.swift` solo funciona en Mac.
 
 **PC.**
 
