@@ -21,6 +21,7 @@
 <link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="caja.css?v=1">
 </head>
 <body>
 
@@ -141,8 +142,77 @@
         <h3>Agua</h3>
         <p>Lluvia y lavarse las manos, sí. Ducha, piscina y mar, no: está montado a mano y no ha pasado prueba de presión.</p>
       </li>
+      <li>
+        <h3>Si pierdes la aguja</h3>
+        <p>La caja se abre igual. Debajo, en la base, hay una ranura fina: mete un clip estirado y arrastra con él el pestillo a lo largo de la ranura.</p>
+      </li>
+      <li>
+        <h3>Imanes</h3>
+        <p>La aguja lleva dos. Guárdala en su sitio, encima de la caja, y no la dejes pegada al reloj: los imanes pueden hacer que adelante.</p>
+      </li>
     </ol>
   </section>
+
+  <!-- ====== La caja: cómo se abre. Segunda película, también con el scroll (caja.js, caja.css) ====== -->
+  <div class="caja" id="caja" data-caja>
+    <div class="stage">
+      <div class="stage__sticky">
+        <canvas class="stage__canvas" data-caja-canvas aria-hidden="true" role="presentation"></canvas>
+        <img class="poster-fallback" src="frames/caja/poster.webp" width="720" height="900" loading="lazy" decoding="async" alt="La caja abierta: el panel del frente fuera, con la aguja azul puesta, y el reloj fuera de la caja sobre su peana.">
+        <div class="stage__scrim" aria-hidden="true"></div>
+
+        <p class="caja__steps" aria-hidden="true">
+          <i style="--a:0.08;--b:0.15"></i><i style="--a:0.23;--b:0.31"></i><i style="--a:0.39;--b:0.49"></i><i style="--a:0.57;--b:0.65"></i><i style="--a:0.69;--b:0.76"></i>
+        </p>
+
+        <div class="overlays">
+
+          <section class="section section--caja-intro" data-caja-range="0,0.075">
+            <p class="section__eyebrow">La caja</p>
+            <h2 class="section__title">Se abre con <em>una aguja.</em></h2>
+            <p class="section__body">No tiene bisagras, ni botones, ni prisa. Son cinco gestos.</p>
+          </section>
+
+          <section class="section" data-caja-range="0.085,0.225">
+            <p class="section__eyebrow"><b>01</b> La funda</p>
+            <h2 class="section__title">Primero, la funda.</h2>
+            <p class="section__body">Tira de ella hacia arriba. Dos nervios la sujetan: basta un tirón suave.</p>
+          </section>
+
+          <section class="section" data-caja-range="0.235,0.385">
+            <p class="section__eyebrow"><b>02</b> La aguja</p>
+            <h2 class="section__title">La azul es <em>la llave.</em></h2>
+            <p class="section__body">Está encima de la caja, a ras. Ponla en el centro del frente, con la punta hacia arriba: un imán la coloca.</p>
+          </section>
+
+          <section class="section" data-caja-range="0.395,0.565">
+            <p class="section__eyebrow"><b>03</b> El giro</p>
+            <h2 class="section__title">Adelanta <em>la hora.</em></h2>
+            <p class="section__body">Gírala a la derecha, hasta el tope. Por dentro, un rotor la sigue a través del panel y recoge los dos pestillos.</p>
+          </section>
+
+          <section class="section" data-caja-range="0.575,0.685">
+            <p class="section__eyebrow"><b>04</b> El panel</p>
+            <h2 class="section__title">Tira de la aguja.</h2>
+            <p class="section__body">El panel sale con ella. Déjalo a un lado.</p>
+          </section>
+
+          <section class="section" data-caja-range="0.695,0.855">
+            <p class="section__eyebrow"><b>05</b> El reloj</p>
+            <h2 class="section__title">Y ahí está. <em>Por fin.</em></h2>
+            <p class="section__body">Tira de él: sale con su peana. Fuera de la caja se queda de pie, a la vista.</p>
+          </section>
+
+          <section class="section section--final" data-caja-range="0.865,1">
+            <p class="section__eyebrow">Para cerrar</p>
+            <h2 class="section__title">Lo mismo, <em>al revés.</em></h2>
+            <p class="section__body">La peana dentro hasta el clic. El panel dentro con la aguja girada. Gira la aguja de vuelta y guárdala en su sitio.</p>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <section class="sheet sheet--now" data-now-section aria-labelledby="ahora-t">
     <!-- La foto del reloj sin agujas, con las tres agujas dibujadas encima y en hora -->
@@ -209,5 +279,6 @@
 </main>
 
 <script src="app.js?v=7" defer></script>
+<script src="caja.js?v=1" defer></script>
 </body>
 </html>
