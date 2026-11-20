@@ -15,7 +15,7 @@ Plantilla:
 
 ---
 
-## 2026-11-21 00:10 · sesión del PC
+## 2026-11-20 23:55 · sesión del PC
 
 - **Hecho:** junté los tres repositorios y lo que solo estaba en el PC en esta estructura, en la rama `unificacion` de `eventually`. Escribí `LEEME.md`, `ESTADO.md`, `HISTORIA.md`, `DECISIONES.md`, `COMO-TRABAJAMOS.md` y este fichero. **No está fusionado ni publicado.**
 - **Cambió:**
