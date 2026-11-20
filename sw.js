@@ -6,7 +6,7 @@
      y después se sirven siempre de la copia. Su dirección lleva la versión de la
      película, así que al rehacerla se descargan de nuevo. */
 
-const CORE = 'eventually-core-v1';
+const CORE = 'eventually-core-v2';
 const FRAMES = 'eventually-frames-';
 const CORE_FILES = [
   './',
@@ -19,6 +19,7 @@ const CORE_FILES = [
   'poster.jpg',
   'frames/manifest.json',
   'frames/caja/manifest.json',
+  'frames/caja/poster.webp',
   'img/reloj.webp',
   'img/icon-180.png',
   'img/icon-192.png',
@@ -35,8 +36,14 @@ self.addEventListener('install', (event) => {
   );
 });
 
+// Al activarse se borran las copias de lo esencial de versiones anteriores.
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil((async () => {
+    for (const key of await caches.keys()) {
+      if (key.startsWith('eventually-core-') && key !== CORE) await caches.delete(key);
+    }
+    await self.clients.claim();
+  })());
 });
 
 const isFrame = (url) => url.pathname.includes('/frames/') && url.pathname.endsWith('.webp');
@@ -54,18 +61,22 @@ async function frameFirst(request, url) {
   return response;
 }
 
+// La página se guarda siempre con el mismo nombre, venga con lo que venga detrás
+// de la «?»: así sin conexión sale la última que se vio y no una copia vieja.
 async function networkFirst(request) {
   const cache = await caches.open(CORE);
+  const isPage = request.mode === 'navigate';
   try {
     const response = await Promise.race([
       fetch(request),
       new Promise((_, reject) => setTimeout(() => reject(new Error('lenta')), 4000)),
     ]);
-    if (response.ok) cache.put(request, response.clone());
+    if (response.ok) cache.put(isPage ? 'index.html' : request, response.clone());
     return response;
   } catch (_) {
-    const hit = (await cache.match(request, { ignoreSearch: true })) ||
-      (request.mode === 'navigate' ? await cache.match('index.html') : null);
+    const hit = isPage
+      ? await cache.match('index.html')
+      : (await cache.match(request)) || (await cache.match(request, { ignoreSearch: true }));
     return hit || fetch(request);
   }
 }
