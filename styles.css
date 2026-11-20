@@ -265,6 +265,30 @@ ol { list-style: none; }
   100% { background-position: 0 220%, 0 0; }
 }
 
+/* Pie de la portada: «Desliza» a un lado y, al otro, el atajo al tutorial de la caja
+   (quien llega con la caja cerrada no tiene que bajar toda la página). */
+.hero__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.hero__box {
+  margin: -0.9rem 0;               /* zona de toque amplia sin mover la línea */
+  padding: 0.9rem 0;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.5em;
+}
+.hero__box:hover { color: var(--blue); }
+
 /* Final: se queda puesto hasta que la película termina */
 .section--final {
   opacity: calc(min(var(--p, 0) * 3, 1) * var(--in, 0));
