@@ -45,3 +45,32 @@
 /* Sin movimiento o sin JavaScript: el contador sobra. */
 [data-motion="reduced"] .caja__steps,
 .no-js .caja__steps { display: none; }
+
+/* ---------- Primera visita: solo la caja ----------
+   El script de la cabecera de index.html pone data-mode="caja" en <html>. Se esconde
+   todo lo del reloj y queda el tutorial, la puerta al resto («Ya lo tengo») y el pie. */
+.despues,
+.caja__hint { display: none; }
+
+[data-mode="caja"] .loader,
+[data-mode="caja"] .skip-link,
+[data-mode="caja"] main > :not(#caja):not(.despues):not(.foot) { display: none; }
+
+[data-mode="caja"] .caja { margin-top: 0; }
+[data-mode="caja"] .caja__hint { display: flex; margin-top: 1.4rem; }
+[data-mode="caja"][data-motion="reduced"] .caja__hint,
+[data-mode="caja"] [data-motion="reduced"] .caja__hint { display: none; }
+
+[data-mode="caja"] .despues { display: block; }
+.despues__link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 0.15rem 0.45rem;
+  border-bottom: 1px solid var(--blue);
+  font: 500 0.72rem var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+}
+.despues__link::after { content: "→"; margin-left: 0.75em; color: var(--blue); }

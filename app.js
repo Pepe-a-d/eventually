@@ -119,8 +119,16 @@
     window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
   }
 
-  startClock();
   startLate();
+
+  // Primera visita: solo se enseña la caja (lo decide el script de la cabecera de
+  // index.html). La película del reloj ni se descarga.
+  if (root.dataset.mode === 'caja') {
+    loader?.remove();
+    return;
+  }
+
+  startClock();
   setupLights();
   setupNote();
 

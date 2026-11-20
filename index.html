@@ -17,11 +17,30 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Eventually">
-<script>document.documentElement.classList.remove('no-js');</script>
+<script>
+/* Primera visita: solo las instrucciones de la caja, para no enseñar el reloj antes
+   de tiempo. El reloj sale cuando se pulsa «Ya lo tengo» o en cualquier visita hecha
+   más de 15 minutos después de la primera (recargar antes no lo enseña).
+   Para probar: ?caja vuelve a la primera visita y ?reloj va directo al reloj. */
+(function (d) {
+  d.classList.remove('no-js');
+  var OPEN = 'eventually:abierta', FIRST = 'eventually:primera', WAIT = 15 * 60 * 1000;
+  var q = location.search, forced = /[?&]reloj\b/.test(q), seen = forced;
+  try {
+    var s = localStorage;
+    if (/[?&]caja\b/.test(q)) { s.removeItem(OPEN); s.removeItem(FIRST); }
+    if (forced) s.setItem(OPEN, '1');
+    var t = Number(s.getItem(FIRST)) || 0;
+    if (!t) { t = Date.now(); s.setItem(FIRST, String(t)); }
+    seen = seen || s.getItem(OPEN) === '1' || Date.now() - t > WAIT;
+  } catch (e) {}
+  if (!seen) d.setAttribute('data-mode', 'caja');
+})(document.documentElement);
+</script>
 <link rel="preload" href="fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/reenie-beanie.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css?v=6">
-<link rel="stylesheet" href="caja.css?v=1">
+<link rel="stylesheet" href="caja.css?v=2">
 </head>
 <body>
 
@@ -174,6 +193,7 @@
             <p class="section__eyebrow">La caja</p>
             <h2 class="section__title">Se abre con <em>una aguja.</em></h2>
             <p class="section__body">No tiene bisagras, ni botones, ni prisa. Son cinco gestos.</p>
+            <p class="hero__hint caja__hint"><span>Desliza</span><i aria-hidden="true"></i></p>
           </section>
 
           <section class="section" data-caja-range="0.085,0.225">
@@ -216,6 +236,14 @@
       </div>
     </div>
   </div>
+
+  <!-- Solo en la primera visita: la puerta al resto de la página -->
+  <section class="sheet despues" aria-labelledby="despues-t">
+    <p class="sheet__eyebrow">Cuando esté abierta</p>
+    <h2 class="sheet__title" id="despues-t">Esto sigue. <span class="ink">Luego.</span></h2>
+    <p class="sheet__lede">Hay una segunda parte. Ábrela con el reloj ya en la mano.</p>
+    <a class="despues__link" href="?reloj">Ya lo tengo</a>
+  </section>
 
   <section class="sheet sheet--now" data-now-section aria-labelledby="ahora-t">
     <!-- La foto del reloj sin agujas, con las tres agujas dibujadas encima y en hora -->
@@ -281,7 +309,7 @@
 
 </main>
 
-<script src="app.js?v=7" defer></script>
+<script src="app.js?v=8" defer></script>
 <script src="caja.js?v=1" defer></script>
 </body>
 </html>
