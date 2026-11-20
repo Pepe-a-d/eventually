@@ -1,0 +1,47 @@
+/* Eventually — la caja: cómo se abre.
+   Reutiliza el escenario y las secciones de styles.css (.stage, .section…); aquí
+   solo va lo propio de esta segunda película. */
+
+.caja {
+  --screens: 8;                       /* largo del tutorial, en pantallas */
+  margin-top: clamp(4.5rem, 14vw, 9rem);
+  scroll-margin-top: 0;
+}
+
+/* La película de la caja no llena la pantalla de papel: sus fotogramas son
+   transparentes y la caja queda en la mitad de arriba; el texto va debajo. */
+.caja .stage__canvas { inset: -2svh 0 2svh 0; }
+
+/* Entrada: visible desde que la sección asoma; se va al empezar el primer gesto. */
+.caja .section--caja-intro {
+  opacity: calc(min((1 - var(--p, 0)) * 4, 1) * var(--in, 1));
+  transform: translate3d(0, calc(var(--p, 0) * -24px), 0);
+}
+
+/* Contador de gestos, arriba a la derecha: cinco rayas que se van llenando de azul. */
+.caja__steps {
+  position: absolute;
+  top: max(1.25rem, calc(env(safe-area-inset-top) + 0.5rem));
+  right: var(--gutter);
+  z-index: 3;
+  display: flex;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+.caja__steps i {
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  background: linear-gradient(var(--blue), var(--blue)) no-repeat left / calc(clamp(0, (var(--caja-progress, 0) - var(--a)) / (var(--b) - var(--a)), 1) * 100%) 100%, var(--rule);
+}
+
+@media (min-width: 900px) and (min-aspect-ratio: 1/1) {
+  .caja .stage__canvas { inset: 0 auto 0 64%; }
+  .caja__steps { top: 2.6rem; right: clamp(2rem, 4vw, 4rem); }
+  .caja__steps i { width: 1.6rem; }
+}
+
+/* Sin movimiento o sin JavaScript: el contador sobra. */
+[data-motion="reduced"] .caja__steps,
+.no-js .caja__steps { display: none; }
