@@ -47,6 +47,7 @@ Fallo de coordinación de ese día: la sesión del PC vigilaba dos repositorios 
 2. En una conversación larga con la sesión del Mac elige el diseño de `caja/BRIEF-v5.md` (23:30): caja cilíndrica, bisel que se gira, engranajes a la vista, tapa de iris y un ascensor que sube el reloj.
 3. La sesión del PC recibe el encargo de la primera probeta, el iris. Antes de modelar hace un cálculo en plano: con 6 láminas la carcasa no baja de 134 mm. Pepe acepta una carcasa de 8 láminas con dos gruesos de lámina.
 4. **23:44.** Pepe pide juntar todos los directorios en uno y dejar escrito qué llevó a cada decisión. De ahí sale esta organización.
+5. **23:55.** Pepe la aprueba («Fusiona») y fija la regla de subida: cada sesión sube su trabajo, y él confirma antes.
 
 ## 6. Lo que se aprendió
 

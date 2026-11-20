@@ -2,7 +2,15 @@
 
 Un reloj montado a mano por Pepe para su amigo Pablo, con su web, su tarjeta de autenticidad y su caja impresa en 3D. **Todo el proyecto está en este repositorio**, para que la sesión de Claude del Mac y la del PC trabajen sobre lo mismo.
 
-> **Aviso del 20 de noviembre de 2026.** Esta organización está en la rama `unificacion` y **aún no está fusionada**. Hasta que Pepe dé el visto bueno, mandan los tres repositorios antiguos. Los pasos que faltan están en [RELEVO.md](RELEVO.md).
+## Si eres una sesión de Claude y te han dicho «lee el git»
+
+Con este repositorio tienes todo. Haz esto, en orden:
+
+1. `git pull`.
+2. Lee [ESTADO.md](ESTADO.md), [RELEVO.md](RELEVO.md) y [COMO-TRABAJAMOS.md](COMO-TRABAJAMOS.md).
+3. Mira en la última entrada de `RELEVO.md` lo que te han dejado pendiente, y hazlo o di por qué no.
+4. Rellena lo que sepas de la lista «Huecos por rellenar» de [DECISIONES.md](DECISIONES.md) y corrige lo que esté mal en [HISTORIA.md](HISTORIA.md): tú sabes cosas de tus conversaciones con Pepe que la otra sesión no ha visto.
+5. Antes de subir nada, dile a Pepe qué vas a subir y espera su «sí».
 
 ## Empieza aquí
 
@@ -33,11 +41,12 @@ Para entender cómo se llegó hasta aquí:
 ## La web
 
 - Dirección: <https://pepe-a-d.github.io/eventually/>. Es la del QR de la tarjeta y la de la etiqueta NFC: **no puede cambiar**.
-- Se publica sola: GitHub Pages sirve la carpeta `docs/` de la rama `main`. Todo lo que llega a `main` dentro de `docs/` queda publicado.
+- Se publica sola: GitHub Pages sirve la rama `main`. Todo lo que llega a `main` dentro de `docs/` queda publicado.
+- GitHub Pages tiene que estar puesto en *Branch: `main`, carpeta `/docs`*. Si todavía sirve la raíz, el `index.html` de la raíz redirige a `docs/` y la web se ve en `…/eventually/docs/`. El estado de este ajuste está en `RELEVO.md`.
 
 ## De dónde viene cada cosa
 
-Hasta el 20 de noviembre de 2026 el proyecto estaba repartido en tres repositorios y dos carpetas.
+Hasta el 20 de noviembre de 2026 el proyecto estaba repartido en tres repositorios y dos carpetas. Los repositorios `eventually-caja` y `eventually-proyecto` ya no se usan: no se sube nada allí.
 
 | Antes | Ahora |
 | --- | --- |

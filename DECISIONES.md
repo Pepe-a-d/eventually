@@ -28,6 +28,15 @@ Las dos sesiones, la del Mac y la del PC, siguen estas reglas.
 - **Estado:** Activa / Propuesta / Parada / Sustituida por D-nn.
 ```
 
+## Huecos por rellenar
+
+Motivos que no están escritos en ningún documento. Quien lo sepa, lo escribe en su entrada y lo borra de esta lista. Si no lo sabe ninguna sesión, se le pregunta a Pepe.
+
+- **D-01:** por qué el nombre Eventually y «Late Edition · 1 of 1».
+- **D-14:** por qué se descartaron las palabras en la tapa y la pestaña de arrancar.
+- **D-20:** por qué el tramo muerto al empezar a girar, por qué sin trinquete, por qué bisel grafilado, iris liso e índice en relieve; y por qué se descartó girar la base, la corona en el costado, la cara plana y el reloj tumbado.
+- **D-20:** de dónde salió la idea del iris y el ascensor: qué otras ideas hubo en la lluvia de ideas y por qué perdieron.
+
 ## Decisiones hasta el 20 de noviembre de 2026
 
 Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. Donde el motivo no estaba escrito en ningún sitio, pone «No consta».
@@ -190,4 +199,12 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Decisión:** todo el proyecto pasa a un solo directorio, con la historia, el estado y cada decisión explicada.
 - **Qué llevó a ella:** en palabras de Pepe, que las dos sesiones «compartan recursos, información y puedan trabajar sobre el trabajo de la otra fácilmente». Ese mismo día la sesión del PC tardó tres cuartos de hora en ver un repositorio que no conocía, y el guion del tutorial solo existía en el PC.
 - **Qué se descartó:** seguir con tres repositorios y una carpeta que los junta, como estaba en el Mac.
-- **Estado:** Propuesta en la rama `unificacion`. Falta el visto bueno de Pepe para fusionarla.
+- **Estado:** Activa. Pepe dijo «Fusiona» el 20-nov-2026 a las 23:55.
+
+### D-25. Cada sesión sube su trabajo, con la confirmación de Pepe
+- **Fecha:** 20-nov-2026, 23:55.
+- **Quién decide:** Pepe.
+- **Decisión:** cada sesión puede subir su trabajo al terminar. Antes le dice a Pepe qué va a subir y espera su «sí».
+- **Qué llevó a ella:** la regla anterior («nada de commit ni push sin que Pepe lo pida») frenaba que las dos sesiones compartieran el trabajo: el guion del tutorial estuvo horas solo en el PC. Pepe quiere que se comparta, pero sin perder el control de lo que se sube. En sus palabras: «que cada sesión pueda subir su trabajo pero que yo simplemente confirme antes de que suba».
+- **Qué se descartó:** subir sin preguntar, y seguir esperando a que Pepe lo pida cada vez.
+- **Estado:** Activa. Sustituye a la regla del apartado 6 de `sesiones/SESION-MAC.md`.

@@ -60,10 +60,10 @@ Cada milímetro de hueco cuesta unos 1,7 mm de diámetro de carcasa (calculado e
 1. ¿Qué día se entrega? El brief dice «más de un mes desde el 20 de noviembre».
 2. ¿Está montado el reloj? Si lo está, faltan sus medidas.
 3. ¿Valen los textos del tutorial de la caja y los de la puerta al reloj («Esto sigue. Luego.», «Ya lo tengo»)?
-4. ¿Puede cada sesión subir su trabajo al terminar sin pedírselo? Hoy la regla es que no (ver `COMO-TRABAJAMOS.md`, apartado 6).
 
 ## 7. Lo siguiente
 
+0. Poner GitHub Pages a servir `/docs` y dejar de usar los repositorios antiguos. Detalle en `RELEVO.md`.
 1. Modelar la probeta del iris y dejar los `.3mf` en `caja/probetas-v5/`. Sesión del PC.
 2. Que Pepe la imprima y la pruebe con la tabla «vale si».
 3. Después, por este orden: probeta del ascensor, probeta del planetario y la caja entera.

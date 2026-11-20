@@ -19,7 +19,7 @@ Reglas comunes de la sesión de Claude del Mac y de la del PC. El objetivo es qu
 1. **[RELEVO.md](RELEVO.md), siempre:** una entrada con lo hecho, lo que cambió, lo que queda a medias y lo que se le pide a la otra sesión.
 2. **[DECISIONES.md](DECISIONES.md),** si se decidió algo, con lo que llevó a decidirlo.
 3. **[ESTADO.md](ESTADO.md),** si cambió lo que está activo, parado o descartado.
-4. Subirlo, según el apartado 6.
+4. Pedirle a Pepe la confirmación y subirlo, según el apartado 6.
 
 ## 4. Quién lleva qué
 
@@ -57,7 +57,12 @@ Lo que deje de valer se mueve a `caja/historico/` y se apunta en `ESTADO.md`. No
 - Nunca `push --force` ni reescribir el historial.
 - **Subir a `main` dentro de `docs/` publica en la web al momento.** Si Pepe no ha pedido publicar, el cambio va en una rama con pull request.
 - Ningún fichero de más de 50 MB.
-- **Regla vigente: no se hace commit ni push sin que Pepe lo pida.** Un encargo de Pepe que diga «súbelo» o «sube todo» lo cubre. Está preguntado si quiere relajarla (`ESTADO.md`, apartado 6).
+- **Cada sesión sube su trabajo, pero Pepe confirma antes** (D-25). Al terminar:
+  1. Deja los commits hechos en local, sin subir.
+  2. Le dice a Pepe, en una o dos frases, qué va a subir y si eso publica algo en la web.
+  3. Espera su «sí». Con el sí, hace `git pull` y sube.
+  4. Si Pepe no contesta, no sube: lo deja apuntado en su respuesta y lo vuelve a preguntar la próxima vez.
+- Un encargo de Pepe que ya diga «súbelo», «fusiona» o «publica» cuenta como confirmación para ese encargo, no para lo siguiente.
 
 ## 7. Cifras y afirmaciones
 
