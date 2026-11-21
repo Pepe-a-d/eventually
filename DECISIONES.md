@@ -250,3 +250,15 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - *Bajar ahora a 130 con 10 láminas o con el hueco de 72 mm.* Se deja para después de probar esta: 10 láminas contradice D-23 y el hueco depende del reloj, sin medir.
 - **Estado:** Activa. Sin imprimir.
 
+### D-28. La probeta del iris lleva un tercer juego de láminas, de 0,4 mm
+- **Fecha:** 21-nov-2026, 08:05.
+- **Quién decide:** Pepe («Sí, añádelo»), a propuesta de la sesión del Mac.
+- **Decisión:** a la probeta del iris se le añade un tercer juego de 8 láminas de 0,4 mm de grueso (dos capas). La carcasa no cambia. Los juegos de 1,2 y de 0,8 se imprimen igual, para comparar. Para este juego deja de valer el «1,2 mm o más» del apartado 11 del brief.
+- **Qué llevó a ella:** la revisión de la sesión del Mac (`caja/reporte-v5/contra-reporte-iris.md`), antes de imprimir nada:
+  - Ocho láminas en rueda, cada una sobre la anterior, obligan a que cada lámina baje un grueso dentro de su ancho. Con el agujero a 5 mm eso son 31° de inclinación de lado con 1,2 mm, 22° con 0,8 y 11,5° con 0,4 (calculado; es geometría).
+  - Estimado, con fuerzas y sin pieza que lo confirme: las de 1,2 se pondrán duras con el agujero a 30-40 mm, las de 0,8 a 15-20 mm, y las de 0,4 llegarían a cerrar.
+  - Es barato: solo cambian las láminas y es una bandeja más.
+  - El brief de la sesión del Mac pedía a la vez láminas de 1,2 mm o más y agujero de 8 mm o menos, sin haber comprobado que cupieran las dos cosas.
+- **Qué se descartó:** nada. Un juego de 0,6 mm se mencionó como posible y Pepe no lo ha pedido. Esperar a imprimir antes de añadirlo tampoco: la carcasa ya se puede ir imprimiendo.
+- **Pegas que se conocen:** dos capas de PLA blanco dejan pasar luz. Si cierran, se verá si hace falta una lámina escalonada, fina en la punta y gruesa donde se ve.
+- **Estado:** Activa. Sin modelar: lo hace la sesión del PC.

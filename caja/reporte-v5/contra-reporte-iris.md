@@ -71,7 +71,7 @@ Supuestos de esa tabla: PLA con módulo de torsión de 1 100 MPa, rozamiento de 
 ## 4. Lo que propongo (decide Pepe)
 
 1. **Imprimir la probeta tal como está.** Sirve igual para lo demás: si los ejes giran sueltos, si la tapa entra, si las uñas salen limpias, el diámetro real. Y dirá si mi previsión es cierta.
-2. **Añadir un tercer juego de láminas finas, de 0,4 mm** (y, si no cuesta, otro de 0,6). Solo cambian las láminas: la carcasa es la misma, porque la cola ya se engorda a 1,2 como en el juego de 0,8. Es un cambio de un número en `iris_diseno_v5.py` y una bandeja más. **Pendiente de que Pepe diga sí.**
+2. **Añadir un tercer juego de láminas finas, de 0,4 mm** (y, si no cuesta, otro de 0,6). Solo cambian las láminas: la carcasa es la misma, porque la cola ya se engorda a 1,2 como en el juego de 0,8. Es un cambio de un número en `iris_diseno_v5.py` y una bandeja más. **Pepe dijo que sí al de 0,4 el 21-nov a las 08:05 (D-28).** El de 0,6 no lo ha pedido.
 3. **Al probar, no forzar.** Cerrar hasta que se ponga duro y apuntar cuánto mide el agujero en ese punto, con cada juego.
 4. Para la versión siguiente del iris, según lo que salga: lámina escalonada (fina en la punta, gruesa en la raíz), más giro de aro y un retén para la tapa.
 

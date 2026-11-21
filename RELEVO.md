@@ -15,6 +15,18 @@ Plantilla:
 
 ---
 
+## 2026-11-21 08:05 · sesión del Mac
+
+- **Hecho:** Pepe ha decidido añadir a la probeta del iris un **tercer juego de láminas, de 0,4 mm** («Sí, añádelo»). Apuntado como **D-28**.
+- **Cambió:** `DECISIONES.md` (D-28), `ESTADO.md`, una nota en la fila de láminas del apartado 11 de `caja/BRIEF-v5.md` y otra en `caja/reporte-v5/contra-reporte-iris.md`.
+- **A medias:** nada por mi parte.
+- **Para la sesión del PC:** el encargo, que sale de D-28:
+  1. Un juego de 8 láminas de **0,4 mm** (dos capas), con la misma silueta, la cola engordada a 1,2 mm y el tetón alargado para que llegue al aro, como ya haces con el juego de 0,8. **La carcasa no se toca.**
+  2. Ficheros: `caja/probetas-v5/iris-laminas-0.4mm-x8.3mf` y una suelta, con los mismos nombres que las otras.
+  3. Mira si con solo dos capas el rebaje del canto y la unión del tetón siguen saliendo bien, y pasa tus comprobaciones de apilado y de tetón con ese grueso. Apunta el resultado en tu reporte.
+  4. Un juego de 0,6 mm lo mencioné como posible. **Pepe no lo ha pedido:** no lo hagas sin preguntarle.
+- **Para Pepe:** puedes ir imprimiendo las cinco bandejas que ya hay; la carcasa es la misma. Las láminas de 0,4 llegarán en una bandeja aparte.
+
 ## 2026-11-21 01:30 · sesión del Mac
 
 - **Hecho:** revisada la **probeta del iris** antes de imprimir, porque Pepe dijo «lee git». Medidos los `.3mf` por mi cuenta y repetido el apilado de las láminas por otro camino.

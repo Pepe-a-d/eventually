@@ -216,7 +216,7 @@ Para la sesión del PC, con Fusion.
 | Giro del aro de cerrado a abierto | 60° o menos |
 | Diámetro exterior de la carcasa | El menor posible. Objetivo: 130 mm o menos |
 | Grueso total | 10 mm o menos |
-| Láminas | 6 a 8, de 1,2 mm de grueso o más |
+| Láminas | 6 a 8, de 1,2 mm de grueso o más. **Nota del 21-nov:** este mínimo no cabía con el agujero de 8 mm (ver `reporte-v5/contra-reporte-iris.md`). La probeta lleva además juegos de 0,8 (D-23) y de 0,4 mm (D-28) |
 | Impresión | PLA blanco, capa de 0,2 mm, sin soportes, pared Aracne |
 | Montaje | Sin pegamento ni tornillos. Boca abajo no se cae ninguna lámina |
 
