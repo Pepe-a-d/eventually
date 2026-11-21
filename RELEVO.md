@@ -15,6 +15,28 @@ Plantilla:
 
 ---
 
+## 2026-11-22 01:00 · sesión del Mac
+
+- **Hecho: la revisión de la caja v5 entera,** porque Pepe dijo «lee git y haz la revisión completa del modelo de la caja, que tenga 0 errores». Está en `caja/reporte-v5/contra-reporte-caja.md`. **No tiene cero: 9 errores en las piezas, 1 en el programa y 6 en el reporte.** Ninguno tumba la idea. Aconsejo a Pepe no imprimir nada hasta corregirlos; él no ha decidido.
+  - Instalé en el Mac shapely, manifold3d, trimesh y scipy (Pepe dijo que sí) y **volví a construir tus 27 piezas con tu programa: me da lo mismo que a ti.** Tu reporte sale de verdad de tu modelo.
+  - Lo que busqué es lo que tu programa no mira: piezas que no se pisan pero quedan sin holgura, las piezas con sus juegos, el montaje paso a paso, capas sin apoyo, y el texto contra el modelo.
+  - **`caja/reporte-v5/calculos-mac/revisar_caja_v5.py` reúne las pruebas que deciden.** Importa tu `caja_piezas_v5.py`, tarda dos minutos y no escribe nada. Hoy da 15 líneas en FALLA. La meta es que no dé ninguna. Funciona en el PC con lo que ya tienes instalado.
+- **Cambió:** nuevos `caja/reporte-v5/contra-reporte-caja.md`, `caja/reporte-v5/calculos-mac/revisar_caja_v5.py` y la carpeta `caja/reporte-v5/calculos-mac/revision-caja/` (programas y hallazgos de cada frente). `ESTADO.md`. **No he tocado ningún fichero tuyo.**
+- **A medias:** nada. Cuando corrijas, repito la revisión.
+- **Para la sesión del PC.** Cómo arreglar cada cosa lo decides tú. Lo que yo haría, por si ahorra tiempo:
+  1. **E1, agujero en la junta (0,3 × 1,2 mm en el centro).** Con dos puertas iguales, las dos cuñas no pueden cubrir el centro: si llegan las dos, chocan. Lo sencillo es volver a lo de tu primera nota: **dos puertas distintas,** una con la cuña entera y otra con el hueco entero. Las dos se siguen imprimiendo con la cara vista en la cama.
+  2. **E2, tetones sin juego en la rampa (0,02 mm).** La holgura está puesta en vertical y la ranura va a 15°: media altura de la V = (radio + holgura) / cos(pendiente), y mira además el trapecio de lados rectos, que se mete 0,16 mm a media pared. Comprueba con `min_gap` entre plataforma y tubo en la hélice: tu prueba de «bajarla 0,6 mm choca» no lo ve.
+  3. **E3, puertas abiertas sin tope hacia dentro.** Dos caminos que se suman: centrar el aro de verdad (hoy solo lo centra su borde, con 0,3 mm), y que el reposo de «abierto» deje la puerta a 92° o 93°, para que todo su juego caiga hacia fuera del reloj. Un tope fijo sería lo mejor, pero ya viste que estorba al montar.
+  4. **E4, las puertas se rozan al abrir (0,08 mm a 5°).** Más hueco en la cuña; con dos puertas distintas (punto 1) es más fácil.
+  5. **E5, ala del bisel.** Las tres alturas de la escalera están al revés: el peldaño ancho llega hasta arriba y tapa a los otros dos.
+  6. **E6, aro.** Que el anillo llegue por dentro hasta donde llega el cuerno, y que `aro_r_ext` cuente `pista_pared` (hoy es bola + 0,3).
+  7. **E7:** que la varilla tenga más sitio que la bola contra el canto de la pista.
+  8. **E8, cuerpo y funda.** El índice sale 0,6 mm y la funda tiene 0,5 de holgura: hace falta una llave que no se pueda saltar. En el cuerpo, que girado no asiente (hoy solo falla un clic).
+  9. **Programa:** que la fase 2 repita las comprobaciones de la fase 1; que el reparto de satélites pida múltiplo de 12 y no de 6; que columnas, asiento y ejes salgan de parámetros; quitar de la fase 1 la junta en escalón, que ya no existe; regenerar `caja-v5.json`.
+  10. **Reporte:** el orden de montaje (plato y satélites **antes** que la rueda central), el tetón con pomo boca abajo en su fichero, el tetón normal que falta en la probeta del planetario, y las cifras de la tabla del apartado 4 de mi revisión.
+  11. Los riesgos del apartado 5 no te pido arreglarlos ahora, salvo el 4 si lo ves fácil: **el cuerpo no tiene rampa de entrada ni forma de quitarlo.**
+- **Para Pepe:** decidir si se corrige antes de imprimir, y dos cosas suyas: las zanjas de delante y detrás del reloj abierto (E9) y si el soporte tiene que quedar sujeto boca abajo (P5).
+
 ## 2026-11-21 18:02 · sesión del PC
 
 - **Hecho: la caja v5 entera, modelada y comprobada en el modelo. Nada impreso.** Reporte en `caja/reporte-v5/caja-entera.md`: lo que no cumple va lo primero (apartado 1).
