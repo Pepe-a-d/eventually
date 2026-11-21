@@ -1,0 +1,84 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;background:#f3f1ea;overflow:hidden;font-family:"DejaVu Sans",Arial,sans-serif}canvas{display:block}
+#pie{position:absolute;left:0;right:0;bottom:0;padding:16px 44px 20px;background:rgba(255,255,255,.90);border-top:1px solid #d8d4c8}
+#t1{font-size:27px;font-weight:700;color:#1b1d21;line-height:1.25}#t2{font-size:20px;color:#3c4048;margin-top:5px;line-height:1.3}
+#marca{position:absolute;left:44px;top:24px;font-size:17px;letter-spacing:.06em;color:#5b606a}
+#tit{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(243,241,234,.86);text-align:center}
+#tit h1{font-size:54px;margin:0;color:#1b1d21}#tit p{font-size:25px;color:#3c4048;max-width:900px;line-height:1.4}
+#ley{position:absolute;right:36px;top:22px;font-size:16px;color:#2a2d33;background:rgba(255,255,255,.85);padding:10px 14px;border-radius:8px;line-height:1.55}
+#ley i{display:inline-block;width:13px;height:13px;border:1px solid #555;margin-right:8px;vertical-align:-1px}
+</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script></head>
+<body><div id="marca">EVENTUALLY · LA CAJA v5 · MODELO</div><div id="ley"></div><div id="pie"><div id="t1"></div><div id="t2"></div></div><div id="tit"><h1></h1><p></p></div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const W = 1280, H = 720;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, stencil: true }); renderer.setSize(W, H); renderer.setPixelRatio(1);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.82; renderer.localClippingEnabled = true;
+document.body.insertBefore(renderer.domElement, document.body.firstChild);
+const scene = new THREE.Scene(); scene.background = new THREE.Color('#f3f1ea');
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const luz = new THREE.DirectionalLight(0xffffff, 2.2); luz.position.set(160, -260, 380); luz.castShadow = true; luz.shadow.mapSize.set(1024, 1024);
+Object.assign(luz.shadow.camera, { left: -230, right: 230, top: 230, bottom: -230, near: 10, far: 900 }); luz.shadow.bias = -0.0006; scene.add(luz);
+scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+const suelo = new THREE.Mesh(new THREE.PlaneGeometry(3000, 3000), new THREE.ShadowMaterial({ opacity: 0.16 })); suelo.position.z = -122.7; suelo.receiveShadow = true; scene.add(suelo);
+const cam = new THREE.PerspectiveCamera(28, W / H, 10, 4000); cam.up.set(0, 0, 1);
+const plano = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+const D = await (await fetch('/datos/mallas.json')).json(); const c = D.cte;
+const P = {};
+const ST = (side, op) => { const m = new THREE.MeshBasicMaterial({ depthWrite: false, depthTest: false, colorWrite: false, stencilWrite: true, stencilFunc: THREE.AlwaysStencilFunc, side, clippingPlanes: [plano] });
+  m.stencilFail = op; m.stencilZFail = op; m.stencilZPass = op; return m; };
+D.piezas.forEach((p, i) => {
+  let g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(p.v, 3)); g.setIndex(p.t); g = g.toNonIndexed(); g.computeVertexNormals();
+  const o = new THREE.Group(); o.matrixAutoUpdate = false; scene.add(o);
+  const mat = new THREE.MeshStandardMaterial({ color: p.real, roughness: 0.62, metalness: 0, side: THREE.DoubleSide });
+  const malla = new THREE.Mesh(g, mat); malla.castShadow = true; malla.receiveShadow = true; malla.renderOrder = 60; o.add(malla);
+  const lin = new THREE.LineSegments(new THREE.EdgesGeometry(g, 28), new THREE.LineBasicMaterial({ color: 0x4a4d55, transparent: true, opacity: 0.33 })); lin.renderOrder = 61; o.add(lin);
+  const s0 = new THREE.Mesh(g, ST(THREE.BackSide, THREE.IncrementWrapStencilOp)), s1 = new THREE.Mesh(g, ST(THREE.FrontSide, THREE.DecrementWrapStencilOp));
+  s0.renderOrder = s1.renderOrder = i + 1; o.add(s0); o.add(s1);
+  const tm = new THREE.MeshBasicMaterial({ color: new THREE.Color(p.esquema).multiplyScalar(0.62), side: THREE.DoubleSide, toneMapped: false, stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc,
+    stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp });
+  const tapa = new THREE.Mesh(new THREE.PlaneGeometry(900, 900), tm); tapa.renderOrder = i + 1.1; tapa.onAfterRender = (r) => r.clearStencil(); scene.add(tapa);
+  P[p.n] = { p, o, malla, lin, s0, s1, tapa, mat };
+});
+const RZ = (g) => new THREE.Matrix4().makeRotationZ(g * Math.PI / 180), TR = (x, y, z) => new THREE.Matrix4().makeTranslation(x, y, z);
+function mov(tau) { tau = Math.min(Math.max(tau, 0), c.giro_tubo); const i = Math.floor(tau), f = tau - i, a = D.mov[i], b = D.mov[Math.min(i + 1, D.mov.length - 1)]; return a.map((v, k) => v + (b[k] - v) * f); }
+function matriz(mu, tau, fundaZ) {
+  const [s, psi, ang, h] = mov(tau);
+  if (mu === 'tubo') return RZ(c.ROT * tau);
+  if (mu === 'bisel') return RZ(c.ROT * tau / c.relacion);
+  if (mu === 'plataforma') return TR(0, 0, h);
+  if (mu === 'aro') return RZ(c.aro_sentido * psi);
+  if (mu === 'teton') return TR(0, -s, 0);
+  if (mu === 'funda') return TR(0, 0, fundaZ);
+  if (mu.startsWith('puerta')) { const sx = mu === 'puerta_derecha' ? 1 : -1;
+    return TR(sx * c.eje_x, 0, c.eje_z).multiply(new THREE.Matrix4().makeRotationY(sx * ang * Math.PI / 180)).multiply(TR(-sx * c.eje_x, 0, -c.eje_z)); }
+  if (mu.startsWith('satelite')) { const th = parseFloat(mu.split(':')[1]) * Math.PI / 180, cx = c.r_ejes * Math.cos(th), cy = c.r_ejes * Math.sin(th), d = c.ROT * tau;
+    return RZ(d).multiply(TR(cx, cy, 0)).multiply(RZ(d * c.z_central / c.z_satelite)).multiply(TR(-cx, -cy, 0)); }
+  return new THREE.Matrix4();
+}
+const $ = (id) => document.getElementById(id);
+// e: {tau, cam, mira, fundaZ, oculta:[..], opaco:{n:a}, esquema:bool, corte:[nx,ny,nz,k] (se queda lo que cumple n.x >= k), t1, t2, titulo:[h1,p], velo, leyenda:[[color,texto]..]}
+window.cuadro = (e) => {
+  const corte = e.corte || null;
+  if (corte) { plano.normal.set(corte[0], corte[1], corte[2]); plano.constant = -corte[3]; }
+  for (const n in P) { const q = P[n];
+    const vis = !(e.oculta || []).includes(n) && !(q.p.mueve === 'funda' && e.fundaZ === undefined);
+    const op = (e.opaco && e.opaco[n] !== undefined) ? e.opaco[n] : 1;
+    q.o.visible = vis; q.o.matrix.copy(matriz(q.p.mueve, e.tau || 0, e.fundaZ || 0));
+    q.mat.color.set(e.esquema ? q.p.esquema : q.p.real); q.mat.transparent = op < 1; q.mat.opacity = op; q.mat.depthWrite = op >= 1; q.malla.castShadow = op >= 1;
+    q.lin.material.opacity = 0.33 * op; const clave = (corte ? 'c' : '-') + (op < 1 ? 't' : '-') + (e.sinSombra ? 's' : '-');
+    if (q.clave !== clave) { q.clave = clave; q.mat.clippingPlanes = corte ? [plano] : []; q.lin.material.clippingPlanes = corte ? [plano] : []; q.mat.needsUpdate = true; q.lin.material.needsUpdate = true; }
+    const tapa = !!corte && vis && op >= 1; q.s0.visible = q.s1.visible = tapa; q.tapa.visible = tapa;
+    if (tapa) { const n3 = plano.normal; q.tapa.position.set(n3.x * corte[3], n3.y * corte[3], n3.z * corte[3]); q.tapa.lookAt(q.tapa.position.x - n3.x, q.tapa.position.y - n3.y, q.tapa.position.z - n3.z); }
+  }
+  suelo.visible = !e.sinSuelo && !e.sinSombra; luz.castShadow = !e.sinSombra;
+  cam.position.set(...e.cam); cam.lookAt(...e.mira);
+  $('t1').textContent = e.t1 || ''; $('t2').textContent = e.t2 || ''; $('pie').style.display = (e.t1 || e.t2) ? 'block' : 'none';
+  $('tit').style.display = e.titulo ? 'flex' : 'none'; if (e.titulo) { $('tit').querySelector('h1').textContent = e.titulo[0]; $('tit').querySelector('p').textContent = e.titulo[1]; const v = e.velo === undefined ? 0.8 : e.velo; $('tit').style.background = `rgba(243,241,234,${v})`; $('tit').style.opacity = Math.min(1, v / 0.3); }
+  $('ley').style.display = e.leyenda ? 'block' : 'none'; if (e.leyenda) $('ley').innerHTML = e.leyenda.map(([k, t]) => `<div><i style="background:${k}"></i>${t}</div>`).join('');
+  renderer.render(scene, cam); return true;
+};
+window.listo = true;
+</script></body></html>
