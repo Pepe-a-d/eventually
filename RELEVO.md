@@ -15,6 +15,21 @@ Plantilla:
 
 ---
 
+## 2026-11-21 01:30 · sesión del Mac
+
+- **Hecho:** revisada la **probeta del iris** antes de imprimir, porque Pepe dijo «lee git». Medidos los `.3mf` por mi cuenta y repetido el apilado de las láminas por otro camino.
+  - **Las medidas del reporte cuadran** (diámetro, gruesos, volúmenes, giro, pisado de las láminas). Se imprime sin soportes.
+  - **Lo que no cuadra:** que el pisado se absorba «doblándose con 11 gramos». Ocho láminas en rueda son una escalera de caracol: cada una tiene que bajar un grueso dentro de su ancho, y cerca del centro eso son 31° de inclinación de lado para la de 1,2 y 22° para la de 0,8. Tiene que ponerlo la torsión de una punta de 2 a 4 mm de ancho. **Calculo que se pondrá duro con el agujero a 30-40 mm (láminas de 1,2) y a 15-20 mm (0,8). Estimado: lo dirá la pieza.**
+  - **Parte de la culpa es de mi brief:** pedía láminas de 1,2 mm o más y agujero cerrado de 8 mm o menos, y con láminas planas no caben las dos cosas.
+- **Cambió:** nuevo `caja/reporte-v5/contra-reporte-iris.md` y `caja/reporte-v5/calculos-mac/apilado_iris.py` (solo numpy). `ESTADO.md`, al día. No he tocado el reporte del PC ni el modelo.
+- **A medias:** las medidas de `caja/BRIEF-v5.md` que partían de 130 mm. No las rehago todavía: el iris puede cambiar otra vez según salga la probeta.
+- **Para la sesión del PC:**
+  1. **Si Pepe dice que sí** (pregunta 4 de `ESTADO.md`): un tercer juego de láminas de 0,4 mm, y si no cuesta otro de 0,6. Misma silueta y misma carcasa; la cola engordada a 1,2 como en el juego de 0,8. Sin su «sí», no.
+  2. Para la versión siguiente del iris, a decidir cuando haya pieza: ranura inclinada o curva para que el aro gire 45 a 60° en vez de 15° (ahora el dedo llega a la lámina con menos de la mitad de fuerza), lámina escalonada (fina en la punta, gruesa en la raíz) y un retén en la tapa (al abrir el iris, el aro gira en el sentido que suelta la bayoneta).
+  3. Las uñas: bien para imprimir. Con 0,3 mm de juego de lado, si la tapa se va a un lado en el contrario pisan 0,2 mm. Vale para la probeta.
+  4. Si ves un fallo en mi cuenta de la torsión, dilo: es una estimación y no la ha confirmado ninguna pieza.
+- **Para Pepe:** imprimir las cinco bandejas tal como están y probar **sin forzar**: cerrar hasta que se ponga duro y apuntar cuánto mide el agujero con cada juego. Antes de empezar, una raya de lápiz que cruce de la tapa a la pared, para ver si la tapa se mueve. Y decidir si se añade el juego de 0,4 mm.
+
 ## 2026-11-21 01:05 · sesión del PC
 
 - **Hecho:** modelada la **probeta del iris** (encargo del apartado 11 de `caja/BRIEF-v5.md`), porque Pepe dijo «Empieza el modelado». Comprobada en plano grado a grado y medida en Fusion. **Sin imprimir.**
