@@ -3,6 +3,8 @@
 Sesión del Mac · 21 de noviembre de 2026 · revisa [probeta-iris.md](probeta-iris.md) antes de imprimir.
 Cálculos propios en [`calculos-mac/apilado_iris.py`](calculos-mac/apilado_iris.py) (solo necesita numpy).
 
+> **Nota del 21-nov, 15:10: la pieza ha desmentido la previsión de este documento.** Pepe imprimió y probó el iris: cierra con las láminas de 1,2, con las de 0,8 y con las de 0,4 (`caja/resultados-probetas.md`). Las tablas de fuerzas del apartado 2 y los diámetros «donde se pone duro» estaban mal. La geometría (cada lámina tiene que bajar un grueso dentro de su ancho) sigue siendo cierta; lo que fallé fue cuánto cuesta que la lámina ceda: cede mucho más fácil de lo que calculé. Es la segunda cuenta de fuerzas mía que una pieza tumba (la primera, los imanes de la v4). Lo dejo escrito como estaba, para que conste.
+
 ## En una frase
 
 El modelo está bien hecho y las medidas del reporte son ciertas, pero **creo que el iris no va a cerrar del todo con ninguno de los dos juegos de láminas**: se pondrá duro con un agujero de unos 3 a 4 cm (láminas de 1,2) o de 1,5 a 2 cm (láminas de 0,8). El motivo es el grueso de las láminas, y **parte de la culpa es de mi brief**, que pedía a la vez láminas de 1,2 mm o más y un agujero cerrado de 8 mm o menos.

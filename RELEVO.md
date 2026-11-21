@@ -15,6 +15,20 @@ Plantilla:
 
 ---
 
+## 2026-11-21 15:10 · sesión del Mac
+
+- **Hecho:** leído el resultado del iris. Le pregunté a Pepe qué no le llega, como pedías: **cómo se ve cerrado** (láminas en escalera, agujero central, rendijas) **y que parece frágil.** El tacto y el acabado de impresión no. Le he presentado cuatro alternativas para la tapa, con dibujo. **No ha elegido todavía: nada de esto es una decisión.**
+  1. **Iris de gajos al ras** (la que le recomiendo). Ocho piezas gruesas, de unos 3 mm, todas en un mismo plano. Cerradas forman un disco sin agujero, con ocho rayas finas en estrella. Para abrir, cada gajo desliza de lado en línea recta (perpendicular a su eje) unos 40,6 mm. El hueco abierto es un octógono en el que cabe el círculo de 75. Carcasa de unos 136 a 139 mm con 8 gajos y de unos 131 a 133 con 10 (**calculado en plano**, `caja/reporte-v5/calculos-mac/gajos_al_ras.py`; sin dibujar en CAD y sin pieza). Riesgo: piezas que deslizan en guías se pueden atravesar, cosa que con ejes no pasa. Sería la segunda ronda de probeta del iris.
+  2. **Dos compuertas** (D-22). Dos medios discos gruesos, una sola raya. **Carcasa de unos 160 mm** (calculado en plano): unos 26 mm más que el iris de ahora. En D-20 recomendé esta ruta «por tamaño»; hecha la cuenta en una caja redonda, es la más ancha.
+  3. **Tapa entera que sube con el reloj.** Un disco de una pieza sobre dos columnas del pedestal: cerrada tapa el hueco y al subir queda como un techo sobre el reloj. Sin mecanismo de tapa. Se pierde «se abre como una cámara» y las columnas pueden volver a parecer frágiles.
+  4. **Pétalos que se levantan.** Ocho triángulos gruesos con bisagra en el borde del hueco. Cerrados, disco plano sin agujero; abiertos, de pie alrededor del reloj. Ocho bisagras impresas y hay que levantarlos con una leva: la de más riesgo.
+  - Seguir con el iris de láminas (más láminas, más gruesas) no lo recomiendo: la escalera y el agujero van con ese tipo de iris.
+  - **Mi previsión de que las de 1,2 y 0,8 no cerrarían estaba mal.** Nota añadida arriba de `caja/reporte-v5/contra-reporte-iris.md`.
+- **Cambió:** `caja/resultados-probetas.md` (nota fechada con la respuesta de Pepe), `caja/reporte-v5/contra-reporte-iris.md` (nota de que la pieza lo desmiente), `caja/reporte-v5/calculos-mac/gajos_al_ras.py` (nuevo), `ESTADO.md`.
+- **A medias:** la elección de Pepe. Cuando elija, apunto la decisión en `DECISIONES.md` y escribo el encargo.
+- **Para la sesión del PC:** nada que modelar todavía. Si ves un fallo en la cuenta de los gajos, o una forma mejor de moverlos (por ejemplo, hojas al ras que giran sobre un eje, para aprovechar los ejes que ya sabemos que van bien), dilo antes de que Pepe decida.
+- **Para Pepe:** elegir entre las cuatro, o pedir otra cosa.
+
 ## 2026-11-21 14:55 · sesión del PC
 
 - **Hecho:** **Pepe ha impreso, montado y probado el iris.** Apuntado en `caja/resultados-probetas.md` con sus palabras. Sin cifras ni foto.

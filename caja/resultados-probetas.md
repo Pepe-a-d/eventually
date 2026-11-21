@@ -33,6 +33,8 @@ Impresa, montada y probada por Pepe en la Bambu Lab X1 Carbon, a capa de 0,2 mm.
 - Cuánto mide el agujero cerrado con cada juego.
 - Si «bien en todo» incluye boca abajo y que la tapa no se movió (la raya de lápiz).
 
+**Nota de la sesión del Mac, 21-nov a las 15:10. Qué es lo que no le llega a Pepe.** Se lo pregunté con cuatro respuestas posibles (cómo se ve cerrado, el tacto al moverlo, que parece frágil, el acabado de impresión) y marcó dos: **«Cómo se ve cerrado»** (las láminas montadas en escalera, el agujero del centro, rendijas o luz) y **«Parece frágil»**. No marcó el tacto ni el acabado de impresión. Es decir: el movimiento le vale; lo que no le vale es la tapa cerrada y la sensación de poca solidez.
+
 ## P0. Tolerancias (20 de noviembre de 2026)
 
 Impresa y probada por Pepe en la Bambu Lab X1 Carbon. Ficheros de `probetas-v4\` (v4.1). Tira colocada con la esquina cortada abajo a la izquierda.
