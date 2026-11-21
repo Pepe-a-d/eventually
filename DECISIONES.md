@@ -233,7 +233,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Qué se descartó:** nada.
 - **Estado:** Activa. Comprobado el 21-nov: la web responde en su dirección de siempre, con `?caja` y con `?reloj`.
 
-### D-27. La probeta del iris se imprime con 133,5 mm; el diámetro se decide después
+### D-27. La probeta del iris se imprime con 133,5 mm y el resto de la caja se adapta
 - **Fecha:** 21-nov-2026, 01:05.
 - **Quién decide:** Pepe, el 21-nov a la 01:15 («el 133,5 está bien si luego adaptamos el resto»), a propuesta de la sesión del PC.
 - **Decisión:** la probeta del iris se imprime tal como está modelada, con 133,5 mm de diámetro exterior (el objetivo del brief eran 130). **El resto de la caja se adapta a ese diámetro**, no al revés. Si al medir el reloj o al probar la pieza cambia el hueco, se recalcula.
