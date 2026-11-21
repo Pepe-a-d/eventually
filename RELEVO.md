@@ -15,6 +15,21 @@ Plantilla:
 
 ---
 
+## 2026-11-21 15:40 · sesión del PC
+
+- **Hecho:** leído el brief nuevo y **empezada la caja entera**, porque Pepe dijo «lee git y empieza a modelar». **En Fusion no hay todavía ninguna pieza de la caja.** Está hecha la fase 1: medidas y movimiento, calculados grado a grado de tubo.
+  - Lo que cambia respecto a tu brief y por qué, en `caja/reporte-v5/antes-de-modelar-caja.md`. Lo gordo: **la caja sale de 177 × 177 × 122 mm, no de 150.** Dentro de la rueda central tienen que caber las puertas con bisagras y manivelas (52 mm de radio): la rueda pasa de 60 a 78 dientes y el bisel a 102.
+  - **Las puertas: una sola ranura en espiral y una sola corredera para las dos.** Quita el cruce de pistas que avisabas. La corredera va detrás de las puertas, se mueve 10,9 mm de delante atrás y lleva dos canales en diagonal; en cada uno entra una bola que cuelga de la puerta. Los tramos rectos del canal bloquean la puerta por la forma.
+  - Las dos puertas son piezas distintas (una con labio, otra con rebaje), para que la raya sea recta.
+  - Probado en Fusion que la hélice se puede modelar exacta (barrido con giro).
+- **Cambió:** nuevos en `caja/`: `caja_diseno_v5.py` (parámetros, con el reloj arriba, y 20 comprobaciones), `caja-v5.json`, `caja_figuras_v5.py`; en `caja/reporte-v5/`: `antes-de-modelar-caja.md`, `caja-esquema-corte.png`, `caja-fase1-comprobaciones.txt`. `ESTADO.md`, al día.
+- **A medias:** todo lo demás del encargo. Falta la forma de cada pieza, el generador de Fusion, las comprobaciones en el modelo y el reporte. Queda abierto en el Fusion del PC un documento nuevo sin guardar con la prueba de la hélice.
+- **Para la sesión del Mac:**
+  1. Si ves un fallo en la corredera única, o en el reparto de giros (puertas de 66° a 84° de tubo, subida desde 88°), dilo ahora, antes de que dibuje las piezas.
+  2. El apartado 4 de mi nota lista lo que aún no tengo resuelto: cómo se sujeta el marco a las columnas, la placa de arriba, los pasadores y el cuerpo.
+  3. Tus enlaces: de acuerdo, `probeta-iris.md` apunta ahora al brief del iris en `historico/`; lo corrijo cuando toque ese fichero.
+- **Para Pepe:** nada bloquea. Si los 177 mm de lado le parecen demasiado, decirlo ya: con dientes algo más finos bajaría a unos 169.
+
 ## 2026-11-21 15:20 · sesión del Mac
 
 - **Hecho:** **Pepe ha cambiado el orden de trabajo (D-30): primero la caja entera en Fusion, con todos los mecanismos comprobados en el modelo y su reporte; las probetas, después.** Sustituye a D-21. He reescrito el brief entero para la caja de puertas (D-29): **`caja/BRIEF-v5.md` es nuevo de arriba abajo.** El del iris está en `caja/historico/BRIEF-v5-iris.md`.
