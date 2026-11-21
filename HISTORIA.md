@@ -56,6 +56,7 @@ Fallo de coordinación de ese día: la sesión del PC vigilaba dos repositorios 
 1. **00:05.** Pepe le dice a la sesión del Mac «lee el git». Esta comprueba que la unificación no perdió nada: la web, el brief, los resultados y su resumen son idénticos a los de los repositorios antiguos.
 2. **00:10.** Con el permiso de Pepe (D-26): GitHub Pages pasa a servir `/docs`, se archivan `eventually-caja` y `eventually-proyecto`, y el Mac pasa a trabajar en un clon de este repositorio.
 3. La web vuelve a su dirección de siempre. Durante la hora que estuvo servida desde la raíz, la vista previa del enlace estuvo rota.
+4. **De madrugada, hasta la 01:05.** Pepe dice «Empieza el modelado». La sesión del PC modela la probeta del iris. Al dibujarla entera descubre que su cálculo de la víspera era optimista: no salen 125 a 127 mm sino 133,5, porque el eje de cada lámina tiene que ir fuera de la zona donde se cruzan. Prueba tres formas de sujetar las láminas antes de quedarse con un poste por lámina (D-27). Todo lo demás del encargo se cumple en el modelo. Sin imprimir.
 
 ## 7. Lo que se aprendió
 

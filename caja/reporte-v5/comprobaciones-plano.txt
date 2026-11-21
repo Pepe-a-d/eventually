@@ -1,0 +1,32 @@
+Iris v5: 8 laminas, hueco 75 mm
+  diametro exterior 133.5 mm, grueso 9.80 mm, la lamina gira 33.4 grados y el aro 15.2
+  bien  abierto, las laminas quedan 0.60 mm por detras del borde del hueco de 75 mm
+  bien  cerrado, agujero central de 5.0 mm y 0 rendijas mas
+  bien  cerrado, cada lamina monta al menos 1.2 mm sobre la vecina (sin cubrir asi: 0.00 mm2)
+  bien  en todo el giro la lamina no sale mas alla de su cola (llega a 65.20 mm del centro; el fondo del alveolo esta a 65.55)
+  bien  cada alveolo ocupa de -3.7 a 4.3 grados; entre dos alveolos quedan 37.0 grados de pared gruesa (41.6 mm)
+  bien  ninguna otra lamina toca la isla en todo el giro (la mas cercana pasa a 0.40 mm)
+  bien  las laminas pasan a 0,3 mm o mas de la pared en todo el giro (pisado: 0.00 mm2)
+  bien  laminas opuestas: se pisan 0.00 mm2 como mucho (tiene que ser cero para poder apilarlas)
+  bien  el teton de cada lamina queda siempre a 24.8 mm o mas de las laminas que van encima
+  bien  el teton cae dentro de su lamina con 0,6 mm o mas de margen
+  bien  apilado, juego A (1.2 mm): si las laminas fueran del todo rigidas se pisarian 0.26 mm abiertas, 0.49 a medio giro y 1.13 cerradas. Lo absorben doblandose: unos 11 gramos por lamina en el peor punto. SE CONFIRMA IMPRIMIENDO
+  bien  apilado, juego B (0.8 mm): si las laminas fueran del todo rigidas se pisarian 0.00 mm abiertas, 0.09 a medio giro y 0.73 cerradas. Lo absorben doblandose: unos 2 gramos por lamina en el peor punto. SE CONFIRMA IMPRIMIENDO
+  bien  el aro gira 15.9 grados de tope a tope (el brief pide 60 o menos): 14.9 de abierto a cerrado, mas 0.7 de sobregiro al abrir y 0.2 al cerrar; el teton va de 41.6 a 45.1 mm de radio
+  bien  la ranura del aro empuja al teton con 41 grados de sesgo como mucho (por debajo de 45 no se acuña)
+  bien  la ranura del aro va de 39.6 a 47.2 mm de radio; el aro, de 38.5 a 64.1
+  bien  el aro apoya en los 8 postes: cubre 3.2 mm de los 3.2 de cada uno
+  bien  el hueco de la orejeta va de 11.3 a 34.3 grados; a cada lado quedan 7.1 grados de pared gruesa que hacen de tope (7.9 mm)
+  bien  el aro no toca la base en todo su giro (pisado: 0.000 mm2)
+  bien  la tapa entra y gira 13 grados hasta el tope sin tocar las uñas (pisado: 0.000 mm2)
+  bien  el tope de la bayoneta para la tapa (si girase 1 grado mas chocaria 2.25 mm2)
+  bien  cerrada, cada uña monta 0.5 mm sobre el borde de la tapa a lo largo de 14 mm
+  bien  la tapa apoya en el escalon de la pared en el 54 % de la vuelta
+  bien  los topes de las uñas nacen sobre pared maciza (en el aire: 0.00 mm2)
+  bien  las laminas no tocan la pared ni otra isla (pisado: 0.000 mm2)
+  bien  teton del juego A: mide 2.0 mm; entra en el aro entre 1.1 y 2.0 mm de los 2.0 del aro, y nunca toca la tapa
+  bien  teton del juego B: mide 2.4 mm; entra en el aro entre 1.1 y 2.0 mm de los 2.0 del aro, y nunca toca la tapa
+  nota  holguras: el poste y el teton tienen 0.25 mm de juego por lado; en la punta de la lamina eso son hasta 1.6 mm de retraso. Por eso los topes dejan pasar 1.5 grados de lamina al abrir y 0.7 al cerrar. Agujero cerrado previsto: entre 3.6 mm (sin holgura) y 6.8 mm (con toda la holgura)
+  bien  grueso total 9.80 mm (el brief pide 10 o menos)
+  FALLA diametro exterior 133.5 mm (el objetivo del brief es 130 o menos)
+TODO BIEN, salvo el diametro

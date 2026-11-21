@@ -207,7 +207,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - Tres discos de unos 126 mm y las láminas ya ocupan dos bandejas: dos variantes no caben en una.
   - Al cerrar se apilan 4 o 5 láminas en el centro: cerrar del todo es donde más fácil se engancha.
 - **Qué se descartó:** la variante de 6 láminas (no cumple el diámetro) y el agujero cero como requisito.
-- **Estado:** Activa. Sin modelar.
+- **Estado:** Activa. Modelada el 21-nov. **Ojo: la cifra de 125 a 127 mm estaba mal; con el iris dibujado entero salen 133,5 (D-27).**
 
 ### D-24. Un solo repositorio y este registro
 - **Fecha:** 20-nov-2026, 23:44.
@@ -232,4 +232,21 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Qué llevó a ella:** el relevo de la sesión del PC. Además, con Pages sirviendo la raíz, la web solo funcionaba saltando a `…/eventually/docs/` y la imagen de la vista previa del enlace daba error 404 (medido con `curl` el 21-nov).
 - **Qué se descartó:** nada.
 - **Estado:** Activa. Comprobado el 21-nov: la web responde en su dirección de siempre, con `?caja` y con `?reloj`.
+
+### D-27. La probeta del iris se imprime con 133,5 mm; el diámetro se decide después
+- **Fecha:** 21-nov-2026, 01:05.
+- **Quién decide:** propuesta de la sesión del PC. Pepe no ha contestado todavía.
+- **Decisión que se propone:** imprimir la probeta del iris tal como está modelada, con 133,5 mm de diámetro exterior (el objetivo del brief eran 130), y decidir el diámetro de la caja cuando el reloj esté medido y la probeta probada.
+- **Qué llevó a ella:**
+  - **El cálculo de D-23 estaba mal.** Daba 125 a 127 mm con 8 láminas porque no contaba dónde va el eje de cada lámina ni cómo se sujeta la tapa. Lo hizo la sesión del PC y fue esa cifra la que oyó Pepe.
+  - Al dibujarlo entero (calculado en plano, grado a grado, `caja/iris_diseno_v5.py`): el eje de una lámina no puede quedar debajo de otra lámina, así que va a 61,9 mm del centro; detrás van la cola (3,3 mm), su holgura (0,35) y una pared (1,2). Suma 66,75 de radio.
+  - Del modelo de Fusion: 133,50 mm medidos. Todo lo demás del encargo se cumple en el modelo.
+  - Lo que la probeta tiene que contestar, si un iris de PLA abre y cierra suave, no depende de esos 3,5 mm.
+- **Cómo es el iris modelado** (para que la otra sesión no tenga que deducirlo): cada lámina gira en un poste de la base, en una isla pegada a la pared por donde no pasa ninguna otra lámina; lleva un tetón hacia arriba que entra en una ranura radial del aro; el aro va encima de las láminas y saca la orejeta por un hueco de la pared, cuyos extremos son los topes; la tapa cierra con una bayoneta de cuatro uñas en rampa de 45°. Detalle en `caja/reporte-v5/probeta-iris.md`.
+- **Qué se descartó:**
+  - *La cola de la lámina encajada en un alveolo redondo de la pared, sin poste.* El alveolo solo abrazaba 62° de la cola: se salía de lado (calculado).
+  - *Ejes colgados de la tapa, pasando por ranuras del aro.* Cabía en unos 129 mm, pero con muchas piezas finas y un montaje a ciegas. No se llegó a modelar.
+  - *Láminas en luna con la cola metida entre las demás.* Salía de 128 mm, pero la cola solo apoyaba en el 21 % de su superficie (calculado).
+  - *Bajar ahora a 130 con 10 láminas o con el hueco de 72 mm.* Se deja para después de probar esta: 10 láminas contradice D-23 y el hueco depende del reloj, sin medir.
+- **Estado:** Propuesta.
 
