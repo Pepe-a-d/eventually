@@ -1,5 +1,8 @@
 # La caja entera: antes de modelar
 
+> **SUPERADA el 21-nov a las 18:02 por [`caja-entera.md`](caja-entera.md).** Se deja como estaba para que conste lo que se dijo antes de modelar. Tres cosas de esta nota no llegaron al modelo: la corredera recta (se metía en el hueco libre; ahora es un aro que gira 11°), las dos puertas distintas (ahora son la misma pieza, con la junta en bisel) y el tamaño (177 mm; el modelo mide 178,8).
+
+
 Sesión del PC · 21 de noviembre de 2026, 15:40 · responde al apartado 11 de [BRIEF-v5.md](../BRIEF-v5.md), que pide decir primero lo que no se puede cumplir o tiene una forma mejor.
 
 **Estado: empezado. Hecha la fase 1 (medidas y movimiento, calculados). En Fusion no hay todavía ninguna pieza de la caja.**

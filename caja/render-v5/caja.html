@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#fff}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script></head>
+<body><script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const W = 1500, H = 1100;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); renderer.setSize(W, H); renderer.setPixelRatio(1);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color('#f3f1ea');
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const luz = new THREE.DirectionalLight(0xffffff, 2.2); luz.position.set(160, -260, 380); luz.castShadow = true; luz.shadow.mapSize.set(2048, 2048);
+Object.assign(luz.shadow.camera, { left: -220, right: 220, top: 220, bottom: -220, near: 10, far: 900 }); luz.shadow.bias = -0.0005; scene.add(luz);
+scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+const suelo = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.ShadowMaterial({ opacity: 0.18 })); suelo.position.z = -122.7; suelo.receiveShadow = true; scene.add(suelo);
+const grupo = new THREE.Group(); scene.add(grupo);
+const cam = new THREE.PerspectiveCamera(28, W / H, 10, 4000); cam.up.set(0, 0, 1);
+window.pinta = async (nombre, pos, mira) => {
+  grupo.clear();
+  const datos = await (await fetch('/datos/' + nombre + '.json')).json();
+  for (const p of datos) {
+    let g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(p.v, 3)); g.setIndex(p.t); g = g.toNonIndexed(); g.computeVertexNormals();
+    const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ color: p.c, roughness: 0.62, metalness: 0.0, side: THREE.DoubleSide })); m.castShadow = true; m.receiveShadow = true; grupo.add(m);
+    const e = new THREE.LineSegments(new THREE.EdgesGeometry(g, 28), new THREE.LineBasicMaterial({ color: 0x555555, transparent: true, opacity: 0.35 })); grupo.add(e);
+  }
+  cam.position.set(...pos); cam.lookAt(...mira); renderer.render(scene, cam); return datos.length;
+};
+window.listo = true;
+</script></body></html>

@@ -1,0 +1,322 @@
+# Reporte: la caja v5 entera (puertas y ascensor)
+
+Escrito el 21 de noviembre de 2026 por la sesión del PC. Responde al encargo del apartado 11 de [`../BRIEF-v5.md`](../BRIEF-v5.md).
+
+**Nada de esto está impreso.** «Comprobado en el modelo» quiere decir que las piezas, dibujadas con sus holguras, se mueven como deben y no se pisan. No quiere decir que funcione: eso lo dirán las probetas. En este documento **no hay ninguna fuerza calculada** (tres previsiones de fuerzas ya las ha tumbado una pieza impresa).
+
+Cada dato dice de dónde sale: **del modelo** (medido sobre las piezas dibujadas), **calculado** (cuenta hecha con medidas del modelo), **estimado**, **supuesto** (medida del reloj sin confirmar), **decidido** (lo eligió Pepe) o **medido** (sobre una pieza impresa).
+
+![La caja con la funda, sin ella y vista desde arriba](caja-vistas.png)
+
+## 0. En pocas líneas
+
+- **Está modelada la caja entera: 25 piezas** (más el reloj de pega), en un programa de medidas y en Fusion. Las medidas del reloj van arriba de la lista, juntas.
+- **Las puertas ya tienen cómo moverse**, que era lo que faltaba en el brief: un aro escondido alrededor del hueco gira 11° y mueve las dos a la vez. Lo abre y lo cierra la forma de las piezas, sin muelles, imanes ni gravedad.
+- **En el modelo, de tope a tope y de 2 en 2 grados, ninguna pieza pisa a otra,** y el reloj de pega queda siempre a 3,00 mm o más de todo.
+- **Mide 178,8 mm de lado y 122,6 de alto** (183,8 × 126 con la funda). Es más de lo que estimaba el brief (150) y 2 mm más de lo que te dije (177). Ver el apartado 1.
+- **Cinco cosas no cumplen el brief al pie de la letra o las he cambiado.** Están en el apartado 1.
+- **Propongo tres probetas** (puertas, ascensor y planetario). Sus ficheros de imprimir están en [`../probetas-v5/`](../probetas-v5/). Entre las tres son casi toda la caja: eso es una decisión tuya (apartado 9).
+
+## 1. Lo que no cumple, o cambia, respecto al brief
+
+Lo primero y sin adornar.
+
+| # | Qué pedía el brief | Qué hay en el modelo | Por qué |
+| --- | --- | --- | --- |
+| 1 | Caja de unos 150 mm de lado y 135 de alto (estimado a mano) | **178,8 de lado y 122,6 de alto** (del modelo). Con funda, 183,8 × 126 | Alrededor del hueco de 50 × 59 van, uno dentro de otro: la meseta con las bisagras, la rueda central, los satélites, el bisel y la pared. La cuenta a mano del brief no contaba el sitio de las bisagras ni el del aro que mueve las puertas. Te dije 177 y aceptaste; al cambiar la corredera recta por el aro (ver 2.2) creció 2 mm más |
+| 2 | Puertas cerradas: escalón de 0,3 mm o menos | **Cumple con la caja de pie** (apoyan en su asiento, a ras). **Boca abajo no:** cada puerta se puede descolgar hasta 3,0° (1,5 mm en la punta) antes de que la pare su pista (del modelo) | La bola que mueve cada puerta va en su pista con 0,15 mm de holgura por lado, y el brazo de la bola solo mide 8 mm: poca holgura ahí es mucho ángulo en la puerta. Se ajusta con la probeta (apartado 9) |
+| 3 | Nueve imanes, tres en el final de recorrido | **Diez imanes,** cuatro en el final de recorrido (dos en la oreja del tubo y dos en el tope) | Con tres, uno tendría que servir para los dos extremos y quedaría a 4 mm de su pareja: no haría nada. Quedan 3 de repuesto de los 13 |
+| 4 | Mejor nada pegado | **Los imanes de la funda y del soporte van en cajeras abiertas:** o entran a presión, o llevan un punto de pegamento. Los cuatro del tope entran de canto en una ranura y no se pueden caer con la caja boca abajo | No sé si un alojamiento de 5,20 sujeta el imán o solo lo deja entrar: la P0 dijo que «entra». Es adorno: sin imanes la caja funciona igual |
+| 5 | Soporte del reloj: pinza en C y peana, como en la v4 | **Un soporte simplificado** (peana, dos mejillas y un travesaño que pasa por dentro del brazalete) | Sin las medidas del reloj no tiene sentido afinarlo. Sirve para comprobar que nada toca al reloj |
+
+Y tres cosas que no son incumplimientos pero conviene que sepas:
+
+- **La tarjeta no está modelada.** El brief la deja «en la funda, o fuera de la caja»: no tiene sitio todavía.
+- **La frase está puesta en el techo de la funda,** de 118 mm de ancho. Ahí sale gratis: la funda se imprime boca abajo y la frase son sus tres primeras capas, en azul. Dónde va es tuyo (apartado 8).
+- **La meseta (el marco liso que rodea las puertas) sale con otro acabado que las puertas.** Las puertas, la rueda central y el bisel se imprimen con la cara vista contra la cama; la meseta no puede (necesitaría soportes), así que su cara vista es la de arriba de la impresión. Puede notarse el brillo distinto. Ver el apartado 6.
+
+## 2. Qué es y cómo funciona
+
+![Cortes de la caja cerrada y abierta, con el nombre de cada pieza](caja-cortes.png)
+
+### 2.1 De fuera adentro
+
+- **Cuerpo:** la piel cuadrada. Lleva el índice del frente, en relieve. Entra a presión en la base con cuatro pestillos.
+- **Bisel:** lo que se gira. Estriado por fuera y dentado por dentro (102 dientes). Asoma 8 mm sobre el cuerpo. No se puede sacar hacia arriba: un ala suya queda debajo del labio del cuerpo.
+- **Satélites:** seis ruedas de 12 dientes, una azul. Ruedan entre el bisel y la rueda central, y al rodar dan vueltas alrededor del hueco.
+- **Rueda central:** fija, 78 dientes. Por arriba es una placa lisa con seis dedos que tapan a medias los satélites: son los «puentes» del esqueleto.
+- **Plato y tubo:** el plato lleva los ejes de los satélites y va encajado en lo alto del tubo. Giran juntos, a 0,567 veces lo que gira el bisel (calculado: 102 / 180).
+- **Tubo:** por dentro lleva tres ranuras en espiral, como un pintalabios. En ellas van los tres tetones de la plataforma.
+- **Plataforma con pedestal:** sube recta porque tres muescas suyas corren por las tres columnas de la base. Abajo del todo descansa en un asiento de la base, no colgada de sus tetones. Arriba del todo, el pedestal rellena el hueco de las puertas y queda a ras.
+- **Marco y meseta:** lo fijo de arriba. El marco apoya en las tres columnas; la meseta va encima, lleva las bisagras y es lo liso que se ve alrededor de las puertas.
+- **Puertas:** dos, de 5 mm, la misma pieza girada media vuelta. Cada una gira en un pasador de 3 mm.
+- **Aro de las puertas y tetón:** lo que las mueve. Apartado siguiente.
+- **Funda:** campana cuadrada. Solo entra con su frente al frente (lleva un canal para el índice del cuerpo).
+
+![Despiece](caja-despiece.png)
+
+### 2.2 Cómo se mueven las puertas (lo que faltaba en el brief)
+
+El brief proponía dos correderas con dos ranuras en espiral en el plato, y avisaba de que no sabía si cabían. Las dibujé: una corredera recta, al abrirse, se metía dentro del hueco libre de 50 × 59. Tampoco cabían dos franjas de espiral. Lo que hay es la tercera idea del brief (un aro intermedio que gira poco), resuelta así:
+
+1. **Cada puerta lleva por debajo una varilla corta con una bola en la punta** (una manivela de 8 mm).
+2. **Alrededor del hueco, escondido bajo la meseta, hay un aro** con dos pistas, una para cada bola. Cuando el aro gira 11°, las pistas empujan las bolas y las puertas giran 90°. Los dos extremos de cada pista son tramos «quietos» (arcos con centro en el eje de la caja): ahí el aro puede moverse un poco sin que la puerta se entere, y la puerta no puede moverse porque la bola está entre dos paredes. **Eso es lo que las bloquea abiertas y cerradas.**
+3. **El aro lo mueve el plato con un tetón suelto** (un cilindro de 5 × 9 mm). El tetón está a la vez en tres ranuras: una espiral en la cara de abajo del plato, una ranura recta en el marco (solo le deja ir hacia dentro o hacia fuera) y una ranura en diagonal en un brazo del aro. Cuando el plato gira, la espiral mete el tetón 13 mm hacia dentro, y el tetón, al entrar, empuja la diagonal y gira el aro.
+
+Así hay **una sola espiral** y no hay cruce de pistas: la trampa que avisaba el brief no puede darse.
+
+![La manivela y la bola, en tres momentos](caja-puertas-manivela.png)
+
+![El aro visto desde arriba, y la probeta de las puertas](caja-puertas-aro.png)
+
+**La junta del centro** es en bisel, a 45°: cada puerta tiene media junta en cuña y media en hueco, y como la otra puerta es la misma pieza girada, encajan. Mirando desde arriba por la raya (0,3 mm) solo se ve puerta. La hice en cuña, y no en escalón como media madera, para que la puerta se imprima con la cara vista contra la cama y sin soportes. A cambio, en media junta el canto de la puerta se queda en 1,4 mm.
+
+![La junta del centro y la bisagra, en corte](caja-detalles.png)
+
+### 2.3 El recorrido
+
+![La apertura en seis pasos](caja-apertura.png)
+
+| Giro del tubo | Giro del bisel | Qué pasa |
+| --- | --- | --- |
+| 0° a 45° | 0° a 79° | Tramo muerto: giran el bisel y los engranajes, nada más |
+| 45° a 63° | 79° a 111° | El tetón empieza a entrar y el aro a girar, pero las bolas están en su tramo quieto: las puertas siguen cerradas |
+| 63° a 83° | 111° a 146° | Las puertas se abren |
+| 83° a 92° | 146° a 162° | Puertas ya de pie; el aro termina su giro y las deja bloqueadas |
+| 92° a 335° | 162° a 591° | El reloj sube 88 mm |
+| 335° a 345° | 591° a 609° | Rampa plana y tope: el reloj descansa arriba |
+
+Todo el recorrido son **609° de bisel: una vuelta y dos tercios** (calculado). Se abre girando en el sentido de las agujas del reloj, visto desde arriba. Las puertas terminan de abrirse 9° de tubo antes de que el reloj empiece a subir.
+
+## 3. Medidas
+
+Todas del modelo, salvo donde se dice.
+
+| Qué | Valor |
+| --- | --- |
+| Caja sin funda | 178,8 × 178,8 × 122,6 mm |
+| Con la funda | 183,8 × 183,8 × 126,0 mm |
+| Abierta, con las puertas de pie | las puertas sobresalen 25,5 mm; el reloj de pega, 78 mm |
+| Bisel | 167,2 mm de diámetro donde se agarra; asoma 8 mm; 120 estrías |
+| Hueco de las puertas | 50 × 59 mm, libre del todo con las puertas abiertas |
+| Puertas | 5 mm de grueso; raya del centro, 0,3 mm; holgura de la bisagra, 0,25 por lado |
+| Recorrido del ascensor | 88,0 mm |
+| Pendiente de la rampa | 15,0° donde apoyan los tetones (el brief estimaba 18°) |
+| Lo que sube por vuelta de bisel | 73,9 mm (calculado) |
+| Pedestal arriba | a ras (0,00); rendija de 0,4 mm por lado |
+| Engranajes | módulo 1,5; central 78 dientes, satélites 12, bisel 102; 6 mm de grueso |
+| Juego entre dientes | 0,2 mm quitados a cada diente (parámetro `juego_dientes`) |
+| Diente más fino | la punta del diente de los satélites: 0,44 mm. A media altura, 1,12 mm |
+| Reloj de pega a lo más cercano | 3,00 mm de la meseta y del marco; 3,75 de las puertas; 3,50 del aro; 6,00 de la rueda central |
+| Volumen de plástico si todo fuera macizo | 1.367 cm³ (unos 1,7 kg). Con relleno normal será bastante menos: **no está laminado, no lo sé** |
+
+**Juego de la plataforma (calculado).** Va colgada de tres tetones en cono dentro de tres ranuras en V, que la centran por su peso. Cada tetón tiene 0,2 mm de holgura: si uno se levantara 0,28 mm y los otros dos no, la plataforma cabecearía 0,14°, que arriba del reloj son 0,25 mm. En las columnas tiene 0,35 mm por lado: puede girar 0,29° a cada lado.
+
+**Las medidas del reloj son todas supuestas** (cabeza 40 mm, 43,5 con corona, 11 de grueso; brazalete cerrado 67 × 53; alto en su soporte 78). Están arriba del todo en [`../caja_diseno_v5.py`](../caja_diseno_v5.py). El día que lo midas, se cambian ahí y se regenera todo.
+
+## 4. Qué se ha comprobado y con qué
+
+### 4.1 Con el programa, de 2 en 2 grados
+
+[`../caja_piezas_v5.py`](../caja_piezas_v5.py) construye las 25 piezas en 3D, las coloca en 174 posiciones (de 0° a 345° de tubo, de 2 en 2) y calcula el volumen que comparte cada pareja de piezas. El resultado completo está en [`caja-fase2-comprobaciones.txt`](caja-fase2-comprobaciones.txt). No hay «ida y vuelta» distintas: en el modelo cada posición del bisel tiene una sola posición de todo lo demás, así que cerrar es pasar por las mismas 174 posiciones al revés.
+
+| Qué | Resultado |
+| --- | --- |
+| Ninguna pieza pisa a otra | **Bien.** Ninguna pareja comparte más de 0,02 mm³ en ninguna posición |
+| El reloj, a 3 mm o más de puertas, marco, meseta y rueda central | **Bien.** Mínimo, 3,00 mm |
+| El tubo gira lo que le toca y los satélites orbitan | **Bien** por construcción (las piezas se colocan con la relación 0,567) y porque así colocadas los dientes no se pisan en ninguna posición |
+| Puertas cerradas, bloqueadas | **Bien, con juego.** Con el aro quieto, una puerta se deja levantar 3,0° y ahí choca con su pista |
+| Puertas abiertas, bloqueadas | **Bien, con juego.** Se dejan mover 3,75° hacia dentro y 4,0° hacia fuera: quedan entre 86,2° y 94,0° (el brief pide entre 85° y 95°) |
+| Las puertas se pueden montar | **Bien.** Cada una entra de pie, desde arriba, con el aro en «abierto», sin pisar nada |
+| El tetón va guiado | **Bien.** Moverlo 1,2 mm fuera de cualquiera de sus tres ranuras choca |
+| La plataforma va guiada | **Bien.** No se deja subir, bajar ni girar por su cuenta |
+| La plataforma no se hunde | **Bien.** Abajo apoya en su asiento (a 0,15 mm); en la rampa y arriba, bajarla 0,6 mm choca. Esto lo encontré tarde: sin el asiento, con la caja cerrada la plataforma bajaba 1 mm y al empezar a girar tenía que subir un escalón |
+| Los dientes engranan | **Bien.** Girar un satélite medio diente lo mete en la rueda central y en el bisel |
+| Topes | **Bien.** 2° más allá de cerrado o de abierto, la oreja del tubo choca con el tope de la base |
+| Boca abajo no se cae nada | **Bien.** Cada pieza, al moverla 1,5 mm hacia la tapa, choca con la que la sujeta. Lo que se descuelga: el bisel 0,4 mm, la rueda central 0,2 más, y las puertas lo dicho en el apartado 1 |
+| Los pasadores no se salen | **Bien.** La rueda central les tapa las dos puntas |
+| La funda | **Bien.** Puesta, no pisa nada y queda a 0,5 mm por lado |
+| A ras | **Bien.** Puertas, meseta, placa de la rueda central y bisel, en un mismo plano; el pedestal, arriba, también |
+
+### 4.2 En Fusion
+
+[`../generador_caja_v5.py`](../generador_caja_v5.py) repite en Fusion, una a una, las mismas operaciones con que el programa hace cada pieza. El resultado está en [`caja-fusion-comprobaciones.txt`](caja-fusion-comprobaciones.txt) y el modelo, en `../Eventually-caja-v5.f3d`.
+
+| Qué | Resultado |
+| --- | --- |
+| Las piezas de Fusion son las del programa | **Bien.** Las 27 (25 de la caja y 2 de probeta) tienen el mismo volumen; la que más se aparta, 0,3 % (el programa redondea los cilindros) |
+| Recorrido completo en Fusion: 174 posiciones, de 2 en 2 grados, cada pieza contra todas las que tiene cerca (unas 100 parejas por posición) | **Bien.** Ninguna pareja se pisa. Tardó 30 minutos |
+| Lo mismo, repetido tras cambiar cinco piezas | **Bien, pero no es el recorrido entero.** Ver abajo |
+
+**Lo que hay que saber de esa última fila.** Después del recorrido completo cambié cinco piezas (tubo, plataforma, base, cuerpo y meseta) por cosas que encontré tarde: que el tubo y el cuerpo solo entren en una posición, el asiento de la plataforma y el pasillo por el que se montan las puertas. Repetí en Fusion las 174 posiciones, pero **solo para las parejas en que entra alguna de esas cinco piezas** (46 por posición). Las demás parejas no cambiaron de forma ni de movimiento, así que vale su resultado anterior. Con el programa sí está hecho el recorrido entero con el modelo final.
+
+**Solo con el programa, no en Fusion:** la distancia del reloj a cada cosa, los juegos de las puertas, lo de boca abajo y los topes. Son las filas del apartado 4.1.
+
+**Dos cosas que salieron al comparar Fusion con el programa:**
+
+- En el bisel, Fusion dejaba una lámina hueca de 0,04 mm entre los dientes y el techo (dos caras casi pegadas). Se veía solo en que el volumen no cuadraba. Corregido.
+- En el tubo, donde la rampa plana se junta con la espiral, Fusion no sabía cortar. Los tramos planos van ahora 0,05 mm más holgados que la espiral.
+
+**Un aviso sobre dos ficheros de imprimir.** En `caja-probeta-ascensor-tubo.3mf` y `caja-probeta-ascensor-plataforma.3mf`, un comprobador de mallas ve aristas compartidas por más de dos caras (sale de cómo Fusion convierte en triángulos dos superficies que se tocan). El volumen cuadra y los otros siete ficheros salen limpios. **No los he abierto en Bambu Studio:** si avisa y ofrece reparar, se acepta.
+
+### 4.3 Lo que no se puede comprobar en un modelo
+
+- Si el bisel gira suave o duro.
+- Si el reloj a medio subir se queda donde está al soltar el bisel. La rampa tiene 15°; el roce del plástico dirá.
+- Si el aro, con roce de verdad, mueve las puertas sin engancharse. La pista tiene como mucho 28° de inclinación respecto al giro del aro: es suave, pero no está probado.
+- Si se nota algún imán.
+
+## 5. Lista de piezas
+
+Todas caben en la X1 Carbon. Todas, sin soportes. Capa de 0,2 mm, como las probetas anteriores.
+
+| Pieza | Cuántas | Color | Mide (mm) | Cómo se imprime | Bandeja |
+| --- | --- | --- | --- | --- | --- |
+| Base con columnas | 1 | blanco | 179 × 179 × 103 | De pie, el fondo en la cama | 1 |
+| Tubo | 1 | blanco | 161 de diámetro × 106 | De pie. Las ranuras son en V (45°) para salir sin soportes | 2 |
+| Cuerpo | 1 | blanco | 179 × 179 × 111 | **Boca abajo:** el labio de arriba en la cama | 3 |
+| Funda, con la frase | 1 | mármol y azul | 184 × 184 × 126 | **Boca abajo:** el techo en la cama. La frase son las tres primeras capas, en azul | 4 |
+| Plataforma con pedestal | 1 | blanco | 151 × 154 × 30 | El disco en la cama, el pedestal hacia arriba | 5 |
+| Bisel | 1 | blanco | 172 de diámetro × 14 | **Boca abajo:** la cara que se ve, en la cama | 6 |
+| Plato | 1 | blanco | 161 de diámetro × 11 | La espiral hacia la cama, los ejes hacia arriba | 7 |
+| Marco | 1 | blanco | 150 de diámetro × 22 | El ala en la cama | 8 |
+| Satélites blancos | 5 | blanco | 21 de diámetro × 6 | Planos, todos con la misma cara abajo | 8 |
+| Tetón | 1 | blanco | 5 de diámetro × 9 | De pie | 8 |
+| Pasadores | 2 | blanco | 3 de diámetro × 90 | Tumbados | 8 |
+| Soporte del reloj | 1 | blanco | 34 × 40 × 19 | La peana en la cama. Provisional | 8 |
+| Rueda central | 1 | blanco | 149 × 133 × 9 | **Boca abajo:** la placa que se ve, en la cama | 9 |
+| Puertas | 2 | blanco | 38 × 73 × 11 | **Boca abajo:** la cara que se ve, en la cama; la manivela hacia arriba | 9 |
+| Meseta | 1 | blanco | 108 de diámetro × 8 | De pie (la cara que se ve, arriba) | 10 |
+| Aro de las puertas | 1 | blanco | 101 × 126 × 11 | El aro en la cama, las pistas hacia arriba | 10 |
+| Satélite azul | 1 | azul | 21 de diámetro × 6 | Plano, la misma cara abajo que los otros | 11 |
+
+**Material:** PLA en todo (estimado: es lo que se ha usado en las probetas). **Qué va encajado y qué a presión:** todo va apoyado o encajado por su forma; a presión, solo el cuerpo en la base (cuatro pestillos de 1 mm). **Pegado, nada**, salvo quizá los imanes de la funda y del soporte (apartado 1, fila 4).
+
+**Imanes (10 de 5 × 1,6 mm, todos de adorno):** 2 en la oreja del tubo y 2 en el tope de la base («clac» al llegar a cada extremo); 2 en dos esquinas del cuerpo y 2 en la funda; 1 en el pedestal y 1 bajo el soporte. Los más cercanos a la cabeza del reloj son los del pedestal y el soporte, a unos 37 mm (calculado; el brief pide 30 o más). Siempre imán contra imán.
+
+## 6. Qué es supuesto y qué puede fallar
+
+De más a menos grave.
+
+1. **Las medidas del reloj son supuestas.** De ellas sale el hueco, y del hueco, todo. Si el reloj es más ancho o más alto, la caja crece.
+2. **El mecanismo de las puertas no se ha probado nunca.** Depende de una bola de 5 mm en una pista con 0,15 mm de holgura y de una varilla de 3 mm. Puede engancharse, tener demasiado juego o ser frágil. Es justo lo que no te convenció del iris («parece frágil»): **la probeta de las puertas es la primera que hay que imprimir.**
+3. **El juego de las puertas** (3° cerradas). De pie no se nota porque apoyan; boca abajo, o si alguien mete la uña, sí. Remedio pensado y sin probar: desplazar la pista para que, cerrada, la bola quede apretada contra la pared que impide levantar la puerta (la varilla hace de muelle).
+4. **Puertas abiertas que hacen palanca.** Sobresalen 25,5 mm. Un empujón hacia fuera o hacia dentro lo para solo la bola contra la pared de su pista (2 mm de pared) y la varilla de 3 mm. No hay otro tope: dibujé uno fijo en la meseta y lo quité, porque con él la puerta no se podía montar. En el modelo, la pista hace tope; si aguanta un dedo, lo dirá la probeta.
+5. **La rampa puede no sujetar el reloj a medio subir** (15°).
+6. **Alturas que tienen que coincidir.** El bisel apoya en el plato y este en el tubo (106 mm de alto); la meseta apoya en el marco y este en las columnas (100 mm). Para que el bisel y la meseta queden a ras, las dos alturas impresas tienen que salir iguales. Un error de 0,2 mm en 100 es normal: puede quedar un escalón de ese orden entre el bisel y la placa de la rueda central.
+7. **Los dientes de 12** son pequeños (punta de 0,44 mm). Los engranajes del iris no los había: no hay nada medido sobre dientes.
+8. **El acabado distinto de la meseta** (apartado 1). Remedios: planchado de la última capa en el laminador, o aceptar la diferencia.
+9. **El tubo roza con su canto de abajo en una pista de la base** y el plato lleva encima el bisel: todo el giro es plástico contra plástico. Puede ir duro.
+10. **Imanes en cajeras abiertas** (apartado 1, fila 4).
+11. **Muchas piezas:** 25, en unas 11 bandejas.
+
+## 7. Cómo se monta
+
+En este orden. Entre paréntesis, qué impide montarlo mal.
+
+1. **Plataforma** en la base, metiendo sus tres muescas en las tres columnas. (Las columnas no están repartidas por igual: 30°, 150° y 262°. Solo entra en una posición.)
+2. **Tubo**, desde arriba, bajándolo por fuera de las columnas hasta que sus tres entradas pasan por los tres tetones de la plataforma. (Un tetón va 2° fuera de sitio: el tubo solo entra en una posición.)
+3. **Marco** sobre las columnas. (Sus tres cajas, como las columnas, solo coinciden en una posición.)
+4. **Aro de las puertas** sobre el marco, con su brazo en el hueco de atrás del cuello. (Solo cabe ahí.)
+5. **Meseta** sobre el cuello del marco. (Entra de dos maneras, a media vuelta una de otra, y las dos son la misma: es simétrica.)
+6. **Las dos puertas.** Con el aro girado a tope hacia «abierto» (se mueve con la mano, por su brazo), cada puerta se mete de pie, desde arriba, hasta que la bola entra en su pista. Está comprobado en el modelo que entra sin pisar nada. (Una puerta al revés queda con la varilla hacia arriba: se ve.)
+7. **Los dos pasadores,** por un lado. Cosen la meseta, el marco y las puertas.
+8. **Rueda central** sobre la meseta. (Tres llaves desiguales: una posición. Al bajar, tapa las puntas de los pasadores.)
+9. Se cierran las puertas girando el aro por su brazo, y se pone el **tetón** en la ranura del brazo del aro y en la del marco.
+10. **Plato** sobre el tubo, con las puertas cerradas. (Tres almenas desiguales: una posición. Y si el tubo o las puertas no están donde deben, la espiral no encuentra el tetón y el plato no asienta.)
+11. **Los seis satélites** en sus ejes, entre los dedos de la rueda central.
+12. **Bisel dentro del cuerpo** (entra por debajo), y los dos juntos, encima de todo. (El pestillo del frente es más ancho: el cuerpo solo entra con el índice al frente.)
+13. **Soporte y reloj** en el pedestal, y **funda**. (La funda solo entra con su frente al frente.)
+
+Para desmontar, al revés: el cuerpo sale haciendo palanca en un pestillo.
+
+## 8. Lo que queda por decidir de la estética
+
+Todo modelado con la opción más sencilla. Son tuyas:
+
+| Qué | Cómo está ahora |
+| --- | --- |
+| Las cuatro esquinas de arriba, entre el bisel y el cuadrado | Lisas |
+| Aristas del cuerpo | Vivas |
+| Cuerpo liso o con estrías | Liso |
+| Puentes | Seis dedos rectos de 8 mm de ancho, uno entre cada dos satélites |
+| Algo grabado bajo la base | Nada |
+| Frase escondida bajo el soporte | Nada |
+| **Dónde va la frase de la funda** | En el techo, 118 mm de ancho. Es nuevo: no estaba en la lista del brief |
+| **Cuánto se ven los satélites** | Una franja de 10 mm, entre la placa central y el bisel. Los dientes del bisel y de la rueda central quedan tapados |
+| **La tarjeta** | Sin sitio |
+
+No he hecho dibujos de alternativas: prefiero que elijas sobre la probeta o sobre este modelo.
+
+## 9. Las probetas que propongo
+
+Son trozos de la caja, sacados del modelo. Los ficheros están en [`../probetas-v5/`](../probetas-v5/), ya orientados.
+
+**Una cosa que decides tú antes de imprimir.** La probeta del ascensor es la base, el tubo y la plataforma de verdad. La del planetario necesita debajo el tubo (de la del ascensor) y la meseta con el marco (de la de puertas). **Entre las tres son la caja entera menos el cuerpo, la funda y el soporte.** La decisión D-15 dice que no se imprime la caja completa sin medir antes el reloj. Si el reloj acaba midiendo lo supuesto, estas piezas valdrían como definitivas; si no, hay que repetirlas. Lo prudente es **imprimir primero solo la de puertas**, que es la que decide si este diseño te convence.
+
+### Probeta 1: puertas
+
+Marco, aro, meseta, dos puertas, dos pasadores y dos piezas que solo existen para la probeta: un **anillo** que hace de rueda central (tapa las puntas de los pasadores) y un **tetón con pomo** para mover el aro con el dedo. Dos bandejas:
+
+- `caja-probeta-puertas-bandeja-A.3mf`: marco, dos puertas, dos pasadores y el tetón con pomo.
+- `caja-probeta-puertas-bandeja-B.3mf`: meseta, aro y anillo.
+
+Vale si (la lista es la del brief, más dos líneas mías al final):
+
+| Prueba | Vale si |
+| --- | --- |
+| Abrir y cerrar 20 veces, empujando el pomo | No se engancha |
+| Abierta | Pasa un taco de 50 × 59 mm |
+| Cerrada, pasando el dedo | No se nota escalón entre las puertas ni con la meseta |
+| Cerrada, a contraluz | No se ve lo de dentro por la raya |
+| Abierta, empujando una puerta con un dedo hacia dentro y hacia fuera | Ni se cierra ni cruje |
+| Boca abajo, sujetando el anillo con los dedos, y sacudiendo un poco | No se cae nada. **Apunta cuánto se descuelgan las puertas** (el modelo dice hasta 1,5 mm) |
+| Montarla | No hay manera de montarla mal |
+| Cerrada, intentando levantar una puerta con la uña | Apunta cuánto se deja |
+| La varilla y la bola | No se han roto ni marcado después de las 20 veces |
+| **Lo que decide** | **Si a ti te parece que cerrada se ve bien y que es sólida** |
+
+Qué se ajusta y con qué: el juego de las puertas, con `bola_holgura` (0,15); la bisagra, con `holg_gira` (0,25); la raya, con `junta` (0,3).
+
+### Probeta 2: ascensor
+
+`caja-probeta-ascensor-base.3mf`, `caja-probeta-ascensor-tubo.3mf` y `caja-probeta-ascensor-plataforma.3mf`. Se gira el tubo con la mano.
+
+| Prueba | Vale si |
+| --- | --- |
+| Subir y bajar 20 veces, con 150 g encima | No se engancha ni da saltos |
+| A media altura, con 150 g, soltar el tubo | La plataforma no baja sola. **Si baja, no es un fallo de impresión:** hay que decidir entre menos pendiente (más vueltas de bisel) o un freno |
+| Arriba y abajo | Hay tope y un tramo en que girar no sube ni baja |
+| Mirando la plataforma al subir | No cabecea a la vista |
+| El tubo | Solo entra en una posición |
+| Los imanes del tope | Se nota o no (es adorno: apúntalo) |
+
+Qué se ajusta y con qué: la pendiente, con `giro_arriba` y `giro_sube`; el juego, con `holg_desliza` (0,20).
+
+### Probeta 3: planetario
+
+`caja-probeta-planetario-plato.3mf`, `caja-probeta-planetario-rueda-central.3mf`, `caja-probeta-planetario-bisel.3mf` y `caja-probeta-planetario-satelites.3mf` (los seis; uno habrá que ponerlo en azul en el laminador). Se monta encima de las otras dos probetas. Sin el cuerpo, el bisel se puede levantar con la mano: es normal.
+
+| Prueba | Vale si |
+| --- | --- |
+| Girar el bisel de tope a tope, cinco veces en cada sentido | Suave, sin puntos duros ni saltos de diente |
+| Cambiar de sentido | El bisel no gira «en vacío» más de lo que te parezca aceptable. Apunta cuánto |
+| Mirando los satélites | Orbitan, no se montan unos dientes en otros y no se levantan de sus ejes |
+| Con las otras dos probetas debajo | Al girar el bisel pasa todo en su orden: nada, puertas, reloj |
+| Los dientes, después | Ninguno roto ni mordido |
+
+Qué se ajusta y con qué: el juego, con `juego_dientes` (0,2); si los dientes de 12 no salen, con `modulo` (1,5) y los números de dientes.
+
+## 10. Ficheros
+
+| Qué | Dónde |
+| --- | --- |
+| Las medidas, con las del reloj arriba | [`../caja_diseno_v5.py`](../caja_diseno_v5.py) |
+| Las piezas y las comprobaciones | [`../caja_piezas_v5.py`](../caja_piezas_v5.py), que escribe `../caja-v5-piezas.json` |
+| El generador de Fusion | [`../generador_caja_v5.py`](../generador_caja_v5.py) |
+| El modelo de Fusion | `../Eventually-caja-v5.f3d` |
+| Las comprobaciones | [`caja-fase1-comprobaciones.txt`](caja-fase1-comprobaciones.txt), [`caja-fase2-comprobaciones.txt`](caja-fase2-comprobaciones.txt) y [`caja-fusion-comprobaciones.txt`](caja-fusion-comprobaciones.txt) |
+| Los dibujos | [`../caja_render_v5.py`](../caja_render_v5.py) y [`../caja_figuras_v5.py`](../caja_figuras_v5.py) |
+| Las probetas | [`../probetas-v5/`](../probetas-v5/) |
+
+La nota [`antes-de-modelar-caja.md`](antes-de-modelar-caja.md) queda superada por este reporte: describía una corredera recta que no llegó al modelo.

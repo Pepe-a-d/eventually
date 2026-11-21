@@ -17,10 +17,15 @@
 #     Los satelites llevan sus ejes en el PLATO, que va unido al TUBO: plato y tubo giran juntos, mas despacio.
 #   - El tubo tiene por dentro tres ranuras en helice. La PLATAFORMA lleva tres tetones en esas ranuras y no
 #     puede girar, porque corre por tres columnas: al girar el tubo, sube.
-#   - El plato tiene por debajo UNA ranura en espiral. En ella entra el teton de la CORREDERA, que va detras
-#     de las puertas y solo puede moverse de delante atras. La corredera tiene dos canales en diagonal y en
-#     cada uno entra la bola de la manivela de una puerta: al moverse la corredera, las dos puertas giran.
-#   - Una sola ranura y una sola corredera para las dos puertas: asi no hay cruce de pistas.
+#   - El plato tiene por debajo UNA ranura en espiral. En ella entra un TETON suelto, que solo puede moverse
+#     hacia dentro y hacia fuera porque tambien va metido en una ranura recta del marco.
+#   - Ese teton atraviesa ademas una ranura en diagonal del brazo del ARO DE PUERTAS: al moverse, hace girar
+#     el aro unos 12 grados. El aro va escondido bajo las puertas y gira alrededor del hueco.
+#   - El aro tiene dos pistas, una por puerta. En cada pista va la bola de la manivela de una puerta. Al girar
+#     el aro, las pistas empujan las bolas y las dos puertas giran a la vez. Al principio y al final de cada
+#     pista hay un tramo que no empuja: ahi la puerta queda bloqueada por la forma.
+#   - Las dos puertas son la misma pieza, girada media vuelta, y un solo aro mueve las dos: no hay cruce de pistas.
+#   (En la primera version de este programa las movia una corredera recta: no cabia sin meterse en el hueco.)
 import json, math, os, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -44,24 +49,31 @@ P_DEF = [
     # --- puertas ---
     ('puerta_grueso',    'mm',  5.0,   'Grueso de las puertas (el brief pide 3 o mas; Pepe quiere que se vean solidas)'),
     ('eje_fuera',        'mm',  3.0,   'Lo que el eje de la bisagra queda por fuera del borde del hueco'),
-    ('puerta_cola',      'mm',  1.2,   'Lo que la puerta sigue mas alla de su eje, por fuera'),
+    ('puerta_cola',      'mm',  3.0,   'Lo que la puerta sigue mas alla de su eje, por fuera. Con 3 mm el canto redondo deja 0,4 de raya y el marco se imprime sin soportes'),
     ('puerta_solape_y',  'mm',  7.0,   'Lo que la puerta sobra por delante y por detras del hueco: ahi apoya y ahi lleva la manivela'),
     ('junta',            'mm',  0.3,   'Raya entre las dos puertas cerradas'),
     ('labio_largo',      'mm',  2.0,   'Media madera: lo que el labio de abajo de una puerta se mete bajo la otra'),
     ('labio_grueso',     'mm',  1.0,   'Grueso de ese labio'),
     ('labio_hueco',      'mm',  1.2,   'Hueco en altura entre el labio y la otra puerta: al abrir, el labio sube mas deprisa'),
-    ('manivela_r',       'mm',  6.5,   'Del eje de la bisagra al centro de la bola de la manivela'),
+    ('manivela_r',       'mm',  8.0,   'Del eje de la bisagra al centro de la bola de la manivela'),
     ('bola_d',           'mm',  5.0,   'Diametro de la bola de la manivela'),
-    ('canal_ang',        'deg', 62.0,  'Inclinacion de los canales de la corredera respecto a su movimiento'),
-    ('canal_reposo',     'mm',  3.0,   'Tramo recto al principio y al final de cada canal: ahi la puerta queda bloqueada por la forma'),
-    ('canal_pared',      'mm',  1.6,   'Pared de la corredera por fuera de cada canal'),
-    ('cuello_pared',     'mm',  1.5,   'Pared del cuello del marco alrededor del hueco de las manivelas'),
-    ('teton_corr_d',     'mm',  5.0,   'Diametro del teton de la corredera que entra en la espiral del plato'),
+    ('manivela_d',       'mm',  3.0,   'Diametro de la varilla de la manivela. Fina para pasar entre las paredes de la pista'),
+    ('bola_holgura',     'mm',  0.15,  'Holgura por lado de la bola en su pista. Justa a proposito: de ella sale lo que baila la puerta'),
+    ('pista_pared',      'mm',  2.0,   'Pared de las pistas del aro'),
+    ('aro_reposo',       'deg', 2.5,   'Giro del aro, al principio y al final, en el que la pista no empuja la bola: puerta bloqueada'),
+    ('aro_cambio',       'deg', 6.0,   'Giro del aro en el que la pista lleva la bola de cerrada a abierta'),
+    ('aro_sentido',      '',    -1,    'Sentido en que gira el aro para abrir: 1 contra las agujas del reloj, -1 a favor'),
+    ('aro_grueso',       'mm',  3.0,   'Grueso del aro de puertas y de su brazo'),
+    ('cuello_pared',     'mm',  3.0,   'Pared del cuello del marco'),
+    ('meseta_grueso',    'mm',  8.0,   'Grueso de la meseta: la pieza que rodea las puertas y lleva sus bisagras'),
+    ('teton_d',          'mm',  5.0,   'Diametro del teton suelto que va de la espiral del plato al brazo del aro'),
+    ('teton_recorrido',  'mm',  13.0,  'Lo que el teton se mueve hacia dentro para abrir'),
+    ('pasador_d',        'mm',  3.0,   'Diametro de los pasadores de las bisagras'),
     # --- giro del tubo ---
     ('giro_tubo',        'deg', 345.0, 'DECIDIDO en el brief: giro total del tubo, de tope a tope'),
     ('giro_muerto',      'deg', 45.0,  'DECIDIDO (D-20): tramo muerto al empezar. Giran los engranajes y no pasa nada'),
-    ('giro_puertas_fin', 'deg', 105.0, 'Del brief: a este giro de tubo la corredera ha terminado su recorrido'),
-    ('giro_sube',        'deg', 88.0,  'A este giro de tubo empieza a subir la plataforma. Lo fija la comprobacion del reloj'),
+    ('giro_puertas_fin', 'deg', 100.0, 'A este giro de tubo el teton ha terminado su recorrido (el brief proponia 105)'),
+    ('giro_sube',        'deg', 92.0,  'A este giro de tubo empieza a subir la plataforma. Lo fija la comprobacion del reloj'),
     ('giro_arriba',      'deg', 335.0, 'Del brief: a este giro de tubo la plataforma esta arriba; despues la rampa es plana'),
     # --- ascensor ---
     ('margen_reloj_abajo', 'mm', 5.0,  'Con el reloj abajo, lo que queda entre lo mas alto del reloj y lo mas bajo de las puertas'),
@@ -69,7 +81,7 @@ P_DEF = [
     ('tubo_pared',       'mm',  4.5,   'Grueso de la pared del tubo'),
     ('rampa_fondo',      'mm',  3.0,   'Lo que las ranuras en helice entran en la pared del tubo'),
     ('teton_plat_d',     'mm',  6.0,   'Diametro de los tres tetones de la plataforma'),
-    ('disco_grueso',     'mm',  5.0,   'Grueso del disco de la plataforma'),
+    ('disco_grueso',     'mm',  6.0,   'Grueso del disco de la plataforma: igual que el diametro de sus tetones'),
     ('pedestal_holgura', 'mm',  0.4,   'Entre el pedestal y el hueco del marco, por lado'),
     # --- planetario ---
     ('modulo',           'mm',  1.5,   'Del brief: modulo de los dientes'),
@@ -82,13 +94,12 @@ P_DEF = [
     ('esqueleto_grueso', 'mm',  3.0,   'Grueso de la placa fija que rodea las puertas y tapa a medias los engranajes'),
     ('plato_grueso',     'mm',  5.0,   'Grueso del plato portasatelites'),
     ('espiral_fondo',    'mm',  3.0,   'Fondo de la ranura en espiral, por debajo del plato'),
-    ('corredera_grueso', 'mm',  3.0,   'Grueso de la corredera bajo el plato'),
     ('ala_grueso',       'mm',  4.0,   'Grueso del ala del marco, la que apoya en las columnas'),
     ('base_grueso',      'mm',  4.0,   'Grueso del fondo de la caja'),
     ('aire',             'mm',  0.4,   'Aire en altura entre piezas que se mueven una sobre otra'),
     # --- cuerpo ---
-    ('bisel_pared',      'mm',  3.6,   'Pared del bisel por fuera del fondo de sus dientes'),
-    ('bisel_ala',        'mm',  3.0,   'Ala del bisel que queda bajo el labio del cuerpo y lo retiene'),
+    ('bisel_pared',      'mm',  5.2,   'Pared del bisel por fuera del fondo de sus dientes'),
+    ('bisel_ala',        'mm',  2.4,   'Ala del bisel que queda bajo el labio del cuerpo y lo retiene'),
     ('cuerpo_pared',     'mm',  3.0,   'Grueso de la pared del cuerpo cuadrado'),
     ('bisel_visto',      'mm',  8.0,   'Alto de bisel que asoma sobre el cuerpo: es por donde se coge'),
 ]
@@ -119,15 +130,21 @@ def derivadas(p):
     d['puerta_y'] = d['hueco_y'] + 2 * p['puerta_solape_y']
     d['puertas_x'] = 2 * (d['eje_x'] + p['puerta_cola'])   # ancho del rectangulo liso que se ve
     d['cara_dentro_abierta'] = d['eje_x'] - t / 2          # donde queda la cara de dentro de la puerta abierta
-    # manivela y corredera
+    # manivela, bola y aro de puertas
     rho = p['manivela_r']
     d['bola_dx'] = 2 * rho * math.sin(math.radians(45))    # lo que se mueve la bola en X de cerrada a abierta
-    d['corr_diagonal'] = d['bola_dx'] / math.tan(math.radians(p['canal_ang']))
-    d['corr_recorrido'] = d['corr_diagonal'] + 2 * p['canal_reposo']
-    # lo mas lejos del centro que llega el mecanismo de las puertas: la esquina del canal de la bola, con la puerta cerrada
-    d['manivela_x'] = d['eje_x'] + rho * math.sin(math.radians(45)) + p['bola_d'] / 2 + p['holg_desliza'] + p['canal_pared']
-    d['modulo_r'] = math.hypot(d['manivela_x'], d['puerta_y'] / 2)
-    d['cuello_r'] = d['modulo_r'] + 0.5 + p['cuello_pared']             # cuello redondo del marco: dentro van puertas, manivelas y corredera
+    d['bola_y'] = d['hueco_y'] / 2 + 1.5 + p['bola_d'] / 2 + 0.25      # la manivela va en lo que sobra de puerta por detras del hueco
+    d['bola_x_cerrada'] = d['eje_x'] + rho * math.sin(math.radians(45))
+    d['bola_x_abierta'] = d['eje_x'] - rho * math.sin(math.radians(45))
+    d['bola_r_cerrada'] = math.hypot(d['bola_x_cerrada'], d['bola_y'])
+    d['bola_r_abierta'] = math.hypot(d['bola_x_abierta'], d['bola_y'])
+    d['aro_giro'] = p['aro_cambio'] + 2 * p['aro_reposo']
+    wb = p['bola_d'] / 2 + p['bola_holgura']
+    d['aro_r_in'] = math.hypot(d['hueco_x'] / 2, d['hueco_y'] / 2) + 0.4          # el aro rodea el hueco sin entrar en el
+    d['aro_r_ext'] = d['bola_r_cerrada'] + wb + 0.3
+    d['cuello_r_in'] = d['aro_r_ext'] + 0.3
+    d['cuello_r'] = d['cuello_r_in'] + p['cuello_pared']
+    d['modulo_r'] = d['cuello_r']
     # planetario
     zs, zp = int(p['z_central']), int(p['z_satelite']); zr = zs + 2 * zp
     d['z_bisel'] = zr
@@ -145,10 +162,10 @@ def derivadas(p):
     d['bisel_ala_r'] = d['bisel_r_ext'] + p['bisel_ala']
     d['cuerpo_dentro'] = 2 * (d['bisel_ala_r'] + 0.4)
     d['cuerpo_lado'] = d['cuerpo_dentro'] + 2 * p['cuerpo_pared']
-    # franja de la espiral, bajo el plato
-    w = p['teton_corr_d'] / 2 + p['holg_desliza']
-    d['espiral_r_abierta'] = d['plato_r_in'] + 1.8 + w                 # la corredera se mueve hacia dentro para abrir
-    d['espiral_r_cerrada'] = d['espiral_r_abierta'] + d['corr_recorrido']
+    # franja de la espiral, bajo el plato. El teton se mueve hacia dentro para abrir
+    w = p['teton_d'] / 2 + p['holg_desliza']
+    d['espiral_r_abierta'] = d['plato_r_in'] + 1.8 + w
+    d['espiral_r_cerrada'] = d['espiral_r_abierta'] + p['teton_recorrido']
     d['espiral_franja'] = (d['espiral_r_abierta'] - w, d['espiral_r_cerrada'] + w)
     # alturas, de arriba abajo (Z = 0 arriba)
     a = p['aire']
@@ -157,9 +174,10 @@ def derivadas(p):
     d['z_plato1'] = d['z_engr0'] - a
     d['z_plato0'] = d['z_plato1'] - p['plato_grueso']
     d['z_corr1'] = d['z_plato0'] - a
-    d['z_corr0'] = d['z_corr1'] - p['corredera_grueso']
+    d['z_corr0'] = d['z_corr1'] - p['aro_grueso']
     d['z_ala1'] = d['z_corr0'] - a
     d['z_ala0'] = d['z_ala1'] - p['ala_grueso']
+    d['z_meseta0'] = -p['meseta_grueso']
     d['pedestal_alto'] = -d['z_ala0'] + 1.0                # arriba del todo, el disco queda 1 mm por debajo del ala
     d['recorrido'] = p['reloj_alto'] + p['puerta_grueso'] + p['margen_reloj_abajo']
     d['z_disco1_abajo'] = -d['pedestal_alto'] - d['recorrido']
@@ -176,15 +194,19 @@ def derivadas(p):
     d['ranura_alto'] = p['teton_plat_d'] + 2 * p['holg_desliza']
     return d
 
+def bola_x(p, d, psi):
+    """X de la bola de la puerta derecha (respecto al eje de su bisagra, + hacia fuera) cuando el aro ha girado psi grados."""
+    u = min(1.0, max(0.0, (psi - p['aro_reposo']) / p['aro_cambio']))
+    r = d['bola_r_cerrada'] + u * (d['bola_r_abierta'] - d['bola_r_cerrada'])     # la pista se acerca al centro a ritmo constante
+    return math.sqrt(r * r - d['bola_y'] ** 2) - d['eje_x']
+
 def movimiento(p, d, tau):
-    """Para un giro de tubo 'tau' (grados): recorrido de la corredera, angulo de las puertas y altura de la plataforma."""
-    S = d['corr_recorrido']; rep = p['canal_reposo']; rho = p['manivela_r']
-    s = S * suave((tau - p['giro_muerto']) / (p['giro_puertas_fin'] - p['giro_muerto']))
-    u = min(1.0, max(0.0, (s - rep) / d['corr_diagonal']))
-    x_bola = rho * math.sin(math.radians(45)) - u * d['bola_dx']          # respecto al eje de la bisagra, + hacia fuera
-    puerta = 45.0 - math.degrees(math.asin(max(-1.0, min(1.0, x_bola / rho))))
+    """Para un giro de tubo 'tau' (grados): recorrido del teton (mm), giro del aro (grados), angulo de las puertas y altura de la plataforma."""
+    s = p['teton_recorrido'] * suave((tau - p['giro_muerto']) / (p['giro_puertas_fin'] - p['giro_muerto']))
+    psi = d['aro_giro'] * s / p['teton_recorrido']                          # la ranura del brazo es recta: el aro gira en proporcion
+    puerta = 45.0 - math.degrees(math.asin(max(-1.0, min(1.0, bola_x(p, d, psi) / p['manivela_r']))))
     h = d['recorrido'] * min(1.0, max(0.0, (tau - p['giro_sube']) / (p['giro_arriba'] - p['giro_sube'])))
-    return s, puerta, h
+    return s, psi, puerta, h
 
 def comprueba(escribe=True):
     import numpy as np
@@ -205,7 +227,7 @@ def comprueba(escribe=True):
     # ---------------- seccion de las puertas, en el plano X-Z. Coordenadas respecto al eje: x' hacia fuera, z' hacia arriba
     largo = xh - p['junta'] / 2
     losa = box(-largo, -t / 2, 0, t / 2)
-    nudillo = Point(0, 0).buffer(d['nudillo_r'], 48).intersection(box(-50, -50, 50, t / 2))
+    nudillo = Point(0, 0).buffer(d['nudillo_r'], 48).intersection(box(0, -t / 2, 50, t / 2))      # canto redondo, solo por fuera del eje
     cuerpo = unary_union([losa, nudillo])
     ll = p['labio_largo']; lg = p['labio_grueso']; lh = p['labio_hueco']
     labio = box(-largo - p['junta'] - ll, -t / 2, -largo + 0.01, -t / 2 + lg)          # la puerta A mete este labio bajo la B
@@ -243,9 +265,9 @@ def comprueba(escribe=True):
     rw = p['reloj_ancho'] / 2
     ped_x = d['hueco_x'] / 2 - p['pedestal_holgura']
     for tau in taus:
-        s, ang, h = movimiento(p, d, tau)
+        s, psi, ang, h = movimiento(p, d, tau)
         z_ped = -d['recorrido'] + h                                   # cara de arriba del pedestal
-        tabla.append([tau, round(tau / d['relacion'], 1), round(s, 2), round(ang, 2), round(h, 2)])
+        tabla.append([tau, round(tau / d['relacion'], 1), round(s, 2), round(psi, 2), round(ang, 2), round(h, 2)])
         A = derecha(puerta_a, ang); B = izquierda(puerta_b, ang)
         reloj = box(-rw, z_ped, rw, z_ped + p['reloj_alto'])
         pedestal = box(-ped_x, z_ped - d['pedestal_alto'], ped_x, z_ped)
@@ -254,17 +276,35 @@ def comprueba(escribe=True):
         peor_ped = min(peor_ped, pedestal.distance(A), pedestal.distance(B))
     linea(peor_reloj >= p['reloj_margen'], 'en todo el recorrido el reloj de pega queda a %.2f mm o mas de las puertas (lo mas cerca, con el tubo a %.0f grados). El brief pide %.0f' % (peor_reloj, tau_peor, p['reloj_margen']))
     linea(peor_ped >= 0.5, 'el pedestal queda siempre a %.2f mm o mas de las puertas; arriba, entre el pedestal y la cara de la puerta abierta quedan %.1f mm' % (peor_ped, d['cara_dentro_abierta'] - ped_x))
-    s0, a0_, h0 = movimiento(p, d, 0); s1, a1_, h1 = movimiento(p, d, p['giro_tubo'])
+    s0, _, a0_, h0 = movimiento(p, d, 0); s1, _, a1_, h1 = movimiento(p, d, p['giro_tubo'])
     linea(abs(a0_) < 0.01 and abs(a1_ - 90) < 0.01, 'las puertas van de %.1f a %.1f grados' % (a0_, a1_))
     linea(abs(h0) < 1e-9 and abs(h1 - d['recorrido']) < 1e-9, 'la plataforma sube %.1f mm; arriba, la cara del pedestal queda en Z = 0, a ras' % d['recorrido'])
     # tramos en los que la puerta esta bloqueada por la forma (bola en el tramo recto del canal)
-    quieta0 = max(tau for tau in taus if movimiento(p, d, tau)[1] < 0.01)
-    quieta1 = min(tau for tau in taus if movimiento(p, d, tau)[1] > 89.99)
-    sube0 = max(tau for tau in taus if movimiento(p, d, tau)[2] < 1e-9)
+    quieta0 = max(tau for tau in taus if movimiento(p, d, tau)[2] < 0.01)
+    quieta1 = min(tau for tau in taus if movimiento(p, d, tau)[2] > 89.99)
+    sube0 = max(tau for tau in taus if movimiento(p, d, tau)[3] < 1e-9)
     linea(quieta1 <= sube0 + 1e-9 or peor_reloj >= p['reloj_margen'], 'orden: tramo muerto hasta %.0f grados; las puertas se mueven de %.0f a %.0f; la plataforma sube de %.0f a %.0f; arriba, plano hasta %.0f' % (p['giro_muerto'], quieta0, quieta1, sube0, p['giro_arriba'], p['giro_tubo']))
-    baile = math.degrees(p['holg_desliza'] / (p['manivela_r'] * math.cos(math.radians(45))))
-    nota('en los tramos de «cerrada» y «abierta» la bola esta en un tramo del canal paralelo al movimiento de la corredera: empujar la puerta no mueve nada. Con %.2f mm de holgura de la bola, la puerta baila %.1f grados a cada lado (el brief admite de 85 a 95)' % (p['holg_desliza'], baile))
-
+    # lo que baila la puerta bloqueada: en el tramo de reposo la pista es un arco con centro en el eje de la caja,
+    # asi que sujeta la DISTANCIA de la bola al centro. La bola solo se mueve en X: se pasa de una cosa a la otra.
+    for nombre, xb in (('cerrada', d['bola_x_cerrada']), ('abierta', d['bola_x_abierta'])):
+        dx = p['bola_holgura'] * math.hypot(xb, d['bola_y']) / xb
+        d['baile_' + nombre] = math.degrees(dx / (p['manivela_r'] * math.cos(math.radians(45))))
+    linea(d['baile_abierta'] <= 5.0, 'puerta bloqueada por la forma: en los tramos de reposo la pista del aro no empuja y sujeta la bola. Con %.2f mm de holgura, la puerta abierta baila %.1f grados a cada lado (el brief admite de 85 a 95) y la cerrada %.1f, aunque cerrada apoya en su asiento' % (p['bola_holgura'], d['baile_abierta'], d['baile_cerrada']))
+    # la pista, vista desde el aro: cuanto se inclina respecto a un circulo en el tramo que empuja
+    peor_p = 0.0
+    def en_aro(q):                                       # posicion de la bola en coordenadas del aro: radio y angulo
+        x = d['eje_x'] + bola_x(p, d, q)
+        return math.hypot(x, d['bola_y']), math.degrees(math.atan2(d['bola_y'], x)) - p['aro_sentido'] * q
+    for i in range(1, 200):
+        psi = d['aro_giro'] * i / 200.0; e = 0.01
+        r1, a1 = en_aro(psi - e); r2, a2 = en_aro(psi + e)
+        if abs(r2 - r1) > 1e-9:
+            peor_p = max(peor_p, abs(math.degrees(math.atan2(r2 - r1, math.radians(a2 - a1) * (r1 + r2) / 2))))
+    peor_p = min(peor_p, 180 - peor_p)
+    linea(peor_p <= 40, 'pista del aro: en el tramo que empuja se aparta %.0f grados de un circulo como mucho (por debajo de 40). El aro gira %.1f grados, %s' % (peor_p, d['aro_giro'], 'a favor de las agujas del reloj' if p['aro_sentido'] < 0 else 'en contra de las agujas'))
+    r_teton = (d['espiral_r_abierta'] + d['espiral_r_cerrada']) / 2
+    sesgo_brazo = math.degrees(math.atan(math.radians(d['aro_giro']) * r_teton / p['teton_recorrido']))
+    linea(sesgo_brazo <= 55, 'ranura del brazo del aro: el teton recorre %.0f mm y el aro gira %.1f grados; la ranura va a %.0f grados del radio (por debajo de 55)' % (p['teton_recorrido'], d['aro_giro'], sesgo_brazo))
     # 4. planetario
     zs, zp, zr, n = int(p['z_central']), int(p['z_satelite']), int(d['z_bisel']), int(p['n_satelites'])
     linea((zs + zr) % n == 0, 'planetario: central %d, satelites %d, bisel %d dientes, modulo %.2f. (%d + %d) / %d = %g: los %d satelites caben repartidos por igual' % (zs, zp, zr, p['modulo'], zs, zr, n, (zs + zr) / n, n))
@@ -275,13 +315,13 @@ def comprueba(escribe=True):
     aro = d['central_fondo'] - (d['cuello_r'] + p['holg_fija'])
     linea(aro >= 2.0, 'la rueda central es un aro que entra por arriba en el cuello del marco (radio %.1f): le quedan %.1f mm de carne bajo los dientes (fondo de diente a %.1f)' % (d['cuello_r'], aro, d['central_fondo']))
     zs60 = 60; fondo60 = p['modulo'] * zs60 / 2 - 1.25 * p['modulo']
-    nota('con los 60 dientes que proponia el brief, el fondo de diente quedaria a %.1f mm del centro y el mecanismo de las puertas llega a %.1f: no cabe' % (fondo60, d['modulo_r']))
+    nota('con los 60 dientes que proponia el brief, el fondo de diente quedaria a %.1f mm del centro y el cuello que rodea el mecanismo de las puertas mide %.1f: no cabe' % (fondo60, d['modulo_r']))
 
     # 5. franjas de radio
     f0, f1 = d['espiral_franja']
     linea(f0 - d['plato_r_in'] >= 1.5 and p['tubo_r'] - f1 >= 0.5, 'la espiral del plato ocupa de %.1f a %.1f mm de radio; el plato empieza en %.1f y el tubo en %.1f' % (f0, f1, d['plato_r_in'], p['tubo_r']))
-    pend_esp = math.degrees(math.atan(d['corr_recorrido'] * math.pi / 2 / (math.radians(p['giro_puertas_fin'] - p['giro_muerto']) * (f0 + f1) / 2)))
-    linea(pend_esp <= 30, 'la espiral empuja al teton de la corredera con %.0f grados de sesgo como mucho' % pend_esp)
+    pend_esp = math.degrees(math.atan(p['teton_recorrido'] * math.pi / 2 / (math.radians(p['giro_puertas_fin'] - p['giro_muerto']) * (f0 + f1) / 2)))
+    linea(pend_esp <= 30, 'la espiral empuja al teton con %.0f grados de sesgo como mucho' % pend_esp)
     linea(d['tubo_r_ext'] <= d['bisel_fondo'] + p['bisel_pared'] - 0.5 and d['bisel_fondo'] + 0.3 <= d['tubo_r_ext'], 'el bisel apoya en el canto del tubo: tubo de %.1f a %.1f mm de radio, pared del bisel de %.1f a %.1f' % (p['tubo_r'], d['tubo_r_ext'], d['bisel_fondo'], d['bisel_r_ext']))
 
     # 6. rampa
@@ -310,8 +350,8 @@ if __name__ == '__main__':
     d = datos['d']; p = params()
     print('Caja v5, fase 1: medidas y movimiento')
     for l in datos['comprobaciones']: print(l)
-    print('  tabla (cada 15 grados de tubo): tubo, bisel, corredera mm, puertas grados, plataforma mm')
+    print('  tabla (cada 15 grados de tubo): tubo, bisel, teton mm, aro grados, puertas grados, plataforma mm')
     for f in datos['tabla'][::15] + [datos['tabla'][-1]]:
-        print('    %5.0f %7.1f %6.2f %6.1f %6.1f' % tuple(f))
-    print('  alturas (Z=0 arriba): engranajes %.1f a %.1f; plato %.1f a %.1f; corredera %.1f a %.1f; ala del marco %.1f a %.1f; suelo %.1f; base %.1f' % (d['z_engr1'], d['z_engr0'], d['z_plato1'], d['z_plato0'], d['z_corr1'], d['z_corr0'], d['z_ala1'], d['z_ala0'], d['z_suelo'], d['z_base']))
+        print('    %5.0f %7.1f %6.2f %6.2f %6.1f %6.1f' % tuple(f))
+    print('  alturas (Z=0 arriba): engranajes %.1f a %.1f; plato %.1f a %.1f; aro de puertas %.1f a %.1f; ala del marco %.1f a %.1f; suelo %.1f; base %.1f' % (d['z_engr1'], d['z_engr0'], d['z_plato1'], d['z_plato0'], d['z_corr1'], d['z_corr0'], d['z_ala1'], d['z_ala0'], d['z_suelo'], d['z_base']))
     print('TODO BIEN' if datos['todo_bien'] else 'HAY FALLOS')

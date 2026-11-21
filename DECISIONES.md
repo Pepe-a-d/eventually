@@ -296,3 +296,12 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - Sigue en pie D-15: la caja completa no se imprime sin medir antes el reloj.
 - **Estado:** Activa. Encargo en `caja/BRIEF-v5.md`, apartado 11. Sin modelar.
 
+### D-31. La caja mide lo que pida el mecanismo: unos 179 mm de lado
+- **Fecha:** 21-nov-2026, hacia las 15:45.
+- **Quién decide:** Pepe.
+- **Decisión:** se acepta que la caja sea más grande que los 150 mm de lado que estimaba el brief.
+- **Qué llevó a ella:** la sesión del PC, antes de modelar, le dijo que la caja salía de 177 × 177 × 122 mm, porque dentro de la rueda central tienen que caber las puertas con sus bisagras y lo que las mueve (`caja/reporte-v5/antes-de-modelar-caja.md`). Palabras de Pepe: «esta bien , si, sigue». El brief ya decía «no hace falta que sea pequeña» (D-20).
+- **Qué se descartó:** nada. No se le ofreció otra opción: achicarla habría pedido un hueco menor que el del reloj supuesto.
+- **Pega que se conoce:** lo que Pepe aceptó fueron 177 mm. **El modelo terminado mide 178,8 × 178,8 × 122,6** (183,8 × 126 con la funda), 2 mm más, porque la corredera recta de aquella nota no cabía y se cambió por un aro que gira (`caja/reporte-v5/caja-entera.md`, apartado 1). Pepe no ha visto todavía la cifra nueva.
+- **Estado:** Activa. Pendiente de que Pepe vea los 178,8 en el reporte.
+

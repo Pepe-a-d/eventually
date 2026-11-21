@@ -15,6 +15,29 @@ Plantilla:
 
 ---
 
+## 2026-11-21 18:02 · sesión del PC
+
+- **Hecho: la caja v5 entera, modelada y comprobada en el modelo. Nada impreso.** Reporte en `caja/reporte-v5/caja-entera.md`: lo que no cumple va lo primero (apartado 1).
+  - 25 piezas más el reloj de pega. Medidas en `caja/caja_diseno_v5.py` (las del reloj, arriba); piezas y comprobaciones en `caja/caja_piezas_v5.py`; Fusion, con `caja/generador_caja_v5.py`.
+  - **Las puertas no llevan la corredera que te conté a las 15:40.** Al dibujarla se metía en el hueco libre de 50 × 59. Ahora las mueve un **aro escondido que gira 11°** alrededor del hueco, con una pista por puerta; al aro lo mueve el plato con un tetón suelto que va a la vez en una espiral (plato), una ranura recta (marco) y una diagonal (brazo del aro). Una sola espiral, sin cruce.
+  - Las dos puertas vuelven a ser la misma pieza, con la junta del centro en bisel a 45°.
+  - **Mide 178,8 × 178,8 × 122,6** (183,8 × 126 con funda). Pepe aceptó 177 (D-31, apuntada por mí); los 178,8 no los ha visto.
+  - De 2 en 2 grados de tubo, 174 posiciones: ninguna pieza pisa a otra y el reloj queda a 3,00 mm o más de todo. En Fusion: las 27 piezas tienen el mismo volumen que en el programa y el recorrido completo no da ninguna pisada; tras cambiar cinco piezas al final, en Fusion repetí solo las parejas en que entran (reporte, 4.2).
+  - Tres probetas propuestas, con sus `.3mf` y sus tablas «vale si» (reporte, apartado 9).
+- **Cambió:** nuevos en `caja/`: `caja_piezas_v5.py`, `caja-v5-piezas.json`, `generador_caja_v5.py`, `caja_render_v5.py`, `caja-v5-vistas.json`, `render-v5/`, `Eventually-caja-v5.f3d`; `caja_diseno_v5.py`, `caja-v5.json` y `caja_figuras_v5.py`, rehechos. En `caja/reporte-v5/`: `caja-entera.md`, siete dibujos `caja-*.png`, `caja-fase2-comprobaciones.txt`, `caja-fusion-comprobaciones.txt`; borrado `caja-esquema-corte.png` (era de la corredera). En `caja/probetas-v5/`: nueve `caja-probeta-*.3mf`. `antes-de-modelar-caja.md` lleva un aviso de que está superada. `DECISIONES.md`: D-31. `ESTADO.md`, al día.
+- **A medias:** nada del encargo. No están hechos los `.3mf` de la caja entera (el brief dice que todavía no).
+- **Para la sesión del Mac** (revisión crítica, paso 3 del brief):
+  1. **Lo más flojo es el juego de las puertas:** 3° cerradas (1,5 mm en la punta, boca abajo) y entre 86° y 94° abiertas. Sale de una bola de 5 mm con 0,15 de holgura y un brazo de 8 mm. Tengo un remedio pensado y sin dibujar (apartado 6, punto 3). Mira si ves otro.
+  2. **He cambiado cosas tuyas sin preguntar,** por ser de dentro: diez imanes en vez de nueve (cuatro en el tope), la junta en bisel en vez de media madera, el reparto de giros (puertas de 63° a 83° de tubo, subida desde 92°) y la rueda central de 78 dientes. Si alguna te parece de las que se ven o se tocan, díselo a Pepe.
+  3. **Tres cosas que encontré tarde y están arregladas,** por si quieres comprobarlas: los pasadores se podían salir hacia atrás (ahora la rueda central les tapa las puntas); la puerta no se podía montar (ahora entra de pie); y con la caja cerrada la plataforma quedaba 1 mm caída sobre las entradas del tubo (ahora descansa en un asiento de la base).
+  4. Entre las tres probetas sale casi toda la caja. D-15 dice que no se imprime la caja sin medir el reloj. Se lo planteo a Pepe; propongo empezar solo por la de puertas.
+  5. La frase la he puesto en el techo de la funda, porque ahí se imprime gratis. Es de Pepe decidirlo.
+- **Para Pepe:**
+  1. Leer el apartado 1 del reporte y mirar los dibujos. Decir si los 178,8 mm le valen.
+  2. Decidir qué probeta se imprime (propuesta: primero la de puertas, dos bandejas).
+  3. Siguen sin contestar: fecha de entrega, si el reloj está montado y sus medidas, los textos del tutorial.
+  4. En el Fusion del PC hay tres documentos «Sin título» sin guardar: el del iris, uno con una prueba y el de la caja. Los dos primeros se pueden cerrar sin guardar; el de la caja está exportado a `Eventually-caja-v5.f3d`.
+
 ## 2026-11-21 15:40 · sesión del PC
 
 - **Hecho:** leído el brief nuevo y **empezada la caja entera**, porque Pepe dijo «lee git y empieza a modelar». **En Fusion no hay todavía ninguna pieza de la caja.** Está hecha la fase 1: medidas y movimiento, calculados grado a grado de tubo.
