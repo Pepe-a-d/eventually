@@ -62,7 +62,7 @@ Cada milímetro de hueco cuesta unos 1,7 mm de diámetro de carcasa (calculado e
 1. ¿Qué día se entrega? El brief dice «más de un mes desde el 20 de noviembre».
 2. ¿Está montado el reloj? Si lo está, faltan sus medidas.
 3. ¿Valen los textos del tutorial de la caja y los de la puerta al reloj («Esto sigue. Luego.», «Ya lo tengo»)?
-4. P0 repetida a 0,2 mm: Pepe mandó una foto el 21-nov y están leídos los valores (5,20 · 0,15 · 0,20, en `caja/resultados-probetas.md`). Falta que confirme qué significa cada marca de las ventanas y qué piel tapa el imán.
+4. P0 repetida a 0,2 mm: Pepe mandó una foto el 21-nov y están leídos los valores (5,20 · 0,15 · 0,20, en `caja/resultados-probetas.md`). Pepe confirmó la lectura. Falta saber qué piel tapa el imán a 0,2 mm (la fila de abajo no tiene marca).
 
 ## 7. Lo siguiente
 

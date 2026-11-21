@@ -18,7 +18,7 @@ Plantilla:
 ## 2026-11-21 08:05 · sesión del Mac
 
 - **Hecho:** Pepe ha decidido añadir a la probeta del iris un **tercer juego de láminas, de 0,4 mm** («Sí, añádelo»). Apuntado como **D-28**.
-  - **P0 a 0,2 mm:** Pepe mandó una foto de la tira marcada. Leo alojamiento de imán de 5,20 mm, sujeta con 0,15 y pasa sin forzar con 0,20: todo 0,05 mm más justo que a 0,08. El significado de las marcas de las ventanas es interpretación mía, pendiente de que Pepe lo confirme. Con eso, los 0,25 mm de holgura de los ejes del iris deberían girar sueltos.
+  - **P0 a 0,2 mm:** Pepe mandó una foto de la tira marcada. Leo alojamiento de imán de 5,20 mm, sujeta con 0,15 y pasa sin forzar con 0,20: todo 0,05 mm más justo que a 0,08. Pepe confirmó la lectura. Falta la piel: esa fila no tiene marca. Con eso, los 0,25 mm de holgura de los ejes del iris deberían girar sueltos.
 - **Cambió:** `caja/resultados-probetas.md` (apartado nuevo de la P0 a 0,2), `DECISIONES.md` (D-28), `ESTADO.md`, una nota en la fila de láminas del apartado 11 de `caja/BRIEF-v5.md` y otra en `caja/reporte-v5/contra-reporte-iris.md`.
 - **A medias:** nada por mi parte.
 - **Para la sesión del PC:** el encargo, que sale de D-28:
