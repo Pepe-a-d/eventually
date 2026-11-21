@@ -303,5 +303,14 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Qué llevó a ella:** la sesión del PC, antes de modelar, le dijo que la caja salía de 177 × 177 × 122 mm, porque dentro de la rueda central tienen que caber las puertas con sus bisagras y lo que las mueve (`caja/reporte-v5/antes-de-modelar-caja.md`). Palabras de Pepe: «esta bien , si, sigue». El brief ya decía «no hace falta que sea pequeña» (D-20).
 - **Qué se descartó:** nada. No se le ofreció otra opción: achicarla habría pedido un hueco menor que el del reloj supuesto.
 - **Pega que se conoce:** lo que Pepe aceptó fueron 177 mm. **El modelo terminado mide 178,8 × 178,8 × 122,6** (183,8 × 126 con la funda), 2 mm más, porque la corredera recta de aquella nota no cabía y se cambió por un aro que gira (`caja/reporte-v5/caja-entera.md`, apartado 1). Pepe no ha visto todavía la cifra nueva.
-- **Estado:** Activa. Pendiente de que Pepe vea los 178,8 en el reporte.
+- **Estado:** Activa. **Pepe vio los 178,8 mm el 21-nov a las 19:02 y los dio por buenos** (D-32).
+
+### D-32. A Pepe le vale la caja modelada; lo siguiente es la revisión del Mac y después imprimir
+- **Fecha:** 21-nov-2026, 19:02.
+- **Quién decide:** Pepe.
+- **Decisión:** Pepe da por buena la caja v5 tal como está en `caja/reporte-v5/caja-entera.md`, incluidos los 178,8 mm de lado. El orden que sigue: primero la revisa la sesión del Mac; después se imprime.
+- **Qué llevó a ella:** la sesión del PC le enseñó el reporte, con lo que no cumple el brief lo primero, y una animación del modelo (`caja/video-v5/`). Le pidió tres cosas: permiso para subir, que dijera si los 178,8 mm le valían y que decidiera qué probeta imprimir. Palabras de Pepe: «Sube todo a git, si me vale todo me gusta esa caja, lo siguiente va a ser revisarla desde la sesion del mac y luego imprimir».
+- **Qué se descartó:** nada.
+- **Qué no ha dicho:** **qué se imprime.** La sesión del PC propuso empezar solo por la probeta de las puertas; Pepe no ha contestado a eso. Sigue en pie D-15 (la caja completa no se imprime sin medir antes el reloj) y D-30 (las probetas, antes que la caja). Tampoco ha dicho nada, uno por uno, de los cinco puntos del apartado 1 del reporte: «me vale todo» los cubre en conjunto.
+- **Estado:** Activa. Pendiente la revisión de la sesión del Mac.
 

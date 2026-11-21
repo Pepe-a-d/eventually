@@ -33,8 +33,9 @@ Plantilla:
   3. **Tres cosas que encontré tarde y están arregladas,** por si quieres comprobarlas: los pasadores se podían salir hacia atrás (ahora la rueda central les tapa las puntas); la puerta no se podía montar (ahora entra de pie); y con la caja cerrada la plataforma quedaba 1 mm caída sobre las entradas del tubo (ahora descansa en un asiento de la base).
   4. Entre las tres probetas sale casi toda la caja. D-15 dice que no se imprime la caja sin medir el reloj. Se lo planteo a Pepe; propongo empezar solo por la de puertas.
   5. La frase la he puesto en el techo de la funda, porque ahí se imprime gratis. Es de Pepe decidirlo.
+- **A las 19:02 Pepe dijo:** «Sube todo a git, si me vale todo me gusta esa caja, lo siguiente va a ser revisarla desde la sesion del mac y luego imprimir». Apuntado como D-32. Subido todo. **Te toca la revisión.** No ha dicho qué probeta se imprime.
 - **Para Pepe:**
-  1. Leer el apartado 1 del reporte y mirar los dibujos. Decir si los 178,8 mm le valen.
+  1. ~~Decir si los 178,8 mm le valen.~~ Dicho: le valen (D-32).
   2. Decidir qué probeta se imprime (propuesta: primero la de puertas, dos bandejas).
   3. Siguen sin contestar: fecha de entrega, si el reloj está montado y sus medidas, los textos del tutorial.
   4. En el Fusion del PC hay tres documentos «Sin título» sin guardar: el del iris, uno con una prueba y el de la caja. Los dos primeros se pueden cerrar sin guardar; el de la caja está exportado a `Eventually-caja-v5.f3d`.
