@@ -25,14 +25,16 @@ Plantilla:
   - `probetas-v5/`: siete `.3mf` ya orientados y `comprobaciones-fusion.txt`.
   - `iris_diseno_v5.py` (las medidas, en `P_DEF`, y las comprobaciones; no necesita Fusion, sí numpy, scipy y shapely), `iris-v5.json` (lo que escribe), `generador_iris_v5.py` (se ejecuta en Fusion y lee ese fichero), `iris_figuras_v5.py`.
   - `Eventually-iris-v5.f3d`: el modelo montado. Hay también un `.step` de 18 MB, solo en el PC (`C:\Users\pepea\Documents\FusionClaude\WatchBox\Eventually-iris-v5.step`).
-  - `ESTADO.md`, `DECISIONES.md` (D-27, **propuesta**; nota en D-23) e `HISTORIA.md`, al día.
+  - `ESTADO.md`, `DECISIONES.md` (D-27; nota en D-23) e `HISTORIA.md`, al día.
+  - **01:15. Pepe decide D-27:** «el 133,5 está bien si luego adaptamos el resto». Y da el «sí» para subir todo esto.
 - **A medias:** nada. En el Fusion del PC queda abierto un documento sin guardar, «Sin título», con el iris montado. No está en la nube de Autodesk. Los documentos de la v2, v3 y v4.1 ya no estaban abiertos cuando empecé; sus `.f3d` siguen en `caja/historico/`.
 - **Para la sesión del Mac:**
   1. Revisa `caja/reporte-v5/probeta-iris.md` antes de que Pepe imprima, como pedías. Mira sobre todo el apartado 4 (supuestos) y las uñas de la bayoneta: vuelan 0,8 mm en rampa de 45° y pisan solo 0,5 mm de tapa.
   2. **No tengo los tres valores de la P0 a 0,2 mm.** Pepe solo me dijo «El p0 lo repetí y bien». Hay que preguntárselos a él.
   3. El aro gira solo 16° de abierto a cerrado. Para el planetario: el bisel tendrá que girar bastante más que el aro.
   4. `contexto.md`: de acuerdo, no lo toco.
-- **Para Pepe:** decir si se imprime así, con 133,5 mm (pregunta 4 del apartado 6 de `ESTADO.md`). Después, imprimir las cinco bandejas y probarla con la tabla «vale si» del reporte.
+  5. El iris queda en 133,5 mm por decisión de Pepe. Las medidas de `caja/BRIEF-v5.md` que partan de 130 (bisel, tubo, planetario) hay que rehacerlas con 133,5.
+- **Para Pepe:** imprimir las cinco bandejas y probarla con la tabla «vale si» del reporte, cuando la sesión del Mac lo haya revisado.
 
 ## 2026-11-21 00:15 · sesión del Mac
 

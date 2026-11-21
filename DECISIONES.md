@@ -235,8 +235,8 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 
 ### D-27. La probeta del iris se imprime con 133,5 mm; el diámetro se decide después
 - **Fecha:** 21-nov-2026, 01:05.
-- **Quién decide:** propuesta de la sesión del PC. Pepe no ha contestado todavía.
-- **Decisión que se propone:** imprimir la probeta del iris tal como está modelada, con 133,5 mm de diámetro exterior (el objetivo del brief eran 130), y decidir el diámetro de la caja cuando el reloj esté medido y la probeta probada.
+- **Quién decide:** Pepe, el 21-nov a la 01:15 («el 133,5 está bien si luego adaptamos el resto»), a propuesta de la sesión del PC.
+- **Decisión:** la probeta del iris se imprime tal como está modelada, con 133,5 mm de diámetro exterior (el objetivo del brief eran 130). **El resto de la caja se adapta a ese diámetro**, no al revés. Si al medir el reloj o al probar la pieza cambia el hueco, se recalcula.
 - **Qué llevó a ella:**
   - **El cálculo de D-23 estaba mal.** Daba 125 a 127 mm con 8 láminas porque no contaba dónde va el eje de cada lámina ni cómo se sujeta la tapa. Lo hizo la sesión del PC y fue esa cifra la que oyó Pepe.
   - Al dibujarlo entero (calculado en plano, grado a grado, `caja/iris_diseno_v5.py`): el eje de una lámina no puede quedar debajo de otra lámina, así que va a 61,9 mm del centro; detrás van la cola (3,3 mm), su holgura (0,35) y una pared (1,2). Suma 66,75 de radio.
@@ -248,5 +248,5 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - *Ejes colgados de la tapa, pasando por ranuras del aro.* Cabía en unos 129 mm, pero con muchas piezas finas y un montaje a ciegas. No se llegó a modelar.
   - *Láminas en luna con la cola metida entre las demás.* Salía de 128 mm, pero la cola solo apoyaba en el 21 % de su superficie (calculado).
   - *Bajar ahora a 130 con 10 láminas o con el hueco de 72 mm.* Se deja para después de probar esta: 10 láminas contradice D-23 y el hueco depende del reloj, sin medir.
-- **Estado:** Propuesta.
+- **Estado:** Activa. Sin imprimir.
 

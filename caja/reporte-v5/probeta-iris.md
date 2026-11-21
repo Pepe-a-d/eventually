@@ -38,7 +38,7 @@ Formas de bajar de 130, **ninguna comprobada**:
 | 10 láminas en vez de 8 | unos 126 (calculado con un modelo anterior, más simple) | Dos láminas más, más finas. Hay que rehacer el cálculo |
 | Hueco de 72 mm en vez de 75 | unos 3 a 5 mm menos | Depende de las medidas del reloj, que siguen sin tomarse |
 
-Mi propuesta: **imprimir esta tal cual**. La probeta sirve para saber si un iris de PLA abre y cierra suave, y eso no depende de 3,5 mm. El diámetro se decide después, con el reloj medido (D-27, propuesta).
+**Decidido por Pepe el 21-nov (D-27): se imprime así, y el resto de la caja se adapta a 133,5 mm.** La probeta sirve para saber si un iris de PLA abre y cierra suave, y eso no depende de 3,5 mm.
 
 ## 3. Cómo es por dentro
 

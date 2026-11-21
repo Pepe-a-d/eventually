@@ -9,7 +9,7 @@ Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **medido** (sobre
 | Qué | Dónde | En qué punto está |
 | --- | --- | --- |
 | **Caja v5: iris y ascensor** | `caja/BRIEF-v5.md` | Diseño decidido por Pepe. Solo está modelada la probeta del iris. Nada impreso |
-| **Probeta 1: el iris** | `caja/reporte-v5/probeta-iris.md`, `caja/probetas-v5/` | **Modelada el 21-nov, sin imprimir.** Una carcasa de 8 láminas y dos juegos, de 1,2 y de 0,8 mm (D-23). Cumple todo el encargo en el modelo **menos el diámetro: 133,5 mm, y el objetivo eran 130** (D-27, propuesta). Falta la revisión de la sesión del Mac y que Pepe la imprima |
+| **Probeta 1: el iris** | `caja/reporte-v5/probeta-iris.md`, `caja/probetas-v5/` | **Modelada el 21-nov, sin imprimir.** Una carcasa de 8 láminas y dos juegos, de 1,2 y de 0,8 mm (D-23). Cumple todo el encargo en el modelo menos el diámetro: **133,5 mm, y el objetivo eran 130. Pepe lo acepta: el resto de la caja se adapta a 133,5** (D-27). Falta la revisión de la sesión del Mac y que Pepe la imprima |
 | Resultados de las probetas | `caja/resultados-probetas.md` | P0 bien. P1 no vale |
 | La web | `docs/` | Publicada en su dirección de siempre; GitHub Pages sirve `/docs` desde el 21-nov (D-26). Falta probarla en un iPhone |
 | Tutorial de la caja en la web | `docs/frames/caja/`, `docs/caja.js`, `docs/caja.css` | Publicado, pero **describe la v4.1**. Hay que rehacerlo con la v5 |
@@ -62,12 +62,11 @@ Cada milímetro de hueco cuesta unos 1,7 mm de diámetro de carcasa (calculado e
 1. ¿Qué día se entrega? El brief dice «más de un mes desde el 20 de noviembre».
 2. ¿Está montado el reloj? Si lo está, faltan sus medidas.
 3. ¿Valen los textos del tutorial de la caja y los de la puerta al reloj («Esto sigue. Luego.», «Ya lo tengo»)?
-4. El iris sale de 133,5 mm y no de 130. ¿Se imprime así la probeta y el diámetro se decide con el reloj medido? (D-27, propuesta de la sesión del PC).
 
 ## 7. Lo siguiente
 
 1. ~~Modelar la probeta del iris.~~ Hecho el 21-nov: `caja/probetas-v5/` y `caja/reporte-v5/probeta-iris.md`.
-2. Que la sesión del Mac revise el reporte, y que Pepe conteste a la pregunta 4 del apartado 6.
+2. Que la sesión del Mac revise el reporte. El diámetro ya está decidido: 133,5 mm, y el resto de la caja se adapta (D-27). **Ojo al brief:** donde `caja/BRIEF-v5.md` cuente con 130 mm de iris, ahora son 133,5.
 3. Que Pepe la imprima y la pruebe con la tabla «vale si» del reporte. El resultado va a `caja/resultados-probetas.md`.
 4. Después, por este orden: probeta del ascensor, probeta del planetario y la caja entera.
 5. Rehacer el tutorial de la web cuando la v5 tenga forma.
