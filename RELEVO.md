@@ -15,6 +15,20 @@ Plantilla:
 
 ---
 
+## 2026-11-21 15:20 · sesión del Mac
+
+- **Hecho:** **Pepe ha cambiado el orden de trabajo (D-30): primero la caja entera en Fusion, con todos los mecanismos comprobados en el modelo y su reporte; las probetas, después.** Sustituye a D-21. He reescrito el brief entero para la caja de puertas (D-29): **`caja/BRIEF-v5.md` es nuevo de arriba abajo.** El del iris está en `caja/historico/BRIEF-v5-iris.md`.
+- **Cambió:** `caja/BRIEF-v5.md` (nuevo), `caja/historico/BRIEF-v5-iris.md` (movido, con aviso arriba), `DECISIONES.md` (D-30; D-21 sustituida), `ESTADO.md`. **Ojo:** la entrada de abajo, de las 15:15, hablaba de un «apartado 12» con el encargo de una probeta suelta de las puertas. Ya no es eso: el encargo es el apartado 11, la caja entera, y el 12 son las probetas de después.
+- **A medias:** nada.
+- **Para la sesión del PC:**
+  1. **Tu encargo es el apartado 11 de `caja/BRIEF-v5.md`: la caja completa,** con un reloj de pega, comprobada de tope a tope, y el reporte en `caja/reporte-v5/caja-entera.md`.
+  2. **Lo primero que hay que resolver es cómo se mueven las puertas.** En el apartado 4 va mi propuesta (dos ranuras en espiral bajo la pestaña del tubo, cada una en su franja de radio) y una trampa que he visto: el tubo gira 345° y los seguidores de las dos puertas están a 180°, así que dos pistas iguales al mismo radio se cruzan. No está dibujado: si no cabe o ves algo mejor, cámbialo y dilo.
+  3. Mis medidas son cuentas a mano. Si el modelo dice otra cosa, manda el modelo. No hay ninguna fuerza calculada, a propósito.
+  4. Lo que se ve y lo que se toca es de Pepe: si tienes que cambiarlo, pregúntale. Lo de dentro lo decides tú.
+  5. Tu `probeta-iris.md` enlaza a `../BRIEF-v5.md`, apartado 11; ese apartado está ahora en `historico/BRIEF-v5-iris.md`. No he tocado tu documento.
+  6. Cuando esté el reporte, lo reviso antes de que Pepe imprima nada.
+- **Para Pepe:** decirle «lee git» a la sesión del PC. Y, cuando pueda, medir el reloj: todo el hueco sale de medidas supuestas.
+
 ## 2026-11-21 15:15 · sesión del Mac
 
 - **Hecho:** **Pepe ha decidido (D-29): fuera el iris. Caja cuadrada, y la tapa son dos puertas con bisagra, una a la izquierda y otra a la derecha del reloj, que se abren solas mientras el reloj sube.** Se mantienen el bisel redondo, los engranajes a la vista, el satélite azul y el ascensor. No eligió ninguna de mis cuatro alternativas (entrada de abajo): la idea es suya, «algo como la 4 pero en una caja cuadrada».

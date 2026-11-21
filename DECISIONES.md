@@ -189,7 +189,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Quién decide:** Pepe, a propuesta de la sesión del Mac.
 - **Decisión:** iris, ascensor y planetario se prueban por separado y en ese orden. La caja entera no se modela hasta que pasen los tres.
 - **Qué llevó a ella:** se hicieron cinco versiones en papel antes de imprimir nada, y la primera pieza impresa tumbó la idea central.
-- **Estado:** Activa.
+- **Estado:** Sustituida por D-30 (21-nov-2026). La probeta del iris se hizo con esta regla.
 
 ### D-22. Plan B del iris
 - **Fecha:** 20-nov-2026.
@@ -279,8 +279,20 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - *Dos puertas, delante y detrás,* y *cuatro triángulos.* Pepe eligió las dos de los lados. En las otras, la puerta de delante tapa parte del reloj visto de frente (dicho por la sesión del Mac al preguntar).
   - *Quitar el bisel y mover el reloj de otra forma.* Pepe dijo que se mantiene.
 - **Qué falta por saber** (nada de esto está dibujado ni impreso):
-  - Cómo se mueven las puertas. Propuesta de la sesión del Mac, sin comprobar: las mueve el mismo giro, con una leva, un poco por delante del reloj y sin que el reloj las toque nunca. Lo dirá la probeta (`caja/BRIEF-v5.md`, apartado 12).
+  - Cómo se mueven las puertas. Propuesta de la sesión del Mac, sin comprobar: las mueve el mismo giro, con una leva, un poco por delante del reloj y sin que el reloj las toque nunca. Lo dirán el modelo y luego la probeta (`caja/BRIEF-v5.md`, apartados 4 y 12).
   - El tamaño. Estimado a mano por la sesión del Mac: el hueco rectangular de 50 × 59 mm cabe en un círculo de 77 mm, casi el mismo de 75 que rodeaban los engranajes, y desaparece el disco de 133,5 del iris. La caja saldría de unos 150 mm de lado. Sin dibujar.
   - Las medidas del reloj siguen siendo supuestas, y el hueco depende de ellas.
 - **Estado:** Activa. Sin modelar.
+
+### D-30. Primero la caja entera, modelada y comprobada; después, las probetas
+- **Fecha:** 21-nov-2026, 15:20.
+- **Quién decide:** Pepe.
+- **Decisión:** la sesión del PC modela la caja completa (D-29), comprueba en el modelo que todos los mecanismos funcionan y hace el reporte. Con el diseño final planeado, se imprimen las probetas, sacadas de ese modelo, para ajustar cada mecanismo. Sustituye a D-21, que mandaba probar tres probetas antes de modelar la caja.
+- **Qué llevó a ella:** palabras de Pepe a la sesión del Mac: «quiero que la sesión del pc modele completamente esta caja, compruebe todos los mecanismos funcionando y haga el report, una vez tengamos la caja final planeada y diseñada podemos imprimir las probetas para ver como ajustar cada mecanismo». Viene justo después de la probeta del iris, que se hizo suelta, funcionó y aun así no sirvió para la caja (D-29). Si pesó eso, no consta: Pepe no dio más motivo.
+- **Qué se descartó:** seguir con D-21 (una probeta suelta por mecanismo antes de modelar nada más). La sesión del Mac había escrito ya el encargo de una probeta suelta de las puertas; queda dentro del brief nuevo como una de las probetas de después.
+- **Pegas que se conocen** (dichas por la sesión del Mac a Pepe al apuntarlo):
+  - D-21 nació de que la primera pieza impresa tumbó cinco versiones hechas en papel. Con este orden, si una probeta falla, hay que rehacer parte del modelo. Por eso el brief pide que todo vaya por parámetros.
+  - «Comprobado en el modelo» es que las piezas se mueven y no se pisan. No es «funciona».
+  - Sigue en pie D-15: la caja completa no se imprime sin medir antes el reloj.
+- **Estado:** Activa. Encargo en `caja/BRIEF-v5.md`, apartado 11. Sin modelar.
 

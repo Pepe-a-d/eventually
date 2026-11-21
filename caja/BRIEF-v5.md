@@ -1,166 +1,189 @@
-# Eventually, la caja v5: iris y ascensor
+# Eventually, la caja v5: puertas y ascensor
 
-Escrito el 20 de noviembre de 2026 por la sesión del Mac, a partir de la conversación de diseño con Pepe de ese día. **Sustituye a la v4.1, que queda parada.** Nada de esto está modelado ni impreso.
+Escrito el 21 de noviembre de 2026 por la sesión del Mac, a partir de lo que Pepe decidió ese día (D-29 y D-30). **Sustituye al brief del iris,** que queda en [`historico/BRIEF-v5-iris.md`](historico/BRIEF-v5-iris.md). Nada de esto está modelado ni impreso.
 
-Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **estimado** (cuenta a mano de la sesión del Mac, sin CAD) o **supuesto** (medida del reloj sin confirmar).
+Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **medido** (sobre una pieza impresa), **estimado** (cuenta a mano de la sesión del Mac, sin CAD) o **supuesto** (medida del reloj sin confirmar).
 
-> **Cambio del 21 de noviembre de 2026 (D-29). Manda sobre el resto de este documento.**
-> Pepe imprimió y probó el iris: funciona, pero no le convence cómo se ve cerrado y le parece frágil. Ha decidido:
-> - **La caja es cuadrada,** no cilíndrica.
-> - **La tapa son dos puertas con bisagra,** una a la izquierda y otra a la derecha del reloj. Se abren solas mientras el reloj sube y quedan de pie a sus lados.
-> - **El bisel redondo, los engranajes a la vista y el satélite azul se mantienen,** sobre la caja cuadrada. El ascensor, también.
->
-> Donde este documento diga «iris», ahora son las puertas; donde diga «cilíndrica» o dé un diámetro de caja, ahora es cuadrada y la medida está por dibujar. El apartado 11 (el encargo del iris) está cerrado. **El encargo que vale ahora es el apartado 12.** Los apartados 2 a 6 los rehago cuando la probeta de las puertas diga qué vale.
+**Aviso sobre mis cuentas.** Dos previsiones de fuerzas mías las ha tumbado una pieza: los imanes de la v4 y el cierre del iris. En este documento no hay ninguna fuerza. Las medidas «estimadas» son cuentas a mano para arrancar: si el modelo dice otra cosa, manda el modelo, y se dice en el reporte.
 
-## 0. Para la sesión del PC: qué ha pasado y qué tienes que saber
+## 0. Para la sesión del PC: qué ha cambiado y qué se te pide
 
-**Este documento manda sobre `contexto.md`, `README.md` y todo lo de la v4.** El apartado 0 de `contexto.md` dice que manda la v4 y que el siguiente paso es imprimir P0 y P1: eso ya ocurrió y ya no vale.
+**Qué pasó el 21 de noviembre:**
 
-**Qué pasó el 20 de noviembre de 2026, en orden:**
+1. Pepe imprimió y probó tu probeta del iris. **Funciona con los tres gruesos.** Detalle en `resultados-probetas.md`.
+2. No le convenció: **cómo se ve cerrado** (láminas en escalera, agujero en el centro, rendijas) y **que parece frágil**. El tacto y el acabado sí le valían.
+3. Decidió cambiar la tapa (D-29): **caja cuadrada, y dos puertas con bisagra, una a cada lado del reloj, que se abren solas mientras el reloj sube.** El bisel redondo, los engranajes a la vista, el satélite azul y el ascensor se mantienen.
+4. Decidió cambiar el orden de trabajo (D-30): **primero modelas la caja entera, compruebas en el modelo que todos los mecanismos funcionan y haces el reporte. Las probetas se imprimen después,** sacadas del modelo final, para ajustar cada mecanismo.
 
-1. Pepe imprimió **P0** de `probetas-v4\`. Salió bien: 5,15 mm de alojamiento, holgura de 0,15 mm, piel de 0,8 mm. La imprimió con capa de 0,08 mm, no de 0,2.
-2. Imprimió **P1 y P2** con capa de 0,2 mm, 7 capas inferiores y pared Aracne.
-3. **P1 falló:** los imanes no mueven el rotor, «ni de cerca». La llave magnética, que era la idea central desde el brief original, no funciona con imanes de 5 × 1,6 mm.
-4. Pepe decidió **volver a la fase de diseño**. No quiso arreglar la v4.1.
-5. En una conversación larga con la sesión del Mac eligió, sector por sector, el diseño de este documento.
+**Qué se te pide:** el apartado 11. Es la caja completa.
 
-Los resultados de las probetas están en `resultados-probetas.md`.
+**Qué queda probado de tu probeta del iris y se aprovecha (medido):**
 
-**Qué se descartó en esa conversación, para no volver a proponerlo:**
+- Ejes y tetones con 0,25 mm de holgura por lado giran sueltos, a capa de 0,2 mm.
+- Una bayoneta de cuatro uñas en rampa de 45° sale sin soportes y cierra.
+- Un módulo de 133,5 mm y 9,8 de grueso monta sin pegamento ni tornillos.
+- **Una pieza que se puede montar del revés, alguien la monta del revés.** En esta caja, ninguna.
 
-- La aguja como llave, y la aguja en general: ya no hay aguja.
-- Cualquier mecanismo que dependa de imanes.
-- El trinquete.
-- Números o grabados en el iris.
-- La tarjeta bajo el reloj (no cabe por el hueco).
-- Una corona en el costado y una cara plana en el cilindro, como marca del frente.
-- Engranajes escondidos del todo, o del todo a la vista.
-- Girar la base en vez del bisel.
-- El reloj tumbado.
-- Engranajes que giran en su sitio: Pepe quiere que los satélites orbiten.
+**De la P0 repetida a capa de 0,2 mm (medido):** el imán de 5 mm entra en un alojamiento de 5,20; con 0,15 mm por lado una pieza sujeta y con 0,20 pasa sin forzar.
 
-Siguen descartados de antes: palabras en la tapa, piezas de acero, pestaña de arrancar.
+**Descartado, para no volver a proponerlo** (lista completa en `ESTADO.md`, apartado 3):
 
-**Qué se puede aprovechar de la v4:**
+- La aguja, en cualquier forma. Cualquier mecanismo que dependa de imanes. El trinquete.
+- El iris de láminas, para la caja (D-29).
+- Números, grabados o palabras en la tapa. Piezas de acero. Pestaña de arrancar.
+- La tarjeta bajo el reloj. Una corona en el costado o una cara plana como marca del frente.
+- Engranajes escondidos del todo, o del todo a la vista. Engranajes que giran en su sitio: los satélites tienen que orbitar.
+- Girar la base en vez del bisel. El reloj tumbado.
 
-- Los contornos de la frase (`frase-v3.json`) y la idea de la funda de campana con colchón de aire. Ahora es cilíndrica.
-- La pinza en C de PETG y la peana, adaptadas: la peana ya no desliza entre guías, apoya sobre un pedestal de unos 72 mm y se coloca con dos imanes.
-- El rebaje del NFC.
-- Las holguras de P0 y los ajustes de impresión.
-- La manera de trabajar: generador en Python, parámetros en una lista, probetas ya orientadas, reporte con lo que es del modelo, lo calculado y lo supuesto. `instrucciones-de-trabajo.md` sigue valiendo.
+## 1. La idea
 
-**Qué te pido al empezar:**
+Una caja cuadrada blanca. Arriba, un bisel redondo, como un reloj de caja cojín. Se gira el bisel: unos engranajes se mueven a la vista, dos puertas se abren en el centro y el reloj sube entero desde dentro, de pie y mirando al frente. Las puertas quedan de pie a sus lados.
 
-1. Pon al día `contexto.md` con un apartado nuevo que mande, y deja la v4 como histórica.
-2. Empieza por el apartado 11 de este documento. Nada más.
-3. Sube el guion con el que generaste los fotogramas del tutorial de la web (`frames/caja/`). Solo existe en el PC, y con la caja nueva habrá que rehacer el tutorial.
+No hay llave ni aguja. Lo único azul de la caja es un engranaje.
 
-**Lo que este documento no sabe:** por qué exactamente falló P1 (si el rotor rozaba, con qué espiral se probó) y el resultado de repetir P0 con capa de 0,2 mm. Si te hace falta, pregúntaselo a Pepe.
+## 2. Lo decidido por Pepe
 
-## 1. Por qué hay una v5
+| Tema | Decisión | Dónde consta |
+| --- | --- | --- |
+| Forma | Caja cuadrada | D-29 |
+| Tapa | Dos puertas con bisagra, una a la izquierda y otra a la derecha del reloj. Se abren solas mientras el reloj sube y quedan de pie a sus lados | D-29 |
+| Qué se gira | El bisel redondo de arriba | D-20, D-29 |
+| Engranajes | Planetario de verdad: los satélites dan vueltas alrededor del hueco. A la vista a medias, tipo esqueleto, entre puentes | D-20 |
+| Lo azul | Un solo satélite azul. Todo lo demás, blanco | D-20 |
+| Reloj | De pie sobre su soporte, esfera al frente. Sube entero | D-20 |
+| Bisel | Grafilado (canto estriado) | D-20 |
+| Tapa lisa | Sin números, grabados ni palabras | D-14, D-20 |
+| Frente | Un índice en relieve, blanco sobre blanco, en el cuerpo bajo el bisel | D-20 |
+| Tramo muerto | Sí: al empezar a girar, los engranajes se mueven y no pasa nada | D-20 |
+| Trinquete | No | D-20 |
+| Imanes | Solo de adorno. **Nada puede depender de ellos** | D-19 |
+| Funda | Se mantiene: mármol, con la frase en azul y el NFC dentro. Ahora cuadrada | D-16, D-29 |
+| Tarjeta | En la funda, o fuera de la caja | D-20 |
+| Tamaño | No hace falta que sea pequeña | D-20 |
+| Orden de trabajo | Caja entera modelada y comprobada; después, probetas | D-30 |
 
-- La probeta P1 de la v4.1 falló: los imanes de 5 × 1,6 mm no mueven el mecanismo. Detalle en `resultados-probetas.md`.
-- Los cálculos decían que sí. **Lección: ninguna fuerza calculada se da por buena sin una pieza impresa que lo confirme.**
-- Se hicieron cinco versiones sobre el papel antes de imprimir nada. **Lección: primero la probeta del mecanismo, después la caja.**
-- Pepe pidió volver a diseñar desde cero, por sectores: mecanismo, forma, estética, experiencia.
+Siguen en pie: impresora Bambu Lab X1 Carbon con AMS, etiqueta NFC de 25 mm, 13 imanes de 5 × 1,6 mm, y no se imprime la caja completa sin medir antes el reloj (D-15).
 
-## 2. La idea
-
-Una caja cilíndrica blanca. Se gira el bisel de arriba, como el de un reloj: unos engranajes se mueven a la vista, la tapa se abre como el diafragma de una cámara y el reloj sube entero desde dentro, de pie y mirando al frente.
-
-Ya no hay llave. La aguja azul desaparece. Lo único azul de la caja es un engranaje.
-
-## 3. Lo decidido por Pepe
-
-| Tema | Decisión |
-| --- | --- |
-| Mecanismo | Iris que se abre y ascensor que sube el reloj, movidos por un solo giro |
-| Qué se gira | El bisel de arriba |
-| Engranajes | Sí, para dar aire de relojería. **Planetario de verdad: los satélites dan vueltas alrededor del hueco** |
-| Trinquete | No |
-| Reloj | De pie sobre su soporte, esfera al frente, como en la v4. Sube entero |
-| Tamaño | No hace falta que sea pequeña. Vale un tamaño normal de estuche de reloj |
-| Plazo | Más de un mes desde el 20 de noviembre de 2026 |
-| Lo azul | Un solo engranaje azul. Todo lo demás, blanco |
-| Engranajes a la vista | Parcialmente, tipo esqueleto: se ven entre puentes |
-| Bisel | Grafilado (canto estriado) |
-| Iris | Liso, sin números ni grabados |
-| Frente | Un índice en relieve, blanco sobre blanco, en el cuerpo bajo el bisel |
-| Tramo muerto | Sí: al empezar a girar, los engranajes se mueven y no pasa nada |
-| Imanes | Solo para dar sensación de calidad. **Nada puede depender de ellos** |
-| Funda | Se mantiene: mármol, con la frase en azul y el NFC dentro |
-| Tarjeta | En la funda, o fuera de la caja. No va bajo el reloj (no cabe) |
-
-Siguen en pie de antes: sin palabras en la tapa, sin piezas de acero, impresora Bambu Lab X1 Carbon con AMS, etiqueta NFC de 25 mm.
-
-## 4. Cómo se usa
+## 3. Cómo se usa
 
 1. Se levanta la funda. Sale despacio, por el colchón de aire.
-2. Queda un cilindro blanco. Arriba, el bisel, los engranajes entre puentes y el iris cerrado en el centro.
+2. Queda un cubo blanco. Arriba, el bisel, los engranajes entre puentes y, en el centro, las dos puertas cerradas: un rectángulo liso con una raya.
 3. Se sujeta el cuerpo con una mano y se gira el bisel con la otra.
 4. Primer tramo: no pasa nada. Los engranajes giran.
-5. Segundo tramo: el iris se abre.
-6. Resto del giro: el reloj sube. Arriba, un «clac» suave.
+5. Después, las puertas se abren y el reloj sube. Las puertas van un poco por delante: el reloj no las toca nunca.
+6. Arriba, un «clac» suave. El reloj queda entre las dos puertas, que están de pie.
 7. Se coge el reloj con su soporte. El soporte sirve solo en la mesilla.
-8. Para cerrar, se gira al revés.
+8. Para cerrar, se gira al revés: el reloj baja y las puertas se cierran detrás.
 
 La caja queda pensada para usarse a diario como expositor: reloj arriba de día, guardado de noche.
 
-## 5. Arquitectura propuesta (estimada, a comprobar en CAD)
+## 4. Arquitectura propuesta (estimada, a comprobar en CAD)
+
+Es un punto de partida. Si ves una forma mejor de cualquier pieza de dentro, cámbiala y dilo en el reporte. Lo que se ve y lo que se toca es de Pepe (apartado 2): eso, si hay que cambiarlo, se le pregunta antes.
 
 De dentro afuera. Lo fijo va unido a la base por dentro; lo que gira lo envuelve.
 
 | Pieza | Fija o gira | Qué hace |
 | --- | --- | --- |
-| Base con jaula | Fija | Disco de abajo con tres columnas verticales por dentro. Las columnas guían la plataforma y sostienen el iris arriba |
-| Plataforma con pedestal | Sube y baja | Disco con tres muescas (corren por las columnas, así no gira) y tres tetones (entran en la rampa del tubo). Encima, un pedestal de unos 72 mm que tapa el hueco del iris cuando está arriba |
-| Tubo | Gira | Rodea la jaula. Por dentro lleva la rampa en espiral, de tres entradas. Es un pintalabios grande. Arriba termina en una pestaña hacia dentro, que pasa por encima del iris y lleva los ejes de los satélites |
-| Carcasa del iris | Fija | Sobre las columnas. Dos platos con las láminas y su aro en medio |
-| Rueda central | Fija | Aro dentado alrededor del hueco, unido al plato de arriba del iris |
+| Base con jaula | Fija | Fondo de la caja con tres columnas verticales por dentro. Las columnas guían la plataforma y sostienen arriba el marco de las puertas |
+| Plataforma con pedestal | Sube y baja | Disco con tres muescas (corren por las columnas, así no gira) y tres tetones (entran en la rampa del tubo). Encima, un pedestal rectangular que, arriba del todo, rellena el hueco de las puertas y queda a ras |
+| Tubo | Gira | Rodea la jaula. Por dentro lleva la rampa en espiral, de tres entradas: un pintalabios grande. Arriba termina en una pestaña hacia dentro, que pasa por encima del marco, lleva los ejes de los satélites y mueve las puertas |
+| Marco de las puertas | Fijo | Sobre las columnas. Placa con el hueco rectangular, las bisagras y lo que mueve las puertas |
+| Puertas | Giran 90° | Dos, de 3 mm o más. Bisagra en el lado largo del hueco |
+| Rueda central | Fija | Aro dentado alrededor del hueco, unido al marco |
 | Satélites | Giran y orbitan | Seis ruedas pequeñas sobre la pestaña del tubo, entre la rueda central y el bisel. Cinco blancas y una azul |
-| Bisel | Gira (es lo que se toca) | Aro exterior de arriba, grafilado por fuera y dentado por dentro. Apoya y gira sobre el borde del cuerpo |
-| Puentes | Por decidir | Lo que tapa a medias los engranajes. Puede ser un aro que orbita con los satélites y los retiene, o puentes fijos que salen de la rueda central |
-| Cuerpo | Fijo | Piel exterior unida a la base. Tapa el tubo, retiene el bisel y lleva el índice del frente |
+| Bisel | Gira (es lo que se toca) | Aro redondo de arriba, grafilado por fuera y dentado por dentro. Apoya y gira sobre el cuerpo |
+| Puentes | Por decidir | Lo que tapa a medias los engranajes y los retiene |
+| Cuerpo | Fijo | Piel exterior cuadrada, unida a la base. Tapa el tubo, retiene el bisel y lleva el índice del frente |
 | Soporte del reloj | Suelto | Pinza en C y peana, como en la v4, sobre el pedestal |
-| Funda | Suelta | Campana cilíndrica de mármol con la frase, el NFC y la tarjeta |
+| Funda | Suelta | Campana cuadrada de mármol con la frase, el NFC y la tarjeta |
 
-**Cómo llega el giro del bisel al tubo.** Es un planetario con el centro hueco. La rueda central está fija. El bisel, dentado por dentro, es la corona y es la entrada. Los satélites ruedan entre los dos y arrastran sus ejes, que están en el tubo: el tubo es el portasatélites y es la salida. Propuesta de partida, con módulo 1,5: rueda central de 60 dientes, satélites de 12, bisel de 84. El tubo gira a 0,58 veces la velocidad del bisel (84 / 144) y en el mismo sentido. Con 144 dientes entre central y bisel caben 3, 4, 6 u 8 satélites repartidos por igual.
+### El planetario
 
-**Los satélites orbitan a la velocidad del tubo.** En todo el recorrido dan casi una vuelta completa alrededor del hueco (345°). El azul puede salir del índice del frente y volver casi a él cuando el reloj llega arriba: una vuelta, como el segundero.
+La rueda central está fija. El bisel, dentado por dentro, es la corona y es la entrada. Los satélites ruedan entre los dos y arrastran sus ejes, que están en la pestaña del tubo: el tubo es el portasatélites y es la salida.
 
-**Reparto del giro del tubo** (menos de una vuelta, con topes):
+Propuesta de partida, con módulo 1,5: rueda central de 60 dientes, satélites de 12, bisel de 84. El tubo gira a 0,58 veces la velocidad del bisel (84 / 144), en el mismo sentido. Con 144 dientes entre central y bisel caben 3, 4, 6 u 8 satélites repartidos por igual.
+
+Los satélites orbitan a la velocidad del tubo. En todo el recorrido dan casi una vuelta completa alrededor del hueco (345°). El azul puede salir del índice del frente y volver casi a él cuando el reloj llega arriba.
+
+Nada fijo atraviesa nada que gire: el marco y la rueda central se sujetan por dentro, sobre las columnas; la pestaña del tubo rodea a la rueda central sin tocarla.
+
+### El ascensor
+
+Reparto del giro del tubo, menos de una vuelta y con topes en los dos extremos. Los grados son de partida: ajústalos.
 
 | Tramo del tubo | Qué pasa |
 | --- | --- |
-| 0° a 45° | Nada. La rampa es plana y el iris no se mueve |
-| 45° a 105° | Un tetón del tubo arrastra el aro del iris y lo abre. Después lo suelta y el iris queda abierto |
-| 105° a 335° | La rampa sube la plataforma |
+| 0° a unos 45° | Nada. Tramo muerto: la rampa es plana y las puertas no se mueven |
+| De unos 45° a unos 105° | Las puertas se abren. El reloj puede empezar a subir antes de que terminen, siempre que no las toque |
+| Hasta 335° | La rampa sube la plataforma |
 | 335° a 345° | Rampa plana: el reloj descansa arriba y no puede bajar solo |
 
-Con esa relación, el recorrido entero es de **algo más de una vuelta y media de bisel** (unos 590°). El tramo muerto es una quinta parte de vuelta.
+Con esa relación, el recorrido entero es de algo más de una vuelta y media de bisel (unos 590°).
 
-**El orden lo fijan la forma de la rampa y el tetón, no el roce.** Al cerrar pasa lo mismo al revés: el reloj baja y, al final, el tetón cierra el iris.
+**El orden lo fija la forma de las piezas, no el roce.** Al cerrar pasa lo mismo al revés.
 
-### Sobre «planetario»
+### Las puertas
 
-Una primera versión de este documento decía que los satélites no podían orbitar, porque el iris fijo del centro había que sujetarlo atravesando la zona de los engranajes. **Era un error de la sesión del Mac.** Pepe pidió que orbitaran y hay salida: el iris se sujeta por dentro, sobre las columnas de la jaula; la rueda central va fija encima del iris; y los ejes de los satélites van en la pestaña del tubo, que rodea a la rueda central sin tocarla. Nada fijo atraviesa nada que gire.
+Lo que tienen que cumplir está en el apartado 6. Cómo se mueven lo eliges tú. Lo que he pensado, por si ahorra tiempo:
 
-Lo que hay que comprobar en CAD: que la pestaña del tubo cabe entre el plato del iris y los satélites, y que la pared de la rueda central (entre el hueco de 75 mm y el pie de sus dientes) no queda demasiado fina.
+- **Las dos puertas son la misma pieza girada media vuelta** alrededor del eje de la caja. Lo que mueva una, girado 180°, mueve la otra.
+- **Una trampa que he visto.** El tubo gira 345° y los dos seguidores de las puertas están a 180° uno de otro. Si las dos puertas siguen la misma pista del tubo, en el tramo de «abiertas» las dos pistas se juntan en una, y al volver hay un cruce donde nada obliga al seguidor a seguir recto en vez de bajar por la rampa de la otra puerta: una puerta podría cerrarse con el reloj arriba. Dos pistas iguales al mismo radio no valen.
+- **Mi propuesta de partida:** dos ranuras en espiral en la cara de abajo de la pestaña del tubo, **cada una en su propia franja de radio**. Cada ranura: radio constante (cerrada), un tramo de espiral de unos 60° (abre) y radio constante hasta el final (abierta). En el marco, una corredera por puerta con un tetón en su ranura; la corredera mueve la manivela de la puerta. Así abrir y cerrar los hace la ranura, y en los tramos de radio constante la puerta queda bloqueada por la forma. No está dibujado: no sé si caben las dos franjas (calculo que cada una pide unos 12 mm de ancho y la pestaña tiene unos 24).
+- **Otras dos formas,** por si esa no cabe: un aro intermedio que gire menos de 180° en todo el recorrido (con una reducción), o que las empuje la propia plataforma al subir. Esta última tiene una pega: lo que empuje tiene que llegar a las puertas antes que el reloj, y eso son piezas tan altas como el reloj, a la vista.
 
-## 6. Medidas (estimadas)
+## 5. Medidas
 
 | Qué | Valor | De dónde sale |
 | --- | --- | --- |
-| Reloj: cabeza | 40 mm, 43,5 con corona, 11 de grueso | Supuesto: un 40 mm estándar. El reloj no está montado |
-| Brazalete cerrado | Óvalo de unos 67 × 53 mm | Supuesto |
-| Reloj de pie, visto desde arriba | Unos 44 × 53 mm | Estimado |
-| Hueco libre del iris | 75 mm | Estimado: la diagonal anterior más 3 mm por lado |
-| Carcasa del iris | Unos 125 a 130 mm de diámetro | Estimado: 1,6 a 1,7 veces el hueco. **Lo decide la probeta 1** |
-| Caja sin funda | Unos 150 mm de diámetro y 135 de alto | Estimado |
-| Recorrido del ascensor | Unos 88 mm | Estimado: alto del reloj más el grueso del iris |
-| Pendiente de la rampa | Unos 18° | Estimado. Está en el límite de sujetarse sola por roce. **Lo decide la probeta 2** |
+| Reloj: cabeza | 40 mm, 43,5 con corona, 11 de grueso | **Supuesto.** No consta que el reloj esté montado |
+| Brazalete cerrado | Óvalo de unos 67 × 53 mm | **Supuesto** |
+| Reloj de pie, visto desde arriba | Unos 44 de ancho × 53 de fondo | Estimado |
+| Reloj en su soporte, alto | Unos 78 mm | Estimado |
+| Hueco de las puertas | 50 de ancho × 59 de fondo | Estimado: lo anterior más 3 mm por lado |
+| Recorrido del ascensor | Unos 88 mm | Estimado: alto del reloj más el grueso del marco |
+| Pendiente de la rampa | Unos 18° | Estimado. Está en el límite de sujetarse sola por roce: lo dirá la probeta |
+| Caja sin funda | Unos 150 mm de lado y 135 de alto | Estimado a mano: el hueco de 50 × 59 cabe en un círculo de 77 mm, y a su alrededor van la rueda central (unos 90), los satélites (18) y el bisel (unos 140 por fuera) |
+| Holgura de lo que gira | 0,25 mm por lado | Medido en la probeta del iris |
+| Holgura de lo que encaja sin moverse | 0,15 mm por lado | Medido en la P0 a capa de 0,2 mm |
+| Alojamiento de imán | 5,20 mm | Medido en la P0 a capa de 0,2 mm |
 
-El reloj queda arriba dentro de un rebaje de unos 11 mm, rodeado por el aro de engranajes.
+**Las medidas del reloj van arriba de la lista de parámetros,** juntas, para que el día que Pepe mida el reloj se cambien ahí y se regenere todo.
+
+## 6. Lo que tiene que cumplir cada mecanismo
+
+**Las puertas.**
+
+| Requisito | Valor |
+| --- | --- |
+| Cerradas | Las dos caras de arriba en un mismo plano, entre sí y con lo que las rodea (escalón de 0,3 mm o menos). Sin agujero. La junta del centro, con solape o media madera: mirando desde arriba no se ve lo de dentro |
+| Grueso | 3 mm o más |
+| Abiertas | De pie, entre 85° y 95°. Sujetas por el mecanismo: no se cierran solas ni empujándolas con un dedo |
+| Abrir y cerrar | Las dos cosas las hace el mecanismo. No dependen de la gravedad, de muelles ni de imanes |
+| El reloj no las toca | En todo el recorrido, 3 mm o más entre cualquier punto de las puertas y el reloj con su soporte |
+| Hueco libre, abiertas | 50 × 59 mm o más. Nada entra en ese prisma |
+
+**El ascensor.**
+
+- La plataforma sube recta, sin girar ni cabecear. Decir cuánto juego tiene y cuánto cabecea con ese juego.
+- Arriba, el pedestal queda a ras con el marco (0,3 mm o menos) y rellena el hueco con 1 mm o menos de rendija por lado.
+- Arriba y abajo hay tramo plano y tope.
+- Con el reloj a medio subir, soltar el bisel no debería dejarlo caer. No se puede asegurar en el modelo: decir la pendiente y dejarlo para la probeta.
+
+**El planetario.**
+
+- Los seis satélites engranan a la vez con la rueda central y con el bisel, y orbitan.
+- Dientes que se puedan imprimir a capa de 0,2 mm: decir el módulo, el juego entre flancos y el diente más fino.
+- El bisel no se puede sacar tirando hacia arriba, y gira sin tocar el cuerpo.
+
+**Toda la caja.**
+
+- **Boca abajo no se cae nada ni se desmonta.**
+- **Ninguna pieza se puede montar del revés** ni en una posición que no sea la suya.
+- Si se quitan los nueve imanes, funciona igual.
+- Cada pieza cabe en la X1 Carbon (256 × 256 × 256 mm), y se dice cómo va orientada y si necesita soportes. Mejor sin soportes.
+- Las caras que se ven de una misma familia de piezas (las dos puertas, los seis satélites) salen con el mismo acabado: la misma cara contra la cama.
+- Decir qué va encajado, qué va a presión y si algo tiene que ir pegado. Mejor nada pegado.
 
 ## 7. Imanes
 
@@ -172,111 +195,96 @@ Quedan 13 de 5 × 1,6 mm. Se usan 9, todos de adorno:
 | Funda | Los últimos milímetros baja sola y se asienta | 4 |
 | Soporte del reloj | Al devolverlo, se coloca solo y mirando al frente | 2 |
 
-- Si se quitan los nueve, la caja tiene que funcionar igual.
 - Ninguno a menos de 30 mm de la cabeza del reloj.
 - Siempre imán contra imán: no hay piezas de acero.
+- Que noten algo o no, no se sabe hasta imprimir. Es adorno: si no se nota, no pasa nada.
 
 ## 8. Estética y acabados
 
 - Blanco papel en todo, mármol en la funda, un satélite azul.
-- La frase «Who cares, / I'm already late.» en azul, en la funda, con Reenie Beanie.
-- Bisel grafilado. Iris liso. Índice del frente en relieve.
-- Sin decidir: cuerpo liso o con estrías verticales; cuántos puentes y con qué forma; si va algo grabado bajo la base («Late Edition · 1 of 1»); si hay frase escondida bajo el soporte.
+- La frase «Who cares, / I'm already late.» en azul, en la funda, con Reenie Beanie. Los contornos están en `historico/frase-v3.json`.
+- Bisel grafilado. Puertas lisas. Índice del frente en relieve.
+- **Sin decidir por Pepe.** Modélalo con la opción más sencilla y márcalo en el reporte como «por decidir», con un dibujo de cada alternativa si es barato:
+  - Las cuatro esquinas de arriba, entre el bisel redondo y el cuadrado: lisas, o con algo.
+  - Aristas del cuerpo: vivas o redondeadas, y cuánto.
+  - Cuerpo liso o con estrías verticales.
+  - Cuántos puentes y con qué forma.
+  - Si va algo grabado bajo la base («Late Edition · 1 of 1»).
+  - Si hay frase escondida bajo el soporte.
 
 ## 9. Puntos débiles conocidos
 
-1. **El iris.** Láminas finas que rozan. Es lo más difícil y lo primero que hay que probar.
-2. **Puede no cerrar del todo.** Suele quedar un agujero de pocos milímetros en el centro.
-3. **La tapa es frágil.** La protege la funda.
-4. **La rampa puede no sujetar el reloj a medio subir.** Arriba sí, por el tramo plano.
-5. **Muchas piezas:** unas 25, frente a las 9 de la v4.
-6. **Tamaño.** Es más grande que un estuche normal.
-7. **Las medidas del reloj son supuestas.** El hueco del iris depende de ellas.
-8. **La web.** El tutorial «¿Cómo se abre la caja?» describe la v4.1: fotogramas y textos hay que rehacerlos. La web también nombra la llave y sus imanes en «Por si acaso».
+1. **Nada de esto se ha impreso.** Lo único medido es lo que dio la probeta del iris y la P0.
+2. **Las puertas no tienen todavía una forma de moverse dibujada.** Es lo primero que hay que resolver (apartado 4).
+3. **Las medidas del reloj son supuestas.** El hueco, y con él todo lo demás, depende de ellas.
+4. **Las puertas abiertas sobresalen** unos 25 mm. Si alguien apoya algo encima, hacen palanca sobre la bisagra.
+5. **La rampa puede no sujetar el reloj a medio subir.**
+6. **Muchas piezas:** unas 25.
+7. **Se modela entero antes de probar nada** (D-30). Si una probeta falla después, hay que rehacer parte del modelo. Por eso todo va por parámetros.
+8. **La web.** El tutorial «¿Cómo se abre la caja?» describe la v4.1 y nombra la llave y sus imanes. Se rehace cuando la caja tenga forma.
 
-## 10. Orden de trabajo
+## 10. Orden de trabajo (D-30)
 
-No se modela la caja entera hasta que pasen las tres probetas.
-
-| Orden | Probeta | Qué decide |
+| Orden | Qué | Quién |
 | --- | --- | --- |
-| 1 | **Iris**, a tamaño real | Si el concepto vale, y el diámetro de la caja |
-| 2 | **Ascensor**: tubo, jaula y plataforma con 150 g encima | Pendiente de la rampa, juego, si se sujeta sola |
-| 3 | **Planetario**: bisel, satélites y rueda central | Tacto del giro, módulo, holguras |
-| 4 | La caja entera | |
+| 1 | Modelar la caja entera y comprobar en el modelo todos los mecanismos | Sesión del PC |
+| 2 | Reporte | Sesión del PC |
+| 3 | Revisión crítica del reporte | Sesión del Mac |
+| 4 | Pepe da por bueno el diseño, o pide cambios | Pepe |
+| 5 | Imprimir las probetas, sacadas del modelo, y ajustar cada mecanismo | Pepe y sesión del PC |
+| 6 | Medir el reloj y poner sus medidas en el modelo | Pepe |
+| 7 | Imprimir la caja entera | Pepe |
 
-**Plan B:** si el iris no sale en dos rondas, dos compuertas correderas movidas por un piñón entre dos cremalleras. Aprovecha el mismo ascensor.
+«Comprobado en el modelo» quiere decir que las piezas se mueven como deben y no se pisan. **No quiere decir que funcione:** eso lo dirán las probetas.
 
-## 11. Encargo de la probeta 1: el iris
+## 11. Encargo: la caja entera
 
 Para la sesión del PC, con Fusion.
 
-**Qué se quiere saber.** Si un iris impreso en PLA, con 75 mm de hueco libre, abre y cierra suave girando un aro, y qué diámetro exterior necesita.
+**Antes de modelar.** Si algo de este documento no se puede cumplir, se contradice o tiene una forma mejor, dilo primero. Lo de dentro lo decides tú y lo justificas en el reporte. Lo que cambie lo que se ve o lo que se toca, pregúntaselo a Pepe.
 
-**Qué se modela.** Solo el iris, suelto: plato de abajo, láminas, aro que las mueve y plato de arriba. El aro saca una orejeta por el canto para moverlo con el dedo. Sin engranajes, sin tubo, sin caja.
+**Qué se modela.** Todas las piezas de la caja, montadas, con sus holguras de imprimir: base con jaula, plataforma con pedestal, tubo, marco, puertas y lo que las mueve, rueda central, satélites, bisel, puentes, cuerpo, soporte del reloj y funda. Y un **reloj de pega** con su soporte, con las medidas supuestas del apartado 5, para comprobar que nada lo toca.
 
-**Requisitos.**
+**Cómo.** Como con el iris: un programa con todas las medidas en una lista, cada una con su comentario, y un generador que construye el modelo en Fusion. Las medidas del reloj, arriba y juntas.
 
-| Requisito | Valor |
-| --- | --- |
-| Hueco libre, abierto | 75 mm o más, redondo |
-| Agujero central, cerrado | 8 mm o menos. Mejor cero |
-| Giro del aro de cerrado a abierto | 60° o menos |
-| Diámetro exterior de la carcasa | El menor posible. Objetivo: 130 mm o menos |
-| Grueso total | 10 mm o menos |
-| Láminas | 6 a 8, de 1,2 mm de grueso o más. **Nota del 21-nov:** este mínimo no cabía con el agujero de 8 mm (ver `reporte-v5/contra-reporte-iris.md`). La probeta lleva además juegos de 0,8 (D-23) y de 0,4 mm (D-28) |
-| Impresión | PLA blanco, capa de 0,2 mm, sin soportes, pared Aracne |
-| Montaje | Sin pegamento ni tornillos. Boca abajo no se cae ninguna lámina |
+**Qué se comprueba en el modelo.** Con el montaje completo, girando el bisel de tope a tope en pasos de 2° de tubo o menos, a la ida y a la vuelta:
 
-**Holguras.** La P0 dio, con capa de 0,08 mm: a 0,10 mm por lado sujeta y a 0,15 pasa sin forzar. A 0,2 mm de capa no hay resultado todavía. Para piezas que se mueven, partir de 0,2 mm y decirlo en el reporte.
-
-**Si sale barato, dos variantes** en la misma bandeja: una de 6 láminas y otra de 8.
-
-**Comprobar en el modelo**, grado a grado, que ninguna lámina choca con otra ni con los platos en todo el giro. Y recordar que «sin choques» no es «funciona».
+1. Ninguna pieza pisa a otra en ninguna posición.
+2. El reloj de pega queda siempre a 3 mm o más de las puertas, del marco y de la rueda central.
+3. El tubo gira lo que le toca por cada grado de bisel, y los satélites orbitan.
+4. Tabla, por cada posición del tubo: ángulo de las puertas y altura de la plataforma.
+5. Las puertas abren del todo, cierran del todo, y en los tramos de «abiertas» y «cerradas» no pueden moverse aunque se las empuje.
+6. Los topes de los dos extremos paran el giro.
+7. Todo lo del apartado 6.
+8. El orden de montaje: que cada pieza se pueda meter, en qué orden, y qué impide montarla mal.
 
 **Qué entregar.**
 
-- Los `.3mf` ya orientados, en `probetas-v5\`.
-- Una página con: diámetro exterior, hueco abierto, agujero cerrado y giro del aro, medidos en el modelo; qué es supuesto; y una tabla «vale si» para que Pepe pruebe la pieza.
-- Antes de modelar: si algo de este encargo no se puede cumplir o tiene una forma mejor, decirlo primero.
+- El modelo, en `caja/Eventually-caja-v5.f3d`, y sus programas, en `caja/`.
+- Las comprobaciones, en un fichero de texto, como hiciste con el iris.
+- **El reporte,** en `caja/reporte-v5/caja-entera.md`, con:
+  - Lo que mide, del modelo. Lo que no cumple, lo primero y sin adornar.
+  - Dibujos: planta, corte, despiece y la apertura en cinco o seis pasos.
+  - Lista de piezas: material, color, bandeja, orientación y soportes.
+  - Qué es supuesto y qué puede fallar, ordenado de más a menos grave.
+  - Cómo se monta.
+  - Lo que queda por decidir de la estética (apartado 8).
+  - **Las probetas que propones** (apartado 12).
+- Los `.3mf` de las probetas, ya orientados, en `caja/probetas-v5/`. **Los de la caja entera, todavía no.**
 
-**Vale si**, con la pieza en la mano: abre y cierra 20 veces con un dedo sin engancharse; abierta, pasa un cilindro de 75 mm; cerrada, no deja ver lo de dentro salvo el agujero central; boca abajo no se desmonta.
+## 12. Las probetas, después
 
-## 12. Encargo de la probeta 1 bis: las puertas (21 de noviembre de 2026, D-29)
+Se sacan del modelo final: son trozos de la caja, no piezas aparte. Cada una, con el parámetro que sirve para ajustarla y su tabla «vale si».
 
-Para la sesión del PC, con Fusion. Sustituye al apartado 11.
-
-**Qué se quiere saber.** Si dos puertas gruesas de PLA, con bisagra impresa, abren y cierran suave movidas por un aro que gira; si cerradas quedan planas y sin rendija que deje ver; y si abiertas se quedan firmes de pie.
-
-**Qué se modela.** Solo el módulo de la tapa, suelto: un marco con el hueco rectangular, las dos puertas y lo que las mueve. Como en la probeta del iris, un aro con una orejeta para moverlo con el dedo. Sin engranajes, sin tubo, sin caja. La forma de dentro (leva, bielas, lo que sea) la eliges tú.
-
-**Requisitos.**
-
-| Requisito | Valor | De dónde sale |
+| Probeta | Qué trozo | Qué decide |
 | --- | --- | --- |
-| Hueco libre, abiertas | 50 mm de ancho (de izquierda a derecha) por 59 de fondo, o más | Estimado: reloj de pie de 44 × 53 visto desde arriba (supuesto) más 3 mm por lado |
-| Puertas | Dos. Bisagras en los lados de 59 mm. Cada puerta, de unos 25 × 59 mm | Decidido por Pepe: dos, a los lados |
-| Grueso de las puertas | 3 mm o más | Propuesto por la sesión del Mac: a Pepe el iris le pareció frágil |
-| Cerradas | Las dos caras de arriba en un mismo plano, entre sí y con el marco (escalón de 0,3 mm o menos). Sin agujero. La junta del centro, con solape o media madera: mirando desde arriba no se ve lo de dentro | Lo que a Pepe no le valió del iris |
-| Abiertas | De pie, entre 85° y 95°. Sujetas por el mecanismo: no se cierran solas ni empujándolas con un dedo | Propuesto |
-| Abrir y cerrar | Las dos cosas las hace el mecanismo. Que no dependa de la gravedad, de muelles ni de imanes. Si no se puede, decirlo antes de modelar | D-19 y la lección del iris boca abajo |
-| Giro del aro | 60° o menos, con topes | Como en el iris: es el tramo que el tubo tiene para esto |
-| Nada invade el hueco | Con las puertas abiertas, nada entra en el prisma de 50 × 59. Con las puertas cerradas, nada baja de la cara de abajo del módulo | Por debajo sube el reloj |
-| Grueso total del módulo, cerrado | 10 mm o menos | El que tenía el iris |
-| Tamaño en planta | El menor posible. Tope: 133,5 mm, lo que ocupaba el iris. Decir cuánto sale | Encima van la rueda central y los satélites |
-| Ejes | 3 mm o más, con 0,25 mm de holgura por lado | Medido en la probeta del iris: con 0,25 giran |
-| Montaje | Sin pegamento ni tornillos. Boca abajo no se cae nada. **Ninguna pieza se puede montar del revés** | En el iris, el aro del revés bloqueaba las láminas |
-| Impresión | PLA blanco, capa de 0,2 mm, sin soportes, pared Aracne. La cara de la puerta que se ve, contra la cama si se puede, para que las dos salgan con el mismo acabado | |
+| **Puertas** | Marco, puertas y lo que las mueve, con una orejeta para moverlo con el dedo | Si cerrada se ve bien y es sólida. Holguras de bisagra |
+| **Ascensor** | Tubo, jaula y plataforma, con 150 g encima | Pendiente de la rampa, juego, si se sujeta sola |
+| **Planetario** | Bisel, satélites y rueda central | Tacto del giro, módulo, juego entre dientes |
 
-**Para luego, sin modelarlo ahora.** En la caja, las puertas las moverá el tubo, y Pepe quiere que se abran mientras el reloj sube. La idea es que vayan un poco por delante del reloj y que el reloj no las toque nunca. Para poder ajustar eso después, en el reporte hace falta **una tabla con el ángulo de las puertas para cada posición del aro**.
+**Vale si, la de las puertas**, con la pieza en la mano:
 
-**Antes de modelar:** si algo de este encargo no se puede cumplir o tiene una forma mejor, decirlo primero. En especial, si ves mejor que las puertas las empuje la propia plataforma al subir en vez de un aro.
-
-**Qué entregar.** Lo mismo que con el iris: los `.3mf` ya orientados en `caja/probetas-v5/`, y una página con las medidas del modelo, lo que es supuesto, cómo se monta y la tabla «vale si».
-
-**Vale si**, con la pieza en la mano:
-
-- Abre y cierra 20 veces con un dedo en la orejeta sin engancharse.
+- Abre y cierra 20 veces sin engancharse.
 - Abierta, pasa un taco de 50 × 59 mm.
 - Cerrada: pasando el dedo no se nota escalón entre las puertas ni con el marco, y a contraluz no se ve lo de dentro por la junta.
 - Abierta: empujando una puerta con un dedo, hacia dentro y hacia fuera, ni se cierra ni cruje.
@@ -284,3 +292,4 @@ Para la sesión del PC, con Fusion. Sustituye al apartado 11.
 - No hay manera de montarla mal.
 - Y lo que decide: **si a Pepe le parece que cerrada se ve bien y que es sólida.**
 
+Las tablas «vale si» del ascensor y del planetario las propones tú en el reporte.
