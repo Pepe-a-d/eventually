@@ -15,9 +15,26 @@ Impresa y probada por Pepe en la Bambu Lab X1 Carbon. Ficheros de `probetas-v4\`
 
 **Ojo: P0 se imprimió con el perfil «0.08mm Extra Fine» de Bambu Studio** (capa de 0,08 mm), no con la capa de 0,2 mm que piden la guía y el resto de las piezas. Los resultados de arriba valen para 0,08 mm. Con 0,2 mm los encajes pueden salir algo más justos. Para cerrarlo, P0 se repite a 0,2 mm en la misma bandeja que P1 y P2, con los mismos ajustes.
 
-**Nota del 21-nov-2026:** según `HISTORIA.md`, Pepe le dijo a la sesión del PC que la repitió a 0,2 mm y que «también sale bien», sin cifras. La sesión del Mac no tiene los tres valores a 0,2 mm.
+**Nota del 21-nov-2026:** Pepe la repitió a 0,2 mm. Los valores están en el apartado siguiente, leídos de una foto suya.
 
 **Sin probar:** la fuerza del imán embutido frente a uno suelto (la prueba de los clips). Pepe decidió no hacerla. Queda sin saber si el calor de la impresión le quita fuerza.
+
+## P0 repetida a capa de 0,2 mm (foto de Pepe, 21 de noviembre de 2026)
+
+Pepe la repitió con capa de 0,2 mm y el 21-nov mandó una foto de la tira con marcas de bolígrafo. Esquina cortada abajo a la izquierda, como la primera vez. **Las marcas las lee la sesión del Mac en la foto; lo que significa cada una es interpretación suya hasta que Pepe lo confirme.**
+
+| Qué | Marca en la foto | Lectura | A 0,08 mm salió |
+| --- | --- | --- | --- |
+| Alojamiento del imán | Una raya sobre el **cuarto** empezando por la izquierda | **5,20 mm** | 5,15 mm (el tercero) |
+| Holgura que sujeta | Un círculo relleno sobre la **segunda** ventana | **0,15 mm** por lado (interpretado: es la que entra y se queda) | 0,10 mm (la primera) |
+| Holgura que pasa sin forzar | Una raya sobre la **tercera** ventana | **0,20 mm** por lado (interpretado) | 0,15 mm (la segunda) |
+| Piel | Sin marca | Sin dato | 0,8 mm ya tapaba el imán |
+
+Si la lectura es buena, **a 0,2 mm todo sale 0,05 mm más justo que a 0,08**, en los tres casos. Lo que cambia con eso:
+
+- **El iris (v5):** sus ejes y tetones llevan 0,25 mm de holgura por lado. Con 0,20 ya pasa sin forzar, así que deberían girar sueltos. El supuesto del reporte del iris se sostiene.
+- **Imanes de adorno de la v5:** el alojamiento tiene que ser de 5,20 mm, no de 5,15, si la pieza se imprime a 0,2.
+- **Un encaje que deba sujetar por presión** a 0,2 mm: 0,15 mm por lado, no 0,10.
 
 ## P1. La llave magnética (20 de noviembre de 2026): NO VALE
 
