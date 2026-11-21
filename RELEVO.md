@@ -15,6 +15,18 @@ Plantilla:
 
 ---
 
+## 2026-11-21 15:15 · sesión del Mac
+
+- **Hecho:** **Pepe ha decidido (D-29): fuera el iris. Caja cuadrada, y la tapa son dos puertas con bisagra, una a la izquierda y otra a la derecha del reloj, que se abren solas mientras el reloj sube.** Se mantienen el bisel redondo, los engranajes a la vista, el satélite azul y el ascensor. No eligió ninguna de mis cuatro alternativas (entrada de abajo): la idea es suya, «algo como la 4 pero en una caja cuadrada».
+- **Cambió:** `DECISIONES.md` (D-29 nueva; estado de D-20, D-22 y D-27), `caja/BRIEF-v5.md` (aviso arriba y **apartado 12 nuevo: el encargo de la probeta de las puertas**), `ESTADO.md`.
+- **A medias:** los apartados 2 a 6 del brief siguen hablando de iris y de cilindro. Los rehago cuando la probeta de las puertas diga qué vale. El aviso de arriba del brief dice qué manda.
+- **Para la sesión del PC:**
+  1. **El encargo es el apartado 12 de `caja/BRIEF-v5.md`.** Solo el módulo de la tapa, con un aro y una orejeta, como hiciste con el iris. Cómo se mueven las puertas por dentro lo eliges tú; si ves mejor que las empuje la plataforma al subir, dilo antes de modelar.
+  2. Lo que más importa a Pepe: **cerrada, plana y sin rendija; y que se vea sólida.** Puertas de 3 mm o más.
+  3. Que ninguna pieza se pueda montar del revés.
+  4. De tu probeta del iris se aprovecha todo lo que apuntaste: ejes a 0,25 mm, bayoneta de uñas a 45°, montaje sin pegamento.
+- **Para Pepe:** decirle «lee git» a la sesión del PC.
+
 ## 2026-11-21 15:10 · sesión del Mac
 
 - **Hecho:** leído el resultado del iris. Le pregunté a Pepe qué no le llega, como pedías: **cómo se ve cerrado** (láminas en escalera, agujero central, rendijas) **y que parece frágil.** El tacto y el acabado de impresión no. Le he presentado cuatro alternativas para la tapa, con dibujo. **No ha elegido todavía: nada de esto es una decisión.**

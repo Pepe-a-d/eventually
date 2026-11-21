@@ -4,6 +4,14 @@ Escrito el 20 de noviembre de 2026 por la sesión del Mac, a partir de la conver
 
 Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **estimado** (cuenta a mano de la sesión del Mac, sin CAD) o **supuesto** (medida del reloj sin confirmar).
 
+> **Cambio del 21 de noviembre de 2026 (D-29). Manda sobre el resto de este documento.**
+> Pepe imprimió y probó el iris: funciona, pero no le convence cómo se ve cerrado y le parece frágil. Ha decidido:
+> - **La caja es cuadrada,** no cilíndrica.
+> - **La tapa son dos puertas con bisagra,** una a la izquierda y otra a la derecha del reloj. Se abren solas mientras el reloj sube y quedan de pie a sus lados.
+> - **El bisel redondo, los engranajes a la vista y el satélite azul se mantienen,** sobre la caja cuadrada. El ascensor, también.
+>
+> Donde este documento diga «iris», ahora son las puertas; donde diga «cilíndrica» o dé un diámetro de caja, ahora es cuadrada y la medida está por dibujar. El apartado 11 (el encargo del iris) está cerrado. **El encargo que vale ahora es el apartado 12.** Los apartados 2 a 6 los rehago cuando la probeta de las puertas diga qué vale.
+
 ## 0. Para la sesión del PC: qué ha pasado y qué tienes que saber
 
 **Este documento manda sobre `contexto.md`, `README.md` y todo lo de la v4.** El apartado 0 de `contexto.md` dice que manda la v4 y que el siguiente paso es imprimir P0 y P1: eso ya ocurrió y ya no vale.
@@ -233,3 +241,46 @@ Para la sesión del PC, con Fusion.
 - Antes de modelar: si algo de este encargo no se puede cumplir o tiene una forma mejor, decirlo primero.
 
 **Vale si**, con la pieza en la mano: abre y cierra 20 veces con un dedo sin engancharse; abierta, pasa un cilindro de 75 mm; cerrada, no deja ver lo de dentro salvo el agujero central; boca abajo no se desmonta.
+
+## 12. Encargo de la probeta 1 bis: las puertas (21 de noviembre de 2026, D-29)
+
+Para la sesión del PC, con Fusion. Sustituye al apartado 11.
+
+**Qué se quiere saber.** Si dos puertas gruesas de PLA, con bisagra impresa, abren y cierran suave movidas por un aro que gira; si cerradas quedan planas y sin rendija que deje ver; y si abiertas se quedan firmes de pie.
+
+**Qué se modela.** Solo el módulo de la tapa, suelto: un marco con el hueco rectangular, las dos puertas y lo que las mueve. Como en la probeta del iris, un aro con una orejeta para moverlo con el dedo. Sin engranajes, sin tubo, sin caja. La forma de dentro (leva, bielas, lo que sea) la eliges tú.
+
+**Requisitos.**
+
+| Requisito | Valor | De dónde sale |
+| --- | --- | --- |
+| Hueco libre, abiertas | 50 mm de ancho (de izquierda a derecha) por 59 de fondo, o más | Estimado: reloj de pie de 44 × 53 visto desde arriba (supuesto) más 3 mm por lado |
+| Puertas | Dos. Bisagras en los lados de 59 mm. Cada puerta, de unos 25 × 59 mm | Decidido por Pepe: dos, a los lados |
+| Grueso de las puertas | 3 mm o más | Propuesto por la sesión del Mac: a Pepe el iris le pareció frágil |
+| Cerradas | Las dos caras de arriba en un mismo plano, entre sí y con el marco (escalón de 0,3 mm o menos). Sin agujero. La junta del centro, con solape o media madera: mirando desde arriba no se ve lo de dentro | Lo que a Pepe no le valió del iris |
+| Abiertas | De pie, entre 85° y 95°. Sujetas por el mecanismo: no se cierran solas ni empujándolas con un dedo | Propuesto |
+| Abrir y cerrar | Las dos cosas las hace el mecanismo. Que no dependa de la gravedad, de muelles ni de imanes. Si no se puede, decirlo antes de modelar | D-19 y la lección del iris boca abajo |
+| Giro del aro | 60° o menos, con topes | Como en el iris: es el tramo que el tubo tiene para esto |
+| Nada invade el hueco | Con las puertas abiertas, nada entra en el prisma de 50 × 59. Con las puertas cerradas, nada baja de la cara de abajo del módulo | Por debajo sube el reloj |
+| Grueso total del módulo, cerrado | 10 mm o menos | El que tenía el iris |
+| Tamaño en planta | El menor posible. Tope: 133,5 mm, lo que ocupaba el iris. Decir cuánto sale | Encima van la rueda central y los satélites |
+| Ejes | 3 mm o más, con 0,25 mm de holgura por lado | Medido en la probeta del iris: con 0,25 giran |
+| Montaje | Sin pegamento ni tornillos. Boca abajo no se cae nada. **Ninguna pieza se puede montar del revés** | En el iris, el aro del revés bloqueaba las láminas |
+| Impresión | PLA blanco, capa de 0,2 mm, sin soportes, pared Aracne. La cara de la puerta que se ve, contra la cama si se puede, para que las dos salgan con el mismo acabado | |
+
+**Para luego, sin modelarlo ahora.** En la caja, las puertas las moverá el tubo, y Pepe quiere que se abran mientras el reloj sube. La idea es que vayan un poco por delante del reloj y que el reloj no las toque nunca. Para poder ajustar eso después, en el reporte hace falta **una tabla con el ángulo de las puertas para cada posición del aro**.
+
+**Antes de modelar:** si algo de este encargo no se puede cumplir o tiene una forma mejor, decirlo primero. En especial, si ves mejor que las puertas las empuje la propia plataforma al subir en vez de un aro.
+
+**Qué entregar.** Lo mismo que con el iris: los `.3mf` ya orientados en `caja/probetas-v5/`, y una página con las medidas del modelo, lo que es supuesto, cómo se monta y la tabla «vale si».
+
+**Vale si**, con la pieza en la mano:
+
+- Abre y cierra 20 veces con un dedo en la orejeta sin engancharse.
+- Abierta, pasa un taco de 50 × 59 mm.
+- Cerrada: pasando el dedo no se nota escalón entre las puertas ni con el marco, y a contraluz no se ve lo de dentro por la junta.
+- Abierta: empujando una puerta con un dedo, hacia dentro y hacia fuera, ni se cierra ni cruje.
+- Boca abajo y sacudiendo un poco, no se desmonta ni se cae nada.
+- No hay manera de montarla mal.
+- Y lo que decide: **si a Pepe le parece que cerrada se ve bien y que es sólida.**
+

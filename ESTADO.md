@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Puesto al día el **21 de noviembre de 2026, 15:10,** por la sesión del Mac (antes, a las 14:55, por la del PC). Cuando cambie algo, se cambia aquí y se pone la fecha. Lo que cada cosa significa y por qué se decidió está en [DECISIONES.md](DECISIONES.md).
+Puesto al día el **21 de noviembre de 2026, 15:15,** por la sesión del Mac (antes, a las 14:55, por la del PC). Cuando cambie algo, se cambia aquí y se pone la fecha. Lo que cada cosa significa y por qué se decidió está en [DECISIONES.md](DECISIONES.md).
 
 Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **medido** (sobre una pieza), **del modelo**, **calculado**, **estimado** o **supuesto**.
 
@@ -8,8 +8,9 @@ Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **medido** (sobre
 
 | Qué | Dónde | En qué punto está |
 | --- | --- | --- |
-| **Caja v5: iris y ascensor** | `caja/BRIEF-v5.md` | Diseño decidido por Pepe. Solo está modelada la probeta del iris. Nada impreso |
-| **Probeta 1: el iris** | `caja/reporte-v5/probeta-iris.md`, `caja/probetas-v5/` | **Modelada el 21-nov, sin imprimir.** Una carcasa de 8 láminas y dos juegos, de 1,2 y de 0,8 mm (D-23). Cumple todo el encargo en el modelo menos el diámetro: **133,5 mm, y el objetivo eran 130. Pepe lo acepta: el resto de la caja se adapta a 133,5** (D-27). **Revisada por la sesión del Mac el 21-nov** (`caja/reporte-v5/contra-reporte-iris.md`): las medidas cuadran, pero calcula que no cerrará del todo con láminas de 1,2 ni de 0,8 mm (estimado; lo dirá la pieza). **Tercer juego de láminas, de 0,4 mm (D-28): modelado el 21-nov a las 08:15.** **IMPRESA Y PROBADA por Pepe el 21-nov: funciona con los tres gruesos** (al revés de lo que se calculó). **Pero Pepe cree que no va a alcanzar la calidad que busca y va a valorar opciones con la sesión del Mac. El iris queda en el aire.** Detalle en `caja/resultados-probetas.md`. **Lo que no le llega (dicho a la sesión del Mac a las 15:10): cómo se ve cerrado y que parece frágil.** El tacto y el acabado no. La sesión del Mac le ha presentado cuatro alternativas para la tapa (última entrada de `RELEVO.md`). **Pepe no ha elegido todavía** |
+| **Caja v5: puertas y ascensor** | `caja/BRIEF-v5.md` | **Cambio del 21-nov (D-29): caja cuadrada; la tapa son dos puertas con bisagra, a izquierda y derecha, que se abren solas mientras el reloj sube. Se mantienen el bisel redondo, los engranajes a la vista, el satélite azul y el ascensor.** El iris se deja. Nada de lo nuevo está modelado |
+| **Probeta 1 bis: las puertas** | `caja/BRIEF-v5.md`, apartado 12 | Encargo escrito el 21-nov por la sesión del Mac. **Sin modelar: lo hace la sesión del PC** |
+| Probeta 1: el iris (cerrada) | `caja/reporte-v5/probeta-iris.md`, `caja/probetas-v5/` | **Modelada el 21-nov, sin imprimir.** Una carcasa de 8 láminas y dos juegos, de 1,2 y de 0,8 mm (D-23). Cumple todo el encargo en el modelo menos el diámetro: **133,5 mm, y el objetivo eran 130. Pepe lo acepta: el resto de la caja se adapta a 133,5** (D-27). **Revisada por la sesión del Mac el 21-nov** (`caja/reporte-v5/contra-reporte-iris.md`): las medidas cuadran, pero calcula que no cerrará del todo con láminas de 1,2 ni de 0,8 mm (estimado; lo dirá la pieza). **Tercer juego de láminas, de 0,4 mm (D-28): modelado el 21-nov a las 08:15.** **IMPRESA Y PROBADA por Pepe el 21-nov: funciona con los tres gruesos** (al revés de lo que se calculó). **Pero Pepe cree que no va a alcanzar la calidad que busca y va a valorar opciones con la sesión del Mac. El iris queda en el aire.** Detalle en `caja/resultados-probetas.md`. **Lo que no le llega (dicho a la sesión del Mac a las 15:10): cómo se ve cerrado y que parece frágil.** El tacto y el acabado no. La sesión del Mac le presentó cuatro alternativas y **Pepe eligió otra, suya: puertas en caja cuadrada (D-29)** |
 | Resultados de las probetas | `caja/resultados-probetas.md` | P0 bien. P1 no vale. **Iris: funciona con los tres gruesos, pero a Pepe no le convence la calidad** (21-nov, dicho por Pepe, sin cifras) |
 | La web | `docs/` | Publicada en su dirección de siempre; GitHub Pages sirve `/docs` desde el 21-nov (D-26). Falta probarla en un iPhone |
 | Tutorial de la caja en la web | `docs/frames/caja/`, `docs/caja.js`, `docs/caja.css` | Publicado, pero **describe la v4.1**. Hay que rehacerlo con la v5 |
@@ -40,6 +41,7 @@ Lista de `caja/BRIEF-v5.md`, apartado 0.
 - Engranajes que giran en su sitio: los satélites tienen que orbitar.
 - De antes: palabras en la tapa, piezas de acero, pestaña de arrancar.
 - De la probeta del iris: la variante de 6 láminas (D-23).
+- De la tapa (D-29): el iris de láminas, para la caja.
 
 ## 4. Lo que se aprovecha de la v4
 
@@ -51,7 +53,7 @@ Los contornos de la frase (`caja/historico/frase-v3.json`), la funda de campana 
 | --- | --- | --- |
 | Cabeza del reloj | 40 mm, 43,5 con corona, 11 de grueso | Supuesto. No consta que el reloj esté montado |
 | Brazalete cerrado | Óvalo de unos 67 × 53 mm | Supuesto |
-| Hueco libre del iris | 75 mm | Estimado a partir de los dos anteriores |
+| Hueco libre de las puertas | 50 × 59 mm | Estimado a partir de los dos anteriores, con 3 mm por lado (antes, un círculo de 75 para el iris) |
 | Holguras de las piezas que giran en el iris | 0,25 mm por lado | Supuesto. Sin probar a capa de 0,2 mm |
 | Las láminas del iris se doblan lo bastante al cerrar | 1,1 mm en la punta la de 1,2; 0,7 la de 0,8 | Calculado. Lo dirá la probeta |
 
@@ -69,6 +71,7 @@ Cada milímetro de hueco cuesta unos 1,7 mm de diámetro de carcasa (calculado e
 1. ~~Modelar la probeta del iris.~~ Hecho el 21-nov: `caja/probetas-v5/` y `caja/reporte-v5/probeta-iris.md`.
 2. ~~Que la sesión del Mac revise el reporte.~~ Hecho el 21-nov: `caja/reporte-v5/contra-reporte-iris.md`. El diámetro ya está decidido: 133,5 mm, y el resto de la caja se adapta (D-27). **Ojo al brief:** donde `caja/BRIEF-v5.md` cuente con 130 mm de iris, ahora son 133,5. La sesión del Mac lo rehará cuando la probeta diga qué iris vale, porque puede cambiar otra vez.
 3. ~~Que la sesión del PC modele el tercer juego de láminas, de 0,4 mm (D-28).~~ Hecho el 21-nov: `caja/probetas-v5/iris-laminas-0.4mm-x8.3mf`. Las cinco bandejas anteriores no han cambiado.
-4. ~~Que Pepe la imprima y la pruebe.~~ Hecho el 21-nov: funciona con los tres gruesos (`caja/resultados-probetas.md`). **Pepe duda de la calidad del iris: no le convence cómo se ve cerrado y le parece frágil. Tiene sobre la mesa cuatro alternativas para la tapa (entrada del Mac de las 15:10 en `RELEVO.md`) y no ha elegido. Hasta que decida, no se sigue con el ascensor ni con nada que dependa de la tapa.**
-5. Después, por este orden: probeta del ascensor, probeta del planetario y la caja entera.
-6. Rehacer el tutorial de la web cuando la v5 tenga forma.
+4. ~~Que Pepe la imprima y la pruebe.~~ Hecho el 21-nov: funciona con los tres gruesos (`caja/resultados-probetas.md`). A Pepe no le convenció cómo se ve cerrado y le pareció frágil. **Decidió cambiar el iris por dos puertas, en caja cuadrada (D-29).**
+5. **Que la sesión del PC modele la probeta de las puertas** (`caja/BRIEF-v5.md`, apartado 12) y que Pepe la imprima y la pruebe.
+6. Después, por este orden: probeta del ascensor, probeta del planetario y la caja entera. La sesión del Mac rehace los apartados 2 a 6 del brief cuando la probeta de las puertas diga qué vale.
+7. Rehacer el tutorial de la web cuando la v5 tenga forma.

@@ -182,7 +182,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   2. *Segunda, con engranajes:* corona que retira cerrojos, cajón que sale solo, ascensor, dos puertas, hora secreta, iris y caja que hace tictac. Pepe: «me llaman la 2, 3, 6 y el trinquete» (cajón, ascensor e iris) y «me gustan también los engranajes planetarios». Pidió combinar: «que algo se abra y que el reloj se mueva».
   3. *Tres rutas:* A, iris y ascensor; B, compuertas y ascensor; C, cajón que levanta el reloj. La sesión del Mac recomendó la B, por riesgo y por tamaño. Pepe eligió la A: «Desarrolla la ruta A: iris y ascensor. Sin trinquete. El reloj sube entero». Añadió que la caja no tenía que ser pequeña y que había más de un mes.
 - **Qué se descartó:** la lista está en [ESTADO.md](ESTADO.md), apartado 3.
-- **Estado:** Activa. Nada modelado ni impreso.
+- **Estado:** Activa, **menos el iris y la forma cilíndrica, sustituidos por D-29** (21-nov-2026). Lo demás sigue: bisel, planetario, ascensor, reloj de pie, lo azul, los imanes de adorno.
 
 ### D-21. Primero tres probetas, después la caja
 - **Fecha:** 20-nov-2026.
@@ -196,7 +196,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Quién decide:** propuesta de la sesión del Mac, recogida en el brief.
 - **Decisión:** si el iris no sale en dos rondas, se cambia por dos compuertas correderas movidas por un piñón entre dos cremalleras.
 - **Qué llevó a ella:** el iris es la pieza con más riesgo: láminas finas que rozan. El plan B aprovecha el mismo ascensor.
-- **Estado:** Propuesta.
+- **Estado:** No se usa. El iris de láminas funcionó, a Pepe no le convenció, y en vez de las compuertas eligió puertas con bisagra (D-29). Además, hecha la cuenta en plano, las compuertas pedían una carcasa de unos 160 mm (calculado, `caja/reporte-v5/calculos-mac/gajos_al_ras.py`).
 
 ### D-23. La probeta del iris: una carcasa de 8 láminas y dos gruesos
 - **Fecha:** 20-nov-2026, 23:44.
@@ -248,7 +248,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - *Ejes colgados de la tapa, pasando por ranuras del aro.* Cabía en unos 129 mm, pero con muchas piezas finas y un montaje a ciegas. No se llegó a modelar.
   - *Láminas en luna con la cola metida entre las demás.* Salía de 128 mm, pero la cola solo apoyaba en el 21 % de su superficie (calculado).
   - *Bajar ahora a 130 con 10 láminas o con el hueco de 72 mm.* Se deja para después de probar esta: 10 láminas contradice D-23 y el hueco depende del reloj, sin medir.
-- **Estado:** Activa. Sin imprimir.
+- **Estado:** Cerrada. Se imprimió así el 21-nov y funcionó, pero el iris ya no va en la caja (D-29): los 133,5 mm dejan de mandar.
 
 ### D-28. La probeta del iris lleva un tercer juego de láminas, de 0,4 mm
 - **Fecha:** 21-nov-2026, 08:05.
@@ -262,3 +262,25 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Qué se descartó:** nada. Un juego de 0,6 mm se mencionó como posible y Pepe no lo ha pedido. Esperar a imprimir antes de añadirlo tampoco: la carcasa ya se puede ir imprimiendo.
 - **Pegas que se conocen:** dos capas de PLA blanco dejan pasar luz. Si cierran, se verá si hace falta una lámina escalonada, fina en la punta y gruesa donde se ve.
 - **Estado:** Activa. Modelado por la sesión del PC el 21-nov a las 08:15 (`caja/probetas-v5/iris-laminas-0.4mm-x8.3mf`). Sin imprimir. La sesión del PC añadió, sin que se pidiera, un refuerzo de 6 mm alrededor del tetón: un tetón de 3 mm no puede nacer de una hoja de dos capas.
+
+### D-29. La tapa pasa a ser de dos puertas y la caja, cuadrada
+- **Fecha:** 21-nov-2026, 15:15.
+- **Quién decide:** Pepe. La idea es suya.
+- **Decisión:** se deja el iris. La caja pasa a ser **cuadrada** y la tapa son **dos puertas con bisagra, una a la izquierda y otra a la derecha del reloj, que se abren solas mientras el reloj sube** y quedan de pie a sus lados. **Se mantiene el bisel redondo de arriba, con los engranajes a la vista y el satélite azul**, sobre la caja cuadrada. Todo lo demás de D-20 sigue igual.
+- **Qué llevó a ella:**
+  - La probeta del iris, impresa y probada por Pepe el 21-nov (medido, `caja/resultados-probetas.md`): funciona con los tres gruesos, pero «creo que el iris no va a quedar con el estándar de calidad que busco».
+  - A la pregunta de la sesión del Mac sobre qué no le llegaba, con cuatro respuestas posibles, Pepe marcó dos: **cómo se ve cerrado** (láminas en escalera, agujero central, rendijas) y **que parece frágil**. No marcó el tacto ni el acabado de impresión.
+  - La sesión del Mac le presentó cuatro alternativas (iris de gajos al ras, dos compuertas, tapa entera que sube con el reloj, ocho pétalos que se levantan) y recomendó los gajos. Pepe contestó: **«Algo como la 4 pero en una caja cuadrada, unas puertas que se abren solas mientras el reloj sube»**.
+  - Después, a dos preguntas de la sesión del Mac, eligió «Dos, a los lados» y «Sí, se mantiene» el bisel. Eran las dos respuestas que la sesión del Mac recomendaba: a los lados, porque abiertas no tapan la esfera vista de frente; el bisel, porque así no cambia nada más de lo decidido.
+  - Por qué cuadrada y no redonda con un hueco rectangular: **No consta.** Pepe lo dijo así.
+- **Qué se descartó:**
+  - *El iris de láminas, para la caja.* Por lo dicho arriba. Hacer las láminas más gruesas arregla la fragilidad y empeora la escalera.
+  - *Iris de gajos al ras, dos compuertas correderas, tapa entera que sube y ocho pétalos.* Pepe no las eligió; no dio motivo de cada una.
+  - *Dos puertas, delante y detrás,* y *cuatro triángulos.* Pepe eligió las dos de los lados. En las otras, la puerta de delante tapa parte del reloj visto de frente (dicho por la sesión del Mac al preguntar).
+  - *Quitar el bisel y mover el reloj de otra forma.* Pepe dijo que se mantiene.
+- **Qué falta por saber** (nada de esto está dibujado ni impreso):
+  - Cómo se mueven las puertas. Propuesta de la sesión del Mac, sin comprobar: las mueve el mismo giro, con una leva, un poco por delante del reloj y sin que el reloj las toque nunca. Lo dirá la probeta (`caja/BRIEF-v5.md`, apartado 12).
+  - El tamaño. Estimado a mano por la sesión del Mac: el hueco rectangular de 50 × 59 mm cabe en un círculo de 77 mm, casi el mismo de 75 que rodeaban los engranajes, y desaparece el disco de 133,5 del iris. La caja saldría de unos 150 mm de lado. Sin dibujar.
+  - Las medidas del reloj siguen siendo supuestas, y el hueco depende de ellas.
+- **Estado:** Activa. Sin modelar.
+
