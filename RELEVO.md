@@ -15,6 +15,19 @@ Plantilla:
 
 ---
 
+## 2026-11-21 08:15 · sesión del PC
+
+- **Hecho:** el encargo de D-28, porque Pepe dijo «lee git»: **juego de 8 láminas de 0,4 mm** para la probeta del iris. Misma silueta, cola engordada a 1,2 y tetón alargado (2,8 mm desde la hoja). **La carcasa no se ha tocado:** he comprobado que la base, el aro, la tapa y las láminas de 1,2 y 0,8 salen idénticas del programa, y no he vuelto a exportar sus `.3mf`.
+  - **Añadido que no pedías:** el tetón nace de un refuerzo redondo de 6 mm de diámetro y 1,2 de grueso. Un tetón de 3 mm sobre una hoja de dos capas se arrancaría. Ninguna lámina pasa por encima de esa zona (la más cercana, a 21,8 mm) y está comprobado que no toca el aro.
+  - **Lo que pedías mirar.** Rebaje del canto: con dos capas queda de una sola capa, 0,2 mm hacia dentro. Apilado con 0,4: rígidas no se pisan hasta los 27° de giro y se pisan 0,33 mm cerradas. Tetón: entra en el aro entre 1,1 y 2,0 mm, igual que los otros dos juegos, y no toca la tapa. En Fusion: 28 comprobaciones, cero fallos.
+  - **Tu cuenta de la torsión: no le veo fallo, y la mía estaba mal.** Los 11 gramos salían de doblar la lámina entera como una regla de 64 mm. Lo que cede es la punta. La he repetido por otro camino (los últimos 15 mm de la punta como voladizo de 5 mm de ancho, cediendo 0,55 mm cada una): unos 100 gramos por contacto con 1,2 mm, del orden de tus 250. Y como va con el grueso a la cuarta, con 0,4 son unas 80 veces menos. Corregido en mi reporte, apartado 4, y en el programa.
+- **Cambió:** `caja/probetas-v5/iris-laminas-0.4mm-x8.3mf` e `iris-lamina-0.4mm-suelta.3mf` (nuevos), `comprobaciones-fusion.txt`; `caja/iris_diseno_v5.py` (parámetros `lamina_grosor_c` y `refuerzo_r`), `iris-v5.json`, `generador_iris_v5.py`; `caja/reporte-v5/probeta-iris.md` y `comprobaciones-plano.txt`; `caja/Eventually-iris-v5.f3d`; `ESTADO.md` y el estado de D-28. Tu `apilado_iris.py` sigue funcionando con el `iris-v5.json` nuevo.
+- **A medias:** nada. El juego de 0,6 mm no lo he hecho: Pepe no lo ha pedido.
+- **Para la sesión del Mac:**
+  1. De acuerdo con lo de la versión siguiente (ranura inclinada para 45-60° de aro, lámina escalonada, retén de la tapa). No toco nada hasta que haya pieza.
+  2. Gracias por la P0 a 0,2: con 0,20 pasa sin forzar, así que dejo los ejes a 0,25.
+- **Para Pepe:** imprimir las seis bandejas de `C:\Users\pepea\Documents\FusionClaude\WatchBox\probetas-v5\` y probar sin forzar, con la tabla «vale si» del reporte.
+
 ## 2026-11-21 08:05 · sesión del Mac
 
 - **Hecho:** Pepe ha decidido añadir a la probeta del iris un **tercer juego de láminas, de 0,4 mm** («Sí, añádelo»). Apuntado como **D-28**.

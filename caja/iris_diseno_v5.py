@@ -12,6 +12,8 @@
 #   - BASE: plato de abajo con la pared. En la pared hay un alveolo por lamina y, dentro, una isla con un
 #     poste. La isla esta donde no pasa nunca ninguna otra lamina.
 #   - LAMINAS: cada una tiene un agujero en la cola, que entra en su poste, y un teton hacia arriba.
+#     Hay tres juegos: A de 1,2 mm, B de 0,8 y C de 0,4. En B y C la cola se engorda hasta 1,2 para que
+#     ajuste igual entre la isla y el aro, y el teton se alarga lo mismo. En C, ademas, el teton nace de un refuerzo.
 #     Se apilan en escalera: la raiz de cada una va ARRIBA, sobre las dos anteriores, y la punta ABAJO.
 #   - ARO: va encima de las laminas, apoyado en los postes. Tiene una ranura por teton y una orejeta que
 #     sale por un hueco de la pared. Los extremos de ese hueco son los topes de abierto y cerrado.
@@ -31,6 +33,8 @@ P_DEF = [
     ('agujero_d',        'mm',  5.0,   'Objetivo de agujero central con el iris cerrado (el brief pide 8 o menos)'),
     ('lamina_grosor',    'mm',  1.2,   'Grosor de la lamina del juego A (el brief pide 1,2 o mas)'),
     ('lamina_grosor_b',  'mm',  0.8,   'DECIDIDO (D-23): grosor del juego B, para comparar el tacto'),
+    ('lamina_grosor_c',  'mm',  0.4,   'DECIDIDO (D-28): grosor del juego C, dos capas. La revision del Mac calcula que es el unico que cierra del todo'),
+    ('refuerzo_r',       'mm',  3.0,   'Juego C: radio del refuerzo que rodea al teton, para que no nazca de una hoja de dos capas'),
     ('lamina_retiro',    'mm',  0.6,   'Lo que la lamina abierta queda escondida detras del borde del hueco'),
     ('luna_ancho',       'mm',  25.0,  'Ancho maximo de la lamina. La lamina es una luna: el hueco entre dos circulos'),
     ('luna_radio',       'mm',  34.3,  'Radio del circulo que dibuja el canto exterior de la lamina'),
@@ -241,8 +245,10 @@ def comprueba(escribe=True):
     linea(teton_min >= p['teton_d'] / 2 + 0.8, 'el teton de cada lamina queda siempre a %.1f mm o mas de las laminas que van encima' % teton_min)
     dentro = lam0.buffer(-(p['canto'] + 0.6)).contains(disco(p['teton_d'] / 2, tet0, 12))
     linea(dentro, 'el teton cae dentro de su lamina con 0,6 mm o mas de margen')
+    ref_dentro = lam0.buffer(-0.3).contains(disco(p['refuerzo_r'], tet0, 24))
+    linea(ref_dentro and teton_min - p['refuerzo_r'] >= 0.8, 'juego C: el refuerzo del teton cabe dentro de la lamina y queda a %.1f mm o mas de las laminas que van encima' % (teton_min - p['refuerzo_r']))
 
-    def apila(t):
+    def apila(t, refuerzo=False):
         """Laminas rigidas e inclinadas dentro de la camara. Devuelve, por giro, cuanto se pisarian
         (lo que tienen que ceder flexando) y el plano de la lamina 0: z = a x + b y + c, desde el suelo de la camara."""
         res_g = []
@@ -281,19 +287,25 @@ def comprueba(escribe=True):
                 xc, yc = E[0] + rho * math.cos(math.radians(th)), E[1] + rho * math.sin(math.radians(th))
                 A.append([-xi, -yi, -1.0, 0.0]); B.append(-(zp + t / 2))                       # por debajo, apoya en la isla
                 A.append([xc, yc, 1.0, 0.0]); B.append(H - p['lamina_grosor'] + t / 2)         # por arriba, el aro
+            if refuerzo:                                           # el refuerzo del teton tampoco puede tocar el aro
+                tp = rot(tet0, g, E)
+                for th in range(0, 360, 45):
+                    A.append([tp[0] + p['refuerzo_r'] * math.cos(math.radians(th)), tp[1] + p['refuerzo_r'] * math.sin(math.radians(th)), 1.0, 0.0]); B.append(H - p['lamina_grosor'] + t / 2)
             r_ = linprog([0, 0, 0, 1], A_ub=A, b_ub=B, bounds=[(None, None)] * 3 + [(0, 40)], method='highs')
             res_g.append((float(g), float(r_.x[3]) if r_.status == 0 else None, [float(v) for v in r_.x[:3]] if r_.status == 0 else None))
         return res_g
     planos = {}
     largo_lam = max(math.hypot(x - E[0], y - E[1]) for x, y in lam0.exterior.coords)
-    for nombre, t in (('A', p['lamina_grosor']), ('B', p['lamina_grosor_b'])):
-        rg = apila(t)
+    juegos = (('A', p['lamina_grosor']), ('B', p['lamina_grosor_b']), ('C', p['lamina_grosor_c']))
+    for nombre, t in juegos:
+        rg = apila(t, nombre == 'C')
         malos = [round(g, 1) for g, c, _ in rg if c is None]
         cede = max((c for _, c, _ in rg if c is not None), default=float('nan'))
         cede0 = rg[0][1]; medio = rg[len(rg) // 2][1]
-        # fuerza para doblar esa cantidad la punta de una lamina de PLA (viga en voladizo, E = 3000 MPa)
-        ancho = p['luna_ancho'] * 0.8; I = ancho * t ** 3 / 12; kf = 3 * 3000 * I / largo_lam ** 3
-        linea(not malos and cede <= t, 'apilado, juego %s (%.1f mm): si las laminas fueran del todo rigidas se pisarian %.2f mm abiertas, %.2f a medio giro y %.2f cerradas. Lo absorben doblandose: unos %.0f gramos por lamina en el peor punto. SE CONFIRMA IMPRIMIENDO' % (nombre, t, cede0, medio, cede, 1000 * kf * cede / 9.81))
+        # Ojo: en la primera version aqui se calculaba una fuerza (11 gramos por lamina de 1,2) tratando la lamina como
+        # una regla que se dobla por la punta. Estaba mal: lo que hace falta es que la punta se retuerza (revision
+        # de la sesion del Mac, reporte-v5/contra-reporte-iris.md). Aqui solo se da la geometria, que es lo seguro.
+        linea(not malos and cede <= t, 'apilado, juego %s (%.1f mm): colocadas rigidas, las laminas se pisarian %.2f mm abiertas, %.2f a medio giro y %.2f cerradas. Eso lo tiene que ceder la punta retorciendose. SE CONFIRMA IMPRIMIENDO' % (nombre, t, cede0, medio, cede))
         planos[nombre] = rg
         d['cede_' + nombre] = cede
 
@@ -378,11 +390,16 @@ def comprueba(escribe=True):
         if juego == 'A':
             cap = [(0.0, t - 0.4, lam0), (t - 0.4, t - 0.2, lam0.buffer(-0.2)), (t - 0.2, t, lam0.buffer(-c))]
             alto = p['teton_alto']
-        else:
+        elif juego == 'B':
             cap = [(0.0, t - 0.2, lam0), (t - 0.2, t, lam0.buffer(-0.25)), (t, p['lamina_grosor'], disco(rho - 0.2, E, 24))]
             alto = p['teton_alto'] + (p['lamina_grosor'] - t)
+        else:                                                               # C: dos capas, cola y refuerzo del teton hasta 1,2
+            cap = [(0.0, t - 0.2, lam0), (t - 0.2, t, lam0.buffer(-0.2)),
+                   (t, p['lamina_grosor'], unary_union([disco(rho - 0.2, E, 24), disco(p['refuerzo_r'], tet0, 24)]))]
+            alto = p['teton_alto'] + (p['lamina_grosor'] - t)
+        nace = p['lamina_grosor'] if juego == 'C' else t                     # altura de la que nace el teton
         cil = [[E[0], E[1], -0.1, p['lamina_grosor'] + 0.1, p['poste_d'] / 2 + p['holg_eje'], 'resta'],
-               [tet0[0], tet0[1], t - 0.05, t + alto, p['teton_d'] / 2, 'suma']]
+               [tet0[0], tet0[1], nace - 0.05, t + alto, p['teton_d'] / 2, 'suma']]
         return cap, cil, alto
 
     # 7. choques entre piezas, capa contra capa
@@ -412,7 +429,7 @@ def comprueba(escribe=True):
     ch_lam = barr0.buffer(0.2).intersection(muro).area
     linea(ch_lam < 0.01, 'las laminas no tocan la pared ni otra isla (pisado: %.3f mm2)' % ch_lam)
     # teton: no puede tocar la tapa aunque la lamina suba hasta el aro, y tiene que seguir dentro del aro si baja
-    for nombre, t in (('A', p['lamina_grosor']), ('B', p['lamina_grosor_b'])):
+    for nombre, t in juegos:
         _, _, alto = lamina_capas(t, nombre)
         punta_alta = d['z_techo'] - (p['lamina_grosor'] - t) + alto            # con la cola pegada al aro
         punta_baja = d['z_isla'] + t + alto                                     # con la cola apoyada en la isla
@@ -435,7 +452,7 @@ def comprueba(escribe=True):
         'aro': {'capas': capas_json([(a - d['z_techo'], b - d['z_techo'], g) for a, b, g in aro_lleno_capas]), 'cilindros': [], 'agujero_r': d['R_aro_in'], 'z': d['z_techo'], 'ang': 0.0},
         'tapa': {'capas': capas_json([(a - z0t, b - z0t, g) for a, b, g in tapa_llena]), 'cilindros': [], 'agujero_r': RA, 'z': z0t, 'ang': 0.0},
     }
-    for nombre, t in (('A', p['lamina_grosor']), ('B', p['lamina_grosor_b'])):
+    for nombre, t in juegos:
         cap, cil, alto = lamina_capas(t, nombre)
         piezas['lamina_' + nombre] = {'capas': capas_json(cap), 'cilindros': cil, 'z': d['z_isla'], 'ang': 0.0, 'copias': N, 'grosor': t, 'teton_alto': alto}
     def vol(capas, dentro=None, agujero=None):
@@ -448,9 +465,10 @@ def comprueba(escribe=True):
     piezas['base']['volumen'] = vol(base_capas, R_ext, RA) + N * math.pi * (p['poste_d'] / 2) ** 2 * (d['z_techo'] - d['z_isla'])
     piezas['aro']['volumen'] = vol(aro_capas, None, d['R_aro_in'])
     piezas['tapa']['volumen'] = vol(capas_tapa, None, RA)
-    for nombre, t in (('A', p['lamina_grosor']), ('B', p['lamina_grosor_b'])):
+    for nombre, t in juegos:
         cap, cil, alto = lamina_capas(t, nombre)
-        piezas['lamina_' + nombre]['volumen'] = vol(cap) - math.pi * (p['poste_d'] / 2 + p['holg_eje']) ** 2 * p['lamina_grosor'] + math.pi * (p['teton_d'] / 2) ** 2 * alto
+        nace = p['lamina_grosor'] if nombre == 'C' else t
+        piezas['lamina_' + nombre]['volumen'] = vol(cap) - math.pi * (p['poste_d'] / 2 + p['holg_eje']) ** 2 * p['lamina_grosor'] + math.pi * (p['teton_d'] / 2) ** 2 * (t + alto - nace)
     caja = lam0.minimum_rotated_rectangle
     cx = list(caja.exterior.coords)
     lados = [(math.hypot(cx[i + 1][0] - cx[i][0], cx[i + 1][1] - cx[i][1]), math.degrees(math.atan2(cx[i + 1][1] - cx[i][1], cx[i + 1][0] - cx[i][0]))) for i in range(2)]

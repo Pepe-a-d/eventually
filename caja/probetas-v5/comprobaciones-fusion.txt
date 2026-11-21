@@ -3,6 +3,7 @@ bien  aro: 16313 mm3 en Fusion, 16313 calculados (20.2 g de PLA macizo), 1 cuerp
 bien  tapa: 13942 mm3 en Fusion, 13942 calculados (17.3 g de PLA macizo), 1 cuerpo(s)
 bien  lamina_A: 1586 mm3 en Fusion, 1586 calculados (2.0 g de PLA macizo), 1 cuerpo(s)
 bien  lamina_B: 1079 mm3 en Fusion, 1079 calculados (1.3 g de PLA macizo), 1 cuerpo(s)
+bien  lamina_C: 577 mm3 en Fusion, 577 calculados (0.7 g de PLA macizo), 1 cuerpo(s)
 bien  MEDIDO diametro exterior de la base: 133.50 x 133.50 mm
 bien  MEDIDO grueso total montado: 9.80 mm (la base sola mide 9.80)
 bien  MEDIDO la orejeta del aro llega a 75.75 mm del centro: sale 9.0 mm de la pared. De la punta de la orejeta al lado contrario: 142.5 mm
@@ -11,14 +12,16 @@ bien  montado, tapa y base se pisan 0.000 mm3
 bien  montado, tapa y aro se pisan 0.000 mm3
 bien  abierto, juego A (1,2 mm): colocadas rigidas, dos laminas vecinas se pisan 20.93 mm3. Es lo que el calculo dice que absorben doblandose 0.26 mm
 bien  abierto, juego B (0,8 mm): colocadas rigidas, las 8 laminas en escalera no se pisan (0.000 mm3)
+bien  abierto, juego C (0,4 mm): colocadas rigidas, las 8 laminas en escalera no se pisan (0.000 mm3)
 bien  abierto, ninguna lamina del juego A toca la base, el aro ni la tapa (pisado: 0.000 mm3)
 bien  abierto, ninguna lamina del juego B toca la base, el aro ni la tapa (pisado: 0.000 mm3)
+bien  abierto, ninguna lamina del juego C toca la base, el aro ni la tapa (pisado: 0.000 mm3)
 bien  MEDIDO abierto: un cilindro de 75.0 mm pasa sin tocar nada (pisado: 0.000 mm3)
 bien  MEDIDO abierto: las laminas quedan escondidas; el cilindro mas grande que no las toca mide 76.0 mm
 bien  MEDIDO cerrado en la posicion nominal: por el agujero central cabe un cilindro de 4.8 mm y no uno de 5.0; hueco sin tapar 20.6 mm2 de 4418, en 1 trozo(s)
 bien  MEDIDO cerrado en el tope de cierre: por el agujero central cabe un cilindro de 3.4 mm y no uno de 3.6; hueco sin tapar 10.4 mm2 de 4418, en 1 trozo(s)
 bien  MEDIDO giro del aro de tope a tope: 16.1 grados (15.3 hacia cerrar y 0.8 hacia abrir desde la posicion de abierto). Calculado: 15.2 y 0.7
-bien  en 13 posiciones de abierto a cerrado, el teton de la lamina va por su ranura sin tocar el aro (pisado: 0.0000 mm3)
+bien  en 13 posiciones de abierto a cerrado, el teton de los tres juegos de laminas va por su ranura sin tocar el aro (pisado: 0.0000 mm3)
 bien  la tapa entra por arriba en la posicion de meter (girada 13 grados)
 bien  cerrada, la tapa no puede salir hacia arriba: las uñas la paran (choque al subirla 0,45 mm: 4.46 mm3)
 bien  cerrada, la tapa no gira mas alla del tope (choque al girar 1 grado mas: 0.81 mm3)

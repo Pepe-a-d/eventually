@@ -208,7 +208,7 @@ def lamina_inclinada(base, k, plano, t):
     return rotz(b, 360.0 / J['P']['laminas'] * k)
 
 def piezas_sueltas():
-    return {n: cuerpo(n) for n in ('base', 'aro', 'tapa', 'lamina_A', 'lamina_B')}
+    return {n: cuerpo(n) for n in ('base', 'aro', 'tapa', 'lamina_A', 'lamina_B', 'lamina_C')}
 
 def montaje(S):
     """Cuerpos en su sitio, con el iris abierto y el juego A de laminas."""
@@ -219,10 +219,12 @@ def montaje(S):
         M['lamina_%d' % (k + 1)] = lamina_inclinada(S['lamina_A'], k, plano, J['P']['lamina_grosor'])
     return M
 
-def juego_b(S):
-    """Las laminas de 0,8 mm en su sitio, abiertas e inclinadas (no se dejan en el documento; solo para comprobar)."""
-    plano = J['planos']['B'][0][2]
-    return [lamina_inclinada(S['lamina_B'], k, plano, J['P']['lamina_grosor_b']) for k in range(int(J['P']['laminas']))]
+def juego(S, letra):
+    """Las laminas del juego B (0,8 mm) o C (0,4 mm) en su sitio, abiertas e inclinadas. No se dejan en el
+    documento; solo sirven para comprobar."""
+    plano = J['planos'][letra][0][2]
+    t = J['piezas']['lamina_' + letra]['grosor']
+    return [lamina_inclinada(S['lamina_' + letra], k, plano, t) for k in range(int(J['P']['laminas']))]
 
 def colores():
     d = des()
@@ -253,7 +255,7 @@ def comprobar(S, M):
     def linea(ok, txt):
         out.append(('bien  ' if ok else 'FALLA ') + txt)
     # 1. volumenes: que Fusion ha construido lo mismo que calculo iris_diseno_v5.py
-    for n in ('base', 'aro', 'tapa', 'lamina_A', 'lamina_B'):
+    for n in ('base', 'aro', 'tapa', 'lamina_A', 'lamina_B', 'lamina_C'):
         v = S[n].volume * 1000; e = J['piezas'][n]['volumen']
         linea(abs(v - e) / e < 0.01, '%s: %.0f mm3 en Fusion, %.0f calculados (%.1f g de PLA macizo), %d cuerpo(s)' % (n, v, e, v * 1.24 / 1000, S[n].lumps.count))
     # 2. medidas exteriores
@@ -277,11 +279,12 @@ def comprobar(S, M):
             for j in range(i + 1, N):
                 peor = max(peor, vol_inter(L[i], L[j]))
         return peor
-    LA = [M['lamina_%d' % (k + 1)] for k in range(N)]; LB = juego_b(S)
-    va = entre_ellas(LA); vb = entre_ellas(LB)
+    LA = [M['lamina_%d' % (k + 1)] for k in range(N)]; LB = juego(S, 'B'); LC = juego(S, 'C')
+    va = entre_ellas(LA); vb = entre_ellas(LB); vc = entre_ellas(LC)
     linea(True, 'abierto, juego A (1,2 mm): colocadas rigidas, dos laminas vecinas se pisan %.2f mm3. Es lo que el calculo dice que absorben doblandose %.2f mm' % (va, J['planos']['A'][0][1]))
     linea(vb < 0.05, 'abierto, juego B (0,8 mm): colocadas rigidas, las %d laminas en escalera no se pisan (%.3f mm3)' % (N, vb))
-    for n, L in (('A', LA), ('B', LB)):
+    linea(vc < 0.05, 'abierto, juego C (0,4 mm): colocadas rigidas, las %d laminas en escalera no se pisan (%.3f mm3)' % (N, vc))
+    for n, L in (('A', LA), ('B', LB), ('C', LC)):
         v = max(max(vol_inter(b, M['base']), vol_inter(b, tapa_m), vol_inter(b, aro_m)) for b in L)
         linea(v < 0.05, 'abierto, ninguna lamina del juego %s toca la base, el aro ni la tapa (pisado: %.3f mm3)' % (n, v))
     # 5. hueco abierto: tiene que pasar un cilindro de 75 mm
@@ -329,8 +332,8 @@ def comprobar(S, M):
     for i in range(13):
         g = g0 + (g1 - g0) * i / 12.0
         aro = rotz(copia(M['aro']), angulo_aro(g))
-        peor = max(peor, vol_inter(lamina_plana(S['lamina_A'], 0, g, d['z_isla'] + P['holg_altura'] - 0.03), aro), vol_inter(lamina_plana(S['lamina_B'], 3, g, d['z_isla']), aro))
-    linea(peor < 0.001, 'en 13 posiciones de abierto a cerrado, el teton de la lamina va por su ranura sin tocar el aro (pisado: %.4f mm3)' % peor)
+        peor = max(peor, vol_inter(lamina_plana(S['lamina_A'], 0, g, d['z_isla'] + P['holg_altura'] - 0.03), aro), vol_inter(lamina_plana(S['lamina_B'], 3, g, d['z_isla']), aro), vol_inter(lamina_plana(S['lamina_C'], 5, g, d['z_isla']), aro))
+    linea(peor < 0.001, 'en 13 posiciones de abierto a cerrado, el teton de los tres juegos de laminas va por su ranura sin tocar el aro (pisado: %.4f mm3)' % peor)
     # 9. bayoneta de la tapa
     g = J['giro_tapa']
     metida = rotz(copia(M['tapa']), -s * g)
@@ -350,7 +353,7 @@ def comprobar(S, M):
 def imprimibles(S):
     """(nombre de archivo, cuerpo o lista de cuerpos), cada uno apoyado en la cama como se imprime."""
     out = [('iris-base', copia(S['base'])), ('iris-aro', copia(S['aro'])), ('iris-tapa', copia(S['tapa']))]
-    for n, t in (('lamina_A', J['P']['lamina_grosor']), ('lamina_B', J['P']['lamina_grosor_b'])):
+    for n, t in (('lamina_A', J['P']['lamina_grosor']), ('lamina_B', J['P']['lamina_grosor_b']), ('lamina_C', J['P']['lamina_grosor_c'])):
         bandeja = []
         for ang, dx, dy in J['cama']:
             bandeja.append(mover(rotz(copia(S[n]), ang), dx, dy, 0))
@@ -358,7 +361,8 @@ def imprimibles(S):
         out.append(('iris-lamina-%.1fmm-suelta' % t, mover(rotz(copia(S[n]), J['cama'][0][0]), J['cama'][0][1], J['cama'][0][2], 0)))
     return out
 
-def exportar(S, sub=None):
+def exportar(S, sub=None, solo=None):
+    """Escribe los .3mf. Con solo='0.4mm' (por ejemplo) escribe nada mas los ficheros que lleven eso en el nombre."""
     sub = sub or os.path.join(CARPETA, 'probetas-v5')
     d = des()
     em = d.exportManager
@@ -366,6 +370,8 @@ def exportar(S, sub=None):
     if not os.path.isdir(sub):
         os.makedirs(sub)
     for nombre, body in imprimibles(S):
+        if solo and solo not in nombre:
+            continue
         occ = put('_exp', body)
         fn = os.path.join(sub, nombre + '.3mf')
         em.execute(em.createC3MFExportOptions(occ, fn))

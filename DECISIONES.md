@@ -261,4 +261,4 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - El brief de la sesión del Mac pedía a la vez láminas de 1,2 mm o más y agujero de 8 mm o menos, sin haber comprobado que cupieran las dos cosas.
 - **Qué se descartó:** nada. Un juego de 0,6 mm se mencionó como posible y Pepe no lo ha pedido. Esperar a imprimir antes de añadirlo tampoco: la carcasa ya se puede ir imprimiendo.
 - **Pegas que se conocen:** dos capas de PLA blanco dejan pasar luz. Si cierran, se verá si hace falta una lámina escalonada, fina en la punta y gruesa donde se ve.
-- **Estado:** Activa. Sin modelar: lo hace la sesión del PC.
+- **Estado:** Activa. Modelado por la sesión del PC el 21-nov a las 08:15 (`caja/probetas-v5/iris-laminas-0.4mm-x8.3mf`). Sin imprimir. La sesión del PC añadió, sin que se pidiera, un refuerzo de 6 mm alrededor del tetón: un tetón de 3 mm no puede nacer de una hoja de dos capas.
