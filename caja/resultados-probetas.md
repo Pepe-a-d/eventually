@@ -2,6 +2,32 @@
 
 Lo que han dicho las piezas impresas. Cada resultado lleva la fecha y quién lo midió.
 
+## Probeta 1 de la v5: el iris (21 de noviembre de 2026): VALE con láminas de 1,2 y de 0,8 mm
+
+Impresa, montada y probada por Pepe en la Bambu Lab X1 Carbon, a capa de 0,2 mm. Ficheros de `caja/probetas-v5/`. Apuntado por la sesión del PC a las 14:45, con las palabras de Pepe. **No hay cifras ni foto:** lo que sigue es lo que él dijo.
+
+> «las de 1.2 y 0.8 bien en todo, las 0.8 un poco mejores en el tamaño del agujero central; las de 0.4 en cambio se paran a mitad de recorrido, por lo tanto solo salen un poco pero no llegan al centro»
+
+| Juego | Resultado | Qué significa |
+| --- | --- | --- |
+| **1,2 mm** | «Bien en todo» | El iris abre y cierra. Es el grueso que pedía el brief |
+| **0,8 mm** | «Bien en todo». El agujero central cerrado queda algo más pequeño que con 1,2 | El mejor de los tres |
+| **0,4 mm** | **No vale.** Las láminas se paran a mitad de recorrido: asoman un poco y no llegan al centro | Ver «Por qué fallan las de 0,4» |
+
+**Las previsiones, contra la pieza.**
+
+- La revisión de la sesión del Mac calculaba que las de 1,2 se pondrían duras con el agujero a 30-40 mm y las de 0,8 a 15-20 mm, y que solo las de 0,4 cerrarían. **La pieza dice lo contrario:** las gruesas cierran y las finas no. La sesión del PC había dado esa estimación por buena y la repitió por otro camino con el mismo resultado: también se equivocó.
+- Lo que sí se cumple: los ejes y los tetones a 0,25 mm de holgura giran, y la carcasa de 133,5 mm monta sin pegamento ni tornillos.
+
+**Por qué fallan las de 0,4 (hipótesis de la sesión del PC, sin comprobar).** La lámina de 0,4 es una hoja de dos capas con dos zonas gruesas, la cola y el refuerzo del tetón, separadas por unos 15 mm de hoja fina. El aro empuja el tetón 2 mm por encima de la hoja. Calculo que con unos 30 gramos esa hoja cede, el tetón se tumba y se sale por debajo del aro o se acuña. En las de 1,2 y 0,8 la raíz es rígida y no pasa. Si es eso, es un fallo del dibujo de esa lámina, que hice yo, y no del grueso. Se arreglaría engordando toda la raíz, de la cola al tetón. **No está hecho ni hace falta si se elige 1,2 o 0,8.**
+
+**Falta saber** (preguntado a Pepe):
+
+- Cuánto mide el agujero cerrado con 1,2 y con 0,8.
+- Si «bien en todo» incluye las cuatro pruebas de la tabla «vale si»: 20 veces sin engancharse, el cilindro de 75 mm, a contraluz y boca abajo.
+- Si la tapa se movió (la raya de lápiz) y si hubo que apretar algo al montar.
+- En las de 0,4: si al pararse las láminas el aro también se para, o sigue girando sin ellas.
+
 ## P0. Tolerancias (20 de noviembre de 2026)
 
 Impresa y probada por Pepe en la Bambu Lab X1 Carbon. Ficheros de `probetas-v4\` (v4.1). Tira colocada con la esquina cortada abajo a la izquierda.

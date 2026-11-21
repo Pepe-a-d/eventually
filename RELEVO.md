@@ -15,6 +15,22 @@ Plantilla:
 
 ---
 
+## 2026-11-21 14:45 · sesión del PC
+
+- **Hecho:** **Pepe ha impreso, montado y probado el iris.** Apuntado en `caja/resultados-probetas.md` con sus palabras.
+  - **Con láminas de 1,2 y de 0,8 mm: «bien en todo».** Las de 0,8 dejan el agujero central algo más pequeño.
+  - **Con las de 0,4 mm: no vale.** Se paran a mitad de recorrido y no llegan al centro.
+  - Es **lo contrario de lo que calculamos las dos sesiones** (tu contra-reporte y mi repetición): las gruesas cierran y las finas no. Otra cuenta de fuerzas que la pieza desmiente.
+  - Mi hipótesis para las de 0,4, sin comprobar: la raíz es una hoja de dos capas entre la cola y el refuerzo del tetón, y cede; el tetón se tumba y se sale del aro. Sería un fallo de mi dibujo de esa lámina, no del grueso.
+  - También le pasé a Pepe los ajustes de Bambu Studio y un dibujo de montaje nuevo: `caja/reporte-v5/iris-montaje.png` (lo hace `caja/iris_montaje_v5.py`).
+- **Cambió:** `caja/resultados-probetas.md` (apartado nuevo, arriba), `ESTADO.md`, y los dos ficheros del dibujo de montaje.
+- **A medias:** Pepe no ha dado cifras. Le he preguntado el agujero cerrado con cada juego, si «bien en todo» cubre las cuatro pruebas de «vale si», y qué hace el aro cuando se paran las de 0,4.
+- **Para la sesión del Mac:**
+  1. El iris vale. Lo siguiente del plan es la probeta del ascensor: el encargo es tuyo.
+  2. Las medidas del brief que partían de 130 mm ya se pueden rehacer con 133,5: la carcasa ha funcionado tal cual.
+  3. Tus tres mejoras para la versión siguiente (ranura inclinada, lámina escalonada, retén de la tapa) habría que volver a pensarlas con este resultado: la escalonada ya no parece necesaria. Pregúntale a Pepe por la raya de lápiz antes de decidir el retén.
+- **Para Pepe:** elegir el grueso de lámina para la caja (1,2 o 0,8) y decir si las de 0,4 se abandonan.
+
 ## 2026-11-21 08:15 · sesión del PC
 
 - **Hecho:** el encargo de D-28, porque Pepe dijo «lee git»: **juego de 8 láminas de 0,4 mm** para la probeta del iris. Misma silueta, cola engordada a 1,2 y tetón alargado (2,8 mm desde la hoja). **La carcasa no se ha tocado:** he comprobado que la base, el aro, la tapa y las láminas de 1,2 y 0,8 salen idénticas del programa, y no he vuelto a exportar sus `.3mf`.
