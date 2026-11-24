@@ -15,6 +15,24 @@ Plantilla:
 
 ---
 
+## 2026-11-24 21:55 · sesión del Mac
+
+- **Hecho: decididas las dos cosas que quedaban (D-34),** porque Pepe dijo «lee git, y decide tu las dos preguntas, pero que el reloj este seguro y se vea todo bien y premium». **Las dos son que sí, y las dos te dan trabajo.** Están en el apartado 13 de `caja/BRIEF-v5.md`:
+  - **Zanjas (E9):** el pedestal ya no sube hasta la tapa. Se queda a ras del asiento de las puertas (Z = −5). No hay que tocar las puertas ni su mecanismo. Lo he medido en tu modelo bajando la plataforma 5 mm: a ras del asiento quedan abiertos 243 mm² (rendija del pedestal y las dos ventanas de las manivelas) en vez de 1.062.
+  - **Soporte (P5):** sujeto por la forma mientras la caja no esté abierta del todo, libre arriba. Propongo peana alta en un cajeado del pedestal y dos o tres pestillos sobre el disco, cada uno en línea con una columna: la cara de dentro de la columna lo mantiene metido y una muesca arriba lo deja salir. **Es una propuesta sin modelar:** si ves otra forma que cumpla la tabla del 13.2, úsala.
+- **Tu corrección:** he repetido `revisar_caja_v5.py` en el Mac sobre tu modelo del 24-nov y me da lo mismo que a ti, 2 fallos. **No he repetido la revisión a fondo** (las cinco revisiones aparte, el montaje paso a paso de lo nuevo, tus ficheros de imprimir): la haré cuando estén estos dos cambios, que vuelven a tocar plataforma, pedestal, soporte y columnas. De lo que me pedías mirar:
+  - **1,9 mm a los lados del pedestal:** con el pedestal a ras del asiento dejan de ser una rendija honda: su suelo también está en Z = −5.
+  - **0,10 mm que entra la puerta empujada:** lo doy por bueno; el reloj queda a 3,15 mm.
+  - **2,03 mm bajo los dientes de la rueda central: no lo he mirado todavía.** Va en la revisión a fondo.
+- **Cambió:** `caja/BRIEF-v5.md` (apartado 13 nuevo; cambios con fecha en los apartados 2, 3, 4, 6 y 7), `caja/reporte-v5/calculos-mac/revisar_caja_v5.py`, `DECISIONES.md` (D-34), `ESTADO.md`. No he tocado nada tuyo.
+- **`revisar_caja_v5.py` ha cambiado,** para pedir lo decidido:
+  - La cara del pedestal, arriba, a 0,3 mm o menos del asiento (antes pedía que no hubiera zanja a ras de la tapa).
+  - Cerrada, el soporte con el reloj no se mueve más de 1 mm hacia las puertas ni de lado. Lo prueba contra todas las piezas puestas en τ = 0, así que encuentra tus pestillos se llamen como se llamen.
+  - Abierta del todo, el soporte sale tirando hacia arriba 40 mm sin pisar nada. **Para que esta pase, dibuja los pestillos, en τ = giro_tubo, donde quedan con la peana saliendo** (o dales su propio movimiento en `mover`).
+- **A medias:** la revisión a fondo de tu corrección, dicho arriba.
+- **Para la sesión del PC:** modelar el apartado 13. Eliges tú si acortas el pedestal o el recorrido (prefiero el recorrido, y la caja 5 mm más baja). Mete el soporte y los pestillos en la probeta del ascensor y propón su tabla «vale si». Si algo del 13.2 no sale, dilo antes de darle vueltas: hay alternativas descartadas con su motivo, y decidir otra cosa es de Pepe.
+- **Para Pepe:** nada que decidir ahora. Cuando la sesión del PC lo tenga modelado, mirar el dibujo del reloj arriba: el suelo hundido lo he decidido sobre el modelo, y si al verlo no te gusta se vuelve atrás sin romper nada.
+
 ## 2026-11-24 19:43 · sesión del PC
 
 - **Hecho: corregida la caja con tu revisión,** porque Pepe dijo «corrige todo. Cuando termines revisa tu trabajo» (D-33). **Tenías razón en todo lo que comprobé.** Tu `revisar_caja_v5.py` pasa de 15 fallos a 2: E9 y P5, que son de Pepe y no ha decidido.

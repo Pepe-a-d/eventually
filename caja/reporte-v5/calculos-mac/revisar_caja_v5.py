@@ -8,6 +8,9 @@ Necesita Python 3 con numpy, shapely y manifold3d. Desde la raiz del repositorio
     python caja/reporte-v5/calculos-mac/revisar_caja_v5.py
 Tarda unos dos minutos. No escribe ningun fichero.
 
+Cambiado el 24-nov-2026 (D-34, apartado 13 del brief): con el reloj arriba, el pedestal tiene que quedar a ras del
+ASIENTO de las puertas, no de la tapa; y el soporte tiene que quedar sujeto con la caja cerrada y libre arriba del todo.
+
 Son pruebas de GEOMETRIA sobre el modelo: distancias, volumenes que se pisan, capas sin apoyo. No hay ninguna fuerza.
 Que una linea diga 'bien' quiere decir que el dibujo cumple, no que la pieza impresa funcione.
 """
@@ -84,10 +87,16 @@ linea(g >= p['bola_holgura'] - 1e-3, 'cerradas, entre cada puerta (varilla y bol
 print('ASCENSOR')
 peor = min((puesta('plataforma', t_).min_gap(puesta('tubo', t_), 2.0), t_) for t_ in (110.0, 150.0, 200.0, 250.0, 300.0, 330.0))
 linea(peor[0] >= 0.15, 'en la rampa, entre los tetones de la plataforma y las ranuras del tubo quedan 0,15 mm o mas (el diseno dice %.2f): lo menos, %.3f mm, con el tubo a %.0f grados' % (p['holg_desliza'], peor[0], peor[1]))
-arriba = puesta('plataforma', G) + S['meseta'] + S['marco'] + puerta(1, 90.0) + puerta(-1, 90.0)
+# Reloj arriba (D-34): el suelo de alrededor del reloj es un solo plano, el del asiento de las puertas
+TH = p.get('puerta_abierta', 90.0)
+z_as = -p['puerta_grueso']                                   # el asiento: el suelo del rebaje de la meseta
+arriba = puesta('plataforma', G) + puesta('soporte', G) + S['meseta'] + S['marco'] + puerta(1, TH) + puerta(-1, TH)
 rect = mf.CrossSection([[(-d['eje_x'], -d['puerta_y'] / 2 - 0.3), (d['eje_x'], -d['puerta_y'] / 2 - 0.3), (d['eje_x'], d['puerta_y'] / 2 + 0.3), (-d['eje_x'], d['puerta_y'] / 2 + 0.3)]])
-ab = (rect - arriba.slice(-0.1)).area(); perim = 2 * (2 * hx + 2 * hy)
-linea(ab <= perim * 1.0, 'reloj arriba: alrededor del pedestal, a ras, queda abierta una rendija de 1 mm o menos por lado (como mucho %.0f mm2): quedan abiertos %.0f mm2; delante y detras, una zanja de %.1f mm de ancho y %.1f de hondo' % (perim, ab, d['puerta_y'] / 2 + 0.3 - (hy - p['pedestal_holgura']), p['puerta_grueso']))
+borde = mf.CrossSection([[(hx - 2.0, -hy + 2.0), (hx - 0.6, -hy + 2.0), (hx - 0.6, hy - 2.0), (hx - 2.0, hy - 2.0)]])   # una tira del pedestal, junto a su canto
+z_ped = next((z for z in np.arange(1.0, -12.0, -0.05) if (borde - puesta('plataforma', G).slice(z)).area() < 0.5), -99.0)   # cota de la cara de arriba del pedestal
+linea(abs(z_ped - z_as) <= 0.3, 'reloj arriba: la cara del pedestal queda a ras del asiento de las puertas (0,3 mm o menos de escalon): el pedestal llega a Z = %.2f y el asiento esta en Z = %.2f; escalon, %.2f mm' % (z_ped, z_as, abs(z_ped - z_as)))
+ab = (rect - arriba.slice(z_as - 0.1)).area(); perim = 2 * (2 * hx + 2 * hy)
+linea(ab <= 450.0, 'reloj arriba: a ras del asiento, alrededor del reloj, no quedan abiertos mas de 450 mm2 (rendija del pedestal, de 1 mm o menos, que serian %.0f; ventanas de las manivelas, que hoy son 156; y la linea del cajeado del soporte): quedan abiertos %.0f mm2' % (perim, ab))
 
 print('IMPRESION (capas de 0,2 mm; cuenta lo que no tiene debajo la capa anterior ensanchada 0,25 mm)')
 def capa(M, z):
@@ -114,14 +123,26 @@ linea(pared >= 0.8, 'aro de las puertas: la pared de fuera de la pista, en «cer
 
 print('MONTAJE Y BOCA ABAJO')
 def baja(pieza, contra, alto=30.0): return max(pisa(pieza.translate([0, 0, h]), contra) for h in np.arange(0.5, alto + 0.01, 0.5))
-print('  nota  ' + 'orden del reporte (rueda central antes que plato y satelites): bajar el plato con la rueda central puesta pisa %.0f mm3, y un satelite, %.1f mm3. En el otro orden (plato, satelites y despues rueda central), %.3f mm3. Es un error del TEXTO del reporte (apartado 7), no de las piezas' % (baja(S['plato'], S['rueda_central']), baja(S['satelite_1'], S['rueda_central']), baja(S['rueda_central'], S['plato'] + S['satelite_1'] + S['satelite_2'] + S['meseta'])))
+print('  nota  ' + 'orden de montaje: con la rueda central ya puesta, el plato no baja (pisa %.0f mm3) ni un satelite (%.1f mm3); en el orden plato, satelites y despues rueda central, %.3f mm3. El reporte del 21-nov lo daba al reves; el del 24-nov ya lo da bien (apartado 7)' % (baja(S['plato'], S['rueda_central']), baja(S['satelite_1'], S['rueda_central']), baja(S['rueda_central'], S['plato'] + S['satelite_1'] + S['satelite_2'] + S['meseta'])))
 v = min(pisa(S['cuerpo'].rotate([0, 0, a]), S['base']) for a in (90, 180, 270))
 linea(v > 30.0, 'el cuerpo girado un cuarto o media vuelta no asienta en la base: girado pisa solo %.1f mm3 (bien puesto, a presion, hay que vencer %.0f)' % (v, baja(S['cuerpo'], S['base'], 12.0)))
 caja = S['cuerpo'] + S['base'] + S['bisel']
 v = min(max(pisa(S['funda'].rotate([0, 0, a]).translate([dx, dy, h]), caja) for h in np.arange(0, 130.1, 5.0)) for a in (90, 180, 270) for dx, dy in ((0.2, 0), (-0.2, 0), (0, 0.2), (0, -0.2)))
 linea(v > 0.05, 'la funda girada no entra: girada y corrida 0,2 mm (tiene 0,5 de holgura) pisa %.3f mm3' % v)
-grupo = S['soporte'] + S['reloj_de_pega']; contra = S['puerta_derecha'] + S['puerta_izquierda'] + S['meseta'] + S['marco']
-sube = next((0.25 * (i - 1) for i in range(1, 400) if pisa(grupo.translate([0, 0, 0.25 * i]), contra) > 0.05), 99.0)
-linea(sube <= 1.5, 'boca abajo y cerrada, el soporte con el reloj no se mueve mas de 1,5 mm: cae %.2f mm, hasta apoyarse en las puertas' % sube)
+# Soporte del reloj (D-34): sujeto por la forma con la caja cerrada, libre arriba del todo
+otros = [n for n in S if n not in ('soporte', 'reloj_de_pega') and P[n].mueve not in ('funda', 'probeta')]
+def resto(tau):
+    out = None
+    for n in otros:
+        q = puesta(n, tau); out = q if out is None else out + q
+    return out
+def corre(grupo, contra, v, tope=6.0):              # cuanto se deja mover el grupo en la direccion v antes de pisar algo
+    return next((0.1 * (i - 1) for i in range(1, int(tope / 0.1) + 2) if pisa(grupo.translate([0.1 * i * v[0], 0.1 * i * v[1], 0.1 * i * v[2]]), contra) > 0.05), tope)
+grupo = S['soporte'] + S['reloj_de_pega']; r0 = resto(0.0)
+mueve = {nombre: corre(grupo, r0, v) for nombre, v in (('hacia las puertas', (0, 0, 1)), ('a la derecha', (1, 0, 0)), ('a la izquierda', (-1, 0, 0)), ('al frente', (0, -1, 0)), ('atras', (0, 1, 0)))}
+linea(max(mueve.values()) <= 1.0, 'cerrada y en cualquier postura, el soporte con el reloj no se mueve mas de 1 mm (6.0 quiere decir 6 mm o mas, suelto): ' + '; '.join('%s, %.1f' % kv for kv in mueve.items()))
+grupoG = puesta('soporte', G) + puesta('reloj_de_pega', G); rG = resto(G)
+v = max(pisa(grupoG.translate([0, 0, 0.5 * i]), rG) for i in range(1, 81))
+linea(v <= 0.05, 'abierta del todo, el soporte con el reloj sale tirando hacia arriba sin pisar nada (40 mm, de medio en medio): lo que mas pisa, %.2f mm3' % v)
 
 print('NINGUN FALLO' if fallos == 0 else 'FALLAN %d COMPROBACIONES' % fallos)

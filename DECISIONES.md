@@ -323,3 +323,19 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Qué no ha decidido Pepe,** aunque se le preguntó en el mismo mensaje: **si le importan las zanjas** de delante y detrás del reloj cuando está arriba (E9) y **si el soporte tiene que quedar sujeto** con la caja boca abajo (P5). La sesión del PC no las ha tocado: la primera pide rediseñar las puertas y la segunda cambia cómo se coge el reloj. Solo bajó de 5 a unos 3 mm lo que cae el reloj boca abajo.
 - **Estado:** Activa. Corregido el 24-nov: el programa de la revisión pasa de 15 fallos a 2, que son esas dos cosas sin decidir. Falta que la sesión del Mac repita la revisión.
 
+
+### D-34. Suelo liso alrededor del reloj y soporte sujeto por la forma
+- **Fecha:** 24-nov-2026, 21:55.
+- **Quién decide:** Pepe deja las dos preguntas a la sesión del Mac, con una condición. Sus palabras: «decide tu las dos preguntas, pero que el reloj este seguro y se vea todo bien y premium».
+- **Decisión,** las dos de la sesión del Mac con esa condición:
+  1. **Las zanjas sí importan.** Con el reloj arriba, el pedestal ya no sube hasta la tapa: se queda 5 mm más abajo, a ras del asiento de las puertas. Alrededor del reloj queda un solo suelo liso, hundido 5 mm.
+  2. **El soporte tiene que quedar sujeto.** Mientras la caja no esté abierta del todo, lo sujeta la forma de las piezas (sin imanes, sin muelles, sin nada que se doble). Arriba del todo queda libre y se coge tirando. Cómo se propone hacerlo: peana alta que entra en un cajeado del pedestal y dos o tres pestillos que las columnas de la base mantienen metidos. La forma exacta la elige la sesión del PC si cumple la tabla.
+  - El detalle y lo que tiene que cumplir, en el apartado 13 de `caja/BRIEF-v5.md`.
+- **Qué llevó a ella:**
+  - Las zanjas (7,7 mm de ancho y 5 de hondo, del modelo) son el asiento donde apoyan las puertas cerradas. No se pueden rellenar sin rediseñar las puertas, que acaban de corregirse. Bajando el pedestal a la altura del asiento desaparecen sin tocar el mecanismo: a ras del asiento quedan abiertos 243 mm² en vez de 1.062 (del modelo, medido en el Mac con la plataforma bajada 5 mm).
+  - Cerrada y boca abajo, el soporte con el reloj cae 3 mm sobre las puertas (del modelo). A las puertas las sujeta una bola de 5 mm en un brazo de 8, y la caja va a viajar envuelta. Un imán no vale para esto: ninguna previsión de fuerza de imanes se ha cumplido en este proyecto, y la norma es que nada dependa de ellos.
+- **Qué se descartó:**
+  - Dejar las zanjas, y rediseñar las puertas para quitar su asiento.
+  - Para el soporte: solo el imán; girarlo para soltarlo (entre las puertas solo gira unos 8°, calculado con las medidas supuestas del reloj); deslizarlo para soltarlo (con la caja tumbada se suelta solo); pinzas que hacen clic (el PLA cede); soporte fijo (Pepe quiere coger el reloj con su soporte).
+- **Qué no se sabe:** nada de esto está modelado ni impreso. Los pestillos son piezas nuevas que se mueven: si rozan o se atascan lo dirá la probeta del ascensor. Que el reloj no se suelte del soporte depende de sus medidas y queda para cuando se mida (D-15). **Pepe no ha visto todavía el suelo hundido en un dibujo del modelo:** si al verlo no le gusta, se vuelve atrás cambiando solo la altura del pedestal.
+- **Estado:** Activa. Pendiente de que la sesión del PC lo modele. `caja/reporte-v5/calculos-mac/revisar_caja_v5.py`, puesto al día con estos requisitos, da 2 fallos: estos dos cambios.

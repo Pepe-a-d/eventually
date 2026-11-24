@@ -2,6 +2,8 @@
 
 Escrito el 21 de noviembre de 2026 por la sesión del Mac, a partir de lo que Pepe decidió ese día (D-29 y D-30). **Sustituye al brief del iris,** que queda en [`historico/BRIEF-v5-iris.md`](historico/BRIEF-v5-iris.md). Nada de esto está modelado ni impreso.
 
+**Cambio del 24 de noviembre (D-34):** con el reloj arriba, el suelo de alrededor queda liso, 5 mm por debajo de la tapa, y el soporte del reloj va sujeto por la forma de las piezas mientras la caja no esté abierta del todo. Está en el apartado 13, y cambiado en los apartados 2, 3, 4, 6 y 7, cada cambio con su fecha.
+
 Cada dato dice de dónde sale: **decidido** (lo eligió Pepe), **medido** (sobre una pieza impresa), **estimado** (cuenta a mano de la sesión del Mac, sin CAD) o **supuesto** (medida del reloj sin confirmar).
 
 **Aviso sobre mis cuentas.** Dos previsiones de fuerzas mías las ha tumbado una pieza: los imanes de la v4 y el cierre del iris. En este documento no hay ninguna fuerza. Las medidas «estimadas» son cuentas a mano para arrancar: si el modelo dice otra cosa, manda el modelo, y se dice en el reporte.
@@ -51,6 +53,8 @@ No hay llave ni aguja. Lo único azul de la caja es un engranaje.
 | Engranajes | Planetario de verdad: los satélites dan vueltas alrededor del hueco. A la vista a medias, tipo esqueleto, entre puentes | D-20 |
 | Lo azul | Un solo satélite azul. Todo lo demás, blanco | D-20 |
 | Reloj | De pie sobre su soporte, esfera al frente. Sube entero | D-20 |
+| Reloj arriba (24-nov) | Queda en una bandeja hundida 5 mm: el pedestal sube hasta el asiento de las puertas, no hasta la tapa. Alrededor del reloj, un solo suelo liso, sin zanjas | D-34 |
+| Soporte del reloj (24-nov) | Sujeto por la forma de las piezas mientras la caja no esté abierta del todo. Arriba queda libre y se coge tirando, sin soltar nada | D-34 |
 | Bisel | Grafilado (canto estriado) | D-20 |
 | Tapa lisa | Sin números, grabados ni palabras | D-14, D-20 |
 | Frente | Un índice en relieve, blanco sobre blanco, en el cuerpo bajo el bisel | D-20 |
@@ -71,8 +75,8 @@ Siguen en pie: impresora Bambu Lab X1 Carbon con AMS, etiqueta NFC de 25 mm, 13 
 3. Se sujeta el cuerpo con una mano y se gira el bisel con la otra.
 4. Primer tramo: no pasa nada. Los engranajes giran.
 5. Después, las puertas se abren y el reloj sube. Las puertas van un poco por delante: el reloj no las toca nunca.
-6. Arriba, un «clac» suave. El reloj queda entre las dos puertas, que están de pie.
-7. Se coge el reloj con su soporte. El soporte sirve solo en la mesilla.
+6. Arriba, un «clac» suave. El reloj queda entre las dos puertas, que están de pie, sobre un suelo liso hundido 5 mm (24-nov, D-34).
+7. Se coge el reloj con su soporte, tirando hacia arriba: arriba el soporte está libre. El soporte sirve solo en la mesilla. Al devolverlo, entra en su cajeado y queda mirando al frente. En cuanto se empieza a cerrar, queda sujeto (24-nov, D-34).
 8. Para cerrar, se gira al revés: el reloj baja y las puertas se cierran detrás.
 
 La caja queda pensada para usarse a diario como expositor: reloj arriba de día, guardado de noche.
@@ -86,7 +90,7 @@ De dentro afuera. Lo fijo va unido a la base por dentro; lo que gira lo envuelve
 | Pieza | Fija o gira | Qué hace |
 | --- | --- | --- |
 | Base con jaula | Fija | Fondo de la caja con tres columnas verticales por dentro. Las columnas guían la plataforma y sostienen arriba el marco de las puertas |
-| Plataforma con pedestal | Sube y baja | Disco con tres muescas (corren por las columnas, así no gira) y tres tetones (entran en la rampa del tubo). Encima, un pedestal rectangular que, arriba del todo, rellena el hueco de las puertas y queda a ras |
+| Plataforma con pedestal | Sube y baja | Disco con tres muescas (corren por las columnas, así no gira) y tres tetones (entran en la rampa del tubo). Encima, un pedestal rectangular que, arriba del todo, rellena el hueco de las puertas. **Desde el 24-nov (D-34) no queda a ras de la tapa sino a ras del asiento de las puertas, 5 mm más abajo,** y lleva el cajeado donde entra el soporte |
 | Tubo | Gira | Rodea la jaula. Por dentro lleva la rampa en espiral, de tres entradas: un pintalabios grande. Arriba termina en una pestaña hacia dentro, que pasa por encima del marco, lleva los ejes de los satélites y mueve las puertas |
 | Marco de las puertas | Fijo | Sobre las columnas. Placa con el hueco rectangular, las bisagras y lo que mueve las puertas |
 | Puertas | Giran 90° | Dos, de 3 mm o más. Bisagra en el lado largo del hueco |
@@ -95,7 +99,8 @@ De dentro afuera. Lo fijo va unido a la base por dentro; lo que gira lo envuelve
 | Bisel | Gira (es lo que se toca) | Aro redondo de arriba, grafilado por fuera y dentado por dentro. Apoya y gira sobre el cuerpo |
 | Puentes | Por decidir | Lo que tapa a medias los engranajes y los retiene |
 | Cuerpo | Fijo | Piel exterior cuadrada, unida a la base. Tapa el tubo, retiene el bisel y lleva el índice del frente |
-| Soporte del reloj | Suelto | Pinza en C y peana, como en la v4, sobre el pedestal |
+| Soporte del reloj | Se saca solo con la caja abierta del todo | Pinza en C y peana, como en la v4. **Desde el 24-nov (D-34), la peana es alta y entra en un cajeado del pedestal** (apartado 13) |
+| Pestillos del soporte (24-nov) | Van con la plataforma | Dos o tres pasadores planos que sujetan la peana. Los mantiene metidos una pared fija en todo el recorrido menos arriba (apartado 13) |
 | Funda | Suelta | Campana cuadrada de mármol con la frase, el NFC y la tarjeta |
 
 ### El planetario
@@ -166,7 +171,7 @@ Lo que tienen que cumplir está en el apartado 6. Cómo se mueven lo eliges tú.
 **El ascensor.**
 
 - La plataforma sube recta, sin girar ni cabecear. Decir cuánto juego tiene y cuánto cabecea con ese juego.
-- Arriba, el pedestal queda a ras con el marco (0,3 mm o menos) y rellena el hueco con 1 mm o menos de rendija por lado.
+- Arriba, el pedestal queda a ras **del asiento de las puertas** (0,3 mm o menos de escalón) y rellena el hueco con 1 mm o menos de rendija por lado. Alrededor del reloj no queda ninguna zanja (cambiado el 24-nov, D-34; antes decía «a ras con el marco»).
 - Arriba y abajo hay tramo plano y tope.
 - Con el reloj a medio subir, soltar el bisel no debería dejarlo caer. No se puede asegurar en el modelo: decir la pendiente y dejarlo para la probeta.
 
@@ -178,7 +183,7 @@ Lo que tienen que cumplir está en el apartado 6. Cómo se mueven lo eliges tú.
 
 **Toda la caja.**
 
-- **Boca abajo no se cae nada ni se desmonta.**
+- **Boca abajo no se cae nada ni se desmonta.** Desde el 24-nov (D-34) esto incluye el soporte con el reloj: con la caja cerrada, en cualquier postura, no se mueve más de 1 mm ni toca las puertas. Lo sujeta la forma de las piezas, no un imán.
 - **Ninguna pieza se puede montar del revés** ni en una posición que no sea la suya.
 - Si se quitan los nueve imanes, funciona igual.
 - Cada pieza cabe en la X1 Carbon (256 × 256 × 256 mm), y se dice cómo va orientada y si necesita soportes. Mejor sin soportes.
@@ -193,7 +198,7 @@ Quedan 13 de 5 × 1,6 mm. Se usan 9, todos de adorno:
 | --- | --- | --- |
 | Final del recorrido | Un «clac» al llegar arriba y otro al cerrar del todo | 3 |
 | Funda | Los últimos milímetros baja sola y se asienta | 4 |
-| Soporte del reloj | Al devolverlo, se coloca solo y mirando al frente | 2 |
+| Soporte del reloj | Al devolverlo, un «clac» al asentar. Desde el 24-nov lo coloca y lo orienta su cajeado, no el imán (D-34) | 2 |
 
 - Ninguno a menos de 30 mm de la cabeza del reloj.
 - Siempre imán contra imán: no hay piezas de acero.
@@ -293,3 +298,86 @@ Se sacan del modelo final: son trozos de la caja, no piezas aparte. Cada una, co
 - Y lo que decide: **si a Pepe le parece que cerrada se ve bien y que es sólida.**
 
 Las tablas «vale si» del ascensor y del planetario las propones tú en el reporte.
+
+## 13. Encargo del 24 de noviembre: suelo liso y soporte sujeto (D-34)
+
+Para la sesión del PC. Escrito por la sesión del Mac el 24 de noviembre de 2026, a las 21:55.
+
+**De dónde sale.** Quedaban dos cosas sin decidir (filas 6 y 7 del apartado 1 de tu reporte). Pepe dijo: «decide tu las dos preguntas, pero que el reloj este seguro y se vea todo bien y premium». Las ha decidido la sesión del Mac con esa condición. **Nada de este apartado está modelado ni impreso.** Las medidas que doy salen de tu modelo del 24-nov, medido en el Mac; lo demás es propuesta.
+
+**El criterio.** «Seguro»: con la caja cerrada, en cualquier postura y sacudiéndola, el reloj no golpea nada ni se suelta. «Premium»: abierta, lo que se ve alrededor del reloj es un solo suelo liso, sin zanjas ni agujeros; y no hay que soltar ni girar nada para coger el reloj.
+
+### 13.1 Suelo liso: el pedestal sube hasta el asiento, no hasta la tapa
+
+**Qué se pide.** Arriba del todo, la cara de arriba del pedestal queda **a ras del asiento de las puertas** (Z = −5 en tu modelo), no a ras de la tapa (Z = 0). El reloj queda de pie en una bandeja hundida 5 mm, con las puertas a los lados y el escalón de la meseta delante y detrás.
+
+**Por qué así.** Las zanjas son el asiento de las puertas, y el asiento no se puede quitar: es lo que deja las puertas cerradas a ras. En vez de rellenarlas, se baja el pedestal a su altura. No se toca nada de lo que mueve las puertas.
+
+**Lo que he medido en tu modelo** (plataforma bajada 5 mm, puertas a 92°; del modelo, en el Mac):
+
+- A ras del asiento, alrededor del pedestal, quedan abiertos 243 mm²: 87 son la rendija de 0,4 mm del pedestal y 156, las dos ventanas de las manivelas. Hoy, a ras de la tapa, son 1.062.
+- Las tiras de los lados, entre el pedestal y cada puerta abierta (1,9 mm), también tienen el suelo en Z = −5: el rebaje de la meseta llega de bisagra a bisagra.
+- El reloj de pega con su soporte, 5 mm más bajo, queda a 8,7 mm o más de las puertas una vez arriba, también con una puerta cedida a 87° (antes, 9,1). Durante la subida no cambia nada: pasa por las mismas alturas.
+
+**Cómo, lo eliges tú.** O el pedestal 5 mm más corto con el mismo recorrido, o el recorrido 5 mm más corto y la caja 5 mm más baja. Prefiero lo segundo si no ves pega: rampa más tendida y el reloj cerrado sigue a 3 mm de las puertas. Dilo en el reporte.
+
+**Tiene que cumplir:**
+
+| Qué | Valor |
+| --- | --- |
+| Escalón entre el pedestal y el asiento, arriba | 0,3 mm o menos |
+| Rendija alrededor del pedestal | 1 mm o menos por lado |
+| Ventanas de las manivelas en el suelo | No más grandes que hoy (8,6 × 5,7 mm cada una, del modelo). Si puedes achicarlas o que la puerta abierta las tape, mejor |
+| Acabado | El pedestal y el asiento, los dos con la cara de arriba de la impresión y el mismo filamento, para que se vean iguales |
+| El reloj y las puertas | Lo de siempre: 3 mm o más en todo el recorrido |
+
+### 13.2 Soporte sujeto por la forma, libre solo arriba
+
+**Qué se pide.** Mientras la caja no esté abierta del todo, el soporte con el reloj queda sujeto a la plataforma por la forma de las piezas: sin imanes, sin muelles y sin piezas que tengan que doblarse. Arriba del todo queda libre: se coge tirando hacia arriba, sin soltar ni girar nada. Al devolverlo se coloca solo y mirando al frente.
+
+**Por qué.** Hoy, cerrada y boca abajo, el soporte y el reloj (unos 150 g, estimado) caen 3 mm sobre las puertas. A las puertas las sujeta una bola de 5 mm en un brazo de 8: no están hechas para ese golpe. Y la caja va a viajar envuelta, como regalo.
+
+**Propuesta de cómo** (de la sesión del Mac; **no está modelada.** Si ves una forma mejor que cumpla la tabla de abajo, úsala y dilo):
+
+1. **La peana es alta y entra en un cajeado del pedestal.** El pedestal pasa a ser hueco por arriba; la peana baja por dentro hasta el disco. Eso la coloca, la orienta (con una llave, para que no entre girada media vuelta) y no la deja volcar ni salirse de lado. Por arriba asoma como hoy.
+2. **Dos o tres pestillos planos sobre el disco,** en canales con cola de milano para que no se salgan boca abajo. Cada uno va en línea con una columna de la base (30°, 150° y 262° en tu modelo). La punta de dentro entra por una ranura de la pared del pedestal en una muesca del pie de la peana. La punta de fuera apoya en la cara de dentro de su columna (radio 66,5 mm, del modelo).
+3. **La columna mantiene metido el pestillo en todo el recorrido,** porque es una pared vertical lisa y fija. Solo arriba del todo, una muesca en la columna, con sus rampas, le deja sitio para salir unos 2,5 mm.
+4. **Las caras que enganchan van en chaflán a 45°.** Con el pestillo metido no puede retroceder (se lo impide la columna), así que el chaflán no suelta nada. Arriba, con el pestillo libre, el chaflán hace que la peana lo aparte sola al tirar de ella y al volver a meterla.
+5. Al empezar a cerrar, la rampa de la muesca empuja cada pestillo hacia dentro y la peana queda cogida. Si no hay soporte puesto, el pestillo entra en vacío y no pasa nada.
+
+**Por qué esta y no otras** (lo descartado, para que no se vuelva a proponer sin motivo nuevo):
+
+- **Solo el imán:** no sujeta 150 g a golpes, y aquí ninguna previsión de fuerza de imanes se ha cumplido.
+- **Girar el soporte para soltarlo** (bayoneta): entre las dos puertas, el reloj solo se puede girar unos 8° antes de tocarlas (calculado, con las medidas supuestas del reloj).
+- **Deslizarlo para soltarlo:** con la caja tumbada se desliza solo, y entonces boca abajo se suelta.
+- **Pinzas que hacen clic:** se doblan cada vez; el PLA cede con los meses.
+- **Soporte fijo a la plataforma:** Pepe quiere coger el reloj con su soporte (apartado 3, paso 7).
+
+**Tiene que cumplir:**
+
+| Qué | Valor |
+| --- | --- |
+| Cerrada, en cualquier postura | El soporte con el reloj no se mueve más de 1 mm en ninguna dirección, y el reloj de pega no toca nada |
+| Abierta del todo | El soporte sale tirando hacia arriba, sin pisar nada, y vuelve a entrar solo |
+| Si se cierra sin soporte | No se engancha nada |
+| Si el soporte está mal asentado al cerrar | Decir qué pasa. Lo ideal: el bisel se nota duro enseguida, no se rompe nada |
+| Sin imanes | Funciona igual. El imán del soporte se queda solo para el «clac» |
+| En la mesilla | El soporte, con el reloj puesto, se tiene de pie y no vuelca con un toque. La base puede ser casi tan grande como el pedestal |
+| Lo que se ve | Cerrada, nada. Abierta, la peana y, como mucho, las líneas de su cajeado |
+
+**El reloj en el soporte.** Que el reloj no se suelte del soporte boca abajo también es parte de «seguro», pero depende de las medidas del reloj y del cierre del brazalete. Queda para cuando Pepe mida el reloj (D-15). Lo que se fija ahora es la parte de abajo: peana, cajeado y pestillos.
+
+### 13.3 Qué entregar
+
+- Los dos cambios en el modelo y en Fusion, y el reporte corregido (fuera las filas 6 y 7 del apartado 1, o lo que quede de ellas).
+- La comprobación de siempre, de tope a tope, con las piezas nuevas dentro.
+- **La probeta del ascensor, con el soporte y los pestillos:** es donde se prueba esto. Propón su tabla «vale si».
+- `calculos-mac/revisar_caja_v5.py` está puesto al día con estos requisitos. Hoy da 2 fallos, que son estos dos cambios. **El objetivo es cero.**
+
+### 13.4 Lo que puede fallar (de la sesión del Mac, sin adornar)
+
+- Los pestillos son piezas nuevas que se mueven: pueden rozar, o atascarse si la peana no asienta. Nada de eso se sabe hasta imprimir la probeta.
+- La peana alta sube el reloj en la mesilla unos 18 mm: hay que mirar que no vuelque.
+- Abierta del todo y boca abajo, el soporte se sale: arriba está libre a propósito.
+- Las ventanas de las manivelas siguen viéndose en dos esquinas del suelo, pegadas a las puertas.
+- El suelo hundido es una decisión de aspecto tomada sobre el modelo. Si a Pepe no le gusta al verlo en el dibujo o en la probeta, se vuelve atrás: es solo la altura del pedestal.
