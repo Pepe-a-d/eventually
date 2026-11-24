@@ -1,395 +1,213 @@
-Eventually, caja v5: comprobaciones hechas en Fusion (generador_caja_v5.py), el 21 de noviembre de 2026
+Eventually, caja v5: comprobaciones hechas en Fusion (generador_caja_v5.py), el 24 de noviembre de 2026, con el modelo corregido tras la revision de la sesion del Mac
 
 1. Cada pieza, construida en Fusion, comparada con la del programa (caja_piezas_v5.py).
    El programa redondea cilindros y esferas a 48 caras; por eso las piezas con cilindros salen en Fusion un pelo mayores.
 
-   bien   puerta_derecha     Fusion    10757.2 mm3   programa    10758.5 mm3   diferencia -0.01 %
-   bien   puerta_izquierda   Fusion    10757.2 mm3   programa    10758.5 mm3   diferencia -0.01 %
-   bien   aro_puertas        Fusion    12026.8 mm3   programa    12026.8 mm3   diferencia +0.00 %
+   bien   puerta_derecha     Fusion    11385.2 mm3   programa    11386.5 mm3   diferencia -0.01 %
+   bien   puerta_izquierda   Fusion    10833.8 mm3   programa    10835.1 mm3   diferencia -0.01 %
+   bien   aro_puertas        Fusion    13254.3 mm3   programa    13254.3 mm3   diferencia -0.00 %
    bien   teton              Fusion      174.8 mm3   programa      174.3 mm3   diferencia +0.29 %
-   bien   marco              Fusion    68648.7 mm3   programa    68649.0 mm3   diferencia -0.00 %
-   bien   meseta             Fusion    36149.1 mm3   programa    36149.7 mm3   diferencia -0.00 %
-   bien   pasador_derecho    Fusion      635.8 mm3   programa      634.0 mm3   diferencia +0.29 %
-   bien   pasador_izquierdo  Fusion      635.8 mm3   programa      634.0 mm3   diferencia +0.29 %
-   bien   rueda_central      Fusion    20120.0 mm3   programa    20119.8 mm3   diferencia +0.00 %
+   bien   marco              Fusion    66758.0 mm3   programa    66758.2 mm3   diferencia -0.00 %
+   bien   meseta             Fusion    37283.0 mm3   programa    37283.6 mm3   diferencia -0.00 %
+   bien   pasador_derecho    Fusion      635.5 mm3   programa      633.7 mm3   diferencia +0.29 %
+   bien   pasador_izquierdo  Fusion      635.5 mm3   programa      633.7 mm3   diferencia +0.29 %
+   bien   rueda_central      Fusion    18422.6 mm3   programa    18422.3 mm3   diferencia +0.00 %
    bien   satelite_1         Fusion     1265.0 mm3   programa     1265.0 mm3   diferencia -0.00 %
    bien   satelite_2         Fusion     1265.0 mm3   programa     1265.0 mm3   diferencia +0.00 %
    bien   satelite_3         Fusion     1265.0 mm3   programa     1265.0 mm3   diferencia +0.00 %
    bien   satelite_4         Fusion     1265.0 mm3   programa     1265.0 mm3   diferencia -0.00 %
    bien   satelite_5         Fusion     1265.0 mm3   programa     1265.0 mm3   diferencia +0.00 %
    bien   satelite_6         Fusion     1265.0 mm3   programa     1265.0 mm3   diferencia +0.00 %
-   bien   plato              Fusion    49293.4 mm3   programa    49290.8 mm3   diferencia +0.01 %
-   bien   tubo               Fusion   214193.3 mm3   programa   214100.6 mm3   diferencia +0.04 %
-   bien   plataforma         Fusion   171474.5 mm3   programa   171474.1 mm3   diferencia +0.00 %
+   bien   plato              Fusion    48327.4 mm3   programa    48324.9 mm3   diferencia +0.01 %
+   bien   tubo               Fusion   209120.7 mm3   programa   209129.7 mm3   diferencia -0.00 %
+   bien   plataforma         Fusion   171475.0 mm3   programa   171474.7 mm3   diferencia +0.00 %
    bien   soporte            Fusion     7381.5 mm3   programa     7381.6 mm3   diferencia -0.00 %
    bien   reloj_de_pega      Fusion    25109.3 mm3   programa    25083.4 mm3   diferencia +0.10 %
-   bien   bisel              Fusion    48098.2 mm3   programa    48100.2 mm3   diferencia -0.00 %
-   bien   base               Fusion   191475.2 mm3   programa   191475.2 mm3   diferencia -0.00 %
-   bien   cuerpo             Fusion   256090.9 mm3   programa   256091.2 mm3   diferencia -0.00 %
-   bien   funda              Fusion   268472.3 mm3   programa   268473.1 mm3   diferencia -0.00 %
+   bien   bisel              Fusion    46554.7 mm3   programa    46549.0 mm3   diferencia +0.01 %
+   bien   base               Fusion   190712.0 mm3   programa   190712.0 mm3   diferencia -0.00 %
+   bien   cuerpo             Fusion   251809.5 mm3   programa   251809.7 mm3   diferencia -0.00 %
+   bien   funda              Fusion   265850.2 mm3   programa   265851.0 mm3   diferencia -0.00 %
    bien   frase              Fusion      193.1 mm3   programa      193.1 mm3   diferencia -0.00 %
-   bien   probeta_anillo     Fusion    13644.9 mm3   programa    13644.9 mm3   diferencia -0.00 %
+   bien   probeta_anillo     Fusion    13772.6 mm3   programa    13772.6 mm3   diferencia -0.00 %
    bien   probeta_teton      Fusion      591.0 mm3   programa      589.3 mm3   diferencia +0.29 %
 
-   Operaciones que Fusion solo supo hacer moviendo la herramienta unas milesimas: ninguna en el modelo final.
-   (En una version anterior del tubo hizo falta en una; se cambio el tubo para que no hiciera falta. Esta linea esta corregida a mano:
-   el programa habia dejado escrita la nota antigua.)
+   Operaciones que Fusion solo supo hacer moviendo la herramienta unas milesimas: ninguna
 
-2. Recorrido completo, de 2 en 2 grados de tubo (174 posiciones), todas las piezas contra todas las que tienen cerca.
-   Hecho con el modelo de las 16:40. Tardo 1778 segundos.
+2. Recorrido completo, de 2 en 2 grados de tubo (174 posiciones), todas las piezas contra todas las que tienen cerca. Con construir las piezas, tardo 2401 segundos.
 
-   bien   tubo   0.0  puertas   0.0  plataforma   0.0 mm  pares mirados 117  lo que mas se pisa: 0.000 mm3
-   bien   tubo   2.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo   4.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo   6.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo   8.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  10.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  12.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  14.0  puertas   0.0  plataforma   0.0 mm  pares mirados  98  lo que mas se pisa: 0.000 mm3
-   bien   tubo  16.0  puertas   0.0  plataforma   0.0 mm  pares mirados  98  lo que mas se pisa: 0.000 mm3
-   bien   tubo  18.0  puertas   0.0  plataforma   0.0 mm  pares mirados  98  lo que mas se pisa: 0.000 mm3
-   bien   tubo  20.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  22.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  24.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  26.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  28.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  30.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  32.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  34.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  36.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  38.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  40.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  42.0  puertas   0.0  plataforma   0.0 mm  pares mirados  98  lo que mas se pisa: 0.000 mm3
-   bien   tubo  44.0  puertas   0.0  plataforma   0.0 mm  pares mirados  98  lo que mas se pisa: 0.000 mm3
-   bien   tubo  46.0  puertas   0.0  plataforma   0.0 mm  pares mirados  98  lo que mas se pisa: 0.000 mm3
-   bien   tubo  48.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  50.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  52.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  54.0  puertas   0.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  56.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  58.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  60.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  62.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  64.0  puertas   7.1  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  66.0  puertas  15.6  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  68.0  puertas  23.9  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  70.0  puertas  32.2  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  72.0  puertas  40.5  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  74.0  puertas  48.9  plataforma   0.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo  76.0  puertas  57.6  plataforma   0.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo  78.0  puertas  66.6  plataforma   0.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo  80.0  puertas  76.2  plataforma   0.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo  82.0  puertas  86.6  plataforma   0.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo  84.0  puertas  90.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  86.0  puertas  90.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  88.0  puertas  90.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  90.0  puertas  90.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  92.0  puertas  90.0  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo  94.0  puertas  90.0  plataforma   0.7 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo  96.0  puertas  90.0  plataforma   1.4 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo  98.0  puertas  90.0  plataforma   2.2 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 100.0  puertas  90.0  plataforma   2.9 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 102.0  puertas  90.0  plataforma   3.6 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 104.0  puertas  90.0  plataforma   4.3 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 106.0  puertas  90.0  plataforma   5.1 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 108.0  puertas  90.0  plataforma   5.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 110.0  puertas  90.0  plataforma   6.5 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 112.0  puertas  90.0  plataforma   7.2 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 114.0  puertas  90.0  plataforma   8.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 116.0  puertas  90.0  plataforma   8.7 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 118.0  puertas  90.0  plataforma   9.4 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 120.0  puertas  90.0  plataforma  10.1 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 122.0  puertas  90.0  plataforma  10.9 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 124.0  puertas  90.0  plataforma  11.6 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 126.0  puertas  90.0  plataforma  12.3 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 128.0  puertas  90.0  plataforma  13.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 130.0  puertas  90.0  plataforma  13.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 132.0  puertas  90.0  plataforma  14.5 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 134.0  puertas  90.0  plataforma  15.2 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 136.0  puertas  90.0  plataforma  15.9 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 138.0  puertas  90.0  plataforma  16.7 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 140.0  puertas  90.0  plataforma  17.4 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 142.0  puertas  90.0  plataforma  18.1 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 144.0  puertas  90.0  plataforma  18.8 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 146.0  puertas  90.0  plataforma  19.6 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 148.0  puertas  90.0  plataforma  20.3 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 150.0  puertas  90.0  plataforma  21.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 152.0  puertas  90.0  plataforma  21.7 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 154.0  puertas  90.0  plataforma  22.5 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 156.0  puertas  90.0  plataforma  23.2 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 158.0  puertas  90.0  plataforma  23.9 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 160.0  puertas  90.0  plataforma  24.6 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 162.0  puertas  90.0  plataforma  25.3 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 164.0  puertas  90.0  plataforma  26.1 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 166.0  puertas  90.0  plataforma  26.8 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 168.0  puertas  90.0  plataforma  27.5 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 170.0  puertas  90.0  plataforma  28.2 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 172.0  puertas  90.0  plataforma  29.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 174.0  puertas  90.0  plataforma  29.7 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 176.0  puertas  90.0  plataforma  30.4 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 178.0  puertas  90.0  plataforma  31.1 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 180.0  puertas  90.0  plataforma  31.9 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 182.0  puertas  90.0  plataforma  32.6 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 184.0  puertas  90.0  plataforma  33.3 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 186.0  puertas  90.0  plataforma  34.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 188.0  puertas  90.0  plataforma  34.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 190.0  puertas  90.0  plataforma  35.5 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 192.0  puertas  90.0  plataforma  36.2 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 194.0  puertas  90.0  plataforma  36.9 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 196.0  puertas  90.0  plataforma  37.7 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 198.0  puertas  90.0  plataforma  38.4 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
-   bien   tubo 200.0  puertas  90.0  plataforma  39.1 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 202.0  puertas  90.0  plataforma  39.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 204.0  puertas  90.0  plataforma  40.6 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 206.0  puertas  90.0  plataforma  41.3 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 208.0  puertas  90.0  plataforma  42.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 210.0  puertas  90.0  plataforma  42.7 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 212.0  puertas  90.0  plataforma  43.5 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 214.0  puertas  90.0  plataforma  44.2 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 216.0  puertas  90.0  plataforma  44.9 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 218.0  puertas  90.0  plataforma  45.6 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 220.0  puertas  90.0  plataforma  46.4 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
-   bien   tubo 222.0  puertas  90.0  plataforma  47.1 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo 224.0  puertas  90.0  plataforma  47.8 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo 226.0  puertas  90.0  plataforma  48.5 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
-   bien   tubo 228.0  puertas  90.0  plataforma  49.3 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 230.0  puertas  90.0  plataforma  50.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 232.0  puertas  90.0  plataforma  50.7 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 234.0  puertas  90.0  plataforma  51.4 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 236.0  puertas  90.0  plataforma  52.1 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 238.0  puertas  90.0  plataforma  52.9 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 240.0  puertas  90.0  plataforma  53.6 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 242.0  puertas  90.0  plataforma  54.3 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
-   bien   tubo 244.0  puertas  90.0  plataforma  55.0 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 246.0  puertas  90.0  plataforma  55.8 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 248.0  puertas  90.0  plataforma  56.5 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 250.0  puertas  90.0  plataforma  57.2 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
-   bien   tubo 252.0  puertas  90.0  plataforma  57.9 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
-   bien   tubo 254.0  puertas  90.0  plataforma  58.7 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 256.0  puertas  90.0  plataforma  59.4 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
-   bien   tubo 258.0  puertas  90.0  plataforma  60.1 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 260.0  puertas  90.0  plataforma  60.8 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 262.0  puertas  90.0  plataforma  61.6 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
-   bien   tubo 264.0  puertas  90.0  plataforma  62.3 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
-   bien   tubo 266.0  puertas  90.0  plataforma  63.0 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 268.0  puertas  90.0  plataforma  63.7 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 270.0  puertas  90.0  plataforma  64.5 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 272.0  puertas  90.0  plataforma  65.2 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
-   bien   tubo 274.0  puertas  90.0  plataforma  65.9 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 276.0  puertas  90.0  plataforma  66.6 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
-   bien   tubo 278.0  puertas  90.0  plataforma  67.4 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 280.0  puertas  90.0  plataforma  68.1 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 282.0  puertas  90.0  plataforma  68.8 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
-   bien   tubo 284.0  puertas  90.0  plataforma  69.5 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 286.0  puertas  90.0  plataforma  70.3 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 288.0  puertas  90.0  plataforma  71.0 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 290.0  puertas  90.0  plataforma  71.7 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 292.0  puertas  90.0  plataforma  72.4 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 294.0  puertas  90.0  plataforma  73.2 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
-   bien   tubo 296.0  puertas  90.0  plataforma  73.9 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
-   bien   tubo 298.0  puertas  90.0  plataforma  74.6 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
-   bien   tubo 300.0  puertas  90.0  plataforma  75.3 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
-   bien   tubo 302.0  puertas  90.0  plataforma  76.0 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
-   bien   tubo 304.0  puertas  90.0  plataforma  76.8 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
-   bien   tubo 306.0  puertas  90.0  plataforma  77.5 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 308.0  puertas  90.0  plataforma  78.2 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
-   bien   tubo 310.0  puertas  90.0  plataforma  78.9 mm  pares mirados 110  lo que mas se pisa: 0.000 mm3
-   bien   tubo 312.0  puertas  90.0  plataforma  79.7 mm  pares mirados 110  lo que mas se pisa: 0.000 mm3
-   bien   tubo 314.0  puertas  90.0  plataforma  80.4 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
-   bien   tubo 316.0  puertas  90.0  plataforma  81.1 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 318.0  puertas  90.0  plataforma  81.8 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
-   bien   tubo 320.0  puertas  90.0  plataforma  82.6 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
-   bien   tubo 322.0  puertas  90.0  plataforma  83.3 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
-   bien   tubo 324.0  puertas  90.0  plataforma  84.0 mm  pares mirados 113  lo que mas se pisa: 0.000 mm3
-   bien   tubo 326.0  puertas  90.0  plataforma  84.7 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
-   bien   tubo 328.0  puertas  90.0  plataforma  85.5 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
-   bien   tubo 330.0  puertas  90.0  plataforma  86.2 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
-   bien   tubo 332.0  puertas  90.0  plataforma  86.9 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
-   bien   tubo 334.0  puertas  90.0  plataforma  87.6 mm  pares mirados 110  lo que mas se pisa: 0.000 mm3
-   bien   tubo 336.0  puertas  90.0  plataforma  88.0 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
-   bien   tubo 338.0  puertas  90.0  plataforma  88.0 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
-   bien   tubo 340.0  puertas  90.0  plataforma  88.0 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
-   bien   tubo 342.0  puertas  90.0  plataforma  88.0 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
-   bien   tubo 344.0  puertas  90.0  plataforma  88.0 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
-   bien   tubo 345.0  puertas  90.0  plataforma  88.0 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo   0.0  puertas   0.0  plataforma   0.0 mm  pares mirados 118  lo que mas se pisa: 0.000 mm3
+   bien   tubo   2.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo   4.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo   6.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo   8.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  10.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  12.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  14.0  puertas   0.0  plataforma   0.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
+   bien   tubo  16.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  18.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  20.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  22.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  24.0  puertas   0.0  plataforma   0.0 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo  26.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  28.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  30.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  32.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  34.0  puertas   0.0  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  36.0  puertas   0.0  plataforma   0.0 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo  38.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  40.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  42.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  44.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  46.0  puertas   0.0  plataforma   0.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
+   bien   tubo  48.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  50.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  52.0  puertas   0.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  54.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo  56.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo  58.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo  60.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo  62.0  puertas   0.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo  64.0  puertas   7.2  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo  66.0  puertas  15.9  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  68.0  puertas  24.3  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  70.0  puertas  32.7  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  72.0  puertas  41.2  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  74.0  puertas  49.8  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
+   bien   tubo  76.0  puertas  58.6  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  78.0  puertas  67.8  plataforma   0.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  80.0  puertas  77.6  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
+   bien   tubo  82.0  puertas  88.5  plataforma   0.0 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
+   bien   tubo  84.0  puertas  92.0  plataforma   0.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo  86.0  puertas  92.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  88.0  puertas  92.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  90.0  puertas  92.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  92.0  puertas  92.0  plataforma   0.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo  94.0  puertas  92.0  plataforma   0.7 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo  96.0  puertas  92.0  plataforma   1.4 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo  98.0  puertas  92.0  plataforma   2.1 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 100.0  puertas  92.0  plataforma   2.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 102.0  puertas  92.0  plataforma   3.5 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 104.0  puertas  92.0  plataforma   4.3 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 106.0  puertas  92.0  plataforma   5.0 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
+   bien   tubo 108.0  puertas  92.0  plataforma   5.7 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 110.0  puertas  92.0  plataforma   6.4 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 112.0  puertas  92.0  plataforma   7.1 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 114.0  puertas  92.0  plataforma   7.8 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 116.0  puertas  92.0  plataforma   8.5 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 118.0  puertas  92.0  plataforma   9.2 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 120.0  puertas  92.0  plataforma   9.9 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 122.0  puertas  92.0  plataforma  10.6 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 124.0  puertas  92.0  plataforma  11.3 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 126.0  puertas  92.0  plataforma  12.0 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 128.0  puertas  92.0  plataforma  12.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 130.0  puertas  92.0  plataforma  13.5 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 132.0  puertas  92.0  plataforma  14.2 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 134.0  puertas  92.0  plataforma  14.9 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
+   bien   tubo 136.0  puertas  92.0  plataforma  15.6 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 138.0  puertas  92.0  plataforma  16.3 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 140.0  puertas  92.0  plataforma  17.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 142.0  puertas  92.0  plataforma  17.7 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 144.0  puertas  92.0  plataforma  18.4 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo 146.0  puertas  92.0  plataforma  19.1 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 148.0  puertas  92.0  plataforma  19.8 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 150.0  puertas  92.0  plataforma  20.6 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 152.0  puertas  92.0  plataforma  21.3 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 154.0  puertas  92.0  plataforma  22.0 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 156.0  puertas  92.0  plataforma  22.7 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo 158.0  puertas  92.0  plataforma  23.4 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 160.0  puertas  92.0  plataforma  24.1 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 162.0  puertas  92.0  plataforma  24.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 164.0  puertas  92.0  plataforma  25.5 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 166.0  puertas  92.0  plataforma  26.2 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
+   bien   tubo 168.0  puertas  92.0  plataforma  26.9 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 170.0  puertas  92.0  plataforma  27.6 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 172.0  puertas  92.0  plataforma  28.3 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 174.0  puertas  92.0  plataforma  29.1 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 176.0  puertas  92.0  plataforma  29.8 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 178.0  puertas  92.0  plataforma  30.5 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 180.0  puertas  92.0  plataforma  31.2 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 182.0  puertas  92.0  plataforma  31.9 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 184.0  puertas  92.0  plataforma  32.6 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 186.0  puertas  92.0  plataforma  33.3 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 188.0  puertas  92.0  plataforma  34.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 190.0  puertas  92.0  plataforma  34.7 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 192.0  puertas  92.0  plataforma  35.4 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 194.0  puertas  92.0  plataforma  36.1 mm  pares mirados  99  lo que mas se pisa: 0.000 mm3
+   bien   tubo 196.0  puertas  92.0  plataforma  36.8 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 198.0  puertas  92.0  plataforma  37.6 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 200.0  puertas  92.0  plataforma  38.3 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 202.0  puertas  92.0  plataforma  39.0 mm  pares mirados 101  lo que mas se pisa: 0.000 mm3
+   bien   tubo 204.0  puertas  92.0  plataforma  39.7 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo 206.0  puertas  92.0  plataforma  40.4 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 208.0  puertas  92.0  plataforma  41.1 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 210.0  puertas  92.0  plataforma  41.8 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 212.0  puertas  92.0  plataforma  42.5 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 214.0  puertas  92.0  plataforma  43.2 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 216.0  puertas  92.0  plataforma  43.9 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo 218.0  puertas  92.0  plataforma  44.6 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 220.0  puertas  92.0  plataforma  45.4 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 222.0  puertas  92.0  plataforma  46.1 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 224.0  puertas  92.0  plataforma  46.8 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 226.0  puertas  92.0  plataforma  47.5 mm  pares mirados 100  lo que mas se pisa: 0.000 mm3
+   bien   tubo 228.0  puertas  92.0  plataforma  48.2 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 230.0  puertas  92.0  plataforma  48.9 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 232.0  puertas  92.0  plataforma  49.6 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 234.0  puertas  92.0  plataforma  50.3 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 236.0  puertas  92.0  plataforma  51.0 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 238.0  puertas  92.0  plataforma  51.7 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 240.0  puertas  92.0  plataforma  52.4 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
+   bien   tubo 242.0  puertas  92.0  plataforma  53.1 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 244.0  puertas  92.0  plataforma  53.9 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 246.0  puertas  92.0  plataforma  54.6 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 248.0  puertas  92.0  plataforma  55.3 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo 250.0  puertas  92.0  plataforma  56.0 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo 252.0  puertas  92.0  plataforma  56.7 mm  pares mirados 104  lo que mas se pisa: 0.000 mm3
+   bien   tubo 254.0  puertas  92.0  plataforma  57.4 mm  pares mirados 102  lo que mas se pisa: 0.000 mm3
+   bien   tubo 256.0  puertas  92.0  plataforma  58.1 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 258.0  puertas  92.0  plataforma  58.8 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 260.0  puertas  92.0  plataforma  59.5 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
+   bien   tubo 262.0  puertas  92.0  plataforma  60.2 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
+   bien   tubo 264.0  puertas  92.0  plataforma  60.9 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 266.0  puertas  92.0  plataforma  61.7 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 268.0  puertas  92.0  plataforma  62.4 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 270.0  puertas  92.0  plataforma  63.1 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 272.0  puertas  92.0  plataforma  63.8 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 274.0  puertas  92.0  plataforma  64.5 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 276.0  puertas  92.0  plataforma  65.2 mm  pares mirados 110  lo que mas se pisa: 0.000 mm3
+   bien   tubo 278.0  puertas  92.0  plataforma  65.9 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 280.0  puertas  92.0  plataforma  66.6 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
+   bien   tubo 282.0  puertas  92.0  plataforma  67.3 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 284.0  puertas  92.0  plataforma  68.0 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 286.0  puertas  92.0  plataforma  68.7 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 288.0  puertas  92.0  plataforma  69.4 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 290.0  puertas  92.0  plataforma  70.2 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 292.0  puertas  92.0  plataforma  70.9 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 294.0  puertas  92.0  plataforma  71.6 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 296.0  puertas  92.0  plataforma  72.3 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
+   bien   tubo 298.0  puertas  92.0  plataforma  73.0 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
+   bien   tubo 300.0  puertas  92.0  plataforma  73.7 mm  pares mirados 108  lo que mas se pisa: 0.000 mm3
+   bien   tubo 302.0  puertas  92.0  plataforma  74.4 mm  pares mirados 106  lo que mas se pisa: 0.000 mm3
+   bien   tubo 304.0  puertas  92.0  plataforma  75.1 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 306.0  puertas  92.0  plataforma  75.8 mm  pares mirados 105  lo que mas se pisa: 0.000 mm3
+   bien   tubo 308.0  puertas  92.0  plataforma  76.5 mm  pares mirados 103  lo que mas se pisa: 0.000 mm3
+   bien   tubo 310.0  puertas  92.0  plataforma  77.2 mm  pares mirados 110  lo que mas se pisa: 0.000 mm3
+   bien   tubo 312.0  puertas  92.0  plataforma  78.0 mm  pares mirados 110  lo que mas se pisa: 0.000 mm3
+   bien   tubo 314.0  puertas  92.0  plataforma  78.7 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
+   bien   tubo 316.0  puertas  92.0  plataforma  79.4 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 318.0  puertas  92.0  plataforma  80.1 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 320.0  puertas  92.0  plataforma  80.8 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 322.0  puertas  92.0  plataforma  81.5 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 324.0  puertas  92.0  plataforma  82.2 mm  pares mirados 114  lo que mas se pisa: 0.000 mm3
+   bien   tubo 326.0  puertas  92.0  plataforma  82.9 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
+   bien   tubo 328.0  puertas  92.0  plataforma  83.6 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
+   bien   tubo 330.0  puertas  92.0  plataforma  84.3 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
+   bien   tubo 332.0  puertas  92.0  plataforma  85.0 mm  pares mirados 111  lo que mas se pisa: 0.000 mm3
+   bien   tubo 334.0  puertas  92.0  plataforma  85.7 mm  pares mirados 110  lo que mas se pisa: 0.000 mm3
+   bien   tubo 336.0  puertas  92.0  plataforma  86.1 mm  pares mirados 112  lo que mas se pisa: 0.000 mm3
+   bien   tubo 338.0  puertas  92.0  plataforma  86.1 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 340.0  puertas  92.0  plataforma  86.1 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 342.0  puertas  92.0  plataforma  86.1 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 344.0  puertas  92.0  plataforma  86.1 mm  pares mirados 109  lo que mas se pisa: 0.000 mm3
+   bien   tubo 345.0  puertas  92.0  plataforma  86.1 mm  pares mirados 107  lo que mas se pisa: 0.000 mm3
 
-3. Despues de ese recorrido cambiaron cinco piezas: tubo, plataforma, base, cuerpo y meseta (apartado 4.2 del reporte).
-   Se repitio el recorrido completo, de 2 en 2 grados, para todas las parejas en las que entra alguna de las cinco.
-   Las demas parejas no cambiaron y vale lo del punto 2. Tardo 1201 segundos.
-
-   bien   tubo   0.0  puertas   0.0  plataforma   0.0 mm  pares mirados  46  lo que mas se pisa: 0.000 mm3
-   bien   tubo   2.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo   4.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo   6.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo   8.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  10.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  12.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  14.0  puertas   0.0  plataforma   0.0 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo  16.0  puertas   0.0  plataforma   0.0 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo  18.0  puertas   0.0  plataforma   0.0 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo  20.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  22.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  24.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  26.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  28.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  30.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  32.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  34.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  36.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  38.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  40.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  42.0  puertas   0.0  plataforma   0.0 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo  44.0  puertas   0.0  plataforma   0.0 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo  46.0  puertas   0.0  plataforma   0.0 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo  48.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  50.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  52.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  54.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  56.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  58.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  60.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  62.0  puertas   0.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  64.0  puertas   7.1  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  66.0  puertas  15.6  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  68.0  puertas  23.9  plataforma   0.0 mm  pares mirados  39  lo que mas se pisa: 0.000 mm3
-   bien   tubo  70.0  puertas  32.2  plataforma   0.0 mm  pares mirados  39  lo que mas se pisa: 0.000 mm3
-   bien   tubo  72.0  puertas  40.5  plataforma   0.0 mm  pares mirados  39  lo que mas se pisa: 0.000 mm3
-   bien   tubo  74.0  puertas  48.9  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  76.0  puertas  57.6  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  78.0  puertas  66.6  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  80.0  puertas  76.2  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  82.0  puertas  86.6  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  84.0  puertas  90.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  86.0  puertas  90.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  88.0  puertas  90.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  90.0  puertas  90.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  92.0  puertas  90.0  plataforma   0.0 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  94.0  puertas  90.0  plataforma   0.7 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  96.0  puertas  90.0  plataforma   1.4 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo  98.0  puertas  90.0  plataforma   2.2 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 100.0  puertas  90.0  plataforma   2.9 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 102.0  puertas  90.0  plataforma   3.6 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 104.0  puertas  90.0  plataforma   4.3 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 106.0  puertas  90.0  plataforma   5.1 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 108.0  puertas  90.0  plataforma   5.8 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 110.0  puertas  90.0  plataforma   6.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 112.0  puertas  90.0  plataforma   7.2 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 114.0  puertas  90.0  plataforma   8.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 116.0  puertas  90.0  plataforma   8.7 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 118.0  puertas  90.0  plataforma   9.4 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 120.0  puertas  90.0  plataforma  10.1 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 122.0  puertas  90.0  plataforma  10.9 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 124.0  puertas  90.0  plataforma  11.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 126.0  puertas  90.0  plataforma  12.3 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 128.0  puertas  90.0  plataforma  13.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 130.0  puertas  90.0  plataforma  13.8 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 132.0  puertas  90.0  plataforma  14.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 134.0  puertas  90.0  plataforma  15.2 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 136.0  puertas  90.0  plataforma  15.9 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 138.0  puertas  90.0  plataforma  16.7 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 140.0  puertas  90.0  plataforma  17.4 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 142.0  puertas  90.0  plataforma  18.1 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 144.0  puertas  90.0  plataforma  18.8 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 146.0  puertas  90.0  plataforma  19.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 148.0  puertas  90.0  plataforma  20.3 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 150.0  puertas  90.0  plataforma  21.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 152.0  puertas  90.0  plataforma  21.7 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 154.0  puertas  90.0  plataforma  22.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 156.0  puertas  90.0  plataforma  23.2 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 158.0  puertas  90.0  plataforma  23.9 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 160.0  puertas  90.0  plataforma  24.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 162.0  puertas  90.0  plataforma  25.3 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 164.0  puertas  90.0  plataforma  26.1 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 166.0  puertas  90.0  plataforma  26.8 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 168.0  puertas  90.0  plataforma  27.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 170.0  puertas  90.0  plataforma  28.2 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 172.0  puertas  90.0  plataforma  29.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 174.0  puertas  90.0  plataforma  29.7 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 176.0  puertas  90.0  plataforma  30.4 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 178.0  puertas  90.0  plataforma  31.1 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 180.0  puertas  90.0  plataforma  31.9 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 182.0  puertas  90.0  plataforma  32.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 184.0  puertas  90.0  plataforma  33.3 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 186.0  puertas  90.0  plataforma  34.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 188.0  puertas  90.0  plataforma  34.8 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 190.0  puertas  90.0  plataforma  35.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 192.0  puertas  90.0  plataforma  36.2 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 194.0  puertas  90.0  plataforma  36.9 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 196.0  puertas  90.0  plataforma  37.7 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 198.0  puertas  90.0  plataforma  38.4 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 200.0  puertas  90.0  plataforma  39.1 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 202.0  puertas  90.0  plataforma  39.8 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 204.0  puertas  90.0  plataforma  40.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 206.0  puertas  90.0  plataforma  41.3 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 208.0  puertas  90.0  plataforma  42.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 210.0  puertas  90.0  plataforma  42.7 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 212.0  puertas  90.0  plataforma  43.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 214.0  puertas  90.0  plataforma  44.2 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 216.0  puertas  90.0  plataforma  44.9 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 218.0  puertas  90.0  plataforma  45.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 220.0  puertas  90.0  plataforma  46.4 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 222.0  puertas  90.0  plataforma  47.1 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 224.0  puertas  90.0  plataforma  47.8 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 226.0  puertas  90.0  plataforma  48.5 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 228.0  puertas  90.0  plataforma  49.3 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 230.0  puertas  90.0  plataforma  50.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 232.0  puertas  90.0  plataforma  50.7 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 234.0  puertas  90.0  plataforma  51.4 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 236.0  puertas  90.0  plataforma  52.1 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 238.0  puertas  90.0  plataforma  52.9 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 240.0  puertas  90.0  plataforma  53.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 242.0  puertas  90.0  plataforma  54.3 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 244.0  puertas  90.0  plataforma  55.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 246.0  puertas  90.0  plataforma  55.8 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 248.0  puertas  90.0  plataforma  56.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 250.0  puertas  90.0  plataforma  57.2 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo 252.0  puertas  90.0  plataforma  57.9 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo 254.0  puertas  90.0  plataforma  58.7 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo 256.0  puertas  90.0  plataforma  59.4 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo 258.0  puertas  90.0  plataforma  60.1 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo 260.0  puertas  90.0  plataforma  60.8 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo 262.0  puertas  90.0  plataforma  61.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 264.0  puertas  90.0  plataforma  62.3 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 266.0  puertas  90.0  plataforma  63.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 268.0  puertas  90.0  plataforma  63.7 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 270.0  puertas  90.0  plataforma  64.5 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 272.0  puertas  90.0  plataforma  65.2 mm  pares mirados  37  lo que mas se pisa: 0.000 mm3
-   bien   tubo 274.0  puertas  90.0  plataforma  65.9 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 276.0  puertas  90.0  plataforma  66.6 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 278.0  puertas  90.0  plataforma  67.4 mm  pares mirados  39  lo que mas se pisa: 0.000 mm3
-   bien   tubo 280.0  puertas  90.0  plataforma  68.1 mm  pares mirados  39  lo que mas se pisa: 0.000 mm3
-   bien   tubo 282.0  puertas  90.0  plataforma  68.8 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 284.0  puertas  90.0  plataforma  69.5 mm  pares mirados  35  lo que mas se pisa: 0.000 mm3
-   bien   tubo 286.0  puertas  90.0  plataforma  70.3 mm  pares mirados  36  lo que mas se pisa: 0.000 mm3
-   bien   tubo 288.0  puertas  90.0  plataforma  71.0 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 290.0  puertas  90.0  plataforma  71.7 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 292.0  puertas  90.0  plataforma  72.4 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 294.0  puertas  90.0  plataforma  73.2 mm  pares mirados  38  lo que mas se pisa: 0.000 mm3
-   bien   tubo 296.0  puertas  90.0  plataforma  73.9 mm  pares mirados  40  lo que mas se pisa: 0.000 mm3
-   bien   tubo 298.0  puertas  90.0  plataforma  74.6 mm  pares mirados  40  lo que mas se pisa: 0.000 mm3
-   bien   tubo 300.0  puertas  90.0  plataforma  75.3 mm  pares mirados  40  lo que mas se pisa: 0.000 mm3
-   bien   tubo 302.0  puertas  90.0  plataforma  76.0 mm  pares mirados  39  lo que mas se pisa: 0.000 mm3
-   bien   tubo 304.0  puertas  90.0  plataforma  76.8 mm  pares mirados  39  lo que mas se pisa: 0.000 mm3
-   bien   tubo 306.0  puertas  90.0  plataforma  77.5 mm  pares mirados  40  lo que mas se pisa: 0.000 mm3
-   bien   tubo 308.0  puertas  90.0  plataforma  78.2 mm  pares mirados  40  lo que mas se pisa: 0.000 mm3
-   bien   tubo 310.0  puertas  90.0  plataforma  78.9 mm  pares mirados  47  lo que mas se pisa: 0.000 mm3
-   bien   tubo 312.0  puertas  90.0  plataforma  79.7 mm  pares mirados  47  lo que mas se pisa: 0.000 mm3
-   bien   tubo 314.0  puertas  90.0  plataforma  80.4 mm  pares mirados  45  lo que mas se pisa: 0.000 mm3
-   bien   tubo 316.0  puertas  90.0  plataforma  81.1 mm  pares mirados  45  lo que mas se pisa: 0.000 mm3
-   bien   tubo 318.0  puertas  90.0  plataforma  81.8 mm  pares mirados  45  lo que mas se pisa: 0.000 mm3
-   bien   tubo 320.0  puertas  90.0  plataforma  82.6 mm  pares mirados  47  lo que mas se pisa: 0.000 mm3
-   bien   tubo 322.0  puertas  90.0  plataforma  83.3 mm  pares mirados  47  lo que mas se pisa: 0.000 mm3
-   bien   tubo 324.0  puertas  90.0  plataforma  84.0 mm  pares mirados  49  lo que mas se pisa: 0.000 mm3
-   bien   tubo 326.0  puertas  90.0  plataforma  84.7 mm  pares mirados  49  lo que mas se pisa: 0.000 mm3
-   bien   tubo 328.0  puertas  90.0  plataforma  85.5 mm  pares mirados  49  lo que mas se pisa: 0.000 mm3
-   bien   tubo 330.0  puertas  90.0  plataforma  86.2 mm  pares mirados  49  lo que mas se pisa: 0.000 mm3
-   bien   tubo 332.0  puertas  90.0  plataforma  86.9 mm  pares mirados  49  lo que mas se pisa: 0.000 mm3
-   bien   tubo 334.0  puertas  90.0  plataforma  87.6 mm  pares mirados  49  lo que mas se pisa: 0.000 mm3
-   bien   tubo 336.0  puertas  90.0  plataforma  88.0 mm  pares mirados  48  lo que mas se pisa: 0.000 mm3
-   bien   tubo 338.0  puertas  90.0  plataforma  88.0 mm  pares mirados  48  lo que mas se pisa: 0.000 mm3
-   bien   tubo 340.0  puertas  90.0  plataforma  88.0 mm  pares mirados  48  lo que mas se pisa: 0.000 mm3
-   bien   tubo 342.0  puertas  90.0  plataforma  88.0 mm  pares mirados  46  lo que mas se pisa: 0.000 mm3
-   bien   tubo 344.0  puertas  90.0  plataforma  88.0 mm  pares mirados  46  lo que mas se pisa: 0.000 mm3
-   bien   tubo 345.0  puertas  90.0  plataforma  88.0 mm  pares mirados  46  lo que mas se pisa: 0.000 mm3
-
-RESUMEN: 174 + 174 posiciones miradas; con fallo, 0.
+RESUMEN: 174 posiciones miradas; con fallo, 0.

@@ -15,6 +15,25 @@ Plantilla:
 
 ---
 
+## 2026-11-24 19:43 · sesión del PC
+
+- **Hecho: corregida la caja con tu revisión,** porque Pepe dijo «corrige todo. Cuando termines revisa tu trabajo» (D-33). **Tenías razón en todo lo que comprobé.** Tu `revisar_caja_v5.py` pasa de 15 fallos a 2: E9 y P5, que son de Pepe y no ha decidido.
+  - **E1 y E4:** dos puertas distintas, como proponías: una con la cuña entera y otra con el hueco entero. Cuña de 1,4 mm, hueco de 1,5.
+  - **E2:** media altura de la V = (radio + holgura) / cos(pendiente), a cada radio, y los flancos de la hélice con nueve puntos en vez de una recta. Tu prueba da 0,155 mm.
+  - **E3:** bisagra 1 mm más afuera (`eje_fuera` 4), puerta abierta a 92° (`puerta_abierta`, nuevo), `bola_holgura` 0,12 y `aro_holgura` 0,2 (nuevo). Tu prueba: 89,75° a 94,5° con el aro en su sitio; 87,0° con el aro corrido, a 3,15 mm del reloj. No hay tope fijo: sigue siendo la bola en su pista.
+  - **E5:** el ala es un cono a 45°. La escalera de 0,8 mm, puesta al derecho, seguía dando 296 mm² al aire con tu criterio.
+  - **E6:** el anillo llega debajo de todo el cuerno, y `aro_r_ext` sale de `pista_pared_fuera` (0,85). Para que cupiera sin cambiar los dientes, el cuello baja de 3 a 2,4 mm de pared: **bajo los dientes de la rueda central quedan 2,03 mm.** Míralo.
+  - **E7:** paredes de la pista 0,5 mm más bajas.
+  - **E8:** llave del cuerpo (un taco de la base escondido en el grueso de la pared del frente) y llave de la funda (un taco 1,5 mm más largo en una esquina, con su cajeado en el cuerpo).
+  - **Programa:** la fase 2 repite la fase 1; pide que central + bisel sea múltiplo de 12; columnas, asiento y ejes salen de parámetros; la junta de la fase 1 es la de verdad; `caja-v5.json`, regenerado. **No he probado otro reloj:** el margen sigue siendo corto (2,03 mm bajo los dientes).
+  - **Reporte:** apartado 0.1 nuevo con todo esto; orden de montaje, cifras y «sin soportes», corregidos.
+  - **Tu riesgo 4:** el cuerpo tiene una ranura detrás para sacarlo. Rampa de entrada en los pestillos, no.
+  - **Mi revisión propia:** `caja/caja_voladizos_v5.py` (nuevo) mira capa a capa todas las piezas. No hay repisas al aire; sí los puentes que ya decías (meseta, 17 a 24 mm) y uno que no: el final de cada ranura del tubo acaba en un techo plano de 3 mm de fondo.
+- **Cambió:** `caja/caja_diseno_v5.py`, `caja_piezas_v5.py`, `caja_figuras_v5.py`, `caja-v5.json`, `caja-v5-piezas.json`, `Eventually-caja-v5.f3d`; nuevos `caja/caja_probetas_v5.py` y `caja/caja_voladizos_v5.py`; los nueve `.3mf` de `caja/probetas-v5/` (ahora salen del programa, con mallas cerradas; el tetón con pomo va con el pomo en la cama y el tetón normal está en el fichero de los satélites); en `caja/reporte-v5/`: `caja-entera.md`, los siete dibujos, las tres comprobaciones y `caja-voladizos.txt`. `DECISIONES.md` (D-33), `ESTADO.md`. **No he tocado nada tuyo.**
+- **A medias:** nada del encargo. **En Fusion está rehecho y comprobado entero** (27 piezas a la primera, 174 posiciones sin ninguna pisada; `caja/reporte-v5/caja-fusion-comprobaciones.txt`). El vídeo de `caja/video-v5/` es del modelo del 21-nov: no lo he rehecho.
+- **Para la sesión del Mac:** repetir la revisión. Lo que más me preocupa: los 2,03 mm bajo los dientes, que la puerta abierta empujada entra 0,10 mm en el hueco libre (tu prueba lo da por bueno), y que a los lados del pedestal quedan ahora 1,9 mm hasta cada puerta en vez de 0,9.
+- **Para Pepe:** decidir las zanjas (E9) y el soporte boca abajo (P5). Está explicado en las filas 6 y 7 del apartado 1 del reporte.
+
 ## 2026-11-22 01:00 · sesión del Mac
 
 - **Hecho: la revisión de la caja v5 entera,** porque Pepe dijo «lee git y haz la revisión completa del modelo de la caja, que tenga 0 errores». Está en `caja/reporte-v5/contra-reporte-caja.md`. **No tiene cero: 9 errores en las piezas, 1 en el programa y 6 en el reporte.** Ninguno tumba la idea. Aconsejo a Pepe no imprimir nada hasta corregirlos; él no ha decidido.

@@ -117,7 +117,7 @@ def laminas(png):
     # despiece con nombres
     v = vistas['despiece']; im = abre('despiece'); dr = ImageDraw.Draw(im)
     import caja_render_v5 as R
-    nombres = [('cuerpo', 'cuerpo', -50), ('bisel', 'bisel', -7), ('rueda_central', 'rueda central (fija)', -4), ('satelite', 'seis satélites (uno azul)', -6), ('puerta_derecha', 'dos puertas (la misma pieza)', -2),
+    nombres = [('cuerpo', 'cuerpo', -50), ('bisel', 'bisel', -7), ('rueda_central', 'rueda central (fija)', -4), ('satelite', 'seis satélites (uno azul)', -6), ('puerta_derecha', 'dos puertas (distintas)', -2),
                ('pasador_derecho', 'dos pasadores', -2.5), ('meseta', 'meseta', -4), ('plato', 'plato', -12), ('teton', 'tetón', -16), ('aro_puertas', 'aro de las puertas', -16), ('marco', 'marco', -20),
                ('tubo', 'tubo', -60), ('plataforma', 'plataforma, soporte y reloj de pega', -105), ('base', 'base con tres columnas', -120)]
     rot = []

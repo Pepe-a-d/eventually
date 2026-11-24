@@ -48,23 +48,26 @@ P_DEF = [
     ('holg_fija',        'mm',  0.15,  'MEDIDO (P0 a 0,2): con 0,15 por lado sujeta. Para lo que encaja sin moverse'),
     # --- puertas ---
     ('puerta_grueso',    'mm',  5.0,   'Grueso de las puertas (el brief pide 3 o mas; Pepe quiere que se vean solidas)'),
-    ('eje_fuera',        'mm',  3.0,   'Lo que el eje de la bisagra queda por fuera del borde del hueco'),
+    ('eje_fuera',        'mm',  4.0,   'Lo que el eje de la bisagra queda por fuera del borde del hueco. Con 4, una puerta abierta que ceda hacia dentro lo que le deja su juego no entra en el hueco libre'),
     ('puerta_cola',      'mm',  3.0,   'Lo que la puerta sigue mas alla de su eje, por fuera. Con 3 mm el canto redondo deja 0,4 de raya y el marco se imprime sin soportes'),
     ('puerta_solape_y',  'mm',  7.0,   'Lo que la puerta sobra por delante y por detras del hueco: ahi apoya y ahi lleva la manivela'),
     ('junta',            'mm',  0.3,   'Raya entre las dos puertas cerradas'),
-    ('labio_largo',      'mm',  2.0,   'Media madera: lo que el labio de abajo de una puerta se mete bajo la otra'),
+    ('labio_largo',      'mm',  1.4,   'Junta en bisel: lo que la cuna de una puerta se mete bajo la otra'),
     ('labio_grueso',     'mm',  1.0,   'Grueso de ese labio'),
-    ('labio_hueco',      'mm',  1.2,   'Hueco en altura entre el labio y la otra puerta: al abrir, el labio sube mas deprisa'),
+    ('labio_hueco',      'mm',  1.5,   'Hueco en altura entre la cuna y la otra puerta: al abrir, la cuna sube mas deprisa'),
     ('manivela_r',       'mm',  8.0,   'Del eje de la bisagra al centro de la bola de la manivela'),
     ('bola_d',           'mm',  5.0,   'Diametro de la bola de la manivela'),
     ('manivela_d',       'mm',  3.0,   'Diametro de la varilla de la manivela. Fina para pasar entre las paredes de la pista'),
-    ('bola_holgura',     'mm',  0.15,  'Holgura por lado de la bola en su pista. Justa a proposito: de ella sale lo que baila la puerta'),
+    ('bola_holgura',     'mm',  0.12,  'Holgura por lado de la bola en su pista. Justa a proposito: de ella sale lo que baila la puerta'),
     ('pista_pared',      'mm',  2.0,   'Pared de las pistas del aro'),
+    ('pista_pared_fuera', 'mm', 0.85,   'Lo minimo que mide la pared de fuera de la pista (dos pasadas de boquilla): de aqui sale el radio del aro'),
+    ('aro_holgura',      'mm',  0.2,   'Holgura por lado entre el aro y el cuello que lo centra'),
+    ('puerta_abierta',   'grados', 92.0, 'Angulo de la puerta abierta. Algo mas de 90 para que su juego caiga hacia fuera del reloj'),
     ('aro_reposo',       'deg', 2.5,   'Giro del aro, al principio y al final, en el que la pista no empuja la bola: puerta bloqueada'),
     ('aro_cambio',       'deg', 6.0,   'Giro del aro en el que la pista lleva la bola de cerrada a abierta'),
     ('aro_sentido',      '',    -1,    'Sentido en que gira el aro para abrir: 1 contra las agujas del reloj, -1 a favor'),
     ('aro_grueso',       'mm',  3.0,   'Grueso del aro de puertas y de su brazo'),
-    ('cuello_pared',     'mm',  3.0,   'Pared del cuello del marco'),
+    ('cuello_pared',     'mm',  2.4,   'Pared del cuello del marco'),
     ('meseta_grueso',    'mm',  8.0,   'Grueso de la meseta: la pieza que rodea las puertas y lleva sus bisagras'),
     ('teton_d',          'mm',  5.0,   'Diametro del teton suelto que va de la espiral del plato al brazo del aro'),
     ('teton_recorrido',  'mm',  13.0,  'Lo que el teton se mueve hacia dentro para abrir'),
@@ -76,7 +79,7 @@ P_DEF = [
     ('giro_sube',        'deg', 92.0,  'A este giro de tubo empieza a subir la plataforma. Lo fija la comprobacion del reloj'),
     ('giro_arriba',      'deg', 335.0, 'Del brief: a este giro de tubo la plataforma esta arriba; despues la rampa es plana'),
     # --- ascensor ---
-    ('margen_reloj_abajo', 'mm', 5.0,  'Con el reloj abajo, lo que queda entre lo mas alto del reloj y lo mas bajo de las puertas'),
+    ('margen_reloj_abajo', 'mm', 3.1,  'Con el reloj abajo, lo que queda entre lo mas alto del reloj y lo mas bajo de las puertas. Lo minimo que deja el brief (3 mm): boca abajo, el reloj cae esto'),
     ('tubo_r',           'mm',  76.0,  'Radio interior del tubo'),
     ('tubo_pared',       'mm',  4.5,   'Grueso de la pared del tubo'),
     ('rampa_fondo',      'mm',  3.0,   'Lo que las ranuras en helice entran en la pared del tubo'),
@@ -135,14 +138,14 @@ def derivadas(p):
     d['bola_dx'] = 2 * rho * math.sin(math.radians(45))    # lo que se mueve la bola en X de cerrada a abierta
     d['bola_y'] = d['hueco_y'] / 2 + 1.5 + p['bola_d'] / 2 + 0.25      # la manivela va en lo que sobra de puerta por detras del hueco
     d['bola_x_cerrada'] = d['eje_x'] + rho * math.sin(math.radians(45))
-    d['bola_x_abierta'] = d['eje_x'] - rho * math.sin(math.radians(45))
+    d['bola_x_abierta'] = d['eje_x'] - rho * math.sin(math.radians(p['puerta_abierta'] - 45))
     d['bola_r_cerrada'] = math.hypot(d['bola_x_cerrada'], d['bola_y'])
     d['bola_r_abierta'] = math.hypot(d['bola_x_abierta'], d['bola_y'])
     d['aro_giro'] = p['aro_cambio'] + 2 * p['aro_reposo']
     wb = p['bola_d'] / 2 + p['bola_holgura']
     d['aro_r_in'] = math.hypot(d['hueco_x'] / 2, d['hueco_y'] / 2) + 0.4          # el aro rodea el hueco sin entrar en el
-    d['aro_r_ext'] = d['bola_r_cerrada'] + wb + 0.3
-    d['cuello_r_in'] = d['aro_r_ext'] + 0.3
+    d['aro_r_ext'] = d['bola_r_cerrada'] + wb + p['pista_pared_fuera']
+    d['cuello_r_in'] = d['aro_r_ext'] + p['aro_holgura']
     d['cuello_r'] = d['cuello_r_in'] + p['cuello_pared']
     d['modulo_r'] = d['cuello_r']
     # planetario
@@ -210,7 +213,7 @@ def movimiento(p, d, tau):
 
 def comprueba(escribe=True):
     import numpy as np
-    from shapely.geometry import Polygon, Point, box
+    from shapely.geometry import Polygon, Polygon, Point, box
     from shapely.affinity import rotate as srot, scale as sscale
     from shapely.ops import unary_union
 
@@ -230,8 +233,9 @@ def comprueba(escribe=True):
     nudillo = Point(0, 0).buffer(d['nudillo_r'], 48).intersection(box(0, -t / 2, 50, t / 2))      # canto redondo, solo por fuera del eje
     cuerpo = unary_union([losa, nudillo])
     ll = p['labio_largo']; lg = p['labio_grueso']; lh = p['labio_hueco']
-    labio = box(-largo - p['junta'] - ll, -t / 2, -largo + 0.01, -t / 2 + lg)          # la puerta A mete este labio bajo la B
-    rebaje = box(-largo - 0.01, -t / 2 - 0.01, -largo + ll + 0.6, -t / 2 + lg + lh)    # y la B esta rebajada por debajo
+    punta = 0.4; jj = p['junta']                                                       # junta en bisel a 45 grados, la misma de caja_piezas_v5.py
+    labio = Polygon([(-largo + 0.01, -t / 2), (-largo - jj - ll, -t / 2), (-largo - jj - ll, -t / 2 + punta), (-largo + 0.01, -t / 2 + punta + ll + jj + 0.01)])   # la puerta A mete esta cuna bajo la B
+    rebaje = Polygon([(-largo - 0.01, -t / 2 - 0.01), (-largo + ll + punta + lh, -t / 2 - 0.01), (-largo - 0.01, -t / 2 + punta + ll + lh + 0.01)])              # y la B lleva el hueco
     puerta_a = unary_union([cuerpo, labio]); puerta_b = cuerpo.difference(rebaje)
     def derecha(g, ang):                       # puerta de la derecha: gira sobre (xh, ze); abre hacia arriba y afuera
         g = srot(g, -ang, origin=(0, 0))
@@ -248,7 +252,7 @@ def comprueba(escribe=True):
                    any(box(x - 0.01, -t - 3, x + 0.01, 3).intersection(unary_union([a0, b0])).is_empty for x in np.arange(q.bounds[0] + 0.01, q.bounds[2], 0.02))
                    for q in (raya.geoms if hasattr(raya, 'geoms') else [raya]))
     linea(not pasa_luz, 'cerradas, mirando desde arriba no hay ninguna linea recta que cruce la junta: el labio de %.1f mm la tapa' % ll)
-    a90 = derecha(puerta_a, 90)
+    a90 = derecha(cuerpo, 90)
     linea(a90.bounds[0] >= d['hueco_x'] / 2, 'abierta a 90 grados, la puerta queda entera por fuera del hueco: su punto mas metido esta a X = %.2f (el hueco llega a %.1f)' % (a90.bounds[0], d['hueco_x'] / 2))
     nota('abierta, la puerta sobresale %.1f mm sobre la tapa y baja %.1f mm por debajo de ella junto a la bisagra' % (a90.bounds[3], -a90.bounds[1]))
 
@@ -257,7 +261,10 @@ def comprueba(escribe=True):
     for ang in np.arange(0.5, 90.01, 0.5):
         dist = derecha(puerta_a, ang).distance(izquierda(puerta_b, ang))
         if dist < peor: peor, ang_peor = dist, ang
-    linea(peor >= 0.2, 'al abrir a la vez, el labio de una puerta y el rebaje de la otra no se tocan: lo mas cerca, %.2f mm, a %.1f grados' % (peor, ang_peor))
+    linea(peor >= 0.2, 'al abrir a la vez, la cuna de una puerta y el hueco de la otra no se tocan: lo mas cerca, %.2f mm, a %.1f grados' % (peor, ang_peor))
+    peor2 = min(derecha(puerta_a, ang + 2.0).distance(izquierda(puerta_b, ang)) for ang in np.arange(0.0, 88.01, 0.5))
+    linea(peor2 >= 0.1, 'con la puerta de la cuna 2 grados por delante de la otra, tampoco se tocan: lo mas cerca, %.2f mm' % peor2)
+    linea((int(p['z_central']) + int(d['z_bisel'])) % (2 * int(p['n_satelites'])) == 0, 'los %d satelites caben repartidos por igual y con el mismo dibujo: dientes de la central mas los del bisel, %d, multiplo de %d' % (p['n_satelites'], p['z_central'] + d['z_bisel'], 2 * p['n_satelites']))
 
     # 3. grado a grado de tubo: tabla, y el reloj contra las puertas
     taus = [i * 1.0 for i in range(int(p['giro_tubo']) + 1)]
@@ -277,7 +284,7 @@ def comprueba(escribe=True):
     linea(peor_reloj >= p['reloj_margen'], 'en todo el recorrido el reloj de pega queda a %.2f mm o mas de las puertas (lo mas cerca, con el tubo a %.0f grados). El brief pide %.0f' % (peor_reloj, tau_peor, p['reloj_margen']))
     linea(peor_ped >= 0.5, 'el pedestal queda siempre a %.2f mm o mas de las puertas; arriba, entre el pedestal y la cara de la puerta abierta quedan %.1f mm' % (peor_ped, d['cara_dentro_abierta'] - ped_x))
     s0, _, a0_, h0 = movimiento(p, d, 0); s1, _, a1_, h1 = movimiento(p, d, p['giro_tubo'])
-    linea(abs(a0_) < 0.01 and abs(a1_ - 90) < 0.01, 'las puertas van de %.1f a %.1f grados' % (a0_, a1_))
+    linea(abs(a0_) < 0.01 and abs(a1_ - p['puerta_abierta']) < 0.01 and 85 <= a1_ <= 95, 'las puertas van de %.1f a %.1f grados (el brief pide abiertas entre 85 y 95)' % (a0_, a1_))
     linea(abs(h0) < 1e-9 and abs(h1 - d['recorrido']) < 1e-9, 'la plataforma sube %.1f mm; arriba, la cara del pedestal queda en Z = 0, a ras' % d['recorrido'])
     # tramos en los que la puerta esta bloqueada por la forma (bola en el tramo recto del canal)
     quieta0 = max(tau for tau in taus if movimiento(p, d, tau)[2] < 0.01)

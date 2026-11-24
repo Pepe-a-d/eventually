@@ -1,55 +1,56 @@
-puerta_derecha     puerta_der ops   6  vol   10758.5 mm3  caja   38.3 x   73.0 x   10.7  z  -10.66..   0.00  trozos 1
-puerta_izquierda   puerta_izq ops   6  vol   10758.5 mm3  caja   38.3 x   73.0 x   10.7  z  -10.66..   0.00  trozos 1
-aro_puertas        aro        ops   5  vol   12026.8 mm3  caja  101.2 x  125.8 x   11.0  z  -18.20..  -7.16  trozos 1
+puerta_derecha     puerta_der ops   5  vol   11386.5 mm3  caja   38.7 x   73.0 x   10.7  z  -10.66..   0.00  trozos 1
+puerta_izquierda   puerta_izq ops   5  vol   10835.1 mm3  caja   37.0 x   73.0 x   10.7  z  -10.66..   0.00  trozos 1
+aro_puertas        aro        ops   5  vol   13254.3 mm3  caja  103.7 x  127.0 x   10.5  z  -18.20..  -7.66  trozos 1
 teton              teton      ops   1  vol     174.3 mm3  caja    5.0 x    5.0 x    8.9  z  -21.10.. -12.20  trozos 1
-marco              fijo       ops   9  vol   68649.0 mm3  caja  150.4 x  150.4 x   21.6  z  -22.60..  -1.00  trozos 1
-meseta             fijo       ops  16  vol   36149.7 mm3  caja  107.8 x  107.8 x    8.0  z   -8.00..   0.00  trozos 1
-pasador_derecho    fijo       ops   1  vol     634.0 mm3  caja    3.0 x   90.0 x    3.0  z   -4.00..  -1.00  trozos 1
-pasador_izquierdo  fijo       ops   1  vol     634.0 mm3  caja    3.0 x   90.0 x    3.0  z   -4.00..  -1.00  trozos 1
-rueda_central      fijo       ops  12  vol   20119.8 mm3  caja  148.6 x  133.0 x    9.4  z   -9.40..   0.00  trozos 1
+marco              fijo       ops   9  vol   66758.2 mm3  caja  150.4 x  150.4 x   21.6  z  -22.60..  -1.00  trozos 1
+meseta             fijo       ops  16  vol   37283.6 mm3  caja  108.9 x  108.9 x    8.0  z   -8.00..   0.00  trozos 1
+pasador_derecho    fijo       ops   1  vol     633.7 mm3  caja    3.0 x   89.9 x    3.0  z   -4.00..  -1.00  trozos 1
+pasador_izquierdo  fijo       ops   1  vol     633.7 mm3  caja    3.0 x   89.9 x    3.0  z   -4.00..  -1.00  trozos 1
+rueda_central      fijo       ops  12  vol   18422.3 mm3  caja  148.6 x  133.0 x    9.4  z   -9.40..   0.00  trozos 1
 satelite_1         satelite   ops   1  vol    1265.0 mm3  caja   21.0 x   21.0 x    6.0  z   -9.40..  -3.40  trozos 1
 satelite_2         satelite   ops   1  vol    1265.0 mm3  caja   21.0 x   21.0 x    6.0  z   -9.40..  -3.40  trozos 1
 satelite_3         satelite   ops   1  vol    1265.0 mm3  caja   21.0 x   21.0 x    6.0  z   -9.40..  -3.40  trozos 1
 satelite_4         satelite   ops   1  vol    1265.0 mm3  caja   21.0 x   21.0 x    6.0  z   -9.40..  -3.40  trozos 1
 satelite_5         satelite   ops   1  vol    1265.0 mm3  caja   21.0 x   21.0 x    6.0  z   -9.40..  -3.40  trozos 1
 satelite_6         satelite   ops   1  vol    1265.0 mm3  caja   21.0 x   21.0 x    6.0  z   -9.40..  -3.40  trozos 1
-plato              tubo       ops  11  vol   49290.8 mm3  caja  161.0 x  161.0 x   11.2  z  -14.80..  -3.60  trozos 1
-tubo               tubo       ops  20  vol  214100.6 mm3  caja  161.0 x  161.0 x  106.0  z -118.00.. -12.00  trozos 1
-plataforma         plataforma ops   9  vol  171474.1 mm3  caja  150.6 x  153.9 x   29.6  z -117.60.. -88.00  trozos 1
-soporte            plataforma ops   4  vol    7381.6 mm3  caja   34.0 x   40.0 x   19.0  z  -88.00.. -69.00  trozos 1
-reloj_de_pega      plataforma ops   3  vol   25083.4 mm3  caja   43.5 x   53.0 x   67.0  z  -77.00.. -10.00  trozos 1
-bisel              bisel      ops   8  vol   48100.2 mm3  caja  172.0 x  172.0 x   14.4  z  -14.40..   0.00  trozos 1
-base               fijo       ops  16  vol  191475.2 mm3  caja  178.8 x  178.8 x  102.7  z -122.60.. -19.90  trozos 1
-cuerpo             fijo       ops   6  vol  256091.2 mm3  caja  178.8 x  179.4 x  110.6  z -118.60..  -8.00  trozos 1
-funda              funda      ops  11  vol  268473.1 mm3  caja  183.8 x  183.8 x  126.0  z -122.60..   3.40  trozos 1
+plato              tubo       ops  11  vol   48324.9 mm3  caja  161.0 x  161.0 x   11.2  z  -14.80..  -3.60  trozos 1
+tubo               tubo       ops  20  vol  209129.7 mm3  caja  161.0 x  161.0 x  104.1  z -116.10.. -12.00  trozos 1
+plataforma         plataforma ops   9  vol  171474.7 mm3  caja  150.6 x  153.9 x   29.6  z -115.70.. -86.10  trozos 1
+soporte            plataforma ops   4  vol    7381.6 mm3  caja   34.0 x   40.0 x   19.0  z  -86.10.. -67.10  trozos 1
+reloj_de_pega      plataforma ops   3  vol   25083.4 mm3  caja   43.5 x   53.0 x   67.0  z  -75.10..  -8.10  trozos 1
+bisel              bisel      ops   6  vol   46549.0 mm3  caja  172.0 x  172.0 x   14.4  z  -14.40..   0.00  trozos 1
+base               fijo       ops  17  vol  190712.0 mm3  caja  178.8 x  178.8 x  100.8  z -120.70.. -19.90  trozos 1
+cuerpo             fijo       ops   9  vol  251809.7 mm3  caja  178.8 x  179.4 x  108.7  z -116.70..  -8.00  trozos 1
+funda              funda      ops  12  vol  265851.0 mm3  caja  183.8 x  183.8 x  124.1  z -120.70..   3.40  trozos 1
 frase              funda      ops   1  vol     193.1 mm3  caja  118.0 x   35.1 x    0.6  z    2.80..   3.40  trozos 24
-probeta_anillo     probeta    ops   5  vol   13644.9 mm3  caja  120.1 x  120.1 x    8.0  z   -8.00..   0.00  trozos 1
+probeta_anillo     probeta    ops   5  vol   13772.6 mm3  caja  121.2 x  121.2 x    8.0  z   -8.00..   0.00  trozos 1
 probeta_teton      probeta    ops   2  vol     589.3 mm3  caja   10.0 x   10.0 x   12.4  z  -21.10..  -8.70  trozos 1
   nota  174 posiciones, de 2 en 2 grados de tubo; 19 s
   bien  en todo el recorrido ninguna pieza pisa a otra (pares que se pisan mas de 0,02 mm3: 0)
-  bien  reloj_de_pega y meseta: lo mas cerca, 3.00 mm (tubo a 136 grados)
-  bien  reloj_de_pega y marco: lo mas cerca, 3.00 mm (tubo a 96 grados)
-  bien  reloj_de_pega y aro_puertas: lo mas cerca, 3.50 mm (tubo a 146 grados)
-  bien  reloj_de_pega y puerta_derecha: lo mas cerca, 3.75 mm (tubo a 256 grados)
-  bien  reloj_de_pega y puerta_izquierda: lo mas cerca, 3.75 mm (tubo a 272 grados)
+  bien  reloj_de_pega y meseta: lo mas cerca, 3.00 mm (tubo a 132 grados)
+  bien  reloj_de_pega y marco: lo mas cerca, 3.00 mm (tubo a 0 grados)
+  bien  reloj_de_pega y puerta_derecha: lo mas cerca, 3.10 mm (tubo a 0 grados)
+  bien  reloj_de_pega y puerta_izquierda: lo mas cerca, 3.10 mm (tubo a 0 grados)
+  bien  reloj_de_pega y aro_puertas: lo mas cerca, 3.50 mm (tubo a 140 grados)
   bien  reloj_de_pega y rueda_central: lo mas cerca, 6.00 mm (tubo a 0 grados)
-  bien  soporte y marco: lo mas cerca, 6.00 mm (tubo a 204 grados)
-  bien  soporte y aro_puertas: lo mas cerca, 6.00 mm (tubo a 216 grados)
-  bien  soporte y puerta_derecha: lo mas cerca, 6.00 mm (tubo a 238 grados)
-  bien  soporte y puerta_izquierda: lo mas cerca, 6.00 mm (tubo a 238 grados)
-  bien  soporte y rueda_central: lo mas cerca, 6.00 mm (tubo a 242 grados)
-  bien  soporte y meseta: lo mas cerca, 6.00 mm (tubo a 244 grados)
-  bien  cerradas y bloqueadas: con el aro quieto, una puerta solo se deja levantar 3.00 grados (1.5 mm en la punta) antes de chocar con su pista
-  bien  abiertas y bloqueadas: una puerta abierta solo se deja mover 3.75 grados hacia dentro y 4.00 hacia fuera (queda entre 86.2 y 94.0 grados)
+  bien  soporte y marco: lo mas cerca, 6.00 mm (tubo a 202 grados)
+  bien  soporte y aro_puertas: lo mas cerca, 6.00 mm (tubo a 214 grados)
+  bien  soporte y puerta_derecha: lo mas cerca, 6.00 mm (tubo a 236 grados)
+  bien  soporte y puerta_izquierda: lo mas cerca, 6.00 mm (tubo a 236 grados)
+  bien  soporte y rueda_central: lo mas cerca, 6.00 mm (tubo a 238 grados)
+  bien  soporte y meseta: lo mas cerca, 6.00 mm (tubo a 242 grados)
+  bien  cerradas y bloqueadas: con el aro quieto, una puerta solo se deja levantar 2.50 grados (1.3 mm en la punta) antes de chocar con su pista
+  bien  abiertas y bloqueadas: una puerta abierta solo se deja mover 3.25 grados hacia dentro y 4.25 hacia fuera (queda entre 88.8 y 96.2 grados)
   bien  montaje: cada puerta entra de pie, desde arriba, con el aro en abierto, sin pisar la meseta, el aro, el marco ni la otra puerta (lo que mas, 0.000 mm3)
-  bien  el teton va guiado por las tres ranuras: moverlo 1,2 mm fuera de la espiral, o de lado, o girar el aro 2 grados sin el, hace chocar (6.5, 6.9 y 13.9 mm3)
-  bien  la plataforma no se puede hundir: abajo, bajarla 0,3 mm choca con su asiento de la base (1387.3 mm3); de ahi arriba, bajarla 0,6 mm choca con la rampa (2.2 mm3)
-  bien  la plataforma va guiada: subirla o bajarla 1,2 mm sin girar el tubo choca con las ranuras (18.2 mm3), y girarla 2 grados choca con las columnas (291.6 mm3)
+  bien  el teton va guiado por las tres ranuras: moverlo 1,2 mm fuera de la espiral, o de lado, o girar el aro 2 grados sin el, hace chocar (6.5, 6.9 y 14.0 mm3)
+  bien  la plataforma no se puede hundir: abajo, bajarla 0,3 mm choca con su asiento de la base (1387.3 mm3); de ahi arriba, bajarla 0,6 mm choca con la rampa (0.9 mm3)
+  bien  la plataforma va guiada: subirla o bajarla 1,2 mm sin girar el tubo choca con las ranuras (15.3 mm3), y girarla 2 grados choca con las columnas (291.8 mm3)
   bien  los dientes engranan: girar un satelite medio diente lo mete en la rueda central (50.1 mm3) y en el bisel (58.9 mm3)
   bien  topes: 2 grados mas alla de cerrado o de abierto, la oreja del tubo choca con el tope de la base (78.0 y 78.0 mm3)
   bien  boca abajo: cada pieza, al subirla 1,5 mm, choca con la que la sujeta. Sin sujetar todavia en el modelo: ninguna
-  bien  los pasadores no se pueden salir: moverlos 1,5 mm a lo largo, hacia delante o hacia atras, choca con la rueda central (2.3 mm3)
-  bien  boca abajo, lo que se descuelga cada cosa hasta que la para la siguiente: bisel 0.4 mm; rueda central 0.2 mas; puertas, meseta y marco 0.0 mas; tubo y plato 0.0 sobre el bisel
-  bien  la funda, puesta con la caja cerrada, no pisa nada (0.00 mm3) y lo mas cerca que queda de la caja son 0.50 mm
+  bien  los pasadores no se pueden salir: moverlos 1,5 mm a lo largo, hacia delante o hacia atras, choca con la rueda central (2.2 mm3)
+  bien  boca abajo, lo que se descuelga cada cosa hasta que la para la siguiente: bisel 0.8 mm; rueda central 0.2 mas; puertas, meseta y marco 0.0 mas; tubo y plato 0.0 sobre el bisel
+  bien  la funda, puesta con la caja cerrada, no pisa nada (0.00 mm3) y lo mas cerca que queda de la caja son 0.40 mm
   bien  a ras: la cara de arriba de las puertas, la meseta, la placa de la rueda central y el bisel estan en Z = 0; arriba, el pedestal tambien (0.00)
+  bien  fase 1 (medidas y movimiento), repetida con estas mismas medidas: 0 comprobaciones con fallo
 TODO BIEN

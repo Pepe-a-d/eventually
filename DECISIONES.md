@@ -314,3 +314,12 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Qué no ha dicho:** **qué se imprime.** La sesión del PC propuso empezar solo por la probeta de las puertas; Pepe no ha contestado a eso. Sigue en pie D-15 (la caja completa no se imprime sin medir antes el reloj) y D-30 (las probetas, antes que la caja). Tampoco ha dicho nada, uno por uno, de los cinco puntos del apartado 1 del reporte: «me vale todo» los cubre en conjunto.
 - **Estado:** Activa. Pendiente la revisión de la sesión del Mac.
 
+### D-33. Se corrige la caja antes de imprimir nada
+- **Fecha:** 24-nov-2026, 19:22.
+- **Quién decide:** Pepe.
+- **Decisión:** la sesión del PC corrige en el modelo todo lo que encontró la revisión de la sesión del Mac (`caja/reporte-v5/contra-reporte-caja.md`) antes de imprimir ninguna probeta, y después revisa su propio trabajo.
+- **Qué llevó a ella:** la revisión del 22-nov encontró 9 errores en las piezas, 1 en el programa y 6 en el reporte, y aconsejaba no imprimir hasta corregirlos, porque cinco estaban en la probeta de las puertas. La sesión del PC repitió su programa (15 fallos, los mismos), dijo que estaba de acuerdo y preguntó. Palabras de Pepe: «Comprueba si el conector de Fusion esta activo y corrige todo. Cuando termines revisa tu trabajo».
+- **Qué se descartó:** imprimir la probeta de las puertas tal como estaba.
+- **Qué no ha decidido Pepe,** aunque se le preguntó en el mismo mensaje: **si le importan las zanjas** de delante y detrás del reloj cuando está arriba (E9) y **si el soporte tiene que quedar sujeto** con la caja boca abajo (P5). La sesión del PC no las ha tocado: la primera pide rediseñar las puertas y la segunda cambia cómo se coge el reloj. Solo bajó de 5 a unos 3 mm lo que cae el reloj boca abajo.
+- **Estado:** Activa. Corregido el 24-nov: el programa de la revisión pasa de 15 fallos a 2, que son esas dos cosas sin decidir. Falta que la sesión del Mac repita la revisión.
+

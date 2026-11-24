@@ -1,56 +1,58 @@
 Caja v5, fase 1: medidas y movimiento
   bien  cerradas, las dos puertas tienen la cara de arriba en Z = 0: mismo plano (escalon 0 en el modelo)
-  bien  cerradas, mirando desde arriba no hay ninguna linea recta que cruce la junta: el labio de 2.0 mm la tapa
-  bien  abierta a 90 grados, la puerta queda entera por fuera del hueco: su punto mas metido esta a X = 25.50 (el hueco llega a 25.0)
-  nota  abierta, la puerta sobresale 27.7 mm sobre la tapa y baja 6.4 mm por debajo de ella junto a la bisagra
-  bien  al abrir a la vez, el labio de una puerta y el rebaje de la otra no se tocan: lo mas cerca, 0.30 mm, a 0.5 grados
-  bien  en todo el recorrido el reloj de pega queda a 3.50 mm o mas de las puertas (lo mas cerca, con el tubo a 190 grados). El brief pide 3
-  bien  el pedestal queda siempre a 0.90 mm o mas de las puertas; arriba, entre el pedestal y la cara de la puerta abierta quedan 0.9 mm
-  bien  las puertas van de -0.0 a 90.0 grados
-  bien  la plataforma sube 88.0 mm; arriba, la cara del pedestal queda en Z = 0, a ras
+  bien  cerradas, mirando desde arriba no hay ninguna linea recta que cruce la junta: el labio de 1.4 mm la tapa
+  bien  abierta a 90 grados, la puerta queda entera por fuera del hueco: su punto mas metido esta a X = 26.50 (el hueco llega a 25.0)
+  nota  abierta, la puerta sobresale 26.4 mm sobre la tapa y baja 6.4 mm por debajo de ella junto a la bisagra
+  bien  al abrir a la vez, la cuna de una puerta y el hueco de la otra no se tocan: lo mas cerca, 0.32 mm, a 0.5 grados
+  bien  con la puerta de la cuna 2 grados por delante de la otra, tampoco se tocan: lo mas cerca, 0.11 mm
+  bien  los 6 satelites caben repartidos por igual y con el mismo dibujo: dientes de la central mas los del bisel, 180, multiplo de 12
+  bien  en todo el recorrido el reloj de pega queda a 3.10 mm o mas de las puertas (lo mas cerca, con el tubo a 0 grados). El brief pide 3
+  bien  el pedestal queda siempre a 1.80 mm o mas de las puertas; arriba, entre el pedestal y la cara de la puerta abierta quedan 1.9 mm
+  bien  las puertas van de -0.0 a 92.0 grados (el brief pide abiertas entre 85 y 95)
+  bien  la plataforma sube 86.1 mm; arriba, la cara del pedestal queda en Z = 0, a ras
   bien  orden: tramo muerto hasta 45 grados; las puertas se mueven de 62 a 83; la plataforma sube de 92 a 335; arriba, plano hasta 345
-  bien  puerta bloqueada por la forma: en los tramos de reposo la pista del aro no empuja y sujeta la bola. Con 0.15 mm de holgura, la puerta abierta baila 2.8 grados a cada lado (el brief admite de 85 a 95) y la cerrada 2.2, aunque cerrada apoya en su asiento
-  bien  pista del aro: en el tramo que empuja se aparta 30 grados de un circulo como mucho (por debajo de 40). El aro gira 11.0 grados, a favor de las agujas del reloj
+  bien  puerta bloqueada por la forma: en los tramos de reposo la pista del aro no empuja y sujeta la bola. Con 0.12 mm de holgura, la puerta abierta baila 2.1 grados a cada lado (el brief admite de 85 a 95) y la cerrada 1.7, aunque cerrada apoya en su asiento
+  bien  pista del aro: en el tramo que empuja se aparta 31 grados de un circulo como mucho (por debajo de 40). El aro gira 11.0 grados, a favor de las agujas del reloj
   bien  ranura del brazo del aro: el teton recorre 13 mm y el aro gira 11.0 grados; la ranura va a 44 grados del radio (por debajo de 55)
   bien  planetario: central 78, satelites 12, bisel 102 dientes, modulo 1.50. (78 + 102) / 6 = 30: los 6 satelites caben repartidos por igual
   bien  entre dos satelites vecinos quedan 46.5 mm
   bien  el tubo gira 0.567 veces lo que el bisel, en el mismo sentido: 345 grados de tubo son 609 de bisel (1.69 vueltas)
   bien  diente: 2.26 mm de grueso en el primitivo, con 0.20 de juego entre flancos; el mas fino es el del satelite
-  bien  la rueda central es un aro que entra por arriba en el cuello del marco (radio 53.9): le quedan 2.6 mm de carne bajo los dientes (fondo de diente a 56.6)
-  nota  con los 60 dientes que proponia el brief, el fondo de diente quedaria a 43.1 mm del centro y el cuello que rodea el mecanismo de las puertas mide 53.9: no cabe
-  bien  la espiral del plato ocupa de 56.3 a 74.7 mm de radio; el plato empieza en 54.5 y el tubo en 76.0
+  bien  la rueda central es un aro que entra por arriba en el cuello del marco (radio 54.4): le quedan 2.0 mm de carne bajo los dientes (fondo de diente a 56.6)
+  nota  con los 60 dientes que proponia el brief, el fondo de diente quedaria a 43.1 mm del centro y el cuello que rodea el mecanismo de las puertas mide 54.4: no cabe
+  bien  la espiral del plato ocupa de 56.8 a 75.2 mm de radio; el plato empieza en 55.0 y el tubo en 76.0
   bien  la espiral empuja al teton con 18 grados de sesgo como mucho
   bien  el bisel apoya en el canto del tubo: tubo de 76.0 a 80.5 mm de radio, pared del bisel de 78.4 a 83.6
-  bien  rampa: sube 88.0 mm en 243 grados de tubo; pendiente de 15.0 grados (el brief estimaba 18). Que se sujete sola lo dira la probeta
-  bien  las tres ranuras del tubo no se juntan: el tramo plano de abajo mide 92 grados (menos de 120); donde empieza el plano de la siguiente, la helice ya ha subido 10.1 mm y queda 3.7 de pared; entre helices, 37.1
+  bien  rampa: sube 86.1 mm en 243 grados de tubo; pendiente de 14.7 grados (el brief estimaba 18). Que se sujete sola lo dira la probeta
+  bien  las tres ranuras del tubo no se juntan: el tramo plano de abajo mide 92 grados (menos de 120); donde empieza el plano de la siguiente, la helice ya ha subido 9.9 mm y queda 3.5 de pared; entre helices, 36.1
   nota  plataforma: 0.20 mm de juego de cada teton en su ranura; con eso puede cabecear 0.15 grados, que en lo alto del reloj son 0.3 mm de lado
-  bien  caja: 179 mm de lado y 123 de alto, sin la funda. Bisel de 167 mm de diametro. Cabe en la X1 Carbon (256). El brief estimaba 150 de lado y 135 de alto
-  nota  lo que se ve de las puertas cerradas: un rectangulo de 62 x 73 mm con una raya recta de delante atras. El hueco libre por el que sube el reloj es de 50 x 59
+  bien  caja: 179 mm de lado y 121 de alto, sin la funda. Bisel de 167 mm de diametro. Cabe en la X1 Carbon (256). El brief estimaba 150 de lado y 135 de alto
+  nota  lo que se ve de las puertas cerradas: un rectangulo de 64 x 73 mm con una raya recta de delante atras. El hueco libre por el que sube el reloj es de 50 x 59
   tabla (cada 15 grados de tubo): tubo, bisel, teton mm, aro grados, puertas grados, plataforma mm
         0     0.0   0.00   0.00   -0.0    0.0
        15    26.5   0.00   0.00   -0.0    0.0
        30    52.9   0.00   0.00   -0.0    0.0
        45    79.4   0.00   0.00   -0.0    0.0
        60   105.9   2.24   1.90   -0.0    0.0
-       75   132.4   7.43   6.28   53.2    0.0
-       90   158.8  11.97  10.13   90.0    0.0
-      105   185.3  13.00  11.00   90.0    4.7
-      120   211.8  13.00  11.00   90.0   10.1
-      135   238.2  13.00  11.00   90.0   15.6
-      150   264.7  13.00  11.00   90.0   21.0
-      165   291.2  13.00  11.00   90.0   26.4
-      180   317.6  13.00  11.00   90.0   31.9
-      195   344.1  13.00  11.00   90.0   37.3
-      210   370.6  13.00  11.00   90.0   42.7
-      225   397.1  13.00  11.00   90.0   48.2
-      240   423.5  13.00  11.00   90.0   53.6
-      255   450.0  13.00  11.00   90.0   59.0
-      270   476.5  13.00  11.00   90.0   64.5
-      285   502.9  13.00  11.00   90.0   69.9
-      300   529.4  13.00  11.00   90.0   75.3
-      315   555.9  13.00  11.00   90.0   80.8
-      330   582.4  13.00  11.00   90.0   86.2
-      345   608.8  13.00  11.00   90.0   88.0
-      345   608.8  13.00  11.00   90.0   88.0
-  alturas (Z=0 arriba): engranajes -3.4 a -9.4; plato -9.8 a -14.8; aro de puertas -15.2 a -18.2; ala del marco -18.6 a -22.6; suelo -118.6; base -122.6
+       75   132.4   7.43   6.28   54.2    0.0
+       90   158.8  11.97  10.13   92.0    0.0
+      105   185.3  13.00  11.00   92.0    4.6
+      120   211.8  13.00  11.00   92.0    9.9
+      135   238.2  13.00  11.00   92.0   15.2
+      150   264.7  13.00  11.00   92.0   20.6
+      165   291.2  13.00  11.00   92.0   25.9
+      180   317.6  13.00  11.00   92.0   31.2
+      195   344.1  13.00  11.00   92.0   36.5
+      210   370.6  13.00  11.00   92.0   41.8
+      225   397.1  13.00  11.00   92.0   47.1
+      240   423.5  13.00  11.00   92.0   52.4
+      255   450.0  13.00  11.00   92.0   57.8
+      270   476.5  13.00  11.00   92.0   63.1
+      285   502.9  13.00  11.00   92.0   68.4
+      300   529.4  13.00  11.00   92.0   73.7
+      315   555.9  13.00  11.00   92.0   79.0
+      330   582.4  13.00  11.00   92.0   84.3
+      345   608.8  13.00  11.00   92.0   86.1
+      345   608.8  13.00  11.00   92.0   86.1
+  alturas (Z=0 arriba): engranajes -3.4 a -9.4; plato -9.8 a -14.8; aro de puertas -15.2 a -18.2; ala del marco -18.6 a -22.6; suelo -116.7; base -120.7
 TODO BIEN

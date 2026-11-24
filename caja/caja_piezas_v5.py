@@ -126,19 +126,23 @@ def piezas():
     labio = Polygon([(j2 + 0.01, -t), (-j2 - ll, -t), (-j2 - ll, -t + punta), (j2 + 0.01, -t + punta + ll + 2 * j2 + 0.01)])
     rebaje = Polygon([(j2 - 0.01, -t - 0.01), (j2 + ll + punta + lh, -t - 0.01), (j2 - 0.01, -t + punta + ll + lh + 0.01)])
     d2['canto_junta'] = t - (punta + ll + lh)                    # grueso que le queda al canto de la puerta en la mitad del rebaje
-    pd = nueva('puerta_derecha', mueve='puerta_derecha', nota='Las dos puertas son la misma pieza')
-    pd.prisma(cuerpo, -py, py, eje='y')
-    pd.prisma(labio, 0.6, py, eje='y')                         # labio de abajo en la mitad de atras
-    pd.prisma(rebaje, -py - 0.01, 0.0, '-', eje='y')           # rebaje en la mitad de delante: ahi entra el labio de la otra
-    # manivela: una varilla redonda en diagonal, hacia fuera y hacia abajo, con una bola en la punta.
-    # Redonda y fina a proposito: tiene que pasar entre las paredes de la pista del aro sin tocarlas en ningun angulo.
+    # Las dos puertas ya no son la misma pieza: con dos iguales, las dos medias cunas no podian tapar el centro de la raya (quedaba un agujero).
+    # La derecha lleva la cuna a todo lo largo; la izquierda, el hueco a todo lo largo. Las dos se imprimen igual, con la cara de arriba en la cama.
+    th_o = p['puerta_abierta']
     bx, bz = xh + rho * math.sin(math.radians(45)), ze - rho * math.cos(math.radians(45))
     y_m0, y_m1 = yb - rb, yb + rb
-    pd.cil((xh, yb, ze), (bx, yb, bz), p['manivela_d'] / 2)
-    pd.esfera((bx, yb, bz), rb)
-    pd.cil((xh, -py - 1, ze), (xh, py + 1, ze), p['pasador_d'] / 2 + hg, '-')
-    pi_ = nueva('puerta_izquierda', mueve='puerta_izquierda', nota='Igual que la derecha, girada media vuelta')
-    pi_.ops = None                                            # se rellena al final, girando la derecha
+    def hoja(q, con_cuna):
+        q.prisma(cuerpo, -py, py, eje='y')
+        if con_cuna: q.prisma(labio, -py, py, eje='y')
+        else: q.prisma(rebaje, -py - 0.01, py + 0.01, '-', eje='y')
+        # manivela: una varilla redonda en diagonal, hacia fuera y hacia abajo, con una bola en la punta
+        q.cil((xh, yb, ze), (bx, yb, bz), p['manivela_d'] / 2)
+        q.esfera((bx, yb, bz), rb)
+        q.cil((xh, -py - 1, ze), (xh, py + 1, ze), p['pasador_d'] / 2 + hg, '-')
+        return q
+    pd = hoja(nueva('puerta_derecha', mueve='puerta_derecha', nota='La de la cuna: su canto del centro se mete bajo la otra'), True)
+    pi_ = nueva('puerta_izquierda', mueve='puerta_izquierda', nota='La del hueco. Es otra pieza: no vale poner dos iguales')
+    pi_.ops = gira_ops(hoja(Pieza('aux'), False).ops, 180.0)
 
     # ============ ARO DE PUERTAS ============
     # pista de la bola, en coordenadas del aro (aro en su posicion de cerrado)
@@ -152,7 +156,7 @@ def piezas():
     hueco_barrido = unary_union([giro2(box(-hx - 0.5, -hy - 0.5, hx + 0.5, hy + 0.5), -sen * PSI * i / 12.0) for i in range(13)])     # el hueco, visto desde el aro mientras gira
     cuerno = eje_pista.buffer(wb + p['pista_pared'], 12).intersection(disco(d['aro_r_ext'], n=240)).difference(hueco_barrido)
     z_a0, z_a1 = d['z_corr0'], d['z_corr1']
-    z_cuerno1 = min(ze - rho * math.cos(math.radians(45)) + 1.0, ze - rk - 0.5)      # por encima del centro de la bola, y por debajo de lo que baja el canto de la puerta al abrir
+    z_cuerno1 = min(ze - rho * math.cos(math.radians(45)) + 0.5, ze - rk - 0.5)      # por encima del centro de la bola, y por debajo de lo que baja el canto de la puerta al abrir
     aro = nueva('aro_puertas', mueve='aro', nota='Gira %.1f grados alrededor del hueco y mueve las dos puertas' % PSI)
     anillo = corona(d['aro_r_in'], d['aro_r_ext'])
     # brazo del aro, hacia atras: lleva la ranura en diagonal del teton
@@ -165,7 +169,7 @@ def piezas():
     ranura_brazo = eje_ranura.buffer(wt, 12)
     brazo_aro = unary_union([eje_ranura.buffer(wt + 2.6, 12), sector(d['aro_r_ext'] - 2.0, Rt1 + 2.0, 90 - sen * PSI - 9 if sen > 0 else 90 - 9, 90 + 9 if sen > 0 else 90 - sen * PSI + 9)]).buffer(0)
     brazo_aro = brazo_aro.intersection(disco(p['tubo_r'] - 0.8, n=240))
-    planta_aro = unary_union([anillo, brazo_aro]).difference(ranura_brazo)
+    planta_aro = unary_union([anillo, brazo_aro, cuerno, giro2(cuerno, 180)]).difference(ranura_brazo)      # el anillo llega hasta debajo de todo el cuerno: nada nace en el aire
     aro.prisma(planta_aro, z_a0, z_a1)
     for k in (0, 180):
         aro.prisma(giro2(cuerno, k).difference(giro2(pista, k)), z_a1 - 0.01, z_cuerno1)
@@ -198,8 +202,9 @@ def piezas():
     # ranura recta del teton, en la cara de arriba del ala
     ma.prisma(LineString([(0, Rt1 - 1.0), (0, Rt0 + 1.0)]).buffer(wt, 12), z_ranura_ala, d['z_ala1'] + 0.01, '-')
     # cajas para las espigas de las columnas
-    col = lambda a, e=0.0: sector(66.5 - e, 74.2 + e, a - 8 - math.degrees(e / 70.0), a + 8 + math.degrees(e / 70.0))
-    espiga = lambda a, e=0.0: sector(68.3 - e, 72.4 + e, a - 4.5 - math.degrees(e / 70.0), a + 4.5 + math.degrees(e / 70.0))
+    rc_ = p['tubo_r'] - 5.65                                       # radio medio de las columnas: van pegadas al tubo, por dentro
+    col = lambda a, e=0.0: sector(rc_ - 3.85 - e, rc_ + 3.85 + e, a - 8 - math.degrees(e / rc_), a + 8 + math.degrees(e / rc_))
+    espiga = lambda a, e=0.0: sector(rc_ - 2.05 - e, rc_ + 2.05 + e, a - 4.5 - math.degrees(e / rc_), a + 4.5 + math.degrees(e / rc_))
     for a in ang_col:
         ma.prisma(espiga(a, hf), d['z_ala0'] - 0.01, d['z_ala0'] + 3.0, '-')
 
@@ -221,10 +226,10 @@ def piezas():
         return unary_union([LineString([(xh, ze), c]).buffer(p['manivela_d'] / 2, 12), disco(rb, c, 48)])
     # la ventana es lo que barre la manivela de -2 a 92 grados, mas un pasillo hacia arriba con la puerta de pie:
     # por ahi entra la puerta al montarla (de pie, desde arriba, con el aro en 'abierto')
-    c90 = (xh + rho * math.sin(math.radians(-45.0)), ze - rho * math.cos(math.radians(-45.0)))        # la bola con la puerta de pie
+    c90 = (xh + rho * math.sin(math.radians(45.0 - th_o)), ze - rho * math.cos(math.radians(45.0 - th_o)))        # la bola con la puerta abierta
     varilla90 = LineString([(xh, ze), c90]).buffer(p['manivela_d'] / 2 + 0.25, 12); bola90 = disco(rb + 0.25, c90, 48)
     pasillo = unary_union([unary_union([g_, strans(g_, 0, 14.0)]).convex_hull for g_ in (varilla90, bola90)])   # lo que barren al subir 14 mm
-    barrido_manivela = unary_union([capsula(-2.0 + 94.0 * i / 94.0) for i in range(95)]).buffer(0.02).union(pasillo).buffer(0.03).simplify(0.004)
+    barrido_manivela = unary_union([capsula(-2.0 + (th_o + 4.0) * i / 96.0) for i in range(97)]).buffer(0.02).union(pasillo).buffer(0.03).simplify(0.004)
     for k in (0, 180):
         me.prisma(giro2(barrido_cuerno, k), zm0 - 1, z_cuerno1 + 0.6, '-')
     me.prisma(barrido_manivela, y_m0 - 0.35, y_m1 + 0.35, '-', eje='y')
@@ -249,6 +254,7 @@ def piezas():
     zs_, zp_, zr_ = int(p['z_central']), int(p['z_satelite']), int(d['z_bisel'])
     m = p['modulo']; jd = p['juego_dientes']
     sol = engranaje(zs_, m, jd, fase=0.0)
+    r_eje_sat = round(0.305 * m * zp_ / 2, 2)                      # eje de cada satelite: algo menos de un tercio de su radio
     agujero_c = disco(R_c + hf, n=240)
     ce.prisma(sol.difference(agujero_c), d['z_engr0'], -p['esqueleto_grueso'])
     R_placa = d['central_punta'] + 1.5
@@ -269,14 +275,14 @@ def piezas():
         fase = th * (1 + zs_ / zp_) + 180.0 - 180.0 / zp_
         c = pol(d['r_ejes'], th)
         sat = nueva('satelite_%d' % (k + 1), color='azul' if k == 0 else 'blanco', mueve='satelite:%g' % th)
-        sat.prisma(strans(engranaje(zp_, m, jd, fase=fase), c[0], c[1]).difference(disco(2.75 + hg, c, 32)), d['z_engr0'], d['z_engr1'])
+        sat.prisma(strans(engranaje(zp_, m, jd, fase=fase), c[0], c[1]).difference(disco(r_eje_sat + hg, c, 32)), d['z_engr0'], d['z_engr1'])
 
     # ============ PLATO portasatelites ============
     pl = nueva('plato', mueve='tubo', nota='Gira con el tubo. Por debajo lleva la espiral que mueve las puertas')
     pl.prisma(corona(d['plato_r_in'], d['tubo_r_ext']), d['z_plato0'], d['z_plato1'])
     for k in range(int(p['n_satelites'])):
         c = pol(d['r_ejes'], 270.0 + 60.0 * k)
-        pl.cil((c[0], c[1], d['z_plato1'] - 0.01), (c[0], c[1], d['z_engr1'] - 0.2), 2.75)
+        pl.cil((c[0], c[1], d['z_plato1'] - 0.01), (c[0], c[1], d['z_engr1'] - 0.2), r_eje_sat)
     # espiral: el teton esta en el angulo 90 del mundo; en el plato, a 90 - ROT*tau
     def espiral_pt(tau):
         s = D.movimiento(p, d, min(max(tau, 0.0), p['giro_tubo']))[0]
@@ -307,21 +313,25 @@ def piezas():
     zc0 = d['z_disco1_abajo'] - p['disco_grueso'] / 2            # centro del teton con la plataforma abajo
     k_h = d['recorrido'] / (p['giro_arriba'] - p['giro_sube'])   # mm que sube por grado de tubo
     fondo = p['rampa_fondo']; rt_ = p['teton_plat_d'] / 2
-    hv0 = rt_ + hd; hv1 = hv0 - (fondo - 0.4)                    # media altura de la V en la boca y en el fondo
     r0 = p['tubo_r'] - 0.5; r1 = p['tubo_r']; r2 = p['tubo_r'] + fondo - 0.4 + hd
-    # los tramos planos van 5 centesimas mas holgados que la helice (y 0,1 mas hondos): asi, donde se juntan, sus caras se cruzan en vez de coincidir,
-    # que es lo que Fusion no sabe cortar
+    # Media altura de la V a cada radio. La ranura sube inclinada, asi que para que el teton tenga 'hd' de holgura de verdad
+    # (medida a traves de la ranura) la altura en vertical es (radio del teton + hd) / coseno de la pendiente a ese radio.
+    def media_altura(r):
+        r_teton = rt_ - min(max(r - r1, 0.0), fondo - 0.4)
+        return (r_teton + hd) / math.cos(math.atan(k_h * 180.0 / math.pi / r)) + 0.03
+    hv0, hv1 = media_altura(r1), media_altura(r2)
+    # los tramos planos van 5 centesimas mas holgados que la helice (y 0,1 mas hondos): asi, donde se juntan, sus caras se cruzan en vez de coincidir
     perfil_v = [(r0, -hv0 - 0.05), (r1, -hv0 - 0.05), (r2 + 0.1, -hv1 - 0.05), (r2 + 0.1, hv1 + 0.05), (r1, hv0 + 0.05), (r0, hv0 + 0.05)]
     sgn = 1.0 if -ROT > 0 else -1.0                              # en el tubo, el teton avanza hacia angulos crecientes si ROT < 0
+    radios = [r0] + [r1 + (r2 - r1) * i_ / 8.0 for i_ in range(9)]
     for af in ang_teton:
         a_ini, a_sub, a_arr, a_fin = [af - ROT * x for x in (-3.0, p['giro_sube'], p['giro_arriba'], p['giro_tubo'] + 3.0)]
         tu.revol([(r, zc0 + z) for r, z in perfil_v], a_ini, a_sub, '-')                       # tramo plano de abajo
         tu.revol([(r, zc0 + d['recorrido'] + z) for r, z in perfil_v], a_arr, a_fin, '-')     # tramo plano de arriba
-        # helice: la V, vista en planta, es un trapecio de angulos; sube girando. A la altura z0 + dz esta centrada en a_sub + sgn*dz/k_h
-        g0, g1 = hv0 / k_h, hv1 / k_h
-        centro0 = a_sub - sgn * g0                               # cuando el barrido empieza (media altura por debajo), el centro va medio ancho por detras
-        trapecio = Polygon([pol(r0, centro0 - g0), pol(r1, centro0 - g0), pol(r2, centro0 - g1), pol(r2, centro0 + g1), pol(r1, centro0 + g0), pol(r0, centro0 + g0)])
-        tu.helice(trapecio, zc0 - hv0, zc0 + d['recorrido'] + hv0, sgn * (d['recorrido'] + 2 * hv0) / k_h, '-')
+        # helice: la V, vista en planta, es una cuna de angulos; sube girando. Sus flancos son curvos (lineales en radio y angulo): con lados rectos se metia 0,16 mm
+        centro0 = a_sub - sgn * hv0 / k_h                        # cuando el barrido empieza (media altura por debajo), el centro va medio ancho por detras
+        cuna_h = Polygon([pol(r, centro0 - media_altura(max(r, r1)) / k_h) for r in radios] + [pol(r, centro0 + media_altura(max(r, r1)) / k_h) for r in reversed(radios)])
+        tu.helice(cuna_h, zc0 - hv0, zc0 + d['recorrido'] + hv0, sgn * (d['recorrido'] + 2 * hv0) / k_h, '-')
         # entrada: por donde suben los tetones al meter el tubo desde arriba (queda debajo del teton con la caja cerrada)
         tu.prisma(sector(r0, r2, af - 2.7, af + 2.7), z_t0 - 0.01, zc0, '-')
     d2['zc0'] = zc0
@@ -366,8 +376,9 @@ def piezas():
     bi.prisma(corona(d['bisel_fondo'] + 0.2, d['bisel_r_ext']), d['z_plato1'], d['z_engr0'] + 0.01)  # apoya en el canto del plato
     z_ala_b1 = d['z_cuerpo_arriba'] - 3.0 - p['aire']; z_ala_b0 = z_ala_b1 - 3.0
     bi.prisma(corona(d['tubo_r_ext'] + 0.5, d['bisel_r_ext']), z_ala_b0, d['z_plato1'] + 0.01)  # faldon por fuera del plato
-    for i, v in enumerate((0.8, 1.6, 2.4)):                                                    # ala en escalera: se imprime sin soportes
-        bi.prisma(corona(d['bisel_r_ext'] - 0.01, d['bisel_r_ext'] + min(v, p['bisel_ala'])), z_ala_b0, z_ala_b1 - 0.8 * (2 - i))
+    # ala en cono a 45 grados (estrecha arriba, ancha abajo): boca abajo, cada capa apoya en la anterior. En escalera de 0,8 mm seguia quedando al aire
+    ala_ = p['bisel_ala']
+    bi.revol([(d['bisel_r_ext'] - 0.01, z_ala_b0), (d['bisel_r_ext'] + ala_, z_ala_b0), (d['bisel_r_ext'] + ala_, z_ala_b1 - ala_), (d['bisel_r_ext'] - 0.01, z_ala_b1)], 0.0, 360.0)
     # grafilado: estrias en el canto que asoma
     n_est = 120
     estria = unary_union([giro2(box(d['bisel_r_ext'] - 0.6, -1.0, d['bisel_r_ext'] + 1, 1.0), 360.0 * i / n_est) for i in range(n_est)])
@@ -387,7 +398,7 @@ def piezas():
     ba.prisma(corona(p['tubo_r'] + 1.0, d['tubo_r_ext'] - 1.0), d['z_suelo'] - 0.01, z_t0)          # pista en la que apoya y resbala el tubo
     # asiento de la plataforma: abajo del todo descansa aqui (a 0,15 mm), no colgada de sus tetones. Sin el, con la caja cerrada los tetones
     # quedan sobre las entradas del tubo, la plataforma baja 1 mm y al empezar a girar tendria que subir un escalon
-    ba.prisma(corona(30.0, 62.0), d['z_suelo'] - 0.01, d['z_disco0_abajo'] - 0.15)
+    ba.prisma(corona(p['tubo_r'] - 46.0, p['tubo_r'] - 14.0), d['z_suelo'] - 0.01, d['z_disco0_abajo'] - 0.15)
     pared_in = L - p['cuerpo_pared']
     ba.prisma(box(-pared_in + hf, -pared_in + hf, pared_in - hf, pared_in - hf).difference(box(-pared_in + 2.2, -pared_in + 2.2, pared_in - 2.2, pared_in - 2.2)), d['z_suelo'] - 0.01, d['z_suelo'] + 5.0)
 
@@ -402,6 +413,13 @@ def piezas():
     cu.prisma(box(-L, -L, L, L).difference(disco(d['bisel_r_ext'] + 0.4, n=300)), d['z_cuerpo_arriba'] - 3.0, d['z_cuerpo_arriba'])
     cu.prisma(box(-1.0, -L - 0.6, 1.0, -L + 0.01), d['z_cuerpo_arriba'] - 9.0, d['z_cuerpo_arriba'] - 1.5)      # indice del frente, en relieve
     cu.prisma(lat(e=0.3, sal=1.0), d['z_suelo'] + 1.9, d['z_suelo'] + 4.4, '-')                                  # cajeras de los pestillos
+    # llave del cuerpo: un taco en la base, al frente y escondido en el grueso de la pared; el cuerpo tiene su caja solo ahi. Girado, no asienta
+    ba.prisma(box(-9.0, -pared_in - 1.6, 9.0, -pared_in + hf), d['z_suelo'] - 0.01, d['z_suelo'] + 4.0)
+    cu.prisma(box(-9.3, -pared_in - 1.9, 9.3, -pared_in + 0.01), d['z_suelo'] - 0.01, d['z_suelo'] + 4.3, '-')
+    cu.prisma(box(-7.0, L - 1.2, 7.0, L + 0.1), d['z_suelo'] - 0.01, d['z_suelo'] + 1.6, '-')                    # detras: ranura para meter una una o una moneda y sacar el cuerpo
+    # llave de la funda: en la esquina de delante a la derecha, la funda lleva un taco 1,5 mm mas largo que entra en un cajeado del cuerpo. Girada, no asienta
+    llave_f = box(L - 13.0, -L + 5.0, L - 5.0, -L + 13.0)
+    cu.prisma(llave_f.buffer(0.4), d['z_cuerpo_arriba'] - 1.9, d['z_cuerpo_arriba'] + 0.01, '-')
 
     c_im = L - 9.0                                                  # imanes de la funda: en dos esquinas opuestas, por debajo del labio del cuerpo
     for sg in (1, -1):
@@ -420,7 +438,8 @@ def piezas():
         fu.prisma(esquina(sx_, sy_).difference(disco(d['bisel_r_ext'] + p['bisel_ala'] + 2.0, n=240)), z_pie, z_f0 + 0.01)
     for sg in (1, -1):
         fu.cil((sg * c_im, sg * c_im, z_pie - 0.01), (sg * c_im, sg * c_im, z_pie + 1.8), 2.6, '-')
-    fu.prisma(box(-1.6, -Li - 1.0, 1.6, -Li + 0.01), d['z_base'] - 1, z_f0, '-')       # canal del indice: la funda solo entra con su frente al frente
+    fu.prisma(box(-1.6, -Li - 1.0, 1.6, -Li + 0.01), d['z_base'] - 1, z_f0, '-')       # canal del indice
+    fu.prisma(llave_f, d['z_cuerpo_arriba'] - 1.5, z_pie + 0.01)                        # taco largo: la llave de la funda
     fu.cil((0, 0, z_f0 - 0.01), (0, 0, z_f0 + 0.4), 13.0, '-')                         # rebaje para la etiqueta NFC de 25 mm
     fr_json = json.load(open(os.path.join(AQUI, 'historico', 'frase-v3.json'), encoding='utf-8'))
     esc_f = 118.0 / fr_json['ancho_mm']
@@ -442,8 +461,6 @@ def piezas():
     tp.cil((0, Rt0, z_ranura_ala + 0.3), (0, Rt0, z_a1 + 0.61), p['teton_d'] / 2)
     tp.cil((0, Rt0, z_a1 + 0.6), (0, Rt0, z_a1 + 6.5), 5.0)      # el pomo queda por debajo de la meseta y del anillo
 
-    # la puerta izquierda: la derecha girada 180 grados alrededor de Z
-    P['puerta_izquierda'].ops = gira_ops(P['puerta_derecha'].ops, 180.0)
     # limpieza de operaciones vacias
     for q in P.values():
         q.ops = [o for o in q.ops if not (o['t'] in ('prisma', 'helice') and (not o['pol'] or abs(o.get('c1', 1) - o.get('c0', 0)) < 1e-9))]
@@ -593,15 +610,15 @@ def comprueba(paso=2.0, escribe=True):
             dl = 0.25 * i
             if sum(choca(puerta(sx, desde + signo * dl), c) for c in contra) > 0.02: return dl
         return 99.0
-    a0, aG = puesta('aro_puertas', 0), puesta('aro_puertas', G)
+    a0, aG = puesta('aro_puertas', 0), puesta('aro_puertas', G); TH = p['puerta_abierta']
     j1 = max(juego(1, 0.0, 1, [a0]), juego(-1, 0.0, 1, [a0]))
     linea(j1 <= 5.0, 'cerradas y bloqueadas: con el aro quieto, una puerta solo se deja levantar %.2f grados (%.1f mm en la punta) antes de chocar con su pista' % (j1, math.radians(j1) * (d['eje_x'] - p['junta'] / 2)))
-    j2 = max(juego(1, 90.0, -1, [aG]), juego(-1, 90.0, -1, [aG]))
-    j3 = max(juego(1, 90.0, 1, [aG, S['meseta']]), juego(-1, 90.0, 1, [aG, S['meseta']]))
-    linea(j2 <= 5.0 and j3 <= 5.0, 'abiertas y bloqueadas: una puerta abierta solo se deja mover %.2f grados hacia dentro y %.2f hacia fuera (queda entre %.1f y %.1f grados)' % (j2, j3, 90 - j2, 90 + j3))
+    j2 = max(juego(1, TH, -1, [aG]), juego(-1, TH, -1, [aG]))
+    j3 = max(juego(1, TH, 1, [aG, S['meseta']]), juego(-1, TH, 1, [aG, S['meseta']]))
+    linea(j2 <= 5.0 and j3 <= 5.0, 'abiertas y bloqueadas: una puerta abierta solo se deja mover %.2f grados hacia dentro y %.2f hacia fuera (queda entre %.1f y %.1f grados)' % (j2, j3, TH - j2, TH + j3))
     def de_pie(sx, h_):                                            # la puerta de pie (90 grados), h_ mm por encima de su sitio
         n = 'puerta_derecha' if sx > 0 else 'puerta_izquierda'
-        return S[n].translate([-sx * d['eje_x'], 0, -d['eje_z']]).rotate([0, sx * 90.0, 0]).translate([sx * d['eje_x'], 0, d['eje_z'] + h_])
+        return S[n].translate([-sx * d['eje_x'], 0, -d['eje_z']]).rotate([0, sx * TH, 0]).translate([sx * d['eje_x'], 0, d['eje_z'] + h_])
     v1 = max(choca(de_pie(sx, 0.5 * i), S['meseta']) + choca(de_pie(sx, 0.5 * i), aG) + choca(de_pie(sx, 0.5 * i), S['marco']) + choca(de_pie(sx, 0.5 * i), puesta('puerta_izquierda' if sx > 0 else 'puerta_derecha', G))
              for sx in (1, -1) for i in range(1, 41))
     linea(v1 < 0.02, 'montaje: cada puerta entra de pie, desde arriba, con el aro en abierto, sin pisar la meseta, el aro, el marco ni la otra puerta (lo que mas, %.3f mm3)' % v1)
@@ -659,4 +676,9 @@ if __name__ == '__main__':
     json.dump({'d2': d2, 'mov': mov, 'cte': cte, 'P': [list(q) for q in D.P_DEF], 'D': {k: v for k, v in d.items() if isinstance(v, (int, float))}, 'piezas': {n: {'color': q.color, 'mueve': q.mueve, 'nota': q.nota, 'ops': q.ops, 'volumen': S[n].volume()} for n, q in P.items()}}, open(os.path.join(AQUI, 'caja-v5-piezas.json'), 'w', encoding='utf-8'), ensure_ascii=False)
     out, ok, *_ = comprueba(float(os.environ.get('PASO', '2')))
     for l in out: print(l)
-    print('TODO BIEN' if ok else 'HAY FALLOS')
+    # las comprobaciones de la fase 1 (caja_diseno_v5.py) se repiten aqui: con otras medidas del reloj, las dos tienen que dar bien
+    f1 = D.comprueba(escribe=False)
+    mal1 = [l for l in f1['comprobaciones'] if 'FALLA' in l]
+    print('  %s fase 1 (medidas y movimiento), repetida con estas mismas medidas: %d comprobaciones con fallo' % ('bien ' if f1['todo_bien'] else 'FALLA', len(mal1)))
+    for l in mal1: print('      ' + l.strip())
+    print('TODO BIEN' if ok and f1['todo_bien'] else 'HAY FALLOS')
