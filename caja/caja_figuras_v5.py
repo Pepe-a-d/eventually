@@ -48,11 +48,11 @@ def cortes():
           ('plataforma', (-55, -114.6), (-100, -98)), ('pedestal', (-15, -100), (-100, -86)), ('bisel (lo que se gira)', (-81, -6), (-100, -2)),
           ('plato: lleva los satélites', (-68, -12.3), (-100, -14)), ('marco', (-64, -20.6), (-100, -26)), ('aro de las puertas', (-45, -16.7), (-100, -38)),
           ('rueda central (fija) y su dedo', (-66, -1.5), (-100, 12)), ('meseta', (-45, -6.5), (-60, 26)), ('pasador (bisagra)', (-28, -2.5), (-30, 40)),
-          ('puerta', (12, -2.5), (30, 40)), ('reloj de pega (supuesto): aquí, su brazalete', (8, -11.6), (100, -40)), ('soporte, con la peana metida en el pedestal', (14, -84), (100, -84)), ('pestillo', (40, -104.5), (100, -98)),
+          ('puerta', (12, -2.5), (30, 40)), ('reloj de pega (supuesto): aquí, su brazalete', (8, -11.6), (100, -40)), ('soporte: su pie, metido en el pedestal', (14, -96), (100, -84)), ('pestillo', (40, -104.5), (100, -98)),
           ('diente del bisel', (76.5, -6.4), (100, 12)), ('rueda central, dientes', (58, -6.4), (100, 26))]
     la = [('satélite azul', (-67.5, -6.4), (-100, 12)), ('tetón de las puertas', (Rt0, -17.5), (100, -30)), ('espiral, bajo el plato', (Rt0, -13), (100, -16)),
           ('brazo del aro', (Rt0 - 4, -16.7), (100, -44)), ('tetón de la plataforma, en la rampa', (77, -114.6), (100, -100)), ('ranura de la rampa', (-78, -60), (-100, -60)),
-          ('las dos puertas (se ve la junta de lado)', (0, -2.5), (-20, 40)), ('satélite', (67.5, -6.4), (100, 12)), ('imán del soporte', (12, -89), (100, -72)), ('columna de la base', (-70, -70), (-100, -80)), ('reloj de pega (supuesto)', (-20, -45), (-100, -30))]
+          ('las dos puertas (se ve la junta de lado)', (0, -2.5), (-20, 40)), ('satélite', (67.5, -6.4), (100, 12)), ('imán del soporte', (12, -107.5), (100, -86)), ('cojín del soporte: el reloj va abrochado a él', (21, -50), (100, -58)), ('columna de la base', (-70, -70), (-100, -80)), ('reloj de pega (supuesto)', (-20, -45), (-100, -30))]
     fig, axs = plt.subplots(2, 2, figsize=(15, 11), dpi=150)
     pinta(axs[0][0], corte(S, P, p, d, 0, 'y'), 'Cerrada, cortada por el centro y vista de frente', fr)
     pinta(axs[0][1], corte(S, P, p, d, 0, 'x'), 'Cerrada, cortada por el centro y vista desde la derecha (el frente queda a la izquierda)', la)
@@ -114,6 +114,8 @@ def laminas(png):
     hoja([(abre('manivela-%d' % (i + 1), (230, 240, 1270, 640)), t) for i, t in enumerate(('Cerradas: la bola, en el tramo quieto de su pista', 'A medio abrir: el aro gira y la pista empuja la bola', 'Abiertas: la bola, en el otro tramo quieto'))], 3, 'caja-puertas-manivela.png')
     hoja([(abre('aro-cerrado', (330, 110, 1090, 820)), 'El aro (tostado) con la caja cerrada, desde arriba'), (abre('aro-abierto', (330, 110, 1090, 820)), 'Con la caja abierta: el aro ha girado %.0f°' % d['aro_giro']),
           (abre('probeta-puertas', (200, 250, 950, 830)), 'La probeta de las puertas')], 3, 'caja-puertas-aro.png')
+    hoja([(abre('soporte-frente', (350, 60, 1150, 1040)), 'El reloj abrochado a su soporte, de frente'), (abre('soporte-detras', (350, 60, 1150, 1040)), 'Por detrás: el cojín, la placa y el cuello'),
+          (abre('soporte-solo', (350, 60, 1150, 1040)), 'El soporte solo: el reloj entra por la punta libre')], 3, 'caja-soporte.png')
     # despiece con nombres
     v = vistas['despiece']; im = abre('despiece'); dr = ImageDraw.Draw(im)
     import caja_render_v5 as R

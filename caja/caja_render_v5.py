@@ -41,6 +41,7 @@ if __name__ == '__main__':
     V += [('paso-%d' % (i + 1), t, None, F, {}) for i, t in enumerate((0, 45, 72, 100, 220, 345))]
     V += [('manivela-%d' % (i + 1), t, man, F + ('cuerpo', 'bisel', 'tubo', 'base', 'plataforma', 'soporte', 'reloj_de_pega'), {}) for i, t in enumerate((0, 72, 100))]
     V += [('probeta-puertas', 76, None, (), {'solo': ('marco', 'aro_puertas', 'meseta', 'puerta_derecha', 'puerta_izquierda', 'pasador_derecho', 'pasador_izquierdo', 'probeta_anillo', 'probeta_teton')})]
+    V += [('soporte-reloj', 0, None, (), {'solo': ('soporte', 'reloj_de_pega')}), ('soporte-solo', 0, None, (), {'solo': ('soporte',)})]
     for nombre, tau, corte, quita, kw in V:
         json.dump(estado(S, P, p, d, tau, corte, quita, **kw), open(os.path.join(sal, nombre + '.json'), 'w'))
         print(nombre)

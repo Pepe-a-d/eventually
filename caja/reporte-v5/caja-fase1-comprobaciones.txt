@@ -17,7 +17,7 @@ Caja v5, fase 1: medidas y movimiento
   bien  planetario: central 78, satelites 12, bisel 102 dientes, modulo 1.50. (78 + 102) / 6 = 30: los 6 satelites caben repartidos por igual
   bien  entre dos satelites vecinos quedan 46.5 mm
   bien  el tubo gira 0.567 veces lo que el bisel, en el mismo sentido: 345 grados de tubo son 609 de bisel (1.69 vueltas)
-  bien  diente: 2.26 mm de grueso en el primitivo, con 0.20 de juego entre flancos; el mas fino es el del satelite
+  bien  diente: 2.16 mm de grueso en el primitivo, con 0.40 de juego entre flancos; el mas fino es el del satelite
   bien  la rueda central es un aro que entra por arriba en el cuello del marco (radio 54.4): le quedan 2.0 mm de carne bajo los dientes (fondo de diente a 56.6)
   nota  con los 60 dientes que proponia el brief, el fondo de diente quedaria a 43.1 mm del centro y el cuello que rodea el mecanismo de las puertas mide 54.4: no cabe
   bien  la espiral del plato ocupa de 56.8 a 75.2 mm de radio; el plato empieza en 55.0 y el tubo en 76.0

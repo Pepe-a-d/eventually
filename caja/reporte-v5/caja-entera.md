@@ -1,6 +1,6 @@
 # Reporte: la caja v5 entera (puertas y ascensor)
 
-Escrito el 21 de noviembre de 2026 por la sesión del PC. **Corregido el 24 de noviembre,** tras la revisión de la sesión del Mac ([`contra-reporte-caja.md`](contra-reporte-caja.md)): qué cambió, en el apartado 0.1. **Cambiado el 25 de noviembre** por el encargo del apartado 13 del brief (D-34: suelo liso y soporte sujeto): qué cambió, en el apartado 0.2. Responde a los encargos de los apartados 11 y 13 de [`../BRIEF-v5.md`](../BRIEF-v5.md).
+Escrito el 21 de noviembre de 2026 por la sesión del PC. **Corregido el 24 de noviembre,** tras la revisión de la sesión del Mac ([`contra-reporte-caja.md`](contra-reporte-caja.md)): qué cambió, en el apartado 0.1. **Cambiado el 25 de noviembre:** por el encargo del apartado 13 del brief (D-34: suelo liso y soporte sujeto), apartado 0.2; y después, por el soporte nuevo (D-35) y una revisión entera del modelo (D-36), apartado 0.3. Responde a los encargos de los apartados 11 y 13 de [`../BRIEF-v5.md`](../BRIEF-v5.md).
 
 **Nada de esto está impreso.** «Comprobado en el modelo» quiere decir que las piezas, dibujadas con sus holguras, se mueven como deben y no se pisan. No quiere decir que funcione: eso lo dirán las probetas. En este documento **no hay ninguna fuerza calculada** (tres previsiones de fuerzas ya las ha tumbado una pieza impresa).
 
@@ -15,8 +15,12 @@ Cada dato dice de dónde sale: **del modelo** (medido sobre las piezas dibujadas
 - **En el modelo, de tope a tope y de 2 en 2 grados, ninguna pieza pisa a otra,** y el reloj de pega queda siempre a 3,00 mm o más de todo.
 - **Mide 178,8 mm de lado y 115,7 de alto** (183,8 × 119,1 con la funda). De lado es más de lo que estimaba el brief (150). Ver el apartado 1.
 - **Arriba, el reloj queda sobre un suelo liso, hundido 5 mm, y el soporte va sujeto por la forma mientras la caja está cerrada** (D-34, apartado 0.2). **Mira el dibujo del apartado 0.2: el aspecto es tuyo.**
-- **Ocho cosas no cumplen el brief al pie de la letra o las he cambiado.** Están en el apartado 1. Ninguna espera ya una decisión tuya; una (si el soporte vuelca en la mesilla) espera al reloj de verdad.
-- **Propongo tres probetas** (puertas, ascensor y planetario). Sus ficheros de imprimir están en [`../probetas-v5/`](../probetas-v5/). Entre las tres son casi toda la caja: eso es una decisión tuya (apartado 9).
+- **El soporte es ahora uno corriente: un cojín ovalado al que el reloj va abrochado** (D-35, apartado 0.3).
+- **He revisado el modelo entero** (D-36): montaje pieza a pieza, impresión capa a capa y holguras. Salieron fallos de verdad, ya corregidos (apartado 0.3). **En el modelo no queda ninguno conocido.**
+- **Están los ficheros de imprimir de todas las piezas,** en doce bandejas, con su guía: [`../imprimir-v5/`](../imprimir-v5/LEEME.md).
+- **Ocho cosas no cumplen el brief al pie de la letra o las he cambiado.** Están en el apartado 1. Ninguna espera una decisión tuya; una (si el soporte vuelca en la mesilla) espera al reloj de verdad.
+- **Lo que sigue sin saberse** está en el apartado 6. Lo primero: las medidas del reloj son supuestas, y ninguna pieza de esta caja se ha impreso.
+- **Propongo tres probetas** (puertas, ascensor y planetario) antes de la caja entera. Sus ficheros están en [`../probetas-v5/`](../probetas-v5/). Entre las tres son casi toda la caja: qué se imprime es una decisión tuya (apartado 9).
 
 ## 0.1 Qué cambió el 24 de noviembre
 
@@ -40,15 +44,15 @@ También: el cuerpo tiene ahora una ranura detrás para sacarlo, y los ficheros 
 
 **El vídeo `../video-v5/` es del modelo del 21 de noviembre.** El mecanismo es el mismo, pero ya no enseña dos cosas: el reloj acaba ahora 5 mm más bajo, y no salen el pie del soporte ni los pestillos. No lo he rehecho.
 
-## 0.2 Qué cambió el 25 de noviembre (D-34)
+## 0.2 Qué cambió el 25 de noviembre por D-34: suelo liso y soporte sujeto
 
-Quedaban dos cosas por decidir. Dijiste a la sesión del Mac: «decide tu las dos preguntas, pero que el reloj este seguro y se vea todo bien y premium». Las decidió (D-34) y me las encargó en el apartado 13 del brief. **Están modeladas.** Su programa de comprobación da ahora **ningún fallo**. Nada está impreso.
+Quedaban dos cosas por decidir. Dijiste a la sesión del Mac: «decide tu las dos preguntas, pero que el reloj este seguro y se vea todo bien y premium». Las decidió (D-34) y me las encargó en el apartado 13 del brief. **Están modeladas.** Su programa de comprobación da **ningún fallo**. Nada está impreso.
 
 ![El reloj arriba: suelo liso y hundido, con una puerta a cada lado](caja-reloj-arriba.png)
 
 **1. Suelo liso.** Arriba del todo, el pedestal ya no llega hasta la tapa: se queda 5 mm más abajo, a ras del asiento donde apoyan las puertas cerradas. Las zanjas de delante y detrás ya no son zanjas: son parte de ese suelo. El reloj queda en una bandeja hundida 5 mm, con una puerta a cada lado. De las dos maneras que daba el brief he hecho la que prefería: el ascensor sube 5 mm menos. Por eso la caja es 5 mm más baja (115,7) y la rampa, algo más tendida (13,9°).
 
-**2. Soporte sujeto.** El soporte tiene ahora un pie alto que entra en un cajeado del pedestal, y dos pestillos planos lo cogen por abajo. A los pestillos los mantienen metidos dos columnas de la base. Con la caja cerrada, el soporte con el reloj no se puede mover más de 0,2 mm en ninguna dirección. En los últimos 15 mm de subida las columnas tienen un rebaje: los pestillos quedan libres y el soporte sale tirando hacia arriba. Sin imanes, sin muelles y sin nada que se doble. Cómo es, en el apartado 2.4.
+**2. Soporte sujeto.** El soporte tiene un pie alto que entra en un cajeado del pedestal, y dos pestillos planos lo cogen por abajo. A los pestillos los mantienen metidos dos columnas de la base. Con la caja cerrada, el soporte con el reloj no se puede mover más de 0,3 mm en ninguna dirección. Sin imanes, sin muelles y sin nada que se doble. Cómo es, en el apartado 2.4.
 
 **Lo que he hecho distinto de la propuesta de la sesión del Mac,** y por qué:
 
@@ -57,15 +61,46 @@ Quedaban dos cosas por decidir. Dijiste a la sesión del Mac: «decide tu las do
 | Dos de las tres columnas de la base han cambiado de sitio: ahora están a derecha e izquierda (0° y 180°; la tercera sigue en 262°) | Para que cada pestillo vaya recto hacia su columna. Siguen siendo desiguales: nada entra girado |
 | El pie del soporte mide 42 × 50 mm (la peana de antes, 34 × 40) | Con el pie alto, el reloj queda 22 mm más arriba en la mesilla y vuelca antes. Con el pie ancho recupera el margen (fila 8 del apartado 1). El brief lo permitía |
 | Los pestillos tienen un tope hacia dentro | Sin él, con la caja cerrada y sin soporte, un pestillo podía meterse en el cajeado vacío al mover la caja, y luego el soporte no asentaba |
-| El soporte queda libre en los últimos 15 mm de subida, no solo arriba del todo | Para quitar una trampa: si alguien pone el soporte sin haber abierto del todo, los pestillos no pueden apartarse y el soporte se queda encima, sin sujetar (apartado 2.4). Con 15 mm, para que pase hay que dejar el bisel a más de un cuarto de vuelta del tope, con el suelo a la vista 16 mm más hondo |
+| **Los pestillos solo sujetan con la plataforma abajo** (los primeros 9 mm de subida). De 12 mm para arriba el soporte está libre. El encargo decía «sujeto mientras la caja no esté abierta del todo» | Hace falta sujetarlo con la caja cerrada, que es cuando viaja. Y sujetarlo también a medio abrir tenía una trampa: quien pusiera el soporte sin haber abierto hasta el tope lo dejaba apoyado encima de los pestillos, 3,1 mm alto y sin sujetar, y al cerrar las puertas quedaban justo sobre el reloj (0,0 mm en el modelo). Así, con la caja abierta, el soporte siempre entra y siempre sale |
 
 **Lo que queda de los dos problemas** (sin adornar):
 
 - **Las dos ventanas de las manivelas siguen viéndose** en el suelo, pegadas a las puertas, en dos esquinas (8,6 × 5,7 mm cada una). No las he achicado.
-- **Alrededor del soporte se ven dos líneas:** la del cajeado de su pie (0,2 mm) y el escalón de su zócalo, que asoma 4 mm.
-- **Abierta del todo y boca abajo, el soporte se sale.** Arriba está libre a propósito.
-- **Que el reloj no se suelte de su soporte** no está resuelto: espera a que midas el reloj (D-15).
+- **Alrededor del soporte se ven dos líneas:** la del cajeado de su pie (0,3 mm) y el escalón de su zócalo, que asoma 4 mm.
+- **Con la caja abierta y boca abajo, el soporte se sale.** Abierta está libre a propósito.
 - **El suelo hundido es una decisión de aspecto tomada sobre un dibujo.** Si no te gusta al verlo, se vuelve atrás: es solo la altura del pedestal.
+
+## 0.3 Qué cambió después, el mismo 25 de noviembre: soporte normal (D-35) y revisión entera (D-36)
+
+**El soporte.** Dijiste: «El soporte del reloj es raro, haz un soporte normal en el que vaya abrochado y ya». Lo de arriba del soporte (un travesaño entre dos mejillas) ha desaparecido. Ahora es **un cojín ovalado que llena el brazalete cerrado: el reloj se abrocha a él.** El pie y los pestillos de debajo siguen igual.
+
+![El soporte nuevo: el reloj abrochado, por detrás, y el soporte solo](caja-soporte.png)
+
+Tres cosas de este soporte que conviene saber:
+
+- **El cojín va cogido solo por un lado** (una placa a la derecha) y tiene la otra punta libre. Es así porque un brazalete de metal con cierre de pliegue no se abre del todo: es un lazo, y hay que meterlo por una punta, como en la muñeca. El soporte de antes, cerrado por los dos lados, no dejaba poner el reloj. Era un fallo mío.
+- **El cojín está hecho a la medida del brazalete cerrado, que es supuesta** (67 × 53 mm por fuera). Si el brazalete se acorta o se alarga un eslabón, el cojín hay que rehacerlo: son dos números. Con el brazalete más largo que el cojín, el reloj cuelga y baila.
+- **Se imprime tumbado sobre su costado,** para que el cojín salga sin soportes.
+
+**La revisión.** Dijiste: «Revisa tu trabajo, comprueba que todo esté en su sitio que todos los mecanismos funcionen bien y que todas las piezas tengan su funcion y esten lo mas optimizadas posibles, no dejes de trabajar hasta que hayas refinado una version que tenga 0 errores y que se pueda imprimir como versión final…». He escrito un programa de auditoría, [`../caja_auditoria_v5.py`](../caja_auditoria_v5.py), que hace tres cosas que no hacía nadie: **monta la caja pieza a pieza** por su camino de entrada, **mira cada pieza capa a capa** tal como se imprime, y **mide lo cerca que pasan** las piezas que se mueven. Resultado en [`caja-auditoria.txt`](caja-auditoria.txt). Lo que encontró y lo que he hecho:
+
+| Qué encontró | Gravedad | Qué he hecho |
+| --- | --- | --- |
+| **Los pestillos del soporte no se podían montar:** su canal acababa a 0,75 mm del borde del disco y no había por dónde meterlos | Fallo mío, de esta mañana. La caja no se habría podido montar | El canal sale ahora hasta el borde |
+| El pestillo, al salir, tenía 0,05 mm a cada lado en el rebaje de la columna, y sus esquinas quedaban a 0,09 mm de ella | Se habría atascado | Rebaje 1,6 mm más ancho; punta del pestillo en arco, a 0,25 mm de la columna en todo el ancho |
+| **Lo que sujetaba el soporte era un labio en filo,** de 0,2 a 0,5 mm de grueso, y bastaba retirar el pestillo 0,9 mm para soltarlo. Lo vi al trazar, paso a paso, cómo el soporte aparta los pestillos | Es lo único que retiene el reloj boca abajo: demasiado poco | Nariz del pestillo plana por arriba y a 45° por abajo; debajo, el pie tiene un hombro macizo. Agarra 0,88 mm con la caja cerrada. Y la comprobación nueva queda en el programa |
+| **Los dientes engranaban con 0,08 mm entre flancos.** La holgura medida en las probetas para lo que desliza es 0,20 | Con 12 engranes a la vez, habría ido duro o no habría girado. Ya lo avisó la sesión del Mac | Ahora quedan de 0,16 a 0,19 mm (`juego_dientes`, de 0,2 a 0,4). La punta del diente más fino mide 0,72 mm |
+| En el tubo, al final de cada ranura, un techo plano de 2,5 mm al aire, justo donde descansa el tetón arriba | Al imprimirse se descuelga y podía rozar al llegar al tope | Relleno: el techo sigue a 45° |
+| Las cuatro pestañas que sujetan el cuerpo a la base eran escalones rectos | El canto del cuerpo tropezaba en plano; y se imprimían con 1 mm al aire | Son cuñas a 45° por arriba y por abajo, y el canto del cuerpo lleva chaflán: entra resbalando y hace clic |
+| Los pasadores de las bisagras, redondos, tumbados en la cama | Se despegan o salen deformados | Una cara plana de 1,5 mm, que al montar va hacia abajo |
+| En la meseta, el techo sobre los cuernos del aro dejaba 0,6 mm | Ese techo se imprime en puente y puede descolgarse | 1,0 mm |
+| En las dos columnas de los pestillos, una repisa de 0,9 mm bajo la espiga | Menor | Quitada |
+| En los ficheros de imprimir, mallas con triángulos de área cero (648 en el bisel) y, en la base, el tubo y la plataforma, rebabas de una centésima | Un laminador puede avisar de «malla abierta». El 24-nov escribí que todas eran cerradas: lo eran al escribirlas, no al volver a abrirlas | Rebabas quitadas del modelo y mallas limpiadas al escribirlas. **Los 51 cuerpos de los 22 ficheros se han vuelto a abrir uno a uno:** todos cerrados |
+| Mi comprobación de «puerta abierta» daba por bueno 96,2° contra un límite de 95° | Mi programa medía mal (un paso tarde) | Corregido: da 89,75° a 94,50°, igual que el de la sesión del Mac |
+
+**Lo que la auditoría da ahora:** los 20 pasos de montaje, sin pisar nada; ninguna pieza con islas ni voladizos, solo puentes de hasta 16 mm; y cuatro avisos que son a propósito (dos paredes de 0,7 mm junto a los imanes del tope, la arista del hombro del soporte y los trazos de la frase, de 0,8 a 1,0 mm).
+
+**Lo que la revisión no puede dar.** «0 errores» quiere decir que en el modelo no queda ninguno conocido. No quiere decir que la caja funcione: **ninguna de sus piezas se ha impreso.** Y no es todavía una versión final, por una sola razón: **las medidas del reloj son supuestas.** El día que las tenga se cambian arriba de `../caja_diseno_v5.py` y se regenera todo, ficheros de imprimir incluidos.
 
 ## 1. Lo que no cumple, o cambia, respecto al brief
 
@@ -77,10 +112,10 @@ Lo primero y sin adornar.
 | 2 | Puertas cerradas: escalón de 0,3 mm o menos | **Cumple con la caja de pie** (apoyan en su asiento, a ras). **Boca abajo no:** cada puerta se puede descolgar hasta 2,5° (1,3 mm en la punta) antes de que la pare su pista (del modelo) | La bola que mueve cada puerta va en su pista con 0,12 mm de holgura por lado, y el brazo de la bola solo mide 8 mm: poca holgura ahí es mucho ángulo en la puerta. Se ajusta con la probeta (apartado 9) |
 | 3 | Nueve imanes, tres en el final de recorrido | **Diez imanes,** cuatro en el final de recorrido (dos en la oreja del tubo y dos en el tope) | Con tres, uno tendría que servir para los dos extremos y quedaría a 4 mm de su pareja: no haría nada. Quedan 3 de repuesto de los 13 |
 | 4 | Mejor nada pegado | **Los imanes de la funda y del soporte van en cajeras abiertas:** o entran a presión, o llevan un punto de pegamento. Los cuatro del tope entran de canto en una ranura y no se pueden caer con la caja boca abajo | No sé si un alojamiento de 5,20 sujeta el imán o solo lo deja entrar: la P0 dijo que «entra». Es adorno: sin imanes la caja funciona igual |
-| 5 | Soporte del reloj: pinza en C y peana, como en la v4 | **Del zócalo para arriba, simplificado** (dos mejillas y un travesaño que pasa por dentro del brazalete). El pie y cómo se sujeta sí están resueltos (apartado 2.4) | Sin las medidas del reloj no tiene sentido afinar la pinza. Sirve para comprobar que nada toca al reloj |
+| 5 | Soporte del reloj: pinza en C y peana, como en la v4 | **Un cojín ovalado al que el reloj va abrochado, sobre un pie que entra en el pedestal** (D-35, apartado 0.3). De una pieza, sin pinza | Lo pediste así («un soporte normal en el que vaya abrochado»). El cojín sale de las medidas del brazalete, que son supuestas |
 | 6 | Arriba, el pedestal rellena el hueco y queda a ras de la tapa | **Cambiado por D-34: queda a ras del asiento de las puertas, 5 mm por debajo de la tapa** (escalón de 0,00 en el modelo). Rendija de 0,4 mm al marco. A cada lado, 1,9 mm hasta la puerta abierta, con el suelo a la misma altura. Quedan a la vista las dos ventanas de las manivelas | Las zanjas eran el asiento de las puertas y no se pueden quitar; se ha bajado el pedestal a su altura. **Decidido** (D-34). Mira el dibujo del apartado 0.2 |
-| 7 | Boca abajo no se cae nada | **Cumple con la caja cerrada y hasta 15 mm antes del final de la subida:** el soporte con el reloj no se mueve más de 0,2 mm. **En esos últimos 15 mm y abierta del todo, boca abajo se sale** | Arriba tiene que estar libre para cogerlo sin soltar nada. **Decidido** (D-34). Que el reloj no se suelte del soporte espera a medirlo |
-| 8 | En la mesilla, el soporte con el reloj se tiene de pie y no vuelca con un toque (apartado 13.2) | **Sin demostrar.** Calculado: vuelca si se inclina entre 17° y 21° hacia delante, entre 19° y 23° de lado y unos 30° hacia atrás | Sale de un reloj supuesto de 150 g que pesa más por delante, y del soporte entre hueco (25 g) y macizo (67 g). Propongo imprimirlo macizo. Lo dirá el reloj de verdad sobre el soporte impreso |
+| 7 | Boca abajo no se cae nada | **Cumple con la caja cerrada:** el soporte con el reloj no se mueve más de 0,3 mm, y el reloj, abrochado al cojín, 0,5 mm. **Con la caja abierta, boca abajo el soporte se sale** | Abierta tiene que estar libre para cogerlo sin soltar nada. **Decidido** (D-34) |
+| 8 | En la mesilla, el soporte con el reloj se tiene de pie y no vuelca con un toque (apartado 13.2) | **Sin demostrar.** Calculado: vuelca si se inclina entre 17° y 21° hacia delante, unos 20° a los lados y unos 30° hacia atrás | Sale de un reloj supuesto de 150 g que pesa más por delante, y del soporte entre hueco (36 g) y macizo (104 g). Propongo imprimirlo macizo. Lo dirá el reloj de verdad sobre el soporte impreso |
 
 Y tres cosas que no son incumplimientos pero conviene que sepas:
 
@@ -101,7 +136,7 @@ Y tres cosas que no son incumplimientos pero conviene que sepas:
 - **Plato y tubo:** el plato lleva los ejes de los satélites y va encajado en lo alto del tubo. Giran juntos, a 0,567 veces lo que gira el bisel (calculado: 102 / 180).
 - **Tubo:** por dentro lleva tres ranuras en espiral, como un pintalabios. En ellas van los tres tetones de la plataforma.
 - **Plataforma con pedestal:** sube recta porque tres muescas suyas corren por las tres columnas de la base. Abajo del todo descansa en un asiento de la base, no colgada de sus tetones. Arriba del todo, el pedestal queda a ras del asiento de las puertas, 5 mm por debajo de la tapa.
-- **Soporte y pestillos:** el soporte del reloj entra con su pie en un cajeado del pedestal, y dos pestillos lo cogen. Apartado 2.4.
+- **Soporte y pestillos:** el reloj va abrochado a un cojín ovalado. El pie del soporte entra en un cajeado del pedestal, y dos pestillos lo cogen con la caja cerrada. Apartado 2.4.
 - **Marco y meseta:** lo fijo de arriba. El marco apoya en las tres columnas; la meseta va encima, lleva las bisagras y es lo liso que se ve alrededor de las puertas.
 - **Puertas:** dos, de 5 mm. Son dos piezas distintas: una lleva la cuña de la junta y la otra, el hueco. Cada una gira en un pasador de 3 mm.
 - **Aro de las puertas y tetón:** lo que las mueve. Apartado siguiente.
@@ -138,20 +173,28 @@ Así hay **una sola espiral** y no hay cruce de pistas: la trampa que avisaba el
 | 63° a 83° | 111° a 146° | Las puertas se abren |
 | 83° a 92° | 146° a 162° | Puertas ya de pie; el aro termina su giro y las deja bloqueadas |
 | 92° a 335° | 162° a 591° | El reloj sube 81,1 mm |
-| 290° a 335° | 512° a 591° | Dentro de lo anterior, los últimos 15 mm: los pestillos del soporte quedan libres |
+| 92° a 119° | 162° a 209° | Dentro de lo anterior, los primeros 9 mm de subida: los pestillos siguen sujetando el soporte. De 12 mm para arriba (128° de tubo) está libre |
 | 335° a 345° | 591° a 609° | Rampa plana y tope: el reloj descansa arriba |
 
 Todo el recorrido son **609° de bisel: una vuelta y dos tercios** (calculado). Se abre girando en el sentido de las agujas del reloj, visto desde arriba. Las puertas terminan de abrirse 9° de tubo antes de que el reloj empiece a subir.
 
-### 2.4 Cómo se sujeta el soporte (D-34)
+### 2.4 El soporte: cómo lleva el reloj y cómo se sujeta (D-34 y D-35)
 
-Se ve en los dos cortes de frente del apartado 2: el soporte en gris oscuro y los pestillos en rojo.
+Se ve en los dos cortes de frente del apartado 2 (el soporte en gris oscuro, los pestillos en rojo) y en el dibujo del apartado 0.3.
 
-1. **El soporte tiene un pie de 42 × 50 mm y 22 mm de alto** que entra en un cajeado del pedestal, hasta dentro del disco de la plataforma. Dentro no puede volcar ni correrse (0,2 mm de holgura por lado). Una llave detrás hace que solo entre mirando al frente. Por encima del pedestal asoman un zócalo de 34 × 40 mm y 4 de alto y, sobre él, la pinza del reloj.
-2. **Dos pestillos planos** (47 × 9,5 × 3 mm), uno a la derecha y otro a la izquierda, van en canales del disco. Los canales son en cola de milano: boca abajo no se salen. La punta de dentro de cada pestillo es una cuña que entra 2 mm en una muesca del pie del soporte. La punta de fuera queda a 0,25 mm de la cara de dentro de una columna de la base.
-3. **La columna es una pared lisa.** Mientras el pestillo esté a su altura no puede salir, y el soporte no se puede levantar.
-4. **En los últimos 15 mm de subida, la columna tiene un rebaje de 2,9 mm.** Ahí el pestillo queda libre. Al tirar del soporte hacia arriba, el chaflán a 45° de la muesca aparta los dos pestillos. Al volver a meterlo, los aparta el chaflán de abajo del pie.
-5. **Al cerrar,** cuando la plataforma ha bajado esos 15 mm, una rampa a 45° al pie del rebaje vuelve a meter cada pestillo.
+**Cómo lleva el reloj:**
+
+1. **Un cojín ovalado, hueco, de 37 × 59 mm y 24 de largo,** que llena el brazalete cerrado con 0,4 mm de holgura. Por delante es plano: ahí apoya la tapa trasera del reloj.
+2. **El cojín va en voladizo desde una placa,** a la derecha. Por la izquierda tiene la punta libre, con un reborde de 1 mm. El reloj se mete por esa punta con el cierre abierto, y al cerrarlo queda abrochado: el reborde y la placa no le dejan salirse de lado.
+3. **Un cuello une la placa al zócalo.** El brazalete pasa por debajo del cojín sin tocar nada.
+
+**Cómo se sujeta a la caja:**
+
+1. **El soporte tiene un pie de 42 × 50 mm y 22 mm de alto** que entra en un cajeado del pedestal, hasta dentro del disco de la plataforma. Dentro no puede volcar ni correrse (0,3 mm de holgura por lado). Una llave detrás hace que solo entre mirando al frente. Por encima del pedestal asoma un zócalo de 4 mm.
+2. **Dos pestillos planos** (47 × 9,5 × 3 mm), uno a la derecha y otro a la izquierda, van en canales del disco. Los canales son en cola de milano: boca abajo no se salen. La punta de dentro de cada pestillo es una cuña, plana por arriba y a 45° por abajo, que entra 2 mm en una muesca del pie del soporte, por encima de un hombro macizo: eso es lo que lo sujeta. Para soltarlo, el pestillo tendría que retirarse 1,12 mm, y con la caja cerrada la columna solo le deja 0,25. La punta de fuera queda a 0,25 mm de la cara de dentro de una columna de la base.
+3. **Con la plataforma abajo, la columna es una pared lisa:** el pestillo no puede salir y el soporte no se puede levantar.
+4. **De 12 mm de subida para arriba, la columna tiene un rebaje de 2,9 mm.** Ahí el pestillo queda libre. Al tirar del soporte hacia arriba, el hombro, que también va a 45°, aparta los dos pestillos. Al volver a meterlo, los aparta el chaflán de abajo del pie.
+5. **Al cerrar,** cuando a la plataforma le quedan entre 12 y 9 mm para llegar abajo, una rampa a 45° al pie del rebaje vuelve a meter cada pestillo.
 6. **Un tope en el disco** impide que un pestillo se meta en el cajeado cuando no hay soporte.
 
 Qué pasa si algo se hace mal:
@@ -160,11 +203,11 @@ Qué pasa si algo se hace mal:
 | --- | --- | --- |
 | Se cierra sin el soporte | Nada. Los pestillos entran en vacío y hacen tope | Del modelo |
 | El soporte se pone girado media vuelta | No entra en el cajeado: se queda encima, torcido. Se ve | Del modelo |
-| El soporte queda algo levantado (menos de 1,2 mm) cuando la rampa mete los pestillos | La cuña entra en la muesca y lo baja a su sitio | Razonado sobre el modelo. Sin probar |
-| **Se pone el soporte con la caja a medio abrir** (el pedestal, a más de 16 mm de su sitio de arriba) | **Lo peor que he encontrado.** Los pestillos están metidos y no pueden apartarse. El soporte se queda apoyado en ellos, 3,1 mm alto y sin sujetar. Si se cierra así, las puertas cierran justo encima del reloj (0,0 mm en el modelo): puede notarse duro al final, o no notarse. Se arregla la siguiente vez que se abre hasta el tope: los pestillos quedan libres y el soporte baja | La altura y la distancia, del modelo. Que baje solo, sin probar |
+| El soporte se pone sin haber abierto hasta el tope | Entra igual: los pestillos están libres en cuanto la plataforma ha subido 12 mm | Del modelo |
+| El soporte queda algo levantado (hasta 1,4 mm) cuando la rampa mete los pestillos, por una mota o porque no asentó | La cuña del pestillo entra por encima del hombro y baja el soporte a su sitio | Del modelo, paso a paso. Con roce de verdad, sin probar |
+| **El soporte se queda atascado a medio entrar,** 1,6 mm alto o más | **Lo peor que queda.** Los pestillos lo empujan hacia arriba y se meten debajo: el soporte queda 2,8 mm alto y sin sujetar, y al cerrar al reloj le quedan 0,3 mm hasta las puertas. No hay aviso. Para que no pase, el cajeado tiene 0,3 mm de holgura por lado y el pie lleva chaflán por abajo: **el soporte tiene que bajar hasta el fondo por su propio peso.** Es una de las pruebas de la probeta del ascensor | La altura y la distancia, del modelo. Que baje por su peso, sin probar |
+| El brazalete es más largo que el cojín | El reloj cuelga del cojín y baila. Con la caja cerrada puede tocar las puertas: **el cojín tiene que hacerse a la medida del brazalete** | Razonado. Depende del reloj |
 | Se quitan los imanes | Igual. El imán del soporte es solo para el «clac» | Del modelo |
-
-**La regla de uso que sale de ahí:** el soporte se pone y se quita con el bisel en el tope de abierto.
 
 ## 3. Medidas
 
@@ -183,14 +226,14 @@ Todas del modelo, salvo donde se dice.
 | Lo que sube por vuelta de bisel | 68,1 mm (calculado) |
 | Pedestal arriba | a ras del asiento de las puertas, 5 mm bajo la tapa (escalón, 0,00); 0,4 mm hasta el marco; 1,9 mm hasta cada puerta abierta |
 | Huecos en el suelo, alrededor del reloj arriba | 283 mm² entre rendijas, las dos ventanas de las manivelas y la línea del cajeado (medido con el programa de la revisión; antes, a ras de la tapa, 1.062) |
-| Soporte | pie de 42 × 50 mm (51,5 con la llave) y 22,3 de alto, dentro del pedestal; zócalo de 34 × 40, que asoma 4 mm; en total, 41,3 de alto |
-| Pestillos | 47,2 × 9,5 × 3,0 mm; salen 2,7 mm; libres en los últimos 15 mm de subida |
+| Soporte | pie de 42 × 50 mm (51,5 con la llave) y 22,3 de alto, dentro del pedestal; zócalo de 42 × 40, que asoma 4 mm; cojín de 37 × 59 mm y 24 de largo, con pared de 3 mm; en total, 97,7 de alto |
+| Pestillos | 47,2 × 9,5 × 3,0 mm; salen 2,7 mm; sujetan con la plataforma en sus primeros 9 mm de subida y están libres de 12 mm para arriba |
 | El reloj en la mesilla, sobre su soporte | lo más bajo del reloj, a 33 mm de la mesa; lo más alto, a 100 (supuesto: depende del reloj) |
 | Engranajes | módulo 1,5; central 78 dientes, satélites 12, bisel 102; 6 mm de grueso |
-| Juego entre dientes | 0,2 mm quitados a cada diente (parámetro `juego_dientes`) |
-| Diente más fino | la punta del diente de los satélites: 0,81 mm. A media altura, 2,26 mm (medido por la revisión del Mac; el 21-nov di la mitad por error) |
+| Juego entre dientes | 0,4 mm quitados entre los dos dientes que engranan (parámetro `juego_dientes`): quedan de 0,16 a 0,19 mm entre flancos (del modelo). Antes, 0,2 y 0,08 |
+| Diente más fino | la punta del diente de los satélites: 0,72 mm. A media altura, 2,16 mm |
 | Reloj de pega a lo más cercano | 3,00 mm de la meseta y del marco; 3,10 de las puertas cerradas, que le quedan encima; 6 o más de la rueda central |
-| Volumen de plástico si todo fuera macizo | 1.311 cm³ (unos 1,6 kg). Con relleno normal será bastante menos: **no está laminado, no lo sé** |
+| Volumen de plástico si todo fuera macizo | 1.335 cm³ (unos 1,65 kg). Con relleno normal será bastante menos: **no está laminado, no lo sé** |
 
 **Juego de la plataforma.** Va colgada de tres tetones en cono dentro de tres ranuras en V, que la centran por su peso. En la rampa, entre cada tetón y su ranura quedan 0,154 mm (medido con el programa de la revisión; el diseño pide 0,20 y el 21-nov, por un error mío, quedaban 0,02). En las columnas tiene 0,35 mm por lado: puede girar 0,29° a cada lado (calculado).
 
@@ -208,7 +251,7 @@ Todas del modelo, salvo donde se dice.
 | El reloj, a 3 mm o más de puertas, marco, meseta y rueda central | **Bien.** Mínimo, 3,00 mm |
 | El tubo gira lo que le toca y los satélites orbitan | **Bien** por construcción (las piezas se colocan con la relación 0,567) y porque así colocadas los dientes no se pisan en ninguna posición |
 | Puertas cerradas, bloqueadas | **Bien, con juego.** Con el aro quieto, una puerta se deja levantar 2,5° y ahí choca con su pista |
-| Puertas abiertas, bloqueadas | **Bien, con juego.** Con el aro en su sitio, cada puerta se deja mover entre 89,75° y 94,5° (el brief pide entre 85° y 95°). Con el aro corrido 0,15 mm, cede hacia dentro hasta 87,0°, y ahí queda a 3,15 mm del reloj y entra 0,10 mm en el hueco libre (cifras del programa de la revisión) |
+| Puertas abiertas, bloqueadas | **Bien, con juego.** Con el aro en su sitio, cada puerta se deja mover entre 89,75° y 94,5° (el brief pide entre 85° y 95°; mi programa y el de la revisión dan ya lo mismo). Con el aro corrido 0,15 mm, cede hacia dentro hasta 87,0°, y ahí queda a 3,15 mm del reloj y entra 0,10 mm en el hueco libre (cifras del programa de la revisión) |
 | Las puertas se pueden montar | **Bien.** Cada una entra de pie, desde arriba, con el aro en «abierto», sin pisar nada |
 | El tetón va guiado | **Bien.** Moverlo 1,2 mm fuera de cualquiera de sus tres ranuras choca |
 | La plataforma va guiada | **Bien.** No se deja subir, bajar ni girar por su cuenta |
@@ -219,30 +262,40 @@ Todas del modelo, salvo donde se dice.
 | Los pasadores no se salen | **Bien.** La rueda central les tapa las dos puntas |
 | La funda | **Bien.** Puesta, no pisa nada y queda a 0,5 mm por lado |
 | A ras | **Bien.** Puertas, meseta, placa de la rueda central y bisel, en un mismo plano. El pedestal, arriba, a ras del asiento de las puertas (5 mm más abajo) |
-| El soporte, sujeto con la caja cerrada | **Bien.** Con el reloj puesto, se deja mover 0,2 mm hacia arriba y hacia los cuatro lados, y nada hacia abajo (el brief pide 1 mm o menos) |
-| El soporte, sujeto a media altura | **Bien.** A media subida y a 19 mm del final, solo se deja levantar 0,2 mm |
-| El soporte, libre arriba | **Bien.** Abierta del todo, y también a 5 y a 15 mm del final, sale tirando 40 mm hacia arriba sin pisar nada. **Comprobado con los pestillos ya apartados:** que los aparte el propio soporte al tirar lo dirá la probeta |
+| El soporte, sujeto con la caja cerrada | **Bien.** Con el reloj puesto, se deja mover 0,2 mm hacia arriba, 0,2 a derecha e izquierda, 0,3 hacia delante y hacia atrás, y nada hacia abajo (el brief pide 1 mm o menos) |
+| El soporte, sujeto solo abajo | **Bien.** Con la plataforma a 8 mm del suelo, solo se deja levantar 0,2 mm |
+| El soporte, libre con la caja abierta | **Bien.** Abierta del todo, a media altura y con la plataforma a 12 mm del suelo, sale tirando 40 mm hacia arriba sin pisar nada. **Comprobado con los pestillos ya apartados:** que los aparte el propio soporte al tirar lo dirá la probeta |
 | El soporte no entra girado | **Bien.** Girado media vuelta, pisa el pedestal |
 | Los pestillos van guiados | **Bien.** No se dejan sacar (los para la columna), levantar (la cola de milano) ni correr de lado (el canal). En el tramo libre, metidos o salidos, no pisan nada |
 | Sin el soporte puesto | **Bien.** Los pestillos hacen tope a 0,2 mm y no se meten en el cajeado vacío |
+| El soporte aparta él solo los pestillos | **Bien, en el dibujo.** Paso a paso (cada 0,05 mm), al sacar el soporte y al meterlo hay siempre un camino sin choques en el que el pestillo solo va hacia fuera, 1,12 mm, y nunca a más de 45°. **Que con el roce de verdad resbale lo dirá la probeta** |
+| El reloj, abrochado al cojín | **Bien.** No pisa el soporte y solo se deja mover 0,4 mm hacia arriba, hacia abajo y hacia delante, 0,5 hacia atrás, 1,2 a la derecha y 0,6 a la izquierda. **En el modelo el brazalete es rígido y de la medida supuesta** |
 
 ### 4.2 En Fusion
 
-[`../generador_caja_v5.py`](../generador_caja_v5.py) repite en Fusion, una a una, las mismas operaciones con que el programa hace cada pieza. Hecho de nuevo el 25 de noviembre con el modelo de D-34. El resultado está en [`caja-fusion-comprobaciones.txt`](caja-fusion-comprobaciones.txt) y el modelo, en `../Eventually-caja-v5.f3d`.
+[`../generador_caja_v5.py`](../generador_caja_v5.py) repite en Fusion, una a una, las mismas operaciones con que el programa hace cada pieza. Hecho de nuevo el 25 de noviembre con el modelo revisado. El resultado está en [`caja-fusion-comprobaciones.txt`](caja-fusion-comprobaciones.txt) y el modelo, en `../Eventually-caja-v5.f3d`.
 
 | Qué | Resultado |
 | --- | --- |
-| Las piezas de Fusion son las del programa | **Bien.** Las 29 (27 de la caja y 2 de probeta) tienen el mismo volumen; la que más se aparta, 0,29 % (el programa redondea los cilindros). Fusion las construyó todas a la primera |
-| Recorrido completo en Fusion: 174 posiciones, de 2 en 2 grados | **Bien. Ninguna pareja se pisa.** Hecho en dos vueltas, y conviene saber por qué. La primera (42 minutos) miró todas las piezas contra todas. Mientras corría, revisé el modelo y cambié cinco piezas: base, plataforma, soporte y los dos pestillos (apartado 0.2: el tope, el pie ancho y el tramo libre de 15 mm). La segunda (21 minutos) rehízo esas cinco y miró, en las 174 posiciones, todas las parejas en que entra alguna de ellas. Las demás parejas no cambiaron entre una vuelta y otra. **No es una sola pasada con el modelo final entero; entre las dos lo cubren todo** |
+| Las piezas de Fusion son las del programa | **Bien.** Las 29 (27 de la caja y 2 de probeta) tienen el mismo volumen; la que más se aparta, 0,29 % (el programa redondea los cilindros). Fusion las construyó todas a la primera, sin tener que retocar ninguna operación |
+| Recorrido completo en Fusion: 174 posiciones, de 2 en 2 grados | **Bien. Ninguna pareja se pisa.** Una vuelta completa, de una vez, con todas las piezas contra todas (46 minutos). Después de esa vuelta cambié tres piezas, el soporte y los dos pestillos (el hombro que sujeta el soporte, apartado 0.3), y Fusion rehízo esas tres y volvió a mirar, en las 174 posiciones, todas las parejas en que entra alguna (13 minutos). El propio Fusion comprobó que solo esas tres habían cambiado. **No es una sola pasada con el modelo final entero; entre las dos lo cubren todo** |
 
 **Solo con el programa, no en Fusion:** la distancia del reloj a cada cosa, los juegos de las puertas, lo de boca abajo, los topes y todo lo del soporte y los pestillos (que queda sujeto, que sale, que no entra girado). Son las filas del apartado 4.1 y las del programa de la revisión (4.4).
 
 **Los ficheros de imprimir ya no salen de Fusion,** sino del programa (apartado 9): los dos que el 21-nov tenían la malla sin cerrar (tubo y plataforma) ahora la tienen cerrada.
 
-### 4.4 Con el programa de la revisión y capa a capa
+### 4.4 Con el programa de la revisión, capa a capa y con la auditoría
 
 - [`calculos-mac/revisar_caja_v5.py`](calculos-mac/revisar_caja_v5.py), de la sesión del Mac, hace las pruebas que el mío no hacía: holguras de imprimir, las piezas con sus juegos, capas sin apoyo, piezas giradas. La sesión del Mac le añadió los requisitos del D-34. **Daba 15 fallos; el 24-nov, 2; ahora, ninguno.**
-- [`../caja_voladizos_v5.py`](../caja_voladizos_v5.py), mío y nuevo, mira capa a capa cuánto de cada pieza se imprimiría sin nada debajo. Resultado en [`caja-voladizos.txt`](caja-voladizos.txt). **Ninguna pieza tiene repisas en el aire. Sí hay techos en puente,** apoyados por los dos lados: los de las ventanas de la meseta (17 a 24 mm de luz, a 1 mm de la cama), la espiral del plato (5,4 mm), el final de cada ranura del tubo, los agujeros de los pasadores y, nuevo, el paso de cada pestillo bajo la pared del pedestal (6,4 mm). Los puentes largos de la meseta pueden descolgarse: lo dirá la probeta.
+- [`../caja_auditoria_v5.py`](../caja_auditoria_v5.py), mío y nuevo (D-36). Resultado en [`caja-auditoria.txt`](caja-auditoria.txt). Tres partes:
+
+| Parte | Qué hace | Resultado |
+| --- | --- | --- |
+| A. Montaje | Cada pieza recorre su camino de entrada, en el orden del apartado 7, y se mira si pisa a las que ya están puestas | **Bien: los 20 pasos.** El único que pisa algo es el cuerpo al pasar por las cuatro pestañas de la base (25,6 mm³, a 2 mm de su sitio): es donde entra a presión |
+| B. Impresión | Cada pieza, orientada como se imprime, en capas de 0,2 mm: islas en el aire, voladizos, puentes, paredes finas, y que quepa | **Bien: ninguna isla y ningún voladizo de más de 0,8 mm.** Puentes: 16 mm en el plato, 12 en el cuerpo y la meseta, 6 en la plataforma. Cuatro avisos, a propósito: una pared de 0,7 mm junto a los imanes del tope, en el tubo y en la base; la arista del hombro del soporte; y los trazos de la frase, de 0,8 a 1,0 mm |
+| C. Holguras | De tope a tope, cada 5°, lo más cerca que quedan dos piezas que se mueven una respecto de otra | **Bien: lo que se toca, se toca a propósito** (las puertas en su asiento, el bisel sobre el plato, el tubo en su pista). Lo más justo: la bola de cada puerta en su pista (0,12 mm, de diseño), la plataforma en su asiento (0,15) y los tetones en la rampa (0,154). Los dientes, de 0,16 a 0,19 |
+
+- [`../caja_voladizos_v5.py`](../caja_voladizos_v5.py) es la primera versión de la parte B; se queda porque su resultado, [`caja-voladizos.txt`](caja-voladizos.txt), es el que citaba la revisión.
 
 ### 4.3 Lo que no se puede comprobar en un modelo
 
@@ -254,7 +307,7 @@ Todas del modelo, salvo donde se dice.
 
 ## 5. Lista de piezas
 
-Todas caben en la X1 Carbon. Ninguna necesita soportes, pero varias tienen techos en puente (apartado 4.4). Capa de 0,2 mm, como las probetas anteriores.
+Todas caben en la X1 Carbon. Ninguna necesita soportes, pero varias tienen techos en puente (apartado 4.4). Capa de 0,2 mm, como las probetas anteriores. **Los ficheros de imprimir de todas, bandeja a bandeja, y los ajustes que propongo están en [`../imprimir-v5/`](../imprimir-v5/LEEME.md).** Las bandejas de esta tabla son las de esos ficheros.
 
 | Pieza | Cuántas | Color | Mide (mm) | Cómo se imprime | Bandeja |
 | --- | --- | --- | --- | --- | --- |
@@ -268,13 +321,13 @@ Todas caben en la X1 Carbon. Ninguna necesita soportes, pero varias tienen techo
 | Marco | 1 | blanco | 150 de diámetro × 22 | El ala en la cama | 8 |
 | Satélites blancos | 5 | blanco | 21 de diámetro × 6 | Planos, todos con la misma cara abajo | 8 |
 | Tetón | 1 | blanco | 5 de diámetro × 9 | De pie | 8 |
-| Pasadores | 2 | blanco | 3 de diámetro × 90 | Tumbados | 8 |
-| Soporte del reloj | 1 | blanco, como el pedestal | 42 × 52 × 41 | El pie en la cama. **Macizo** (relleno al 100 %), para que pese abajo. Del zócalo para arriba, provisional | 8 |
+| Pasadores | 2 | blanco | 3 de diámetro × 90 | Tumbados sobre su cara plana | 8 |
+| Soporte del reloj | 1 | blanco, como el pedestal | 42 × 52 × 98 | **Tumbado** sobre su costado derecho: así el cojín sale sin soportes. **Macizo** (relleno al 100 %), para que pese. Su cojín depende de las medidas del brazalete | 12 |
 | Pestillos del soporte | 2, iguales | blanco | 47 × 9,5 × 3 | Planos, la cara ancha en la cama | 8 |
 | Rueda central | 1 | blanco | 149 × 133 × 9 | **Boca abajo:** la placa que se ve, en la cama | 9 |
 | Puertas | 2, distintas | blanco | 39 × 73 × 11 | **Boca abajo:** la cara que se ve, en la cama; la manivela hacia arriba | 9 |
-| Meseta | 1 | blanco | 108 de diámetro × 8 | De pie (la cara que se ve, arriba) | 10 |
-| Aro de las puertas | 1 | blanco | 101 × 126 × 11 | El aro en la cama, las pistas hacia arriba | 10 |
+| Meseta | 1 | blanco | 109 de diámetro × 8 | De pie (la cara que se ve, arriba) | 10 |
+| Aro de las puertas | 1 | blanco | 104 × 127 × 11 | El aro en la cama, las pistas hacia arriba | 10 |
 | Satélite azul | 1 | azul | 21 de diámetro × 6 | Plano, la misma cara abajo que los otros | 11 |
 
 **Material:** PLA en todo (estimado: es lo que se ha usado en las probetas). **Qué va encajado y qué a presión:** todo va apoyado o encajado por su forma; a presión, solo el cuerpo en la base (cuatro pestañas de 1 mm, que no tienen que ver con los pestillos del soporte). **Pegado, nada**, salvo quizá los imanes de la funda y del soporte (apartado 1, fila 4).
@@ -291,19 +344,20 @@ De más a menos grave.
 4. **Puertas abiertas que hacen palanca.** Sobresalen hasta 28,1 mm. Un empujón hacia fuera o hacia dentro lo para solo la bola contra la pared de su pista (2 mm de pared) y la varilla de 3 mm. No hay otro tope: dibujé uno fijo en la meseta y lo quité, porque con él la puerta no se podía montar. En el modelo, la pista hace tope; si aguanta un dedo, lo dirá la probeta.
 5. **La rampa puede no sujetar el reloj a medio subir** (14°).
 6. **Alturas que tienen que coincidir.** El bisel apoya en el plato y este en el tubo (101 mm de alto); la meseta apoya en el marco y este en las columnas (95 mm). Para que el bisel y la meseta queden a ras, las dos alturas impresas tienen que salir iguales. Un error de 0,2 mm en 95 es normal: puede quedar un escalón de ese orden entre el bisel y la placa de la rueda central.
-7. **Los dientes de 12** son pequeños (punta de 0,44 mm). Los engranajes del iris no los había: no hay nada medido sobre dientes.
+7. **Los dientes de 12** son pequeños (punta de 0,72 mm) y no hay nada medido sobre dientes: los engranajes del iris eran otros. Les he dado la holgura que las probetas midieron para lo que desliza (de 0,16 a 0,19 mm entre flancos); si aun así van duros o bailan, se ajusta con `juego_dientes`.
 8. **El acabado distinto de la meseta** (apartado 1). Remedios: planchado de la última capa en el laminador, o aceptar la diferencia.
 9. **El tubo roza con su canto de abajo en una pista de la base** y el plato lleva encima el bisel: todo el giro es plástico contra plástico. Puede ir duro.
 10. **Imanes en cajeras abiertas** (apartado 1, fila 4).
-11. **Muchas piezas:** 25, en unas 11 bandejas.
-12. **Los pestillos del soporte no se han probado nunca** (nuevos, D-34). Son dos piezas sueltas que corren en un canal con 0,25 mm de holgura. Pueden rozar, atascarse o sonar. Y todo descansa en dos chaflanes a 45° que tienen que apartarlos solos al sacar y al meter el soporte: si el roce es mayor de lo que parece, habrá que sacar el soporte ayudando con un dedo o cambiar el ángulo. Lo dirá la probeta del ascensor.
-13. **El soporte puesto a medio abrir se queda sin sujetar** (apartado 2.4). No hay aviso.
-14. **El soporte puede volcar en la mesilla** (apartado 1, fila 8).
-15. **Los diez riesgos que añade la revisión del Mac** ([`contra-reporte-caja.md`](contra-reporte-caja.md), apartado 5). Los que más: el engrane va justo (0,07 a 0,09 mm entre flancos) y al bisel no lo centra nada firme; el bisel tiene poca ventana en altura; el tetón suelto puede inclinarse. No los he tocado: los dirá la probeta.
+11. **Muchas piezas:** 25, en 12 bandejas.
+12. **Los pestillos del soporte no se han probado nunca** (nuevos, D-34). Son dos piezas sueltas que corren en un canal con 0,25 mm de holgura. Pueden rozar, atascarse o sonar. Y todo descansa en dos caras a 45° que tienen que apartarlos solas al sacar y al meter el soporte (en el dibujo hay camino; con roce, no se sabe): si el roce es mayor de lo que parece, habrá que sacar el soporte ayudando con un dedo o cambiar el ángulo. Lo dirá la probeta del ascensor.
+13. **Si el soporte se queda atascado a medio entrar en su cajeado (1,6 mm alto o más), la caja cierra con él sin sujetar** y con el reloj a 0,3 mm de las puertas (apartado 2.4). Tiene que bajar por su peso: lo dirá la probeta.
+14. **El cojín del soporte depende del largo del brazalete,** que es supuesto y que además cambia si a tu amigo hay que quitarle o ponerle eslabones. Con el brazalete más largo que el cojín, el reloj baila. Es la pieza que habrá que reimprimir a medida, y es pequeña.
+15. **El soporte puede volcar en la mesilla** (apartado 1, fila 8).
+16. **Los diez riesgos que añade la revisión del Mac** ([`contra-reporte-caja.md`](contra-reporte-caja.md), apartado 5). El del engrane justo (0,07 a 0,09 mm entre flancos) está corregido. Quedan, los que más: al bisel no lo centra nada firme; el bisel tiene poca ventana en altura; el tetón suelto puede inclinarse. No los he tocado: los dirá la probeta.
 
 ## 7. Cómo se monta
 
-En este orden. Entre paréntesis, qué impide montarlo mal.
+En este orden. Entre paréntesis, qué impide montarlo mal. **Cada paso está comprobado en el modelo** por la auditoría (apartado 4.4, parte A): la pieza entra por su camino sin pisar a las que ya están.
 
 1. **Los dos pestillos** en sus canales del disco de la plataforma. Cada uno entra por el extremo de fuera del canal, con la punta en cuña por delante, hasta que hace tope. (Son iguales. Con la cara ancha hacia arriba no entran en el canal.) Después, la **plataforma** en la base, metiendo sus tres muescas en las tres columnas: los pestillos quedan cogidos entre el disco y las columnas. (Las columnas no están repartidas por igual: 0°, 180° y 262°. Solo entra en una posición.)
 2. **Tubo**, desde arriba, bajándolo por fuera de las columnas hasta que sus tres entradas pasan por los tres tetones de la plataforma. (Un tetón va 2° fuera de sitio: el tubo solo entra en una posición.)
@@ -311,13 +365,13 @@ En este orden. Entre paréntesis, qué impide montarlo mal.
 4. **Aro de las puertas** sobre el marco, con su brazo en el hueco de atrás del cuello. (Solo cabe ahí.)
 5. **Meseta** sobre el cuello del marco. (Entra de dos maneras, a media vuelta una de otra, y las dos son la misma: es simétrica.)
 6. **Las dos puertas.** Con el aro girado a tope hacia «abierto» (se mueve con la mano, por su brazo), cada puerta se mete de pie, desde arriba, hasta que la bola entra en su pista. Está comprobado en el modelo que entra sin pisar nada. (Una puerta al revés queda con la varilla hacia arriba: se ve. Si se cambian de lado, funciona igual.)
-7. **Los dos pasadores,** por un lado. Cosen la meseta, el marco y las puertas.
+7. **Los dos pasadores,** por un lado, con su cara plana hacia abajo. Cosen la meseta, el marco y las puertas.
 8. Se cierran las puertas girando el aro por su brazo, y se pone el **tetón** en la ranura del brazo del aro y en la del marco.
 9. **Plato** sobre el tubo, con las puertas cerradas. (Tres almenas desiguales: una posición. Si el tubo o las puertas no están donde deben, la espiral no encuentra el tetón y el plato no asienta. Es el paso más a ciegas: el tetón tiene que estar en su sitio.)
 10. **Los seis satélites** en sus ejes.
 11. **Rueda central** sobre la meseta. (Tres llaves desiguales: una posición. Al bajar, tapa las puntas de los pasadores.) **Va después del plato y los satélites:** el 21-nov lo escribí al revés, y así no se puede montar.
-12. **Bisel dentro del cuerpo** (entra por debajo), y los dos juntos, encima de todo. (Una llave escondida al frente: girado, el cuerpo no asienta.)
-13. **Soporte y reloj:** con la caja abierta hasta el tope, el pie del soporte se mete en el cajeado del pedestal hasta el fondo. (Una llave detrás: girado no entra.) Se cierra, y la **funda**. (Un taco largo en una esquina: girada, la funda no asienta.)
+12. **Bisel dentro del cuerpo** (entra por debajo), y los dos juntos, encima de todo, apretando hasta que hacen clic en las cuatro pestañas de la base. (Una llave escondida al frente: girado, el cuerpo no asienta.)
+13. **Reloj y soporte:** con el cierre abierto, el brazalete se mete en el cojín por la punta libre y se cierra. Con la caja abierta, el pie del soporte se deja caer en el cajeado del pedestal: tiene que bajar hasta el fondo él solo. (Una llave detrás: girado no entra.) Se cierra, y la **funda**. (Un taco largo en una esquina: girada, la funda no asienta.)
 
 Para desmontar, al revés: el cuerpo sale haciendo palanca con una uña o una moneda en la ranura que tiene detrás, abajo.
 
@@ -342,7 +396,7 @@ No he hecho dibujos de alternativas: prefiero que elijas sobre la probeta o sobr
 
 ## 9. Las probetas que propongo
 
-Son trozos de la caja, sacados del modelo. Los ficheros están en [`../probetas-v5/`](../probetas-v5/), ya orientados. **Son los del modelo del 25-nov** (todos se han vuelto a escribir: los del ascensor han cambiado; los de las puertas y el planetario son las mismas piezas) y los escribe [`../caja_probetas_v5.py`](../caja_probetas_v5.py) directamente, sin pasar por Fusion: todas las mallas son cerradas. No los he abierto en Bambu Studio.
+Son trozos de la caja, sacados del modelo. Los ficheros están en [`../probetas-v5/`](../probetas-v5/), ya orientados. **Son los del modelo revisado del 25-nov** (todos se han vuelto a escribir; cambian casi todas las piezas: dientes, pasadores, base, tubo, plataforma, soporte) y los escribe [`../caja_probetas_v5.py`](../caja_probetas_v5.py) directamente, sin pasar por Fusion: todas las mallas son cerradas. No los he abierto en Bambu Studio.
 
 **Una cosa que decides tú antes de imprimir.** La probeta del ascensor es la base, el tubo, la plataforma, el soporte y los pestillos de verdad. La del planetario necesita debajo el tubo (de la del ascensor) y la meseta con el marco (de la de puertas). **Entre las tres son la caja entera menos el cuerpo y la funda.** La decisión D-15 dice que no se imprime la caja completa sin medir antes el reloj. Si el reloj acaba midiendo lo supuesto, estas piezas valdrían como definitivas; si no, hay que repetirlas. Lo prudente es **imprimir primero solo la de puertas**, que es la que decide si este diseño te convence.
 
@@ -372,7 +426,7 @@ Qué se ajusta y con qué: el juego de las puertas, con `bola_holgura` (0,12); l
 
 ### Probeta 2: ascensor
 
-`caja-probeta-ascensor-base.3mf`, `caja-probeta-ascensor-tubo.3mf`, `caja-probeta-ascensor-plataforma.3mf` y, nuevo, `caja-probeta-ascensor-soporte-y-pestillos.3mf` (el soporte y los dos pestillos, en una bandeja). Se gira el tubo con la mano. El soporte lleva encima 150 g (o el reloj, si ya está montado).
+`caja-probeta-ascensor-base.3mf`, `caja-probeta-ascensor-tubo.3mf`, `caja-probeta-ascensor-plataforma.3mf` y, nuevo, `caja-probeta-ascensor-soporte-y-pestillos.3mf` (el soporte, tumbado, y los dos pestillos, en una bandeja). Se gira el tubo con la mano. El soporte lleva 150 g colgados del cojín (o el reloj, si ya está montado).
 
 | Prueba | Vale si |
 | --- | --- |
@@ -389,15 +443,16 @@ Y lo del soporte (D-34):
 | --- | --- |
 | Meter los pestillos en sus canales y moverlos con un dedo | Corren sin atascarse y no se salen hacia arriba |
 | Arriba del todo, sacar el soporte tirando hacia arriba, con dos dedos, 10 veces | Sale sin tener que soltar nada ni ayudar a los pestillos. **Apunta si hay que tirar fuerte** |
-| Arriba del todo, dejar caer el soporte en su cajeado, 10 veces | Baja hasta el fondo él solo, o con un toque. Mirando al revés no entra |
+| Arriba del todo, dejar caer el soporte en su cajeado, 10 veces | **Baja hasta el fondo él solo, las 10.** Si alguna se queda a medias, no vale: hay que dar más holgura al cajeado. Mirando al revés no entra |
 | Bajar la plataforma con el soporte puesto y, abajo, tirar del soporte hacia arriba y sacudir todo boca abajo | No sale y no se nota suelto. **Apunta si suena** |
 | Subir y bajar 20 veces con el soporte puesto | Los pestillos no se enganchan en las columnas ni se nota un punto duro al pasar por el rebaje |
 | Bajar sin el soporte, sacudir, y volver a subir | Los pestillos siguen en su sitio y el soporte vuelve a entrar |
-| **La trampa:** con la plataforma a media altura, poner el soporte | Se queda unos 3 mm alto. **Apunta si se nota a la vista.** Luego, al subir hasta el tope, baja a su sitio él solo. **Apunta si baja o hay que empujarlo** |
+| Con la plataforma a media altura, poner el soporte | Entra igual que arriba |
 | Los pestillos, después de todo | Las puntas no están mordidas |
 | El soporte en una mesa, con el reloj o 150 g, empujándolo con un dedo | No vuelca con un toque. **Apunta hacia dónde vuelca antes** |
+| Con el reloj de verdad: abrocharlo al cojín y sacudir el soporte | Entra por la punta con el cierre abierto, y cerrado no baila ni se sale. **Si baila, mide cuánto le sobra al brazalete** |
 
-Qué se ajusta y con qué: la pendiente, con `giro_arriba` y `giro_sube`; el juego de la plataforma, con `holg_desliza` (0,20). Lo del soporte no tiene parámetros todavía: el tamaño del pie (`px_`, `py_`), la holgura del cajeado (0,2), la de los pestillos (0,25) y el tramo libre (`PESTILLO_LIBRE`, 15 mm) están en [`../caja_piezas_v5.py`](../caja_piezas_v5.py), donde se hace la plataforma.
+Qué se ajusta y con qué: la pendiente, con `giro_arriba` y `giro_sube`; el juego de la plataforma, con `holg_desliza` (0,20). Lo del soporte no tiene parámetros todavía: el tamaño del pie (`px_`, `py_`), la holgura del cajeado (`hc_`, 0,3), la de los pestillos (0,25) y el tramo libre (`PESTILLO_LIBRE`, 69 mm) están en [`../caja_piezas_v5.py`](../caja_piezas_v5.py), donde se hace la plataforma.
 
 ### Probeta 3: planetario
 
@@ -424,6 +479,8 @@ Qué se ajusta y con qué: el juego, con `juego_dientes` (0,2); si los dientes d
 | Las comprobaciones | [`caja-fase1-comprobaciones.txt`](caja-fase1-comprobaciones.txt), [`caja-fase2-comprobaciones.txt`](caja-fase2-comprobaciones.txt) y [`caja-fusion-comprobaciones.txt`](caja-fusion-comprobaciones.txt) |
 | Los dibujos | [`../caja_render_v5.py`](../caja_render_v5.py) y [`../caja_figuras_v5.py`](../caja_figuras_v5.py) |
 | Las probetas | [`../probetas-v5/`](../probetas-v5/), escritas por [`../caja_probetas_v5.py`](../caja_probetas_v5.py) |
+| **Todas las piezas, para imprimir** | [`../imprimir-v5/`](../imprimir-v5/LEEME.md): doce bandejas y su guía. Las escribe el mismo programa |
+| La auditoría (montaje, impresión y holguras) | [`../caja_auditoria_v5.py`](../caja_auditoria_v5.py) y [`caja-auditoria.txt`](caja-auditoria.txt) |
 | Capas sin apoyo | [`../caja_voladizos_v5.py`](../caja_voladizos_v5.py) y [`caja-voladizos.txt`](caja-voladizos.txt) |
 | La revisión de la sesión del Mac | [`contra-reporte-caja.md`](contra-reporte-caja.md) y [`calculos-mac/revisar_caja_v5.py`](calculos-mac/revisar_caja_v5.py) |
 

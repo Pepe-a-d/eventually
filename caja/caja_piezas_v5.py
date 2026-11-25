@@ -21,7 +21,8 @@ import caja_diseno_v5 as D
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ROT = -1.0                      # sentido de giro del tubo al abrir (-1: a favor de las agujas del reloj)
-PESTILLO_LIBRE = 15.0      # mm del final de la subida en que los pestillos del soporte quedan libres: asi, quien pone el soporte sin abrir del todo no lo deja sin sujetar
+PESTILLO_LIBRE = 69.0      # mm del final de la subida en que los pestillos del soporte quedan libres. Solo sujetan con la plataforma abajo (los primeros 9 mm):
+                           # cerrada, que es cuando hace falta. Asi no se puede dejar el soporte mal puesto: con la caja abierta siempre entra y sale
 
 # ---------------------------------------------------------------- formas planas
 def pol(r, a):
@@ -232,7 +233,7 @@ def piezas():
     pasillo = unary_union([unary_union([g_, strans(g_, 0, 14.0)]).convex_hull for g_ in (varilla90, bola90)])   # lo que barren al subir 14 mm
     barrido_manivela = unary_union([capsula(-2.0 + (th_o + 4.0) * i / 96.0) for i in range(97)]).buffer(0.02).union(pasillo).buffer(0.03).simplify(0.004)
     for k in (0, 180):
-        me.prisma(giro2(barrido_cuerno, k), zm0 - 1, z_cuerno1 + 0.6, '-')
+        me.prisma(giro2(barrido_cuerno, k), zm0 - 1, z_cuerno1 + 1.0, '-')      # 1,0 de techo y no 0,6: ese techo se imprime en puente y puede descolgarse
     me.prisma(barrido_manivela, y_m0 - 0.35, y_m1 + 0.35, '-', eje='y')
     me.prisma(escala(barrido_manivela, xfact=-1, yfact=1, origin=(0, 0)), -y_m1 - 0.35, -y_m0 + 0.35, '-', eje='y')
     # cajas de las orejas del marco y ranuras de las llaves de la rueda central
@@ -247,7 +248,9 @@ def piezas():
     # ============ PASADORES ============
     y_pas = math.sqrt(R_c ** 2 - (xh + p['pasador_d'] / 2) ** 2) - 0.15
     for nombre, sx in (('pasador_derecho', 1), ('pasador_izquierdo', -1)):
-        nueva(nombre, nota='Se mete por un lado antes de poner la rueda central, que luego le tapa las dos puntas').cil((sx * xh, -y_pas, ze), (sx * xh, y_pas, ze), p['pasador_d'] / 2)
+        q_ = nueva(nombre, nota='Se mete por un lado antes de poner la rueda central, que luego le tapa las dos puntas. Una cara plana, para imprimirlo tumbado')
+        q_.cil((sx * xh, -y_pas, ze), (sx * xh, y_pas, ze), p['pasador_d'] / 2)
+        q_.prisma(box(sx * xh - 2.5, -y_pas - 1, sx * xh + 2.5, y_pas + 1), ze - p['pasador_d'] / 2 - 0.5, ze - p['pasador_d'] / 2 + 0.2, '-')      # cara plana de 1,5 mm de ancho. Al montar, hacia abajo: asi no da juego de lado a la puerta
     d2['pasador_largo'] = 2 * y_pas
 
     # ============ RUEDA CENTRAL con su placa de arriba (esqueleto) ============
@@ -303,8 +306,8 @@ def piezas():
     # tope: una oreja por fuera, abajo
     a_tope = 45.0; a_oreja0 = a_tope - 7.5                       # en una esquina del cuerpo, que es donde hay sitio
     r_or1 = d['tubo_r_ext'] + 5.3; r_im = d['tubo_r_ext'] + 0.3      # la oreja pasa a 0,6 mm de la pared del cuerpo en el centro de cada lado
-    tu.prisma(sector(d['tubo_r_ext'] - 0.5, r_or1, a_oreja0 - 3.5, a_oreja0 + 3.5), z_t0 + 8.5, z_t0 + 15.5)
-    tu.revol([(d['tubo_r_ext'] - 0.5, z_t0 + 2.7), (d['tubo_r_ext'] - 0.5, z_t0 + 8.51), (r_or1, z_t0 + 8.51)], a_oreja0 - 3.5, a_oreja0 + 3.5)   # cartela a 45 grados: la oreja se imprime sin soportes
+    # oreja y cartela a 45 grados en un solo perfil: se imprime sin soportes (en dos piezas, oreja y cartela, quedaba entre ellas una rebaba de una centesima)
+    tu.revol([(d['tubo_r_ext'] - 0.5, z_t0 + 2.7), (r_or1, z_t0 + 8.5), (r_or1, z_t0 + 15.5), (d['tubo_r_ext'] - 0.5, z_t0 + 15.5)], a_oreja0 - 3.5, a_oreja0 + 3.5)
     gi = math.degrees((0.7 + 0.875) / (d['tubo_r_ext'] + 2.8))     # del centro de la ranura del iman a la cara del tope
     ranura_iman = lambda a: giro2(box(r_im, -0.875, r_or1 + 2, 0.875), a)      # el iman (5 x 1,6) entra de canto, desde fuera
     z_im0 = z_t0 + 9.4
@@ -328,11 +331,17 @@ def piezas():
     for af in ang_teton:
         a_ini, a_sub, a_arr, a_fin = [af - ROT * x for x in (-3.0, p['giro_sube'], p['giro_arriba'], p['giro_tubo'] + 3.0)]
         tu.revol([(r, zc0 + z) for r, z in perfil_v], a_ini, a_sub, '-')                       # tramo plano de abajo
-        tu.revol([(r, zc0 + d['recorrido'] + z) for r, z in perfil_v], a_arr, a_fin, '-')     # tramo plano de arriba
+        tu.revol([(r, zc0 + d['recorrido'] + z) for r, z in perfil_v], a_arr - sgn * 0.5, a_fin, '-')     # tramo plano de arriba (empieza medio grado antes: su cara no coincide con el final de la helice)
         # helice: la V, vista en planta, es una cuna de angulos; sube girando. Sus flancos son curvos (lineales en radio y angulo): con lados rectos se metia 0,16 mm
         centro0 = a_sub - sgn * hv0 / k_h                        # cuando el barrido empieza (media altura por debajo), el centro va medio ancho por detras
         cuna_h = Polygon([pol(r, centro0 - media_altura(max(r, r1)) / k_h) for r in radios] + [pol(r, centro0 + media_altura(max(r, r1)) / k_h) for r in reversed(radios)])
         tu.helice(cuna_h, zc0 - hv0, zc0 + d['recorrido'] + hv0, sgn * (d['recorrido'] + 2 * hv0) / k_h, '-')
+        # El barrido de la helice acaba arriba en una tapa plana: por encima del techo a 45 grados del tramo plano quedaba un cajeado de techo
+        # plano, 2,5 mm al aire justo donde descansa el teton (auditoria del 25-nov). Se rellena esa cuna: el teton, que es un cono, nunca la ocupa.
+        zt_ = zc0 + d['recorrido']; pte_ = (hv0 - hv1) / (r2 + 0.1 - r1)
+        techo = lambda r: zt_ + hv0 + 0.05 - (min(r, r2 + 0.1) - r1) * pte_ - 0.02
+        relleno = [(r1 + 0.3, techo(r1 + 0.3)), (r2 + 0.1, techo(r2 + 0.1)), (r2 + 0.6, techo(r2 + 0.1)), (r2 + 0.6, zt_ + hv0 + 0.4), (r1 + 0.3, zt_ + hv0 + 0.4)]     # empieza 0,3 mm dentro de la pared: en el borde, techo y tapa se cruzan limpios
+        tu.revol(relleno, a_arr - sgn * 1.0, a_arr + sgn * (2 * hv0 / k_h + 1.5))
         # entrada: por donde suben los tetones al meter el tubo desde arriba (queda debajo del teton con la caja cerrada)
         tu.prisma(sector(r0, r2, af - 2.7, af + 2.7), z_t0 - 0.01, zc0, '-')
     d2['zc0'] = zc0
@@ -347,8 +356,9 @@ def piezas():
     pf.prisma(disco_p, z_d0, z_d1)
     for a in ang_teton:
         c0, c1, c2 = pol(R_disco - 3.0, a), pol(p['tubo_r'], a), pol(p['tubo_r'] + p['rampa_fondo'] - 0.4, a)
-        pf.cil((c0[0], c0[1], zc0), (c1[0], c1[1], zc0), rt_)
-        pf.cono((c1[0], c1[1], zc0), (c2[0], c2[1], zc0), rt_, rt_ - (p['rampa_fondo'] - 0.4))
+        # dos centesimas menos de radio que medio disco: asi el teton no queda tangente a las caras del disco (una arista de grueso cero en la malla)
+        pf.cil((c0[0], c0[1], zc0), (c1[0], c1[1], zc0), rt_ - 0.02)
+        pf.cono((c1[0], c1[1], zc0), (c2[0], c2[1], zc0), rt_ - 0.05, rt_ - 0.05 - (p['rampa_fondo'] - 0.4))      # el cono nace 3 centesimas mas fino que el cilindro: un escalon limpio en vez de dos bordes que coinciden
     ped = box(-hx + p['pedestal_holgura'], -hy + p['pedestal_holgura'], hx - p['pedestal_holgura'], hy - p['pedestal_holgura'])
     pf.prisma(ped, z_d1 - 0.01, z_d1 + d['pedestal_alto'])
     # D-34: el soporte entra en un cajeado del pedestal que baja hasta dentro del disco, y dos pestillos lo cogen por el pie.
@@ -358,43 +368,61 @@ def piezas():
     z_pf = z_d1 - 3.7                                           # suelo del cajeado, dentro del disco
     zl0, zl1 = z_d1 - 3.3, z_d1 - 0.3                           # el pestillo, de abajo a arriba
     r_col = rc_ - 3.85                                          # cara de dentro de las columnas
-    pf.prisma(box(-px_ - 0.2, -py_ - 0.2, px_ + 0.2, py_ + 0.2), z_pf, z_p + 1, '-')
+    hc_ = 0.3                                                   # holgura del cajeado, por lado: el soporte tiene que bajar hasta el fondo por su peso (con 0,2 pasa «sin forzar», que no es lo mismo)
+    pf.prisma(box(-px_ - hc_, -py_ - hc_, px_ + hc_, py_ + hc_), z_pf, z_p + 1, '-')
     pf.prisma(box(-3.3, py_ + 0.1, 3.3, py_ + 1.9), z_pf, z_p + 1, '-')                       # ranura de la llave: el soporte solo entra mirando al frente
     canal = Polygon([(-5.0, z_d1 - 3.5), (5.0, z_d1 - 3.5), (4.0, z_d1 + 0.01), (-4.0, z_d1 + 0.01)])
     x_tope = px_ + 3.8                                          # hasta aqui llega el canal ancho: la barra del pestillo hace tope y no puede meterse en el cajeado vacio
     paso = box(-3.2, z_d1 - 3.5, 3.2, z_d1 - 0.1)               # de ahi al cajeado solo pasa la nariz
-    pf.prisma(canal, x_tope, r_col + 4.0, '-', eje='x'); pf.prisma(canal, -r_col - 4.0, -x_tope, '-', eje='x')
+    # el canal sale hasta el borde del disco: por ahi se mete el pestillo al montar (auditoria del 25-nov: con el canal cerrado a 0,75 mm del borde no entraba)
+    pf.prisma(canal, x_tope, R_disco + 1.0, '-', eje='x'); pf.prisma(canal, -R_disco - 1.0, -x_tope, '-', eje='x')
     pf.prisma(paso, px_ - 0.1, x_tope + 0.1, '-', eje='x'); pf.prisma(paso, -x_tope - 0.1, -px_ + 0.1, '-', eje='x')
     pf.cil((0, 12, z_pf - 1.8), (0, 12, z_pf + 0.01), 2.6, '-')                               # iman del soporte, en el suelo del cajeado
 
     # ============ RELOJ DE PEGA con su soporte (supuesto) ============
-    so = nueva('soporte', mueve='plataforma', nota='Pie alto que entra en el cajeado del pedestal, zocalo y pinza simplificada. Se imprime en blanco, como el pedestal')
+    so = nueva('soporte', mueve='plataforma', nota='Pie alto que entra en el cajeado del pedestal, zocalo y un cojin ovalado al que el reloj va abrochado (D-35). En blanco, como el pedestal. Se imprime tumbado sobre su costado derecho')
     so.prisma(box(-px_, -py_, px_, py_), z_pf, z_p)                          # pie: baja por el cajeado hasta dentro del disco y queda a ras del pedestal
-    so.prisma(box(-17.0, -20.0, 17.0, 20.0), z_p - 0.4, z_p + 4.0)           # zocalo: lo que asoma sobre el pedestal, como antes (pasa a 3 mm o mas del marco)
-    so.prisma(box(-3.0, py_ - 0.01, 3.0, py_ + 1.5), z_pf, z_p)             # llave, detras
+    so.prisma(box(-px_, -20.0, px_, 20.0), z_p - 0.4, z_p + 4.0)             # zocalo: lo que asoma sobre el pedestal. Tan ancho como el pie, para que tumbado todo nazca en la cama
+    so.prisma(Polygon([(-3.0, py_ - 0.01), (3.0, py_ - 0.01), (1.5, py_ + 1.5), (-3.0, py_ + 1.5)]), z_pf, z_p)   # llave, detras; con un lado a 45 grados: tumbado se imprime sin voladizo
     so.cil((0, 12, z_pf - 0.01), (0, 12, z_pf + 1.8), 2.6, '-')             # iman, por debajo
-    # el pestillo de la derecha, metido: nariz en cuna (dos chaflanes a 45 grados) y barra en cola de milano
+    # El pestillo de la derecha, metido. Nariz en cuna de un solo lado: plana por arriba y a 45 grados por abajo, a todo lo que entra en el pie (2 mm).
+    # Debajo de esa cara, el pie tiene un hombro macizo (su arista, de 90 grados): es lo que sujeta el soporte. Para soltarlo, el pestillo
+    # tiene que retirarse 1,15 mm, y la columna solo le deja 0,25. (Hasta la revision del 25-nov la nariz era simetrica y lo que sujetaba era un
+    # labio en filo de 0,2 a 0,5 mm de grueso, con 0,9 mm de agarre: demasiado poco para lo unico que retiene el reloj boca abajo.)
     zm_ = (zl0 + zl1) / 2; x_nar = px_ - 2.0; x_fin = r_col - 0.25
-    nariz = Polygon([(x_nar, zm_ - 0.5), (x_nar, zm_ + 0.5), (x_nar + 1.0, zl1), (px_ + 5.0, zl1), (px_ + 5.0, zl0), (x_nar + 1.0, zl0)])
-    muesca = unary_union([nariz.buffer(0.2, join_style=2), box(x_nar + 0.8, zl0 - 0.2, px_ + 0.1, zl1 + 0.2)])
-    entrada = Polygon([(px_ + 0.01, z_pf - 0.01), (px_ + 0.01, z_pf + 1.3), (px_ - 1.3, z_pf - 0.01)])     # chaflan de abajo: al meter el soporte, aparta el pestillo
+    nariz = Polygon([(x_nar, zl1 - 0.6), (x_nar, zl1 - 0.3), (x_nar + 0.3, zl1), (px_ + 5.0, zl1), (px_ + 5.0, zl0), (x_nar + 2.4, zl0)])
+    muesca = nariz.buffer(0.2, join_style=2).intersection(box(x_nar - 1.0, zl0 - 0.2, px_ + 0.1, zl1 + 0.2))
+    entrada = Polygon([(px_ + 0.01, z_pf - 0.01), (px_ + 0.01, z_pf + 2.3), (px_ - 2.3, z_pf - 0.01)])     # chaflan de abajo, mayor que lo que entra la nariz: al meter el soporte, aparta el pestillo
     for sg in (1, -1):
         so.prisma(escala(muesca, xfact=sg, yfact=1, origin=(0, 0)), -3.4, 3.4, '-', eje='y')
         so.prisma(escala(entrada, xfact=sg, yfact=1, origin=(0, 0)), -py_ - 0.1, py_ + 0.1, '-', eje='y')
+        so.prisma(Polygon([(sg * (py_ + 0.01), z_pf - 0.01), (sg * (py_ + 0.01), z_pf + 0.8), (sg * (py_ - 0.8), z_pf - 0.01)]), -px_ - 0.1, px_ + 0.1, '-', eje='x')   # chaflan de abajo tambien delante y detras: entra sin tropezar
     pt_ = Pieza('aux')
     pt_.prisma(Polygon([(-4.75, zl0), (4.75, zl0), (3.75, zl1), (-3.75, zl1)]), px_ + 4.0, x_fin, eje='x')
     pt_.prisma(nariz, -3.0, 3.0, eje='y')
     pt_.prisma(Polygon([(x_fin + 0.01, zl0 - 0.01), (x_fin - 0.5, zl0 - 0.01), (x_fin + 0.01, zl0 + 0.5)]), -6, 6, '-', eje='y')      # canto de fuera, por abajo: resbala en la rampa de la columna
+    pt_.prisma(box(x_fin - 1.0, -6.0, x_fin + 1.0, 6.0).difference(disco(x_fin, n=720)), zl0 - 0.5, zl1 + 0.5, '-')                   # punta de fuera en arco, como la columna: 0,25 de holgura en todo el ancho (recta, las esquinas quedaban a 0,09)
     nueva('pestillo_derecho', mueve='pestillo:0', nota='Sujeta el soporte por el pie. La columna de la base lo mantiene metido; arriba del todo, una muesca lo deja salir').ops = pt_.ops
     nueva('pestillo_izquierdo', mueve='pestillo:180', nota='Igual que el derecho, girado media vuelta').ops = gira_ops(pt_.ops, 180.0)
     dx_r = -(p['reloj_con_corona'] - p['reloj_cabeza_d']) / 2      # el reloj va centrado contando la corona
-    so.prisma(box(dx_r - 14.5, -3, dx_r + 14.5, 3), z_p + 3.99, z_p + 19.0)   # travesano: pasa por dentro del brazalete
     re = nueva('reloj_de_pega', color='gris', mueve='plataforma', nota='Medidas SUPUESTAS del apartado 5 del brief')
     z_br0 = z_p + p['reloj_alto'] - p['brazalete_alto']
     ovalo = lambda e: Polygon([(p['brazalete_fondo'] / 2 * e * math.cos(2 * math.pi * i / 72), z_br0 + p['brazalete_alto'] / 2 + (p['brazalete_alto'] / 2 - (1 - e) * p['brazalete_fondo'] / 2) * math.sin(2 * math.pi * i / 72)) for i in range(72)])
     re.prisma(ovalo(1.0).difference(ovalo(0.86)), dx_r - 11, dx_r + 11, eje='x')        # brazalete: un ovalo de pie, de 22 de ancho
-    so.prisma(ovalo(1.0).buffer(0.4).difference(ovalo(0.86).buffer(-0.4)), dx_r - 11.6, dx_r + 11.6, '-', eje='x')   # el soporte deja paso al brazalete; las dos mejillas de los lados unen el travesano a la peana
     z_cab = z_br0 + p['brazalete_alto'] / 2
+    # D-35: un soporte corriente. El reloj va abrochado a un cojin ovalado que llena el brazalete cerrado. El brazalete es un lazo que no se abre
+    # del todo (cierre de pliegue), asi que el cojin tiene que tener una punta libre para meterlo por ella: va en voladizo desde una placa, a la derecha.
+    x_b0, x_b1 = dx_r - 11.6, dx_r + 11.6                          # sitio del brazalete, con holgura
+    frente = -p['brazalete_fondo'] / 2 + p['reloj_grueso'] + 0.5   # cara plana del cojin: justo detras de la tapa del reloj
+    detras = box(frente, z_p, 200, z_p + 300)
+    cojin = ovalo(0.86).buffer(-0.4).intersection(detras)          # el hueco del brazalete, con 0,4 de holgura
+    x_pl = x_b1 + 0.65                                             # cara de la placa
+    placa = unary_union([cojin.buffer(1.5), box(-12.0, z_p + 3.6, 12.0, z_cab)]).intersection(detras)
+    so.prisma(placa, x_pl, px_, eje='x')                           # placa y cuello: unen el cojin al zocalo y hacen de tope por la derecha
+    so.prisma(cojin, x_b0 - 1.4, x_pl + 0.4, eje='x')              # el cojin
+    so.prisma(cojin.buffer(0.5).intersection(detras), x_b0 - 0.6, x_b0, eje='x')          # reborde de la punta, en dos escalones: el brazalete abrochado no se sale
+    so.prisma(cojin.buffer(1.0).intersection(detras), x_b0 - 1.4, x_b0 - 0.6, eje='x')
+    so.prisma(cojin.buffer(-3.0), x_b0 - 1.5, x_pl + 4.0, '-', eje='x')                  # hueco por dentro: pesa menos arriba
     re.cil((dx_r, -p['brazalete_fondo'] / 2 - 0.0, z_cab), (dx_r, -p['brazalete_fondo'] / 2 + p['reloj_grueso'], z_cab), p['reloj_cabeza_d'] / 2)
     re.cil((dx_r + p['reloj_cabeza_d'] / 2 - 0.5, -p['brazalete_fondo'] / 2 + p['reloj_grueso'] / 2, z_cab), (dx_r + p['reloj_con_corona'] - p['reloj_cabeza_d'] / 2, -p['brazalete_fondo'] / 2 + p['reloj_grueso'] / 2, z_cab), 3.0)
 
@@ -424,10 +452,11 @@ def piezas():
     # D-34: en los ultimos milimetros de subida, cada columna de los lados tiene un alivio de 2,9 mm donde el pestillo puede salir; por debajo, una rampa a 45 grados
     # lo vuelve a meter en cuanto la plataforma empieza a bajar
     zr1 = zl0 + d['recorrido'] - 0.3 - PESTILLO_LIBRE          # el alivio empieza PESTILLO_LIBRE mm antes del final de la subida
-    rampa_c = Polygon([(r_col - 0.4, zr1 - 3.3), (r_col + 2.9, zr1 + 0.01), (r_col - 0.4, zr1 + 0.01)])
+    # alivio y rampa en un solo perfil (en X-Z), cortado a lo largo de Y. 5,6 de medio ancho: el pestillo (4,75) con su juego de lado (0,25) entra sin rozar.
+    # Sube a traves de la espiga: sin repisa. (En dos cortes, alivio y rampa, quedaba entre ellos una rebaba de una centesima.)
+    alivio = Polygon([(r_col - 0.4, zr1 - 3.3), (r_col + 2.9, zr1), (r_col + 2.9, d['z_ala0'] + 2.75), (r_col - 0.4, d['z_ala0'] + 2.75)])
     for sg in (1, -1):
-        ba.prisma(box(min(sg * (r_col - 0.4), sg * (r_col + 2.9)), -4.8, max(sg * (r_col - 0.4), sg * (r_col + 2.9)), 4.8), zr1, d['z_ala0'] + 0.01, '-')
-        ba.prisma(escala(rampa_c, xfact=sg, yfact=1, origin=(0, 0)), -4.8, 4.8, '-', eje='y')
+        ba.prisma(escala(alivio, xfact=sg, yfact=1, origin=(0, 0)), -5.6, 5.6, '-', eje='y')
     ba.prisma(corona(d['tubo_r_ext'] + hg + 0.1, d['tubo_r_ext'] + 2.6), d['z_suelo'] - 0.01, d['z_suelo'] + 2.8)     # aro que centra el tubo por fuera
     ba.prisma(sector(d['tubo_r_ext'] + 0.6, r_or1 + 0.4, a_tope - 4, a_tope + 4), d['z_suelo'] - 0.01, d['z_suelo'] + 16.5)   # tope del tubo
     for sg in (1, -1):
@@ -441,8 +470,14 @@ def piezas():
 
     # cuatro pestillos; el del frente es mas ancho, para que el cuerpo solo entre con el indice al frente
     lat = lambda e=0.0, sal=1.0: unary_union([giro2(box(pared_in - hf - 0.01, -w_ - e, pared_in - hf + sal + e, w_ + e), a) for a, w_ in ((0, 6), (90, 6), (180, 6), (270, 10))])
-    ba.prisma(lat(sal=1.0), d['z_suelo'] + 2.2, d['z_suelo'] + 3.4)       # cuatro pestillos: el cuerpo entra a presion y hace clic
-    ba.prisma(lat(sal=0.5), d['z_suelo'] + 3.4, d['z_suelo'] + 4.0)
+    # cuatro pestanas en cuna (45 grados por abajo y por arriba): el cuerpo entra a presion resbalando por ellas, hace clic, y sale haciendo palanca.
+    # Por abajo a 45 grados se imprimen sin soportes. (Antes eran dos escalones rectos: el canto del cuerpo tropezaba en plano.)
+    zs_ = d['z_suelo']; x0_ = pared_in - hf
+    cuna_p = Polygon([(x0_ - 0.4, zs_ + 2.2), (x0_, zs_ + 2.2), (x0_ + 1.0, zs_ + 3.2), (x0_, zs_ + 4.3), (x0_ - 0.4, zs_ + 4.3)])
+    for sg in (1, -1):
+        ba.prisma(escala(cuna_p, xfact=sg, yfact=1, origin=(0, 0)), -6.0, 6.0, eje='y')
+    ba.prisma(cuna_p, -6.0, 6.0, eje='x')                                 # detras (el poligono, en Y-Z)
+    ba.prisma(escala(cuna_p, xfact=-1, yfact=1, origin=(0, 0)), -10.0, 10.0, eje='x')   # al frente, mas ancha: el cuerpo solo entra con el indice al frente
 
     # ============ CUERPO ============
     cu = nueva('cuerpo', nota='Piel cuadrada. Se imprime boca abajo; el bisel se mete por debajo antes de montarlo')
@@ -450,6 +485,10 @@ def piezas():
     cu.prisma(box(-L, -L, L, L).difference(disco(d['bisel_r_ext'] + 0.4, n=300)), d['z_cuerpo_arriba'] - 3.0, d['z_cuerpo_arriba'])
     cu.prisma(box(-1.0, -L - 0.6, 1.0, -L + 0.01), d['z_cuerpo_arriba'] - 9.0, d['z_cuerpo_arriba'] - 1.5)      # indice del frente, en relieve
     cu.prisma(lat(e=0.3, sal=1.0), d['z_suelo'] + 1.9, d['z_suelo'] + 4.4, '-')                                  # cajeras de los pestillos
+    canto_c = Polygon([(pared_in - 0.01, d['z_suelo'] - 0.01), (pared_in + 0.8, d['z_suelo'] - 0.01), (pared_in - 0.01, d['z_suelo'] + 0.8)])   # chaflan del canto de dentro, abajo: entra en las pestanas sin tropezar
+    for sg in (1, -1):
+        cu.prisma(escala(canto_c, xfact=sg, yfact=1, origin=(0, 0)), -pared_in, pared_in, '-', eje='y')
+        cu.prisma(escala(canto_c, xfact=sg, yfact=1, origin=(0, 0)), -pared_in, pared_in, '-', eje='x')
     # llave del cuerpo: un taco en la base, al frente y escondido en el grueso de la pared; el cuerpo tiene su caja solo ahi. Girado, no asienta
     ba.prisma(box(-9.0, -pared_in - 1.6, 9.0, -pared_in + hf), d['z_suelo'] - 0.01, d['z_suelo'] + 4.0)
     cu.prisma(box(-9.3, -pared_in - 1.9, 9.3, -pared_in + 0.01), d['z_suelo'] - 0.01, d['z_suelo'] + 4.3, '-')
@@ -582,7 +621,7 @@ def mover(S, nombre, mueve, p, d, tau):
     if mueve == 'tubo': return S.rotate([0, 0, ROT * tau])
     if mueve == 'bisel': return S.rotate([0, 0, ROT * tau / d['relacion']])
     if mueve == 'plataforma': return S.translate([0, 0, h])
-    if mueve.startswith('pestillo'):                              # sube con la plataforma; en los ultimos 3 mm la columna le deja salir 2,7
+    if mueve.startswith('pestillo'):                              # sube con la plataforma; pasado el tramo de abajo, la columna le deja salir 2,7
         a = math.radians(float(mueve.split(':')[1])); q = min(2.7, max(0.0, h - d['recorrido'] + PESTILLO_LIBRE + 3.2))
         return S.translate([q * math.cos(a), q * math.sin(a), h])
     if mueve == 'aro': return S.rotate([0, 0, p['aro_sentido'] * psi])
@@ -646,16 +685,16 @@ def comprueba(paso=2.0, escribe=True):
     def choca(a, b): return (a ^ b).volume()
     G = p['giro_tubo']
     def juego(sx, desde, signo, contra):                           # cuantos grados se deja mover la puerta antes de tocar lo que la sujeta
-        for i in range(1, 41):
+        for i in range(1, 41):                                     # devuelve el ultimo paso que todavia no toca (umbral de 0,0005 mm3, como la revision de la sesion del Mac)
             dl = 0.25 * i
-            if sum(choca(puerta(sx, desde + signo * dl), c) for c in contra) > 0.02: return dl
+            if sum(choca(puerta(sx, desde + signo * dl), c) for c in contra) > 0.0005: return dl - 0.25
         return 99.0
     a0, aG = puesta('aro_puertas', 0), puesta('aro_puertas', G); TH = p['puerta_abierta']
     j1 = max(juego(1, 0.0, 1, [a0]), juego(-1, 0.0, 1, [a0]))
     linea(j1 <= 5.0, 'cerradas y bloqueadas: con el aro quieto, una puerta solo se deja levantar %.2f grados (%.1f mm en la punta) antes de chocar con su pista' % (j1, math.radians(j1) * (d['eje_x'] - p['junta'] / 2)))
     j2 = max(juego(1, TH, -1, [aG]), juego(-1, TH, -1, [aG]))
     j3 = max(juego(1, TH, 1, [aG, S['meseta']]), juego(-1, TH, 1, [aG, S['meseta']]))
-    linea(j2 <= 5.0 and j3 <= 5.0, 'abiertas y bloqueadas: una puerta abierta solo se deja mover %.2f grados hacia dentro y %.2f hacia fuera (queda entre %.1f y %.1f grados)' % (j2, j3, TH - j2, TH + j3))
+    linea(TH - j2 >= 85.0 and TH + j3 <= 95.0, 'abiertas y bloqueadas, con el aro en su sitio: una puerta abierta se deja mover %.2f grados hacia dentro y %.2f hacia fuera sin tocar nada: queda entre %.2f y %.2f grados (el brief pide entre 85 y 95)' % (j2, j3, TH - j2, TH + j3))
     def de_pie(sx, h_):                                            # la puerta de pie (90 grados), h_ mm por encima de su sitio
         n = 'puerta_derecha' if sx > 0 else 'puerta_izquierda'
         return S[n].translate([-sx * d['eje_x'], 0, -d['eje_z']]).rotate([0, sx * TH, 0]).translate([sx * d['eje_x'], 0, d['eje_z'] + h_])
@@ -731,12 +770,32 @@ def comprueba(paso=2.0, escribe=True):
         for i in range(1, 41):
             if sum(choca(sp.translate([0, 0, 0.1 * i]), r_) for r_ in rs) > 0.05: return 0.1 * (i - 1)
         return 4.0
-    s1, s2, c1, c2 = sale(5.0), sale(PESTILLO_LIBRE), cogido(PESTILLO_LIBRE + 4.0), cogido(d['recorrido'] / 2)
-    linea(max(s1, s2) < 0.05 and max(c1, c2) <= 1.0, 'el soporte queda libre en los ultimos %.0f mm de subida y sujeto por debajo: a 5 y a %.0f mm del final sale sin pisar nada (%.3f y %.3f mm3); a %.0f mm del final y a media altura solo se deja levantar %.1f y %.1f mm' % (PESTILLO_LIBRE, PESTILLO_LIBRE, s1, s2, PESTILLO_LIBRE + 4.0, c1, c2))
+    s1, s2, s3, c1 = sale(5.0), sale(d['recorrido'] / 2), sale(PESTILLO_LIBRE), cogido(PESTILLO_LIBRE + 4.0)
+    linea(max(s1, s2, s3) < 0.05 and c1 <= 1.0, 'el soporte queda sujeto solo con la plataforma abajo (sus primeros %.0f mm) y libre de ahi arriba: a 5 mm del final, a media altura y a %.0f mm del suelo sale sin pisar nada (%.3f, %.3f y %.3f mm3); a %.0f mm del suelo solo se deja levantar %.1f mm' % (d['recorrido'] - PESTILLO_LIBRE - 3.2, d['recorrido'] - PESTILLO_LIBRE, s1, s2, s3, d['recorrido'] - PESTILLO_LIBRE - 4.0, c1))
     def metido(n, t):                                              # el pestillo, en el tramo libre, sin salir (puede estar de las dos maneras)
         s_, psi_, ang_, h_ = D.movimiento(p, d, t); return S[n].translate([0, 0, h_])
-    v1 = max(choca(metido(n, tau_de(hq)), puesta(m_, tau_de(hq))) for hq in (0.0, 5.0, 10.0, PESTILLO_LIBRE) for n in ('pestillo_derecho', 'pestillo_izquierdo') for m_ in ('plataforma', 'base', 'tubo', 'soporte'))
+    v1 = max(choca(metido(n, tau_de(hq)), puesta(m_, tau_de(hq))) for hq in (0.0, 20.0, 45.0, PESTILLO_LIBRE) for n in ('pestillo_derecho', 'pestillo_izquierdo') for m_ in ('plataforma', 'base', 'tubo', 'soporte'))
     linea(v1 < 0.05, 'en el tramo libre los pestillos pueden estar metidos o salidos: metidos tampoco pisan nada (%.3f mm3)' % v1)
+    # el soporte y sus pestillos, libres (caja abierta): al tirar del soporte, el propio soporte tiene que poder apartar los pestillos, y al meterlo tambien
+    def libre_(t_, q_): return choca(S['soporte'].translate([0, 0, t_]), S['pestillo_derecho'].translate([q_, 0, 0])) < 0.001 and choca(S['soporte'].translate([0, 0, t_]), S['pestillo_izquierdo'].translate([-q_, 0, 0])) < 0.001
+    def camino_(ts):
+        q_ = 0.0; pend = 0.0
+        for k_, t_ in enumerate(ts):
+            q0 = q_
+            while q_ <= 2.7 + 1e-9 and not libre_(t_, q_): q_ += 0.025
+            if q_ > 2.7 + 1e-9: return None, None
+            if k_: pend = max(pend, (q_ - q0) / abs(ts[k_] - ts[k_ - 1]))
+        return q_, pend
+    qs, ps = camino_([0.05 * i for i in range(0, 81)]); qm, pm = camino_([4.0 - 0.05 * i for i in range(0, 81)])
+    linea(qs is not None and qm is not None and qs >= 1.0 and max(ps, pm) <= 1.01, 'con la caja abierta, el soporte aparta el solo los pestillos: al sacarlo los retira %.2f mm y al meterlo %.2f, siempre a 45 grados o menos (pendiente %.2f). Con la caja cerrada la columna solo les deja %.2f: el hombro que sujeta el soporte agarra %.2f mm' % (qs or 0, qm or 0, max(ps or 9, pm or 9), 0.25, (qs or 0) - 0.25))
+    # D-35: el reloj, abrochado al cojin del soporte
+    v0 = choca(S['reloj_de_pega'], S['soporte'])
+    def suelto(v):
+        for i in range(1, 41):
+            if choca(S['reloj_de_pega'].translate([v[0] * 0.1 * i, v[1] * 0.1 * i, v[2] * 0.1 * i]), S['soporte']) > 0.05: return 0.1 * (i - 1)
+        return 4.0
+    mr = {k: suelto(v) for k, v in (('arriba', (0, 0, 1)), ('abajo', (0, 0, -1)), ('delante', (0, -1, 0)), ('detras', (0, 1, 0)), ('derecha', (1, 0, 0)), ('izquierda', (-1, 0, 0)))}
+    linea(v0 < 0.02 and max(mr[k] for k in ('arriba', 'abajo', 'detras', 'derecha', 'izquierda')) <= 1.5, 'el reloj de pega, abrochado al cojin, no pisa el soporte (%.3f mm3) y solo se deja mover: ' % v0 + '; '.join('%s %.1f' % kv for kv in mr.items()) + ' (hacia delante lo sujeta el brazalete, que en el modelo es rigido)')
     planos = {n: S[n].bounding_box()[5] for n in ('puerta_derecha', 'puerta_izquierda', 'meseta', 'rueda_central', 'bisel')}
     zp_arriba = puesta('plataforma', G).bounding_box()[5]
     zp_arriba = puesta('plataforma', G).bounding_box()[5]

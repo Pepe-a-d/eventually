@@ -343,5 +343,30 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
   - Dos pestillos, a derecha e izquierda. Para eso, dos de las tres columnas de la base pasan a 0° y 180° (la tercera sigue en 262°).
   - El pie del soporte mide 42 × 50 mm, más que la peana de antes: con el pie alto el reloj queda 22 mm más arriba en la mesilla y volcaba antes (calculado; el encargo permitía la base «casi tan grande como el pedestal»).
   - Los pestillos tienen un tope hacia dentro: sin él podían meterse en el cajeado vacío al mover la caja sin el soporte.
-  - **El soporte queda libre en los últimos 15 mm de subida, no solo arriba del todo.** Motivo: si se pone el soporte con los pestillos metidos, se queda apoyado en ellos, 3,1 mm alto y sin sujetar, y cerrada las puertas quedan justo sobre el reloj (del modelo). Con 15 mm, para que pase hay que dejar el bisel a más de un cuarto de vuelta del tope. La trampa se achica, no desaparece.
+  - **Los pestillos solo sujetan el soporte con la plataforma abajo (sus primeros 9 mm de subida); de 12 mm para arriba está libre.** El encargo decía «mientras la caja no esté abierta del todo». Motivo: si se ponía el soporte con los pestillos metidos, se quedaba apoyado en ellos, 3,1 mm alto y sin sujetar, y cerrada las puertas quedaban justo sobre el reloj (del modelo). Sujetarlo hace falta con la caja cerrada, que es cuando viaja; abierta, así el soporte siempre entra y siempre sale. A media mañana lo dejé en «libre los últimos 15 mm»; en la revisión (D-36) lo cambié a esto.
 - **Estado:** Activa. **Modelada el 25-nov; nada impreso.** `caja/reporte-v5/calculos-mac/revisar_caja_v5.py` da ningún fallo. Falta que Pepe mire el dibujo del suelo hundido (`caja/reporte-v5/caja-reloj-arriba.png`) y la revisión a fondo de la sesión del Mac. Que el soporte no vuelque en la mesilla está solo calculado.
+
+### D-35. Un soporte normal: el reloj va abrochado
+- **Fecha:** 25-nov-2026, 08:55.
+- **Quién decide:** Pepe. Sus palabras, al ver el dibujo del reloj arriba: «El soporte del reloj es raro, haz un soporte normal en el que vaya abrochado y ya».
+- **Decisión:** el soporte deja de ser un travesaño entre dos mejillas. Es **un cojín ovalado que llena el brazalete cerrado: el reloj se abrocha a él.**
+- **Cómo lo entendió la sesión del PC** (Pepe no lo ha confirmado): que cambia lo de arriba del soporte, lo que se ve y se toca. **El pie y los pestillos de debajo (D-34) se quedan.** Si «y ya» quería decir también quitar los pestillos, hay que decirlo.
+- **Qué llevó a ella:** a Pepe el soporte del dibujo le pareció raro. Además tenía un fallo que nadie había visto: estaba cerrado por los dos lados, y un brazalete de metal con cierre de pliegue es un lazo que no se abre del todo. No se habría podido poner el reloj.
+- **Cómo quedó modelado** (lo eligió la sesión del PC):
+  - Cojín hueco de 37 × 59 mm y 24 de largo, con 0,4 mm de holgura dentro del brazalete supuesto. Plano por delante, donde apoya la tapa del reloj.
+  - Cogido por un solo lado (una placa a la derecha, con un cuello hasta el zócalo) y con la otra punta libre, para meter el brazalete por ella. Un reborde de 1 mm en la punta.
+  - De una pieza con el pie. Se imprime tumbado sobre su costado, sin soportes.
+- **Qué se descartó:** un cojín suelto que se encaja en una peana (como la pinza en C de la v3): boca abajo habría que sujetarlo otra vez. Un cojín con muelle que se adapte a varios largos de brazalete: no lo pidió, y el PLA cede.
+- **Qué no se sabe:** el cojín sale del largo del brazalete cerrado, que es supuesto (67 × 53 mm por fuera) y que cambia si se quitan o se ponen eslabones. Con el brazalete más largo que el cojín, el reloj baila. Que el reloj entre bien por la punta y no se salga lo dirá el reloj de verdad.
+- **Estado:** Activa. Modelada el 25-nov. Nada impreso. **Pepe no ha visto todavía el dibujo** (`caja/reporte-v5/caja-soporte.png`).
+
+
+### D-36. Revisión entera hasta una versión sin errores, lista para imprimir
+- **Fecha:** 25-nov-2026, 09:02.
+- **Quién decide:** Pepe. Sus palabras: «Revisa tu trabajo, comprueba que todo esté en su sitio que todos los mecanismos funcionen bien y que todas las piezas tengan su funcion y esten lo mas optimizadas posibles, no dejes de trabajar hasta que hayas refinado una version que tenga 0 errores y que se pueda imprimir como versión final. asegurate de que todos los componentes sirven lo mejor posible a la funcion de caja de reloj y son comodos de usar para el usuario, faciles y posibles de imprimir en 3D».
+- **Decisión:** la sesión del PC revisa el modelo entero, corrige lo que encuentre y deja los ficheros de imprimir de todas las piezas.
+- **Qué se hizo:** un programa de auditoría (`caja/caja_auditoria_v5.py`: monta la caja pieza a pieza, mira cada pieza capa a capa y mide holguras) y once correcciones. Las dos más serias: los pestillos del soporte no se podían meter en su canal, y los dientes engranaban con 0,08 mm entre flancos (ahora, de 0,16 a 0,19). La lista, en el apartado 0.3 de `caja/reporte-v5/caja-entera.md`. Los ficheros de imprimir, en `caja/imprimir-v5/`.
+- **Lo que la sesión del PC le dijo a Pepe antes de empezar,** y sigue valiendo: «0 errores» se puede conseguir en el modelo; que un mecanismo funcione solo lo dice una pieza impresa, y ninguna de esta caja se ha impreso. Y la versión no es final mientras las medidas del reloj sean supuestas (D-15 sigue en pie).
+- **Qué no se sabe:** todo lo del apartado 6 del reporte.
+- **Estado:** Hecha el 25-nov. La auditoría da 0 fallos; el programa de la sesión del Mac, ninguno. **Falta la revisión de la sesión del Mac, que no ha visto nada de esto.**
+

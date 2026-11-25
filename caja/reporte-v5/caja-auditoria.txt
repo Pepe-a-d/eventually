@@ -1,0 +1,77 @@
+A. MONTAJE, en el orden del apartado 7 del reporte. Cada pieza baja (o entra) por su camino; se mira cuanto pisa a las ya puestas.
+  bien  1a. pestillo derecho, por el extremo de fuera de su canal: lo que mas pisa por el camino, 0.000 mm3
+  bien  1a. pestillo izquierdo: lo que mas pisa por el camino, 0.000 mm3
+  bien  1b. plataforma con sus pestillos, bajando sobre la base: lo que mas pisa por el camino, 0.000 mm3
+  bien  2.  tubo, bajando por fuera de las columnas hasta coger los tetones: lo que mas pisa por el camino, 0.000 mm3
+  bien  3.  marco, sobre las columnas: lo que mas pisa por el camino, 0.000 mm3
+  bien  4.  aro de las puertas, sobre el marco (girado a abierto): lo que mas pisa por el camino, 0.000 mm3
+  bien  4.  aro de las puertas, sobre el marco (girado a cerrado): lo que mas pisa por el camino, 0.000 mm3
+  bien  5.  meseta, sobre el cuello del marco: lo que mas pisa por el camino, 0.000 mm3
+  bien  6.  puerta derecha, de pie, con el aro en abierto: lo que mas pisa por el camino, 0.000 mm3
+  bien  6.  puerta izquierda, de pie, con la derecha ya puesta: lo que mas pisa por el camino, 0.000 mm3
+  bien  7.  pasador derecho, metido de lado: por detras pisa 0.000 mm3 y por delante 0.000 (basta con que uno sea cero)
+  bien  7.  pasador izquierdo, metido de lado: por detras pisa 0.000 mm3 y por delante 0.000 (basta con que uno sea cero)
+  bien  8.  teton, desde arriba, con las puertas cerradas: lo que mas pisa por el camino, 0.000 mm3
+  bien  9.  plato, sobre el tubo: lo que mas pisa por el camino, 0.000 mm3
+  bien  10. los seis satelites, cada uno en su eje (los que fallan, si alguno, estan en la linea de encima)
+  bien  11. rueda central, sobre la meseta, despues del plato y los satelites: lo que mas pisa por el camino, 0.000 mm3
+  bien  12a. bisel dentro del cuerpo, entrando por debajo: lo que mas pisa por el camino, 0.000 mm3
+  bien  12b. cuerpo con el bisel dentro, bajando sobre todo lo demas: lo que mas pisa, 25.6 mm3, a 2.0 mm de su sitio. Son las cuatro pestanas de la base, donde entra a presion; en su sitio pisa 0.000
+  bien  14. funda, bajando sobre la caja cerrada: lo que mas pisa por el camino, 0.000 mm3
+  bien  13. soporte con el reloj, bajando a su cajeado con la caja abierta del todo: lo que mas pisa por el camino, 0.000 mm3
+B. IMPRESION. Cada pieza, orientada como se imprime, en capas de 0,2 mm. "Al aire" es lo que no tiene debajo la capa anterior ensanchada 0,25 mm.
+  bien  puerta_derecha    boca abajo    39 x    73 x    11 mm; apoyo en la cama   2331 mm2; islas en el aire: ninguna; voladizo mayor: 0.7 mm, a 5.7 mm de la cama; puente o techo mas largo: 0.9 mm (techo), a 4.3 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  bien  puerta_izquierda  boca abajo    37 x    73 x    11 mm; apoyo en la cama   2331 mm2; islas en el aire: ninguna; voladizo mayor: 0.7 mm, a 5.7 mm de la cama; puente o techo mas largo: 0.9 mm (techo), a 4.3 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  bien  aro_puertas       de pie       104 x   127 x    11 mm; apoyo en la cama   4020 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: ninguno; pared mas fina vista: 0,75 mm o mas
+  bien  teton             de pie         5 x     5 x     9 mm; apoyo en la cama     20 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: ninguno; pared mas fina vista: 0,75 mm o mas
+  bien  marco             de pie       150 x   150 x    22 mm; apoyo en la cama  14664 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 3.9 mm (techo), a 3.1 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  bien  meseta            de pie       109 x   109 x     8 mm; apoyo en la cama   5355 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 11.7 mm (puente), a 7.3 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  bien  pasador_derecho   de pie         3 x    90 x     3 mm; apoyo en la cama    162 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: ninguno; pared mas fina vista: 0,75 mm o mas
+  bien  rueda_central     boca abajo   149 x   133 x     9 mm; apoyo en la cama   3514 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: ninguno; pared mas fina vista: 0,75 mm o mas
+  bien  satelite_1        de pie        21 x    21 x     6 mm; apoyo en la cama    207 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: ninguno; pared mas fina vista: 0,75 mm o mas
+  bien  plato             de pie       161 x   161 x    11 mm; apoyo en la cama   8577 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 16.3 mm (puente), a 3.1 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  OJO   tubo              de pie       161 x   161 x    99 mm; apoyo en la cama   2000 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 1.2 mm (techo), a 14.9 mm de la cama; pared mas fina vista: menos de 0.7 mm, a 10.1 mm de la cama. La pared fina es la que separa cada iman del tope de su cara: 0,7 mm, a proposito, para que los imanes queden cerca
+  bien  plataforma        de pie       151 x   154 x    25 mm; apoyo en la cama  17301 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 5.9 mm (puente), a 6.1 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  OJO   soporte           de lado       98 x    52 x    42 mm; apoyo en la cama   3439 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 0.9 mm (techo), a 23.7 mm de la cama; pared mas fina vista: menos de 0.6 mm, a 1.1 mm de la cama. Lo fino es la arista del hombro que agarran los pestillos (un canto de 90 grados, que nace en filo): a proposito
+  bien  pestillo_derecho  de pie        47 x    10 x     3 mm; apoyo en la cama    408 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: ninguno; pared mas fina vista: 0,75 mm o mas
+  bien  bisel             boca abajo   172 x   172 x    14 mm; apoyo en la cama   5650 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 0.3 mm (techo), a 7.1 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  OJO   base              de pie       179 x   179 x    96 mm; apoyo en la cama  31952 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 1.2 mm (techo), a 19.5 mm de la cama; pared mas fina vista: menos de 0.7 mm, a 14.1 mm de la cama. La pared fina es la que separa cada iman del tope de su cara: 0,7 mm, a proposito
+  bien  cuerpo            boca abajo   179 x   179 x   104 mm; apoyo en la cama   9722 mm2; islas en el aire: ninguna; voladizo mayor: 0.8 mm, a 101.9 mm de la cama; puente o techo mas largo: 12.1 mm (puente), a 101.9 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  bien  funda             boca abajo   184 x   184 x   119 mm; apoyo en la cama  33442 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: 1.0 mm (techo), a 0.7 mm de la cama; pared mas fina vista: 0,75 mm o mas
+  OJO   frase             boca abajo   118 x    35 x     1 mm; apoyo en la cama    322 mm2; islas en el aire: ninguna; voladizo mayor: ninguno; puente o techo mas largo: ninguno; pared mas fina vista: menos de 0.7 mm, a 0.1 mm de la cama. Son los trazos de las letras: miden de 0,8 a 1,0 mm (1 % del area, menos de 0,7)
+C. HOLGURAS. De tope a tope, cada 5 grados de tubo: lo mas cerca que quedan dos piezas que se mueven una respecto de otra (se mira hasta 0,6 mm).
+  nota  puerta_derecha    y meseta            lo mas cerca, 0.000 mm (tubo a   0 grados). A proposito: cerrada, la puerta descansa en su asiento
+  nota  puerta_izquierda  y meseta            lo mas cerca, 0.000 mm (tubo a   0 grados). A proposito: cerrada, la puerta descansa en su asiento
+  nota  plato             y bisel             lo mas cerca, 0.000 mm (tubo a   0 grados). A proposito: el bisel descansa y gira sobre el plato
+  nota  tubo              y base              lo mas cerca, 0.000 mm (tubo a   0 grados). A proposito: el tubo descansa y gira sobre su pista de la base
+  nota  satelite          y bisel             lo mas cerca, 0.000 mm (tubo a   0 grados). Es por arriba: en el dibujo el satelite toca el techo del bisel; de verdad descansa en el plato, 0,4 mm mas abajo. Entre flancos de diente quedan de 0,16 a 0,19
+  nota  puerta_derecha    y aro_puertas       lo mas cerca, 0.120 mm (tubo a   0 grados). La bola en su pista: holgura de diseno
+  nota  puerta_izquierda  y aro_puertas       lo mas cerca, 0.120 mm (tubo a   0 grados). La bola en su pista: holgura de diseno
+  nota  plataforma        y base              lo mas cerca, 0.150 mm (tubo a   0 grados). A proposito: abajo, la plataforma queda a 0,15 de su asiento
+  nota  tubo              y plataforma        lo mas cerca, 0.154 mm (tubo a 275 grados). Los tetones en la rampa
+  nota  rueda_central     y satelite          lo mas cerca, 0.174 mm (tubo a 185 grados)
+  nota  plataforma        y pestillo_derecho  lo mas cerca, 0.186 mm (tubo a   0 grados)
+  nota  plataforma        y pestillo_izquierdo lo mas cerca, 0.186 mm (tubo a   0 grados)
+  nota  aro_puertas       y marco             lo mas cerca, 0.194 mm (tubo a 100 grados)
+  nota  aro_puertas       y teton             lo mas cerca, 0.200 mm (tubo a  65 grados)
+  nota  teton             y plato             lo mas cerca, 0.200 mm (tubo a  45 grados)
+  nota  soporte           y pestillo_derecho  lo mas cerca, 0.200 mm (tubo a   0 grados)
+  nota  soporte           y pestillo_izquierdo lo mas cerca, 0.200 mm (tubo a   0 grados)
+  nota  teton             y marco             lo mas cerca, 0.200 mm (tubo a   0 grados)
+  nota  rueda_central     y bisel             lo mas cerca, 0.208 mm (tubo a 220 grados)
+  nota  satelite          y plato             lo mas cerca, 0.236 mm (tubo a  85 grados)
+  nota  puerta_derecha    y pasador_derecho   lo mas cerca, 0.246 mm (tubo a  65 grados)
+  nota  puerta_izquierda  y pasador_izquierdo lo mas cerca, 0.246 mm (tubo a  65 grados)
+  nota  pestillo_derecho  y base              lo mas cerca, 0.248 mm (tubo a   0 grados)
+  nota  pestillo_izquierdo y base              lo mas cerca, 0.248 mm (tubo a   0 grados)
+  nota  puerta_derecha    y puerta_izquierda  lo mas cerca, 0.300 mm (tubo a   0 grados)
+  nota  aro_puertas       y meseta            lo mas cerca, 0.391 mm (tubo a  80 grados)
+  nota  bisel             y cuerpo            lo mas cerca, 0.395 mm (tubo a  50 grados)
+  nota  marco             y plataforma        lo mas cerca, 0.400 mm (tubo a 285 grados)
+  nota  meseta            y plataforma        lo mas cerca, 0.400 mm (tubo a 330 grados)
+  nota  aro_puertas       y plato             lo mas cerca, 0.400 mm (tubo a   0 grados)
+  nota  rueda_central     y plato             lo mas cerca, 0.400 mm (tubo a   0 grados)
+  nota  tubo              y bisel             lo mas cerca, 0.496 mm (tubo a 335 grados)
+  nota  marco             y plato             lo mas cerca, 0.544 mm (tubo a  45 grados)
+  nota  tubo              y cuerpo            lo mas cerca, 0.575 mm (tubo a  35 grados)
+RESUMEN: 0 FALLA y 4 OJO

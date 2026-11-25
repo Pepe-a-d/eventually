@@ -91,7 +91,7 @@ P_DEF = [
     ('z_central',        '',    78,    'Dientes de la rueda central (fija). El brief proponia 60: no caben dentro las puertas con sus manivelas'),
     ('z_satelite',       '',    12,    'Dientes de cada satelite'),
     ('n_satelites',      '',    6,     'DECIDIDO (D-20): cinco blancos y uno azul'),
-    ('juego_dientes',    'mm',  0.2,   'Juego entre flancos'),
+    ('juego_dientes',    'mm',  0.4,   'Lo que se quita de grueso entre los dos dientes que engranan. Con 0,4 quedan unos 0,19 mm entre flancos, como la holgura medida para lo que desliza (0,20); con 0,2 quedaban 0,08'),
     ('engranaje_grueso', 'mm',  6.0,   'Grueso de los engranajes'),
     # --- alturas, de arriba abajo ---
     ('esqueleto_grueso', 'mm',  3.0,   'Grueso de la placa fija que rodea las puertas y tapa a medias los engranajes'),
