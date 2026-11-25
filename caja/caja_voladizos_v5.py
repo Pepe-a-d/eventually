@@ -28,7 +28,7 @@ def peor(m):
 if __name__ == '__main__':
     p, d, d2, P = C.piezas()
     for n, q in P.items():
-        if n in ('reloj_de_pega', 'frase') or n.startswith('satelite_') and n != 'satelite_1' or n in ('puerta_izquierda_', 'pasador_izquierdo'): continue
+        if n in ('reloj_de_pega', 'frase') or n.startswith('satelite_') and n != 'satelite_1' or n in ('pasador_izquierdo', 'pestillo_izquierdo'): continue
         m = C.solido(q.ops)
         if n in BOCA_ABAJO: m = m.rotate([180, 0, 0])
         a, z = peor(m)

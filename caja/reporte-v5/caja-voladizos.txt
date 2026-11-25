@@ -8,9 +8,10 @@ OJO   pasador_derecho    de pie     lo que mas queda al aire en una capa:    20.
 bien  rueda_central      boca abajo lo que mas queda al aire en una capa:     0.0 mm2, a   0.0 mm de la cama
 bien  satelite_1         de pie     lo que mas queda al aire en una capa:     0.0 mm2, a   0.0 mm de la cama
 OJO   plato              de pie     lo que mas queda al aire en una capa:  2066.6 mm2, a   3.1 mm de la cama
-OJO   tubo               de pie     lo que mas queda al aire en una capa:   102.2 mm2, a  92.9 mm de la cama
-bien  plataforma         de pie     lo que mas queda al aire en una capa:     0.9 mm2, a   0.3 mm de la cama
-OJO   soporte            de pie     lo que mas queda al aire en una capa:   108.8 mm2, a  15.3 mm de la cama
+OJO   tubo               de pie     lo que mas queda al aire en una capa:   108.1 mm2, a  87.9 mm de la cama
+OJO   plataforma         de pie     lo que mas queda al aire en una capa:    40.1 mm2, a   6.1 mm de la cama
+OJO   soporte            de pie     lo que mas queda al aire en una capa:    71.1 mm2, a  37.5 mm de la cama
+bien  pestillo_derecho   de pie     lo que mas queda al aire en una capa:     0.0 mm2, a   0.0 mm de la cama
 OJO   bisel              boca abajo lo que mas queda al aire en una capa:    62.2 mm2, a   7.1 mm de la cama
 OJO   base               de pie     lo que mas queda al aire en una capa:    28.1 mm2, a   6.3 mm de la cama
 OJO   cuerpo             boca abajo lo que mas queda al aire en una capa:    68.9 mm2, a   2.1 mm de la cama

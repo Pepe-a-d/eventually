@@ -15,6 +15,23 @@ Plantilla:
 
 ---
 
+## 2026-11-25 08:50 · sesión del PC
+
+- **Hecho: modelado el apartado 13 del brief (D-34),** porque Pepe dijo «empieza». Tu `revisar_caja_v5.py` da **ningún fallo**; mis dos programas, todo bien; en Fusion, las 29 piezas salen iguales que en el programa y el recorrido entero (174 posiciones) no tiene ningún choque, en dos vueltas (reporte, 4.2). Reporte puesto al día: `caja/reporte-v5/caja-entera.md`, apartados 0.2 (qué cambió) y 2.4 (cómo se sujeta el soporte). Nada impreso.
+  - **Suelo:** he acortado el recorrido, como preferías: 81,1 mm, rampa de 13,9°, caja de 115,7 de alto. El pedestal llega a Z = −5,00. A ras del asiento quedan abiertos 283 mm² (tu medida).
+  - **Soporte:** pie alto en un cajeado del pedestal, hasta dentro del disco (22,3 mm), con llave detrás. Dos pestillos en cola de milano sobre el disco, a derecha e izquierda. Cerrada, el soporte con el reloj se mueve 0,2 mm como mucho.
+- **Lo que he hecho distinto de tu propuesta. Míralo con lupa en tu revisión:**
+  - **Columnas a 0°, 180° y 262°** (antes 30°, 150° y 262°), para que los pestillos vayan rectos a derecha e izquierda. Cambian base, plataforma y marco.
+  - **Pie de 42 × 50 mm** (la peana era de 34 × 40), a ras del pedestal; por encima asoma un zócalo de 34 × 40 y 4 de alto. Con el pie alto y la peana de antes, el reloj de pega volcaba a 11°–14° hacia delante (calculado); con el pie ancho, 17°–21°. La cuenta está en el apartado 1, fila 8: depende de un reloj supuesto.
+  - **Tope hacia dentro para los pestillos.** Sin él, con la caja cerrada y sin soporte, un pestillo podía correrse hasta 15 mm dentro del cajeado vacío.
+  - **El soporte queda libre en los últimos 15 mm de subida** (`PESTILLO_LIBRE` en `caja_piezas_v5.py`), no solo arriba del todo. Con tu propuesta al pie de la letra (libre en los últimos 1,2 mm), quien pone el soporte sin llegar al tope lo deja apoyado en los pestillos, 3,1 mm alto y sin sujetar, y cerrada las puertas quedan a 0,00 mm del reloj (del modelo). Con 15 mm la trampa sigue, pero hay que quedarse a más de un cuarto de vuelta del tope. **No cumple al pie de la letra «mientras la caja no esté abierta del todo»: si no te vale, dilo.** Tu programa no lo nota porque prueba cerrada y abierta del todo.
+- **Lo que mi programa no prueba y el tuyo tampoco:** que el chaflán del soporte aparte de verdad los pestillos al sacarlo y al meterlo. La comprobación «sale tirando 40 mm» está hecha con los pestillos ya apartados (2,7 mm), como pedías. Es roce: lo dirá la probeta.
+- **Una cifra mía que no cuadra con la tuya, de antes de D-34:** mi fase 2 dice que una puerta abierta se deja mover «entre 88,8 y 96,2 grados» y lo da por bueno porque mira que el juego sea de 5° o menos, no el margen de 85° a 95° del brief. Tu programa dice 89,75° a 94,50°. Creo que la diferencia es que el mío da el primer paso que choca (y con un umbral de 0,02 mm³) y el tuyo el último que no. No lo he tocado. Dime cuál vale.
+- **Cambió:** en `caja/`: `caja_diseno_v5.py`, `caja_piezas_v5.py`, `generador_caja_v5.py`, `caja_probetas_v5.py`, `caja_voladizos_v5.py`, `caja_figuras_v5.py`, `caja-v5.json`, `caja-v5-piezas.json`, `caja-v5-vistas.json`, `Eventually-caja-v5.f3d`; los diez `.3mf` de `probetas-v5/caja-probeta-*` (uno nuevo: `caja-probeta-ascensor-soporte-y-pestillos.3mf`); en `reporte-v5/`: `caja-entera.md`, las tres comprobaciones, `caja-voladizos.txt` y todos los dibujos `caja-*.png` (uno nuevo: `caja-reloj-arriba.png`). `ESTADO.md`, `DECISIONES.md` (D-34: cómo quedó modelado). No he tocado nada tuyo.
+- **A medias:** nada del encargo. **El vídeo** `caja/video-v5/` sigue siendo del 21-nov: no enseña el suelo hundido ni los pestillos. Rehacerlo son unos 45 minutos de máquina; no lo hago si Pepe no lo pide.
+- **Para la sesión del Mac:** tu revisión a fondo, ahora sí. Además de lo de arriba: el montaje del paso 1 (pestillos en sus canales antes de poner la plataforma), el puente de 6,4 mm bajo la pared del pedestal y la pared de 3,4 mm que queda entre el cajeado y el costado del pedestal. Sigue pendiente lo tuyo de los 2,03 mm bajo los dientes de la rueda central.
+- **Para Pepe:** mirar `caja/reporte-v5/caja-reloj-arriba.png` y decir si el suelo hundido le gusta. Siguen sin contestar: qué probeta se imprime primero, la fecha de entrega, si el reloj está montado y sus medidas, y los textos del tutorial.
+
 ## 2026-11-24 21:55 · sesión del Mac
 
 - **Hecho: decididas las dos cosas que quedaban (D-34),** porque Pepe dijo «lee git, y decide tu las dos preguntas, pero que el reloj este seguro y se vea todo bien y premium». **Las dos son que sí, y las dos te dan trabajo.** Están en el apartado 13 de `caja/BRIEF-v5.md`:

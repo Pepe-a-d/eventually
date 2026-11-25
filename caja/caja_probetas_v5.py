@@ -22,6 +22,7 @@ if __name__ == '__main__':
         'caja-probeta-puertas-bandeja-A': [('marco', False, -45, 0), ('puerta_derecha', True, 57, 42), ('puerta_izquierda', True, 57, -42), ('pasador_derecho', False, 88, 0),
                                            ('pasador_izquierdo', False, 96, 0), ('probeta_teton', True, 108, 60)],          # el teton con pomo, con el pomo en la cama
         'caja-probeta-puertas-bandeja-B': [('meseta', False, -60, 60), ('aro_puertas', False, 60, 55), ('probeta_anillo', True, -25, -62)],
+        'caja-probeta-ascensor-soporte-y-pestillos': [('soporte', False, 0, 0), ('pestillo_derecho', False, 40, 0), ('pestillo_izquierdo', False, 55, 0)],
         'caja-probeta-ascensor-base': [('base', False, 0, 0)], 'caja-probeta-ascensor-tubo': [('tubo', False, 0, 0)], 'caja-probeta-ascensor-plataforma': [('plataforma', False, 0, 0)],
         'caja-probeta-planetario-plato': [('plato', False, 0, 0)], 'caja-probeta-planetario-rueda-central': [('rueda_central', True, 0, 0)], 'caja-probeta-planetario-bisel': [('bisel', True, 0, 0)],
         'caja-probeta-planetario-satelites': [('satelite_%d' % (k + 1), False, -26 + 26 * (k % 3), -13 + 26 * (k // 3)) for k in range(6)] + [('teton', False, 52, 0)],

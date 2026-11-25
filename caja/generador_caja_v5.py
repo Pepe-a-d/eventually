@@ -185,6 +185,9 @@ def puesta(nombre, tau):
     if mu == 'tubo': return transforma(b, m_giro(c['ROT'] * tau))
     if mu == 'bisel': return transforma(b, m_giro(c['ROT'] * tau / c['relacion']))
     if mu == 'plataforma': return transforma(b, m_mueve(0, 0, h))
+    if mu.startswith('pestillo'):                                  # sube con la plataforma; en el tramo libre del final la columna le deja salir 2,7
+        a_ = math.radians(float(mu.split(':')[1])); q = min(2.7, max(0.0, h - c['recorrido'] + c.get('pestillo_libre', 0.0) + 3.2))
+        return transforma(b, m_mueve(q * math.cos(a_), q * math.sin(a_), h))
     if mu == 'aro': return transforma(b, m_giro(c['aro_sentido'] * psi))
     if mu == 'teton': return transforma(b, m_mueve(0, -s, 0))
     if mu in ('puerta_derecha', 'puerta_izquierda'):

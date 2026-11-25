@@ -181,9 +181,11 @@ def derivadas(p):
     d['z_ala1'] = d['z_corr0'] - a
     d['z_ala0'] = d['z_ala1'] - p['ala_grueso']
     d['z_meseta0'] = -p['meseta_grueso']
-    d['pedestal_alto'] = -d['z_ala0'] + 1.0                # arriba del todo, el disco queda 1 mm por debajo del ala
-    d['recorrido'] = p['reloj_alto'] + p['puerta_grueso'] + p['margen_reloj_abajo']
-    d['z_disco1_abajo'] = -d['pedestal_alto'] - d['recorrido']
+    # D-34: arriba del todo, la cara del pedestal queda a ras del ASIENTO de las puertas (Z = -grueso de puerta), no de la tapa,
+    # y el disco, 1 mm por debajo del ala. El pedestal es 5 mm mas corto que antes y la caja, 5 mm mas baja
+    d['pedestal_alto'] = -d['z_ala0'] + 1.0 - p['puerta_grueso']
+    d['recorrido'] = p['reloj_alto'] + p['margen_reloj_abajo']
+    d['z_disco1_abajo'] = -p['puerta_grueso'] - d['recorrido'] - d['pedestal_alto']
     d['z_disco0_abajo'] = d['z_disco1_abajo'] - p['disco_grueso']
     d['z_suelo'] = d['z_disco0_abajo'] - 1.0
     d['z_base'] = d['z_suelo'] - p['base_grueso']
@@ -273,7 +275,7 @@ def comprueba(escribe=True):
     ped_x = d['hueco_x'] / 2 - p['pedestal_holgura']
     for tau in taus:
         s, psi, ang, h = movimiento(p, d, tau)
-        z_ped = -d['recorrido'] + h                                   # cara de arriba del pedestal
+        z_ped = -p['puerta_grueso'] - d['recorrido'] + h              # cara de arriba del pedestal (arriba del todo queda a ras del asiento de las puertas)
         tabla.append([tau, round(tau / d['relacion'], 1), round(s, 2), round(psi, 2), round(ang, 2), round(h, 2)])
         A = derecha(puerta_a, ang); B = izquierda(puerta_b, ang)
         reloj = box(-rw, z_ped, rw, z_ped + p['reloj_alto'])
@@ -285,7 +287,7 @@ def comprueba(escribe=True):
     linea(peor_ped >= 0.5, 'el pedestal queda siempre a %.2f mm o mas de las puertas; arriba, entre el pedestal y la cara de la puerta abierta quedan %.1f mm' % (peor_ped, d['cara_dentro_abierta'] - ped_x))
     s0, _, a0_, h0 = movimiento(p, d, 0); s1, _, a1_, h1 = movimiento(p, d, p['giro_tubo'])
     linea(abs(a0_) < 0.01 and abs(a1_ - p['puerta_abierta']) < 0.01 and 85 <= a1_ <= 95, 'las puertas van de %.1f a %.1f grados (el brief pide abiertas entre 85 y 95)' % (a0_, a1_))
-    linea(abs(h0) < 1e-9 and abs(h1 - d['recorrido']) < 1e-9, 'la plataforma sube %.1f mm; arriba, la cara del pedestal queda en Z = 0, a ras' % d['recorrido'])
+    linea(abs(h0) < 1e-9 and abs(h1 - d['recorrido']) < 1e-9, 'la plataforma sube %.1f mm; arriba, la cara del pedestal queda a ras del asiento de las puertas (Z = -%.0f)' % (d['recorrido'], p['puerta_grueso']))
     # tramos en los que la puerta esta bloqueada por la forma (bola en el tramo recto del canal)
     quieta0 = max(tau for tau in taus if movimiento(p, d, tau)[2] < 0.01)
     quieta1 = min(tau for tau in taus if movimiento(p, d, tau)[2] > 89.99)

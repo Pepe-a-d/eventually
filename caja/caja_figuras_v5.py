@@ -14,7 +14,7 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 SAL = os.path.join(AQUI, 'reporte-v5')
 COL = {'base': '#c9ccd1', 'cuerpo': '#e4e1d8', 'tubo': '#b9d4bd', 'plato': '#8fbf98', 'plataforma': '#e7c1bb', 'marco': '#d9cfa8', 'meseta': '#f1e7b6', 'aro_puertas': '#f0b46a',
        'teton': '#c7641a', 'rueda_central': '#b7b3d9', 'bisel': '#9db7dd', 'puerta_derecha': '#ffffff', 'puerta_izquierda': '#ffffff', 'pasador_derecho': '#555b66',
-       'pasador_izquierdo': '#555b66', 'soporte': '#9aa0a8', 'reloj_de_pega': '#c5cad1', 'funda': '#efece4'}
+       'pasador_izquierdo': '#555b66', 'soporte': '#9aa0a8', 'pestillo_derecho': '#d2552b', 'pestillo_izquierdo': '#d2552b', 'reloj_de_pega': '#c5cad1', 'funda': '#efece4'}
 
 def corte(S, P, p, d, tau, plano):
     """Poligonos de cada pieza cortada por el plano 'y' (y = 0, se ve de frente) o 'x' (x = 0, se ve de lado)."""
@@ -48,7 +48,7 @@ def cortes():
           ('plataforma', (-55, -114.6), (-100, -98)), ('pedestal', (-15, -100), (-100, -86)), ('bisel (lo que se gira)', (-81, -6), (-100, -2)),
           ('plato: lleva los satélites', (-68, -12.3), (-100, -14)), ('marco', (-64, -20.6), (-100, -26)), ('aro de las puertas', (-45, -16.7), (-100, -38)),
           ('rueda central (fija) y su dedo', (-66, -1.5), (-100, 12)), ('meseta', (-45, -6.5), (-60, 26)), ('pasador (bisagra)', (-28, -2.5), (-30, 40)),
-          ('puerta', (12, -2.5), (30, 40)), ('reloj de pega (supuesto): aquí, su brazalete', (8, -11.6), (100, -40)), ('soporte', (14, -84), (100, -84)),
+          ('puerta', (12, -2.5), (30, 40)), ('reloj de pega (supuesto): aquí, su brazalete', (8, -11.6), (100, -40)), ('soporte, con la peana metida en el pedestal', (14, -84), (100, -84)), ('pestillo', (40, -104.5), (100, -98)),
           ('diente del bisel', (76.5, -6.4), (100, 12)), ('rueda central, dientes', (58, -6.4), (100, 26))]
     la = [('satélite azul', (-67.5, -6.4), (-100, 12)), ('tetón de las puertas', (Rt0, -17.5), (100, -30)), ('espiral, bajo el plato', (Rt0, -13), (100, -16)),
           ('brazo del aro', (Rt0 - 4, -16.7), (100, -44)), ('tetón de la plataforma, en la rampa', (77, -114.6), (100, -100)), ('ranura de la rampa', (-78, -60), (-100, -60)),
@@ -94,7 +94,7 @@ def laminas(png):
     def abre(n, caja=None):
         im = Image.open(os.path.join(png, n + '.png')).convert('RGB')
         return im.crop(caja) if caja else im
-    def hoja(celdas, cols, sal, ancho=760):
+    def hoja(celdas, cols, sal, ancho=760, F2=F2):
         ims = []
         for im, pie in celdas:
             k = ancho / im.size[0]; im = im.resize((ancho, int(im.size[1] * k)))
@@ -108,8 +108,8 @@ def laminas(png):
     mv = lambda t: C.D.movimiento(p, d, t)
     rec = (230, 60, 1270, 1000)
     pasos = (0, 45, 72, 100, 220, 345)
-    textos = ['1. Cerrada', '2. Tramo muerto: giran los engranajes, nada más', '3. Las puertas se abren', '4. Puertas de pie; el reloj empieza a subir', '5. El reloj sube', '6. Arriba, tope']
-    hoja([(abre('paso-%d' % (i + 1), rec), '%s (tubo %d°, bisel %d°)' % (textos[i], t, round(t / d['relacion']))) for i, t in enumerate(pasos)], 3, 'caja-apertura.png')
+    textos = ['1. Cerrada', '2. Tramo muerto: solo giran engranajes', '3. Las puertas se abren', '4. Puertas de pie; empieza a subir', '5. El reloj sube', '6. Arriba, tope']
+    hoja([(abre('paso-%d' % (i + 1), rec), '%s (tubo %d°, bisel %d°)' % (textos[i], t, round(t / d['relacion']))) for i, t in enumerate(pasos)], 3, 'caja-apertura.png', F2=fuente(21))
     hoja([(abre('caja-con-funda', (250, 60, 1250, 1000)), 'Con la funda'), (abre('caja-cerrada', (250, 60, 1250, 1000)), 'Sin la funda, cerrada'), (abre('planta', (330, 130, 1170, 970)), 'Planta')], 3, 'caja-vistas.png')
     hoja([(abre('manivela-%d' % (i + 1), (230, 240, 1270, 640)), t) for i, t in enumerate(('Cerradas: la bola, en el tramo quieto de su pista', 'A medio abrir: el aro gira y la pista empuja la bola', 'Abiertas: la bola, en el otro tramo quieto'))], 3, 'caja-puertas-manivela.png')
     hoja([(abre('aro-cerrado', (330, 110, 1090, 820)), 'El aro (tostado) con la caja cerrada, desde arriba'), (abre('aro-abierto', (330, 110, 1090, 820)), 'Con la caja abierta: el aro ha girado %.0f°' % d['aro_giro']),
