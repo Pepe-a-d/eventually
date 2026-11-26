@@ -15,6 +15,25 @@ Plantilla:
 
 ---
 
+## 2026-11-26 19:36 · sesión del PC
+
+- **Hecho:** Pepe pidió (sus palabras): «Haz una carpeta para poder hacer las pruebas, que contenga los archivos de lo que tengo que imprimir en el orden en el que lo tengo que imprimir con una guia que explique como imprimirlos y como montarlos». Está en `caja/pruebas-v5/`:
+  - Las diez bandejas de las tres probetas, **numeradas en el orden de imprimir** (`01-puertas-bandeja-A.3mf` … `10-planetario-bisel.3mf`). Son copias idénticas, byte a byte, de las de `caja/probetas-v5/`: el modelo no ha cambiado.
+  - La guía: `GUIA.md` y, la misma, `00-GUIA-DE-PRUEBAS.pdf` (19 páginas, A4). Ajustes propuestos, un dibujo de cómo tiene que verse cada bandeja, el montaje paso a paso con dibujos y las tablas de «vale si» del apartado 9 del reporte, con una columna para apuntar.
+  - El orden deja probar cosas pronto: con 01 y 02, la prueba de las puertas entera; con 03 y 04, los pestillos y el soporte sobre la plataforma; con 05, que el soporte queda sujeto abajo y suelto arriba; con 06, el ascensor; con 07 a 10, los engranajes encima de todo.
+- **Comprobado en el modelo para escribir la guía** (no cambia ninguna pieza):
+  - El tetón con pomo y el anillo entran desde arriba, con las puertas cerradas o abiertas, y el pomo recorre sus 13 mm sin tocar nada. Los pasadores entran por los dos lados.
+  - El conjunto de las puertas, ya montado, baja en bloque sobre las columnas con el ascensor y el reloj debajo sin pisar nada.
+  - Sin el cuerpo, el bisel se apoya en el plato (menos de 0,1 mm) y lo centran los satélites.
+  - Qué se puede montar mal: las puertas valen para los dos lados; a los satélites les da igual la cara; la plataforma, el tubo, el plato, el marco y el aro solo entran en una posición; el pestillo, con la cara ancha arriba, no entra. **La meseta entra de dos maneras y la rueda central (o el anillo) tiene que seguirla:** con la meseta a media vuelta, el anillo «en su sitio» no asienta y hay que girarlo media vuelta. Lo he apuntado en el paso 5 del apartado 7 del reporte, que decía solo «es simétrica».
+- **Cambió:** `caja/pruebas-v5/` (nueva), `caja/caja_guia_pruebas_v5.py` (nuevo: hace los dibujos de la guía y el HTML del que sale el PDF), `caja/caja_probetas_v5.py` (la lista de probetas pasa arriba del fichero y además escribe la copia numerada), `caja/reporte-v5/caja-entera.md` (apartados 7, 9 y 10; en el 9 ponía `juego_dientes` 0,2 y es 0,4), `caja/imprimir-v5/LEEME.md` (un enlace), `ESTADO.md`. Nada en `docs/`.
+- **A medias:** nada.
+- **Sin saber:** no he abierto los ficheros en Bambu Studio; los pasos de «cómo abrir un fichero» de la guía (el aviso de que no es de Bambu Lab, la pregunta de un objeto con varias partes) están escritos de memoria y sin probar con estos ficheros. Los ajustes son los propuestos en `imprimir-v5/LEEME.md`, con un cambio para simplificar: relleno al 100 % por bandeja entera (01, 04 y 08) en vez de pieza a pieza.
+- **Para la otra sesión:** sigue pendiente tu revisión del modelo del 25-nov (D-34, D-35, D-36). Si revisas, mira también la guía: si un paso de montaje no te cuadra, es más barato corregirlo antes de que Pepe imprima. El apartado 13.2 del brief sigue describiendo el soporte de antes (es tuyo, no lo toco).
+- **Para Pepe:** decidir si imprime ya (la guía recomienda empezar por 01 y 02 y parar si las puertas no convencen) y, antes de la bandeja 03, las cinco medidas del reloj. Siguen sin contestar: si le gustan el suelo hundido y el soporte nuevo, y si «y ya» quería decir quitar también los pestillos.
+
+---
+
 ## 2026-11-25 13:25 · sesión del PC
 
 Tres encargos de Pepe en la misma mañana. Va todo en una entrada.

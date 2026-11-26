@@ -5,7 +5,7 @@ Escrito el 25 de noviembre de 2026 por la sesión del PC. Los ficheros los escri
 **Antes de imprimir nada, lee esto:**
 
 - **Las medidas del reloj son supuestas.** La caja entera sale de ellas. Si el reloj de verdad mide otra cosa, estos ficheros no valen: se cambian las medidas arriba de `../caja_diseno_v5.py` y se vuelven a escribir (`python3 caja_diseno_v5.py`, `python3 caja_piezas_v5.py`, `python3 caja_probetas_v5.py`). La decisión D-15 sigue en pie: no se imprime la caja entera sin medir antes el reloj.
-- **Ninguna pieza de esta caja se ha impreso todavía.** En el modelo todo encaja y nada se pisa; que funcione lo dirán las piezas. Lo prudente sigue siendo empezar por la probeta de las puertas (`../probetas-v5/`).
+- **Ninguna pieza de esta caja se ha impreso todavía.** En el modelo todo encaja y nada se pisa; que funcione lo dirán las piezas. Lo prudente sigue siendo empezar por la probeta de las puertas: la carpeta [`../pruebas-v5/`](../pruebas-v5/GUIA.md) tiene las probetas en orden y una guía para imprimirlas, montarlas y probarlas.
 - **No he abierto estos ficheros en Bambu Studio.** Sí los he vuelto a abrir con un programa, uno a uno: las 26 mallas son cerradas, sin triángulos de área cero, apoyan en la cama y caben en la bandeja. El laminado no está comprobado.
 
 ## Ajustes que propongo (sin probar en esta caja)

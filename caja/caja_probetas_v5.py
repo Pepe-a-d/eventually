@@ -1,5 +1,6 @@
 # Eventually, caja v5: escribe los .3mf directamente desde el programa (sin Fusion), ya orientados como se imprimen.
-#   python3 caja_probetas_v5.py            Deja la caja entera, bandeja a bandeja, en imprimir-v5/, y las probetas en probetas-v5/.
+#   python3 caja_probetas_v5.py            Deja la caja entera, bandeja a bandeja, en imprimir-v5/, y las probetas en probetas-v5/
+#                                          y, las mismas, numeradas en el orden de imprimir, en pruebas-v5/.
 #   Las mallas son cerradas (un solo cuerpo estanco por pieza).
 import os
 import numpy as np, trimesh
@@ -25,17 +26,26 @@ def malla(m, nombre):
     t.metadata['name'] = nombre
     return t
 
+# Las probetas, bandeja a bandeja: (pieza, como va, x, y). 'como va': False = tal cual, True = boca abajo, 'lado' = tumbada sobre su costado derecho.
+B = {
+    'caja-probeta-puertas-bandeja-A': [('marco', False, -45, 0), ('puerta_derecha', True, 57, 42), ('puerta_izquierda', True, 57, -42), ('pasador_derecho', False, 88, 0),
+                                       ('pasador_izquierdo', False, 96, 0), ('probeta_teton', True, 108, 60)],          # el teton con pomo, con el pomo en la cama
+    'caja-probeta-puertas-bandeja-B': [('meseta', False, -60, 60), ('aro_puertas', False, 60, 55), ('probeta_anillo', True, -25, -62)],
+    'caja-probeta-ascensor-soporte-y-pestillos': [('soporte', 'lado', 0, 0), ('pestillo_derecho', False, 68, 0), ('pestillo_izquierdo', False, 83, 0)],
+    'caja-probeta-ascensor-base': [('base', False, 0, 0)], 'caja-probeta-ascensor-tubo': [('tubo', False, 0, 0)], 'caja-probeta-ascensor-plataforma': [('plataforma', False, 0, 0)],
+    'caja-probeta-planetario-plato': [('plato', False, 0, 0)], 'caja-probeta-planetario-rueda-central': [('rueda_central', True, 0, 0)], 'caja-probeta-planetario-bisel': [('bisel', True, 0, 0)],
+    'caja-probeta-planetario-satelites': [('satelite_%d' % (k + 1), False, -26 + 26 * (k % 3), -13 + 26 * (k // 3)) for k in range(6)] + [('teton', False, 52, 0)],
+}
+# Las mismas bandejas, en el orden en que conviene imprimirlas para ir probando (pruebas-v5/). La guia esta en pruebas-v5/GUIA.md.
+ORDEN = [('01-puertas-bandeja-A', 'caja-probeta-puertas-bandeja-A'), ('02-puertas-bandeja-B', 'caja-probeta-puertas-bandeja-B'),
+         ('03-ascensor-plataforma', 'caja-probeta-ascensor-plataforma'), ('04-ascensor-soporte-y-pestillos', 'caja-probeta-ascensor-soporte-y-pestillos'),
+         ('05-ascensor-base', 'caja-probeta-ascensor-base'), ('06-ascensor-tubo', 'caja-probeta-ascensor-tubo'),
+         ('07-planetario-plato', 'caja-probeta-planetario-plato'), ('08-planetario-satelites-y-teton', 'caja-probeta-planetario-satelites'),
+         ('09-planetario-rueda-central', 'caja-probeta-planetario-rueda-central'), ('10-planetario-bisel', 'caja-probeta-planetario-bisel')]
+assert sorted(b for a, b in ORDEN) == sorted(B)
+
 if __name__ == '__main__':
     p, d, d2, P = C.piezas(); S = {n: C.solido(q.ops) for n, q in P.items()}
-    B = {
-        'caja-probeta-puertas-bandeja-A': [('marco', False, -45, 0), ('puerta_derecha', True, 57, 42), ('puerta_izquierda', True, 57, -42), ('pasador_derecho', False, 88, 0),
-                                           ('pasador_izquierdo', False, 96, 0), ('probeta_teton', True, 108, 60)],          # el teton con pomo, con el pomo en la cama
-        'caja-probeta-puertas-bandeja-B': [('meseta', False, -60, 60), ('aro_puertas', False, 60, 55), ('probeta_anillo', True, -25, -62)],
-        'caja-probeta-ascensor-soporte-y-pestillos': [('soporte', 'lado', 0, 0), ('pestillo_derecho', False, 68, 0), ('pestillo_izquierdo', False, 83, 0)],
-        'caja-probeta-ascensor-base': [('base', False, 0, 0)], 'caja-probeta-ascensor-tubo': [('tubo', False, 0, 0)], 'caja-probeta-ascensor-plataforma': [('plataforma', False, 0, 0)],
-        'caja-probeta-planetario-plato': [('plato', False, 0, 0)], 'caja-probeta-planetario-rueda-central': [('rueda_central', True, 0, 0)], 'caja-probeta-planetario-bisel': [('bisel', True, 0, 0)],
-        'caja-probeta-planetario-satelites': [('satelite_%d' % (k + 1), False, -26 + 26 * (k % 3), -13 + 26 * (k // 3)) for k in range(6)] + [('teton', False, 52, 0)],
-    }
     # La caja entera, bandeja a bandeja (imprimir-v5/). Las piezas de probeta (anillo y teton con pomo) no entran.
     azul = [n for n in P if n.startswith('satelite_') and P[n].color == 'azul']; blancos = [n for n in P if n.startswith('satelite_') and P[n].color != 'azul']
     assert len(azul) == 1 and len(blancos) == 5
@@ -84,4 +94,6 @@ if __name__ == '__main__':
         b = esc.bounds
         assert b[0][0] > -124 and b[1][0] < 124 and b[0][1] > -124 and b[1][1] < 124 and abs(b[0][2]) < 1e-6, fichero
         esc.export(os.path.join(sal, fichero + '.3mf'))
-        print('%-44s %d piezas  %.0f x %.0f x %.0f mm' % (fichero + '.3mf', len(piezas), b[1][0] - b[0][0], b[1][1] - b[0][1], b[1][2] - b[0][2]))
+        num = [a for a, b_ in ORDEN if b_ == fichero][0]
+        os.makedirs(os.path.join(AQUI, 'pruebas-v5'), exist_ok=True); esc.export(os.path.join(AQUI, 'pruebas-v5', num + '.3mf'))
+        print('%-44s %d piezas  %.0f x %.0f x %.0f mm   -> pruebas-v5/%s.3mf' % (fichero + '.3mf', len(piezas), b[1][0] - b[0][0], b[1][1] - b[0][1], b[1][2] - b[0][2], num))

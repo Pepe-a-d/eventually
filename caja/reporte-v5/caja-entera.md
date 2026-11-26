@@ -363,7 +363,7 @@ En este orden. Entre paréntesis, qué impide montarlo mal. **Cada paso está co
 2. **Tubo**, desde arriba, bajándolo por fuera de las columnas hasta que sus tres entradas pasan por los tres tetones de la plataforma. (Un tetón va 2° fuera de sitio: el tubo solo entra en una posición.)
 3. **Marco** sobre las columnas. (Sus tres cajas, como las columnas, solo coinciden en una posición.)
 4. **Aro de las puertas** sobre el marco, con su brazo en el hueco de atrás del cuello. (Solo cabe ahí.)
-5. **Meseta** sobre el cuello del marco. (Entra de dos maneras, a media vuelta una de otra, y las dos son la misma: es simétrica.)
+5. **Meseta** sobre el cuello del marco. (Entra de dos maneras, a media vuelta una de otra, y valen las dos. Comprobado el 26-nov: lo único que cambia es que la rueda central, que encaja en la meseta por tres llaves, queda también a media vuelta; como tiene 78 dientes, engrana igual.)
 6. **Las dos puertas.** Con el aro girado a tope hacia «abierto» (se mueve con la mano, por su brazo), cada puerta se mete de pie, desde arriba, hasta que la bola entra en su pista. Está comprobado en el modelo que entra sin pisar nada. (Una puerta al revés queda con la varilla hacia arriba: se ve. Si se cambian de lado, funciona igual.)
 7. **Los dos pasadores,** por un lado, con su cara plana hacia abajo. Cosen la meseta, el marco y las puertas.
 8. Se cierran las puertas girando el aro por su brazo, y se pone el **tetón** en la ranura del brazo del aro y en la del marco.
@@ -395,6 +395,8 @@ Todo modelado con la opción más sencilla. Son tuyas:
 No he hecho dibujos de alternativas: prefiero que elijas sobre la probeta o sobre este modelo.
 
 ## 9. Las probetas que propongo
+
+**Desde el 26-nov hay una carpeta para hacerlas, [`../pruebas-v5/`](../pruebas-v5/GUIA.md):** los mismos diez ficheros, numerados en el orden de imprimir, y una guía con dibujos de cómo imprimirlos, montarlos y probarlos (`GUIA.md` y, la misma, `00-GUIA-DE-PRUEBAS.pdf`).
 
 Son trozos de la caja, sacados del modelo. Los ficheros están en [`../probetas-v5/`](../probetas-v5/), ya orientados. **Son los del modelo revisado del 25-nov** (todos se han vuelto a escribir; cambian casi todas las piezas: dientes, pasadores, base, tubo, plataforma, soporte) y los escribe [`../caja_probetas_v5.py`](../caja_probetas_v5.py) directamente, sin pasar por Fusion: todas las mallas son cerradas. No los he abierto en Bambu Studio.
 
@@ -466,7 +468,7 @@ Qué se ajusta y con qué: la pendiente, con `giro_arriba` y `giro_sube`; el jue
 | Con las otras dos probetas debajo | Al girar el bisel pasa todo en su orden: nada, puertas, reloj |
 | Los dientes, después | Ninguno roto ni mordido |
 
-Qué se ajusta y con qué: el juego, con `juego_dientes` (0,2); si los dientes de 12 no salen, con `modulo` (1,5) y los números de dientes.
+Qué se ajusta y con qué: el juego, con `juego_dientes` (0,4); si los dientes de 12 no salen, con `modulo` (1,5) y los números de dientes.
 
 ## 10. Ficheros
 
@@ -479,6 +481,7 @@ Qué se ajusta y con qué: el juego, con `juego_dientes` (0,2); si los dientes d
 | Las comprobaciones | [`caja-fase1-comprobaciones.txt`](caja-fase1-comprobaciones.txt), [`caja-fase2-comprobaciones.txt`](caja-fase2-comprobaciones.txt) y [`caja-fusion-comprobaciones.txt`](caja-fusion-comprobaciones.txt) |
 | Los dibujos | [`../caja_render_v5.py`](../caja_render_v5.py) y [`../caja_figuras_v5.py`](../caja_figuras_v5.py) |
 | Las probetas | [`../probetas-v5/`](../probetas-v5/), escritas por [`../caja_probetas_v5.py`](../caja_probetas_v5.py) |
+| **La carpeta de pruebas** | [`../pruebas-v5/`](../pruebas-v5/GUIA.md): las mismas probetas, numeradas en el orden de imprimir, con su guía. Los dibujos de la guía los hace [`../caja_guia_pruebas_v5.py`](../caja_guia_pruebas_v5.py) |
 | **Todas las piezas, para imprimir** | [`../imprimir-v5/`](../imprimir-v5/LEEME.md): doce bandejas y su guía. Las escribe el mismo programa |
 | La auditoría (montaje, impresión y holguras) | [`../caja_auditoria_v5.py`](../caja_auditoria_v5.py) y [`caja-auditoria.txt`](caja-auditoria.txt) |
 | Capas sin apoyo | [`../caja_voladizos_v5.py`](../caja_voladizos_v5.py) y [`caja-voladizos.txt`](caja-voladizos.txt) |
