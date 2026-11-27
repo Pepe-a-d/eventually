@@ -37,7 +37,17 @@
 }
 
 @media (min-width: 900px) and (min-aspect-ratio: 1/1), (orientation: landscape) and (min-width: 560px) and (max-height: 520px) {
-  .caja .stage__canvas { inset: 0 auto 0 64%; }
+  /* En escritorio la caja ocupa el lado derecho: el lienzo es más alto que la pantalla y se coloca
+     para que la caja, que en el fotograma está por encima del centro, quede centrada y grande.
+     Los fotogramas son transparentes: no hace falta fundir los lados, solo el borde de arriba,
+     por donde sale la funda. */
+  .caja .stage__canvas {
+    --alto: min(140svh, 100vw);
+    inset: calc(50svh - 0.4 * var(--alto)) auto auto 66%;
+    height: var(--alto);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 7%);
+  }
   .caja__steps { top: 2.6rem; right: clamp(2rem, 4vw, 4rem); }
   .caja__steps i { width: 1.6rem; }
 }

@@ -1,5 +1,5 @@
 {
-  "version": 1795771958,
+  "version": 1795775069,
   "frameCount": 189,
   "aspect": 0.5584281282316442,
   "timeline": [
@@ -65,7 +65,7 @@
       "width": 1080,
       "height": 1934,
       "minViewportWidth": 768,
-      "bytes": 7022520
+      "bytes": 7834334
     },
     {
       "name": "m",
@@ -74,7 +74,7 @@
       "width": 720,
       "height": 1290,
       "minViewportWidth": 0,
-      "bytes": 4307650
+      "bytes": 4839162
     }
   ]
 }

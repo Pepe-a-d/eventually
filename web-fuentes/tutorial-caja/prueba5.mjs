@@ -1,5 +1,5 @@
 // Sirve la web (la carpeta docs) y hace capturas del tutorial de la caja a varias alturas de scroll, en movil y en escritorio.
-// Uso: node prueba5.mjs <docs> <salida> [movil,escritorio] [0,0.04,0.19,...] [caja|reloj]
+// Uso: node prueba5.mjs <docs> <salida> [movil,escritorio,iphone,estrecho,portatil,tumbado,grande] [0,0.04,0.19,...] [caja|reloj]
 // Variables de entorno: MODULOS (carpeta node_modules, si no esta aqui) y CHROME (ruta de Google Chrome).
 import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const AQUI = path.dirname(new URL(import.meta.url).pathname);
@@ -15,7 +15,9 @@ const modo = process.argv[6] || 'caja';
 const url = `http://127.0.0.1:${srv.address().port}/?${modo}`;
 const browser = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox', '--hide-scrollbars', '--force-color-profile=srgb'] });
 fs.mkdirSync(out, { recursive: true });
-const modos = { movil: { width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, escritorio: { width: 1440, height: 900, deviceScaleFactor: 1 } };
+const modos = { movil: { width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, escritorio: { width: 1440, height: 900, deviceScaleFactor: 1 },
+  iphone: { width: 390, height: 664, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, estrecho: { width: 360, height: 800, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
+  portatil: { width: 1024, height: 768, deviceScaleFactor: 1 }, tumbado: { width: 844, height: 390, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, grande: { width: 1920, height: 1080, deviceScaleFactor: 1 } };
 const ps = (process.argv[5] || '0,0.04,0.19,0.35,0.53,0.67,0.8,0.97').split(',').map(Number);
 for (const nombre of (process.argv[4] || 'movil,escritorio').split(',')) {
   const page = await browser.newPage(); await page.setViewport(modos[nombre]);

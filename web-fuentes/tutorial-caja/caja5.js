@@ -149,10 +149,10 @@ const FUNDA_SUBE = 440;                                // la funda sube hasta sa
 
 // Camaras: [direccion desde el punto que se mira, distancia, punto que se mira]
 const CAM = {
-  cerrada: { dir: [-0.50, -0.80, 0.52], dist: 1400, mira: [0, 0, -ALTO * 0.52] },
-  arriba:  { dir: [-0.30, -0.66, 0.78], dist: 1340, mira: [0, 0, -30] },
-  frente:  { dir: [-0.42, -0.84, 0.40], dist: 1440, mira: [0, 0, -30] },
-  fuera:   { dir: [-0.36, -0.86, 0.44], dist: 1600, mira: [-42, -40, -50] },
+  cerrada: { dir: [-0.50, -0.80, 0.52], dist: 1316, mira: [5, -2, -ALTO * 0.52] },
+  arriba:  { dir: [-0.30, -0.66, 0.78], dist: 1227, mira: [5, -2, -42] },
+  frente:  { dir: [-0.42, -0.84, 0.40], dist: 1232, mira: [5, -2, -22] },
+  fuera:   { dir: [-0.36, -0.86, 0.44], dist: 1200, mira: [-18, -50, -56] },
 };
 function mezcla(a, b, x) {
   const d = new THREE.Vector3(...a.dir).normalize().lerp(new THREE.Vector3(...b.dir).normalize(), x).normalize();
@@ -199,7 +199,7 @@ function estado(t) {
 }
 
 // Lo que se mira queda en el tercio de arriba del fotograma: debajo va el texto de la pagina.
-const SUBE_PX = ENLACE ? 0 : 0.165 * H;
+const SUBE_PX = ENLACE ? 0 : 0.135 * H;
 function ponCamara(c) {
   camera.position.copy(c.mira).addScaledVector(c.dir, c.dist);
   camera.lookAt(c.mira);

@@ -45,4 +45,5 @@ Los fotogramas en que acaba cada tramo son las paradas de `timeline` en `docs/fr
 - **La caja no está impresa y las medidas del reloj son supuestas.** El tutorial enseña el modelo.
 - El reloj es un maniquí gris, a propósito: la primera visita no debe enseñar el reloj (D-05).
 - La flecha azul no es una pieza: es una ayuda del dibujo para decir hacia dónde se gira.
-- Lo dibujado tiene que quedar entre el 12 % y el 88 % del ancho del fotograma y por encima del 60 % del alto: en un móvil la página recorta los lados y pone el texto debajo.
+- Lo dibujado tiene que quedar entre el 11 % y el 88 % del ancho del fotograma y entre el 8 % y el 63 % del alto: en un móvil estrecho la página recorta los lados (hasta un 10 % por cada uno) y debajo va el texto, con un velo que empieza al 56 % de la pantalla. Lo mide `prueba5.mjs` a ojo y se puede medir con la transparencia de los PNG.
+- En escritorio el lienzo de la caja mide 1,4 veces el alto de la pantalla y está colocado para que el 40 % del alto del fotograma caiga en el centro (`docs/caja.css`). Si se mueve la caja dentro del fotograma, hay que tocar ese 0,4.
