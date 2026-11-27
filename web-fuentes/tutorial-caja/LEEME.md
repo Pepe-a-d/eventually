@@ -38,6 +38,8 @@ Para probar la web: `node prueba5.mjs ../../docs /tmp/tut5/capturas` (primera vi
 | Fuera | 7,7 a 9,3 | 118 a 142 | El soporte sale hacia arriba y queda en la mesa |
 | Para cerrar | 9,3 a 13 | 142 a 188 | Todo al revés, y la funda |
 
+**El ritmo** (cuánto scroll ocupa cada gesto y cuánto espera la imagen entre uno y otro) no está en los fotogramas: está en `timeline` de `docs/frames/caja/manifest.json`. Desde el 27-nov los gestos ocupan el 79 % del recorrido y las esperas el 21 %; se cambia sin volver a dibujar nada.
+
 Los fotogramas en que acaba cada tramo son las paradas de `timeline` en `docs/frames/caja/manifest.json`, y van emparejadas con los `data-caja-range` de `docs/index.html`. Si cambia el número de fotogramas de un tramo, hay que tocar los tres sitios: `TRAMOS` en `render5.mjs`, `PARADAS` y `TIMELINE` en `a_webp.py`, y los rangos de la página.
 
 ## Ojo

@@ -18,6 +18,13 @@
   transform: translate3d(0, calc(var(--p, 0) * -24px), 0);
 }
 
+/* Los textos de los gestos entran y salen más deprisa que los del reloj (en un octavo de su tramo,
+   no en un cuarto): la imagen casi no espera entre gesto y gesto, y así el texto sigue entero
+   hasta que el gesto termina. */
+.caja .section:not(.section--caja-intro):not(.section--final) {
+  opacity: calc(min(var(--p, 0) * 8, 1) * min((1 - var(--p, 0)) * 8, 1) * var(--in, 0));
+}
+
 /* Contador de gestos, arriba a la derecha: cinco rayas que se van llenando de azul. */
 .caja__steps {
   position: absolute;

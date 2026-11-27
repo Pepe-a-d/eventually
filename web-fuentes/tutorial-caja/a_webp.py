@@ -6,7 +6,9 @@ import json, os, sys, time
 from PIL import Image
 
 PARADAS = [0, 24, 54, 88, 118, 142, 188]              # fotogramas en que acaba cada gesto (TRAMOS de render5.mjs)
-TIMELINE = [[0, 0], [0.08, 0], [0.15, 24], [0.23, 24], [0.31, 54], [0.39, 54], [0.49, 88], [0.57, 88], [0.65, 118], [0.69, 118], [0.76, 142], [0.86, 142], [1.0, 188]]
+# [cuanto se ha deslizado (0 a 1), fotograma]. Cada gesto ocupa un tramo largo de scroll y la imagen espera poco entre uno y otro
+# (27-nov: Pepe vio las transiciones muy cortas y las esperas muy largas; antes los gestos ocupaban el 54 % del recorrido y ahora el 79 %).
+TIMELINE = [[0, 0], [0.04, 0], [0.16, 24], [0.19, 24], [0.31, 54], [0.34, 54], [0.48, 88], [0.51, 88], [0.65, 118], [0.68, 118], [0.79, 142], [0.82, 142], [0.98, 188], [1.0, 188]]
 TAMANOS = [('d', 1080, 1934, 80, 768), ('m', 720, 1290, 64, 0)]
 POSTER = 118                                           # el poster: la caja abierta con el reloj arriba
 
