@@ -31,7 +31,7 @@ Para entender cómo se llegó hasta aquí:
 | --- | --- | --- |
 | `docs/` | **La web publicada.** GitHub obliga a que se llame `docs`. En el Mac era `site/` | Activa |
 | `web-fuentes/` | De dónde sale la web: fotos de las piezas, imágenes de la película, guion, prompts y herramientas | Activa |
-| `web-fuentes/tutorial-caja/` | El guion que genera los fotogramas del tutorial de la caja | Describe la v4.1: hay que rehacerlo |
+| `web-fuentes/tutorial-caja/` | El guion que genera los fotogramas del tutorial de la caja | Rehecho el 27-nov con la caja v5. El de la v4.1, en `v4.1/` |
 | `tarjeta/` | La tarjeta de autenticidad, lista para imprimir | Terminada, sin imprimir |
 | `qr/` | El QR de la web, en azul y en negro | Terminado |
 | `caja/` | **La caja actual, v5:** `BRIEF-v5.md` y `resultados-probetas.md`. Aquí irá lo nuevo | Activa |

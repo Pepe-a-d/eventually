@@ -15,6 +15,27 @@ Plantilla:
 
 ---
 
+## 2026-11-27 10:34 · sesión del PC
+
+- **Hecho 1:** subida la carpeta de pruebas (`dbc1b04`), con el «sí» de Pepe.
+- **Hecho 2: el tutorial de la web, rehecho con la caja v5. Va en la rama `tutorial-caja-v5`, con pull request: queda publicado cuando esté en `main`.** Pepe pidió cambiarlo en la web; la sesión del PC no pudo subir directamente a `main` (su entorno no la dejó publicar sin otra confirmación) y lo dejó en la rama, como se hizo con el primero. Palabras de Pepe: «crea un video para la web, como hicimos con el primero y luego cambia el video de la web por el nuevo que crees, sigue todo lo que te dije para el video de la web». Lo que le había dicho al primero (D-04, D-05 y tu `sesiones/SESION-MAC.md`): película movida por el scroll e integrada en la página, no un reproductor; sin jerga; y que no enseñe el reloj de verdad.
+  - **Fotogramas:** 189, los mismos tramos y las mismas paradas que antes (0, 24, 54, 88, 118, 142, 188), así que `timeline` y los `data-caja-range` no cambian. Salen del modelo del 25-nov sin pasar por Fusion. Seis tramos: la funda; el aro gira y no pasa nada; se abren las puertas; sube el reloj; sale el soporte; y cerrar. El reloj sigue siendo un maniquí gris. Hay una flecha azul que dice hacia dónde se gira: es una ayuda del dibujo, no una pieza.
+  - **Pesa** 4,3 MB en móvil y 7,0 MB en escritorio (antes 4,3 y 6,8).
+- **Para la sesión del Mac: he tocado ficheros tuyos de `docs/`.** Qué y por qué:
+  - `docs/index.html`: los siete textos del tutorial (los de antes hablaban de la aguja-llave y del frente que sale); el texto alternativo del póster; y **he quitado de «Por si acaso» las notas «Si pierdes la llave» e «Imanes»,** porque describen la llave de la v4.1, que ya no existe. No he puesto nada en su lugar: la v5 no tiene apertura de emergencia que contar, y sus imanes son de adorno. El más cercano al reloj es el de debajo del pie del soporte: a 43 mm de la cabeza del reloj y a 35 del brazalete (del modelo, con el reloj supuesto). Si eso merece un aviso, no lo sé: nadie lo ha medido con un reloj. Si quieres otra nota ahí, es tuya.
+  - `docs/sw.js`: `CORE` pasa de `eventually-core-v2` a `v3`. El póster del tutorial está en la copia sin conexión y se sirve de la copia antes que de la red: sin cambiar el nombre, quien ya hubiera entrado seguiría viendo el póster viejo.
+  - `docs/img/enlace.jpg`: la vista previa del enlace enseñaba la caja v4.1 cerrada. Ahora, la v5 con su funda. Tú misma apuntaste que había que rehacerla si la caja cambiaba a la vista.
+  - `docs/frames/caja/` entero (fotogramas, `manifest.json`, `poster.webp`).
+  - **No he tocado** `caja.js`, `caja.css`, `app.js`, `styles.css` ni los `?v=`: no cambian.
+- **Los textos son una propuesta mía; Pepe no los ha dado por buenos.** Los que prometen algo sin probar con la caja en la mano: «sale con su soporte» tirando hacia arriba, «el soporte lo deja de pie» fuera de la caja, y que las puertas «se quedan de pie». He quitado el «sale con un tirón suave» de la funda.
+- **Comprobado:** en Chrome sin ventana, a 390 × 844 y a 1440 × 900, con `?caja` y con `?reloj`: sin errores, la película carga (190 imágenes) y la del reloj sigue igual. Con «reducir movimiento» sale el póster nuevo (la caja abierta con el reloj arriba) y los textos en lista, bien. **Sin probar:** en un teléfono de verdad y sin conexión.
+- **Cambió también:** `web-fuentes/tutorial-caja/` (guion nuevo: `mallas_v5.py`, `caja5.html`, `caja5.js`, `render5.mjs`, `a_webp.py`, `prueba5.mjs` y `LEEME.md`; el de la v4.1 pasa a `v4.1/`), `README.md`, `ESTADO.md`, `DECISIONES.md` (estado de D-04).
+- **Ojo:** el tutorial enseña un modelo sin imprimir y con las medidas del reloj supuestas. Si la caja cambia a la vista, se repite con los cuatro pasos de `web-fuentes/tutorial-caja/LEEME.md` (unos diez minutos de máquina).
+- **Quien ya tenga la web guardada** en el teléfono conserva los fotogramas viejos en su copia sin usarlos (unos 11 MB): la limpieza del `sw.js` solo borra por versión de la película del reloj. No estorba, pero ocupa.
+- **Para Pepe:** fusionar la pull request (o decir a una sesión que lo haga); después, mirar la web en el teléfono (`https://pepe-a-d.github.io/eventually/?caja`) y decir si valen los textos y la flecha azul.
+
+---
+
 ## 2026-11-26 19:36 · sesión del PC
 
 - **Hecho:** Pepe pidió (sus palabras): «Haz una carpeta para poder hacer las pruebas, que contenga los archivos de lo que tengo que imprimir en el orden en el que lo tengo que imprimir con una guia que explique como imprimirlos y como montarlos». Está en `caja/pruebas-v5/`:

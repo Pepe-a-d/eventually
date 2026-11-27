@@ -70,7 +70,7 @@ Reunidas por la sesión del PC a partir de los documentos de las dos sesiones. D
 - **Decisión:** las instrucciones de la caja son una segunda película movida por el scroll, con textos de la propia página.
 - **Qué llevó a ella:** Pepe vio el vídeo de la v4.1 y pidió lo mismo para la web, «integrado en la app y no un simple reproductor». Además estaban pendientes la pista de apertura y el aviso del imán.
 - **Qué se descartó:** incrustar el vídeo.
-- **Estado:** Activa, pero las imágenes y los textos describen la v4.1. Hay que rehacerlos con la v5.
+- **Estado:** Activa. **Rehecho con la caja v5 el 27-nov-2026,** porque Pepe lo pidió a la sesión del PC: «crea un video para la web, como hicimos con el primero y luego cambia el video de la web por el nuevo que crees, sigue todo lo que te dije para el video de la web». Misma técnica y mismos tramos; los textos nuevos son una propuesta de la sesión del PC y Pepe no los ha dado por buenos.
 
 ### D-05. La primera visita no enseña el reloj
 - **Fecha:** 20-nov-2026.

@@ -6,7 +6,7 @@
      y después se sirven siempre de la copia. Su dirección lleva la versión de la
      película, así que al rehacerla se descargan de nuevo. */
 
-const CORE = 'eventually-core-v2';
+const CORE = 'eventually-core-v3';
 const FRAMES = 'eventually-frames-';
 const CORE_FILES = [
   './',
