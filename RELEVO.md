@@ -32,7 +32,8 @@ Plantilla:
 - **Cambió también:** `web-fuentes/tutorial-caja/` (guion nuevo: `mallas_v5.py`, `caja5.html`, `caja5.js`, `render5.mjs`, `a_webp.py`, `prueba5.mjs` y `LEEME.md`; el de la v4.1 pasa a `v4.1/`), `README.md`, `ESTADO.md`, `DECISIONES.md` (estado de D-04).
 - **Ojo:** el tutorial enseña un modelo sin imprimir y con las medidas del reloj supuestas. Si la caja cambia a la vista, se repite con los cuatro pasos de `web-fuentes/tutorial-caja/LEEME.md` (unos diez minutos de máquina).
 - **Quien ya tenga la web guardada** en el teléfono conserva los fotogramas viejos en su copia sin usarlos (unos 11 MB): la limpieza del `sw.js` solo borra por versión de la película del reloj. No estorba, pero ocupa.
-- **Para Pepe:** fusionar la pull request (o decir a una sesión que lo haga); después, mirar la web en el teléfono (`https://pepe-a-d.github.io/eventually/?caja`) y decir si valen los textos y la flecha azul.
+- **Publicado a las 10:46.** Pepe contestó «Hazlo tú». La pull request nº 3 no se pudo fusionar por la API (403), así que `main` avanzó hasta el mismo commit (`237edc7`) y GitHub la dio por fusionada. Comprobado en la dirección pública: la página trae los textos nuevos y ya no las dos notas, y `frames/caja/manifest.json` es el nuevo (versión 1795771958).
+- **Para Pepe:** mirar la web en el teléfono (`https://pepe-a-d.github.io/eventually/?caja`) y decir si valen los textos y la flecha azul.
 
 ---
 
